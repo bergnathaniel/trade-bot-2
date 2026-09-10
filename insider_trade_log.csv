@@ -1,8 +1,0 @@
-timestamp,event,mint,symbol,price_usd,size_usd,fee_usd,pnl_usd,insiders,reason
-2026-08-27 16:41:55,SKIP,MOCKTOK0001,0001,,,,,6LXutJ,low_organic_score (24 < 30)
-2026-08-27 16:41:55,BUY,MOCKTOK0002,0002,0.0000190667,0.66,0.0316,,8kLg6L,copy | TP 2.50x | insiders=1 conviction=3.8 insider_usd=473 entry_prem=0.02x age_min=13.032195015748341 liq=15605 holders=60 chg1h=-16
-2026-08-27 16:41:56,SKIP,MOCKTOK0003,0003,,,,,6LXutJ,low_organic_score (23 < 30)
-2026-08-27 16:41:56,SKIP,MOCKTOK0004,0004,,,,,3VVkJD,dumping_now (-14%/5m < -12)
-2026-08-27 16:41:57,BUY,MOCKTOK0005,0005,0.0000296291,0.66,0.0317,,CTxRuV,copy | TP 2.50x | insiders=1 conviction=4.1 insider_usd=431 entry_prem=0.01x age_min=62.175189737478895 liq=19304 holders=295 chg1h=74
-2026-08-27 16:41:57,BUY,MOCKTOK0006,0006,0.0000297736,0.66,0.0316,,8kLg6L,copy | TP 2.50x | insiders=1 conviction=3.8 insider_usd=251 entry_prem=0.05x age_min=80.13422192732493 liq=3526 holders=89 chg1h=4
-2026-08-27 16:41:59,SKIP,MOCKTOK0007,0007,,,,,,max_concurrent_positions
