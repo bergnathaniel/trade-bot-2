@@ -1,0 +1,8 @@
+# No external deps needed for paper-trading mode alone.
+
+# Live trading:
+requests            # HTTP calls to Jupiter + Helius RPC
+websocket-client     # PumpPortal websocket feed (imported as `websocket`)
+solders              # Solana keypair + transaction (de)serialization
+python-dotenv        # loads .env into the environment
+# (mnemonic -> keypair derivation in wallet.py uses only the stdlib)

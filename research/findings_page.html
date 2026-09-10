@@ -1,0 +1,455 @@
+<title>The 51st Configuration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#fbfcfd; --raise:#f2f5f8; --ink:#141a21; --ink-2:#3c4956; --muted:#5c6773;
+  --rule:#dde3e9; --rule-2:#c7d0da;
+  --accent:#2d5f8a; --accent-soft:#e8eff6;
+  --ochre:#c9832c; --base-line:#5c6773;
+  --bad:#9c3a3a; --bad-soft:#f6ebeb; --good:#33705a;
+  --fs:17px; --measure:66ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12171d; --raise:#1a2027; --ink:#e6ecf2; --ink-2:#b6c2ce; --muted:#8e9bab;
+    --rule:#28313b; --rule-2:#3a4753;
+    --accent:#79aede; --accent-soft:#1b2a38;
+    --ochre:#e0a353; --base-line:#8e9bab;
+    --bad:#e08a8a; --bad-soft:#2c1e1e; --good:#7fc0a0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12171d; --raise:#1a2027; --ink:#e6ecf2; --ink-2:#b6c2ce; --muted:#8e9bab;
+  --rule:#28313b; --rule-2:#3a4753;
+  --accent:#79aede; --accent-soft:#1b2a38;
+  --ochre:#e0a353; --base-line:#8e9bab;
+  --bad:#e08a8a; --bad-soft:#2c1e1e; --good:#7fc0a0;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:var(--fs); line-height:1.62; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+.col{max-width:var(--measure)}
+h1,h2,h3{font-family:Spectral,Georgia,"Times New Roman",serif;text-wrap:balance;margin:0}
+p{margin:0 0 1.05em}
+a{color:var(--accent)}
+strong{font-weight:600}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+
+/* ---- masthead ---- */
+header{border-bottom:2px solid var(--ink);padding:56px 0 26px;margin-bottom:40px}
+h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:600;line-height:1.02;letter-spacing:-.02em;margin:14px 0 0}
+.dek{font-family:Spectral,serif;font-style:italic;font-size:1.3rem;color:var(--ink-2);
+  max-width:52ch;margin:18px 0 0;line-height:1.45}
+.meta{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:26px;
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--muted)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* ---- verdict strip ---- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:36px 0 8px}
+.cell{background:var(--paper);padding:16px 18px}
+.cell .k{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
+.cell .v{font-family:"IBM Plex Mono",monospace;font-size:1.6rem;font-weight:500;
+  font-variant-numeric:tabular-nums;line-height:1;display:block}
+.cell .n{font-size:.8rem;color:var(--muted);display:block;margin-top:6px;line-height:1.35}
+.v.fail{color:var(--bad)} .v.ok{color:var(--good)}
+
+/* ---- sections ---- */
+section{margin-top:60px}
+.num{font-family:"IBM Plex Mono",monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em}
+h2{font-size:1.95rem;font-weight:600;letter-spacing:-.01em;margin:8px 0 4px;line-height:1.15}
+.sub{color:var(--muted);font-size:.95rem;margin:0 0 22px;max-width:60ch}
+h3{font-size:1.15rem;font-weight:600;margin:30px 0 8px}
+
+/* ---- figures ---- */
+figure{margin:26px 0 0}
+.plot{background:var(--raise);border:1px solid var(--rule);padding:18px 16px 12px;
+  overflow-x:auto}
+svg{display:block;width:100%;height:auto;min-width:520px}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:11px;max-width:70ch;line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:14px;
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem}
+.legend span{display:inline-flex;align-items:center;gap:7px;color:var(--ink-2)}
+.sw{width:16px;height:3px;border-radius:2px;flex:none}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto;margin:24px 0 0;border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.88rem}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--raise)}
+tbody td:not(:first-child){font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+tr.flag td{background:var(--bad-soft)}
+tr.flag td:first-child{font-weight:600}
+td.pos{color:var(--good)} td.neg{color:var(--bad)}
+
+/* ---- callouts ---- */
+.bugs{list-style:none;padding:0;margin:26px 0 0;counter-reset:b}
+.bugs li{counter-increment:b;display:grid;grid-template-columns:38px 1fr;gap:16px;
+  padding:18px 0;border-top:1px solid var(--rule)}
+.bugs li::before{content:counter(b);font-family:"IBM Plex Mono",monospace;font-weight:600;
+  font-size:1.05rem;color:var(--bad);padding-top:2px}
+.bugs h3{margin:0 0 4px;font-size:1.05rem}
+.bugs p{margin:0;font-size:.94rem;color:var(--ink-2)}
+.swing{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  background:var(--bad-soft);color:var(--bad);padding:2px 8px;margin-top:9px;border-radius:2px}
+
+.pull{border-left:3px solid var(--accent);padding:4px 0 4px 22px;margin:30px 0;
+  font-family:Spectral,serif;font-size:1.22rem;line-height:1.5;color:var(--ink)}
+
+.final{border:2px solid var(--ink);padding:30px 32px;margin-top:32px;background:var(--raise)}
+.final h2{margin-top:0}
+.final ul{margin:0 0 18px;padding-left:20px}
+.final li{margin-bottom:7px}
+
+footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--rule);
+  font-size:.82rem;color:var(--muted);max-width:72ch}
+code{font-family:"IBM Plex Mono",monospace;font-size:.86em;background:var(--raise);
+  padding:1px 5px;border:1px solid var(--rule)}
+
+/* ---- tooltip ---- */
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;z-index:50;
+  background:var(--ink);color:var(--paper);font-family:"IBM Plex Mono",monospace;
+  font-size:.74rem;padding:8px 11px;line-height:1.55;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(0,0,0,.24)}
+#tip b{font-weight:600}
+.hit{fill:transparent;cursor:crosshair}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:640px){:root{--fs:16px} .wrap{padding:0 18px 70px} header{padding-top:36px}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Trade Bot · research note · 10 September 2026</div>
+  <h1>The 51st Configuration</h1>
+  <p class="dek">Fifty strategies had already failed here. This one deserved a real test — it was the only family the earlier tests were structurally incapable of finding.</p>
+  <div class="meta">
+    <span><b>Strategy</b> diversified time-series momentum</span>
+    <span><b>Universe</b> 19 ETFs · 16 futures</span>
+    <span><b>Window</b> 2004–2026, 21.8y</span>
+    <span><b>Basis</b> excess of cash, net of costs</span>
+  </div>
+</header>
+
+<div class="col">
+<p>Every earlier backtest in this project had the same shape: <strong>one instrument, long-or-flat, judged against buy &amp; hold of that same instrument.</strong></p>
+<p>That shape cannot find trend following. Trend following has never beaten the S&amp;P on raw return and does not claim to — its documented value is portfolio-level: many uncorrelated markets, volatility-scaled, low correlation to equities. Testing it one asset at a time against that asset is like testing a seatbelt by checking whether it makes the car faster.</p>
+<p>So this was a genuine gap, not a re-run. Diversified time-series momentum is also the best-evidenced systematic strategy in the literature — <a href="https://www.aqr.com/Insights/Research/Journal-Article/A-Century-of-Evidence-on-Trend-Following-Investing">positive in every decade since 1880</a> across 67 markets in four asset classes. If anything was going to survive, it was this.</p>
+</div>
+
+<div class="strip">
+  <div class="cell"><span class="k">Standalone Sharpe</span><span class="v fail">0.30</span><span class="n">vs 0.55 for SPY, 0.63 for 60/40</span></div>
+  <div class="cell"><span class="k">Deflated Sharpe</span><span class="v fail">0.035</span><span class="n">needs &gt; 0.95 to beat luck</span></div>
+  <div class="cell"><span class="k">Correlation to SPY</span><span class="v ok">+0.016</span><span class="n">the diversification is real</span></div>
+  <div class="cell"><span class="k">Blend gain since 2012</span><span class="v fail">+0.01</span><span class="n">was +0.17 before publication</span></div>
+</div>
+
+<section>
+  <div class="num">TEST 01</div>
+  <h2>Does it make money on its own?</h2>
+  <p class="sub">Twenty-two years, nineteen markets, volatility-targeted to 10%, costed at 5bp a side, and measured in excess of cash — the only basis on which a levered book compares honestly to buying an index.</p>
+
+  <figure>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--accent)"></i>TSMOM</span>
+      <span><i class="sw" style="background:var(--ochre)"></i>SPY</span>
+      <span><i class="sw" style="background:var(--base-line);opacity:.9"></i>60/40 baseline</span>
+    </div>
+    <div class="plot"><svg id="c1" viewBox="0 0 720 350" role="img" aria-label="Growth of $1 excess of cash, 2004 to 2026: TSMOM 1.74x, 60/40 3.90x, SPY 6.52x"></svg></div>
+    <figcaption>Growth of $1 in excess of cash, log scale. Trend turned $1 into <span class="mono">$1.74</span> while the S&amp;P made <span class="mono">$6.52</span> and a plain 60/40 made <span class="mono">$3.90</span>. It is not a return engine, and was never advertised as one.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="plot"><svg id="c2" viewBox="0 0 720 264" role="img" aria-label="Sharpe ratios: TSMOM variants 0.27 to 0.45, all below SPY 0.55 and 60/40 0.63"></svg></div>
+    <figcaption>Every construction of the strategy — long/short, long-only, and the longer futures universe — lands below both benchmarks on risk-adjusted return.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="num">TEST 02</div>
+  <h2>Is it a genuine diversifier?</h2>
+  <p class="sub">Here the answer is yes, and this part is structural rather than fitted — it falls out of holding sixteen-odd uncorrelated markets, not out of any parameter choice.</p>
+  <div class="col">
+  <p>Daily correlation to the S&amp;P is <strong class="mono">+0.016</strong>. On the 211 days SPY fell more than 2%, SPY averaged <span class="mono">−3.20%</span> and trend averaged <span class="mono">+0.01%</span>. It paid in the two crises where a diversifier has to earn its keep:</p>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Crisis window</th><th>TSMOM</th><th>SPY</th><th>60/40</th></tr></thead>
+    <tbody id="tcrisis"></tbody>
+  </table></div>
+  <figcaption style="margin-top:11px">Total return over each window. The GFC and 2022 are the cases that matter — both years when stocks and bonds fell together.</figcaption>
+</section>
+
+<section>
+  <div class="num">TEST 03</div>
+  <h2>Did the benefit survive publication?</h2>
+  <p class="sub">Moskowitz, Ooi and Pedersen published the 21/63/252 construction in 2012, fitted on 1985–2009 data. Everything after 2012 is therefore genuinely out-of-sample for these exact parameters — the cleanest test available, and the one that settles this.</p>
+
+  <figure>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--accent)"></i>Before publication (2004–2011)</span>
+      <span><i class="sw" style="background:var(--ochre)"></i>After publication (2012–2026, 14.7y)</span>
+    </div>
+    <div class="plot"><svg id="c3" viewBox="0 0 720 310" role="img" aria-label="Sharpe gain from adding trend to 60/40: up to +0.167 before publication, +0.014 or negative after"></svg></div>
+    <figcaption>Sharpe improvement from adding a trend sleeve to a 60/40 portfolio, by sleeve weight. Before publication the benefit grew with weight, to <span class="mono">+0.167</span>. Since publication it peaks at <span class="mono">+0.014</span> and turns <em>negative</em> past a 20% sleeve.</figcaption>
+  </figure>
+
+  <p class="pull">A benefit that is large before publication and approximately zero for the fourteen years since is the signature of an effect that was arbitraged away — or was never there.</p>
+</section>
+
+<section>
+  <div class="num">TEST 04</div>
+  <h2>Has anyone actually earned it?</h2>
+  <p class="sub">The backtest can be wrong. Live funds running this exact strategy, net of their real fees, cannot be — this is the check no previous configuration in this project ever had.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Fund</th><th>Since</th><th>Years</th><th>Excess CAGR</th><th>Sharpe</th><th>SPY, same window</th></tr></thead>
+    <tbody>
+      <tr class="flag"><td>WTMF <span style="font-weight:400;color:var(--muted)">WisdomTree</span></td><td>2011</td><td>15.6</td><td class="neg">−0.3%</td><td class="neg">−0.00</td><td>0.77</td></tr>
+      <tr><td>DBMF <span style="font-weight:400;color:var(--muted)">iMGP DBi</span></td><td>2019</td><td>7.3</td><td>+6.3%</td><td>0.56</td><td>0.72</td></tr>
+      <tr><td>KMLM <span style="font-weight:400;color:var(--muted)">KFA Mount Lucas</span></td><td>2020</td><td>5.7</td><td>+3.7%</td><td>0.32</td><td>0.74</td></tr>
+      <tr><td>CTA <span style="font-weight:400;color:var(--muted)">Simplify</span></td><td>2022</td><td>4.5</td><td>+5.4%</td><td>0.39</td><td>0.68</td></tr>
+      <tr><td>TFPN <span style="font-weight:400;color:var(--muted)">Cambria Chesapeake</span></td><td>2023</td><td>3.1</td><td>+2.4%</td><td>0.24</td><td>0.97</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col" style="margin-top:22px">
+  <p>The only fund with a long live track record delivered <strong>exactly zero</strong> excess return over 15.6 years. Professionals, real infrastructure, running this strategy in size — zero. Every short-track-record fund trails the S&amp;P over its own window.</p>
+  <p>That is independent confirmation of the backtest, from live money.</p>
+  </div>
+</section>
+
+<section>
+  <div class="num">METHOD</div>
+  <h2>Four bugs that each manufactured edge</h2>
+  <p class="sub">Caught mid-build. Every one of them made a dead strategy look alive, and three would have survived a casual review. This is the part worth keeping.</p>
+  <ul class="bugs">
+    <li><div>
+      <h3>Yahoo silently downsamples <code>range=max</code></h3>
+      <p>A <code>max</code> request returns <em>monthly</em> bars with no warning or error. The first run was a monthly study wearing a daily label. Fixed by passing explicit <code>period1</code>/<code>period2</code> epochs.</p>
+    </div></li>
+    <li><div>
+      <h3>Continuous futures are spliced, not back-adjusted</h3>
+      <p><code>6J=F</code> prints <span class="mono">−90%</span> then <span class="mono">+904%</span> on consecutive days in December 2001. The tell: a real move drags the bar's own high-low range with it, a splice does not. 54 of them across 16 markets.</p>
+    </div></li>
+    <li><div>
+      <h3>The strategy was trading its own benchmark</h3>
+      <p>On the futures universe, SPY and IEF were loaded so the benchmarks would share a calendar — and passed straight into the traded universe. Adding an equity sleeve to a diversifier during a bull market is not a subtle error.</p>
+      <span class="swing">futures Sharpe 0.31 → 0.27</span>
+    </div></li>
+    <li><div>
+      <h3>No risk-free rate anywhere</h3>
+      <p>This was the big one. Without it every "Sharpe" is really just return over volatility, which massively flatters a low-volatility, levered book. The long-only variant scored 0.69 and <em>passed</em> the deflated-Sharpe test — until it was corrected to excess-of-cash.</p>
+      <span class="swing">long-only Sharpe 0.69 → 0.45 · PASS → FAIL</span>
+    </div></li>
+  </ul>
+  <div class="col" style="margin-top:26px">
+  <p>One more, not a bug so much as a false label: the variant described as "long-only, cash-account realistic" was running at <strong class="mono">2.05×</strong> average leverage, because the portfolio volatility scaler sat on top of the gross-exposure cap. It was never implementable as described.</p>
+  </div>
+</section>
+
+<section>
+  <div class="num">STATISTICS</div>
+  <h2>Pricing in how hard we looked</h2>
+  <div class="col">
+  <p>Ninety configurations were run — not to pick a winner, but to <em>measure dispersion</em>. The reported configuration ranked 76th of 90, which is the point: it is the published construction, not the best of the search.</p>
+  <p>The Deflated Sharpe Ratio asks whether a result beats what that many skill-less attempts would produce by luck alone:</p>
+  </div>
+  <div class="tw" style="max-width:520px"><table>
+    <thead><tr><th>Trials assumed</th><th>Luck bar</th><th>Deflated Sharpe</th></tr></thead>
+    <tbody>
+      <tr><td>90</td><td>0.63</td><td class="neg">0.067</td></tr>
+      <tr><td>200</td><td>0.69</td><td class="neg">0.035</td></tr>
+      <tr><td>1000</td><td>0.82</td><td class="neg">0.008</td></tr>
+    </tbody>
+  </table></div>
+  <div class="col" style="margin-top:22px">
+  <p>Anything under 0.95 means <em>not distinguishable from luck</em>. Days of track record needed to clear the bar: <strong>never, at this Sharpe.</strong></p>
+  <p>For calibration: pure Gaussian noise with a Sharpe of 0.75 scores 0.99 on its own and <span class="mono">0.11</span> against 50 trials. That gap is this project's entire history in one number.</p>
+  </div>
+</section>
+
+<div class="final">
+  <h2>What this settles</h2>
+  <div class="col">
+  <p>Diversified time-series momentum was the most credible systematic strategy never tested here. Tested properly — excess of cash, costed, splice-cleaned, deflated for multiple testing, split at its publication date, and checked against live funds — it is:</p>
+  <ul>
+    <li><strong>Not a return engine.</strong> It loses to an index fund on every measure.</li>
+    <li><strong>A genuine diversifier.</strong> Correlation +0.016; it paid in the GFC and in 2022.</li>
+    <li><strong>Whose diversification benefit has been ≈ zero for 14.7 years.</strong></li>
+    <li><strong>And which no live fund has converted into excess return over 15 years.</strong></li>
+  </ul>
+  <p>The one thing still standing post-2012 is drawdown reduction: 60/40 alone <span class="mono">−22%</span>, with a 20% trend sleeve <span class="mono">−17%</span>. That costs about <span class="mono">1.1%/yr</span> of return. It is a real trade-off and an honest one — but it is a risk-management purchase, not a money-maker, and it sells in a ticker for 0.85%/yr rather than as a bot to build and babysit.</p>
+  <p style="margin-bottom:0">This is the 51st configuration and it fails like the other fifty — but for the first time the failure is measured against the right benchmark, with the right statistics, and corroborated by live money. That makes it a place to stop rather than another loop.</p>
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:.6em"><strong>Reproduce:</strong> <code>python3 research/run_study.py etf</code> — the harness is pure stdlib, in <code>research/</code>: <code>data.py</code>, <code>stats.py</code>, <code>tsmom.py</code>, <code>run_study.py</code>.</p>
+  <p style="margin:0">Descriptive of the past only. Not a prediction, and not investment advice — I am not a licensed advisor and nothing here is a recommendation to buy or sell any security.</p>
+</footer>
+</div>
+<div id="tip"></div>
+
+<script>
+const D = {"curve":[["2004-11-19",0.982,0.9888,0.9911],["2004-12-01",0.9942,1.0034,0.9957],["2005-01-03",1.0147,1.0153,1.0077],["2005-02-01",1.0043,1.0017,1.0013],["2005-03-01",1.0076,1.0193,1.0059],["2005-04-01",0.9659,0.9889,0.9861],["2005-05-02",0.9703,0.9779,0.9884],["2005-06-01",0.9833,1.01,1.0163],["2005-07-01",0.9722,1.0033,1.0073],["2005-08-01",0.9891,1.0353,1.0191],["2005-09-01",0.9957,1.0223,1.0196],["2005-10-03",1.008,1.0247,1.0108],["2005-11-01",0.9573,1.004,0.9938],["2005-12-01",0.9567,1.0522,1.0229],["2006-01-03",0.9879,1.0545,1.0294],["2006-02-01",1.0115,1.065,1.0301],["2006-03-01",1.0096,1.0695,1.0316],["2006-04-03",1.0217,1.0723,1.0263],["2006-05-01",1.0384,1.0741,1.0216],["2006-06-01",1.0138,1.056,1.0122],["2006-07-03",1.0161,1.0486,1.0066],["2006-08-01",1.016,1.0398,1.007],["2006-09-01",1.0207,1.0693,1.03],["2006-10-02",1.0305,1.0834,1.0417],["2006-11-01",1.0663,1.1095,1.0579],["2006-12-01",1.1119,1.132,1.0742],["2007-01-03",1.0962,1.1433,1.0737],["2007-02-01",1.1092,1.1649,1.0809],["2007-03-01",1.0777,1.1276,1.0681],["2007-04-02",1.0335,1.1404,1.0733],["2007-05-01",1.0443,1.1881,1.1006],["2007-06-01",1.0403,1.2263,1.1117],["2007-07-02",1.0376,1.2086,1.1011],["2007-08-01",1.0226,1.1613,1.0815],["2007-09-04",1.0259,1.1778,1.1001],["2007-10-01",1.0331,1.2213,1.1251],["2007-11-01",1.0935,1.1912,1.1152],["2007-12-03",1.0995,1.1617,1.1142],["2008-01-02",1.113,1.1434,1.1049],["2008-02-01",1.1368,1.0987,1.0914],["2008-03-03",1.1847,1.0491,1.0642],["2008-04-01",1.1502,1.0778,1.0858],["2008-05-01",1.1527,1.1122,1.0994],["2008-06-02",1.155,1.0931,1.0826],["2008-07-01",1.1722,1.0138,1.0359],["2008-08-01",1.1322,0.9949,1.0288],["2008-09-02",1.1286,1.0079,1.0451],["2008-10-01",1.162,0.9184,0.9917],["2008-11-03",1.219,0.7681,0.8936],["2008-12-01",1.2556,0.6493,0.8422],["2009-01-02",1.2214,0.7411,0.9213],["2009-02-02",1.2262,0.6583,0.8535],["2009-03-02",1.2504,0.5627,0.7765],["2009-04-01",1.2175,0.6505,0.8576],["2009-05-01",1.2035,0.7053,0.8893],["2009-06-01",1.2108,0.7604,0.9185],["2009-07-01",1.2055,0.7449,0.9113],["2009-08-03",1.192,0.8102,0.9585],["2009-09-01",1.1891,0.8082,0.9655],["2009-10-01",1.1987,0.8344,0.9909],["2009-11-02",1.2048,0.8453,0.9946],["2009-12-01",1.2586,0.9018,1.0414],["2010-01-04",1.2141,0.9232,1.0408],["2010-02-01",1.175,0.8883,1.0246],["2010-03-01",1.1849,0.9113,1.044],["2010-04-01",1.2134,0.9633,1.0735],["2010-05-03",1.2263,0.984,1.0946],["2010-06-01",1.1864,0.8791,1.038],["2010-07-01",1.2032,0.844,1.0255],["2010-08-02",1.166,0.926,1.0876],["2010-09-01",1.1897,0.8906,1.0755],["2010-10-01",1.2017,0.946,1.1189],["2010-11-01",1.2623,0.9783,1.1408],["2010-12-01",1.2653,0.9986,1.1459],["2011-01-03",1.309,1.0539,1.1721],["2011-02-01",1.3251,1.0844,1.1917],["2011-03-01",1.3379,1.0858,1.1947],["2011-04-01",1.3475,1.109,1.2101],["2011-05-02",1.4007,1.1345,1.2347],["2011-06-01",1.3667,1.0982,1.2274],["2011-07-01",1.3551,1.1208,1.2353],["2011-08-01",1.3522,1.0778,1.2251],["2011-09-01",1.3703,1.0121,1.2076],["2011-10-03",1.3636,0.9248,1.1564],["2011-11-01",1.2882,1.0263,1.2278],["2011-12-01",1.278,1.0513,1.2438],["2012-01-03",1.2777,1.0793,1.2713],["2012-02-01",1.2858,1.1214,1.307],["2012-03-01",1.2817,1.1658,1.3322],["2012-04-02",1.2741,1.2058,1.3541],["2012-05-01",1.2669,1.1964,1.3593],["2012-06-01",1.3468,1.0894,1.3055],["2012-07-02",1.2549,1.1663,1.3563],["2012-08-01",1.2699,1.1754,1.3662],["2012-09-04",1.2497,1.2047,1.3868],["2012-10-01",1.2589,1.2396,1.4113],["2012-11-01",1.2349,1.2264,1.3982],["2012-12-03",1.2414,1.2145,1.3967],["2013-01-02",1.2836,1.2629,1.4225],["2013-02-01",1.3184,1.3076,1.4458],["2013-03-01",1.2956,1.315,1.461],["2013-04-01",1.3172,1.355,1.4894],["2013-05-01",1.418,1.3743,1.512],["2013-06-03",1.3796,1.427,1.5263],["2013-07-01",1.4137,1.4084,1.4985],["2013-08-01",1.4267,1.4895,1.5421],["2013-09-03",1.3877,1.4348,1.5013],["2013-10-01",1.3833,1.4851,1.5463],["2013-11-01",1.409,1.5453,1.5867],["2013-12-02",1.4249,1.5832,1.6052],["2014-01-02",1.4508,1.6127,1.6149],["2014-02-03",1.3679,1.5356,1.5886],["2014-03-03",1.375,1.6308,1.6493],["2014-04-01",1.3449,1.6669,1.6629],["2014-05-01",1.3591,1.6676,1.6721],["2014-06-02",1.3591,1.708,1.7037],["2014-07-01",1.3734,1.7529,1.7299],["2014-08-01",1.304,1.7126,1.711],["2014-09-02",1.3482,1.7847,1.7584],["2014-10-01",1.3466,1.7371,1.7334],["2014-11-03",1.406,1.8034,1.7781],["2014-12-01",1.4443,1.839,1.8069],["2015-01-02",1.5558,1.8462,1.8183],["2015-02-02",1.6064,1.8146,1.8265],["2015-03-02",1.5949,1.9051,1.8576],["2015-04-01",1.5891,1.8568,1.8448],["2015-05-01",1.5576,1.9021,1.8595],["2015-06-01",1.5345,1.9098,1.8619],["2015-07-01",1.5243,1.8821,1.8335],["2015-08-03",1.5776,1.9028,1.8634],["2015-09-01",1.4876,1.7393,1.769],["2015-10-01",1.5269,1.7516,1.786],["2015-11-02",1.4879,1.9181,1.879],["2015-12-01",1.4995,1.9205,1.8836],["2016-01-04",1.5007,1.8431,1.8342],["2016-02-01",1.5149,1.7752,1.8133],["2016-03-01",1.485,1.8156,1.8457],["2016-04-01",1.4695,1.9057,1.9054],["2016-05-02",1.4461,1.915,1.908],["2016-06-01",1.4336,1.9358,1.9218],["2016-07-01",1.4898,1.9422,1.9525],["2016-08-01",1.4826,2.0067,1.9883],["2016-09-01",1.4833,2.0103,1.9863],["2016-10-03",1.4816,2.005,1.9821],["2016-11-01",1.4556,1.9602,1.9454],["2016-12-01",1.4519,2.039,1.955],["2017-01-03",1.4838,2.1031,1.9932],["2017-02-01",1.4568,2.1245,2.0058],["2017-03-01",1.5159,2.2371,2.0706],["2017-04-03",1.4811,2.2037,2.0621],["2017-05-01",1.4949,2.2337,2.0819],["2017-06-01",1.5363,2.2758,2.1133],["2017-07-03",1.4812,2.2741,2.1048],["2017-08-01",1.4707,2.3202,2.1381],["2017-09-01",1.4969,2.3229,2.1469],["2017-10-02",1.4597,2.3747,2.1639],["2017-11-01",1.5136,2.4211,2.1883],["2017-12-01",1.5364,2.4841,2.2219],["2018-01-02",1.5591,2.5349,2.2435],["2018-02-01",1.6787,2.6526,2.283],["2018-03-01",1.5461,2.5189,2.2141],["2018-04-02",1.5087,2.4289,2.1734],["2018-05-01",1.4931,2.4961,2.195],["2018-06-01",1.5001,2.5732,2.2413],["2018-07-02",1.5229,2.5643,2.2399],["2018-08-01",1.5296,2.6449,2.2743],["2018-09-04",1.5761,2.7241,2.3229],["2018-10-01",1.5684,2.7502,2.3233],["2018-11-01",1.4719,2.5732,2.2324],["2018-12-03",1.4599,2.6226,2.2703],["2019-01-02",1.5236,2.3587,2.1545],["2019-02-01",1.4255,2.5411,2.2515],["2019-03-01",1.4352,2.6339,2.2961],["2019-04-01",1.4872,2.6912,2.3458],["2019-05-01",1.5059,2.7421,2.3718],["2019-06-03",1.4865,2.5748,2.3153],["2019-07-01",1.4982,2.7814,2.4296],["2019-08-01",1.5418,2.7686,2.434],["2019-09-03",1.6302,2.7255,2.4403],["2019-10-01",1.5524,2.7575,2.4454],["2019-11-01",1.5116,2.8746,2.5035],["2019-12-02",1.4857,2.9227,2.5189],["2020-01-02",1.5382,3.0579,2.586],["2020-02-03",1.451,3.047,2.6095],["2020-03-02",1.423,2.9025,2.566],["2020-04-01",1.3688,2.3246,2.3079],["2020-05-01",1.3527,2.6704,2.5123],["2020-06-01",1.3391,2.885,2.6343],["2020-07-01",1.3201,2.9445,2.6686],["2020-08-03",1.3473,3.1174,2.7727],["2020-09-01",1.3636,3.3429,2.8847],["2020-10-01",1.3472,3.2079,2.8165],["2020-11-02",1.347,3.1426,2.7691],["2020-12-01",1.365,3.4833,2.9421],["2021-01-04",1.389,3.5244,2.9669],["2021-02-01",1.3949,3.5953,2.9914],["2021-03-01",1.4272,3.7228,3.0233],["2021-04-01",1.4429,3.8407,3.0582],["2021-05-03",1.464,4.0093,3.1475],["2021-06-01",1.498,4.0233,3.1575],["2021-07-01",1.4953,4.1399,3.2248],["2021-08-02",1.4937,4.2086,3.29],["2021-09-01",1.5039,4.3451,3.3433],["2021-10-01",1.4886,4.1895,3.2553],["2021-11-01",1.4947,4.4382,3.3589],["2021-12-01",1.3968,4.3461,3.335],["2022-01-03",1.4401,4.6246,3.4403],["2022-02-01",1.4382,4.3844,3.3152],["2022-03-01",1.474,4.1611,3.2247],["2022-04-01",1.4896,4.395,3.2584],["2022-05-02",1.5848,4.0196,3.0356],["2022-06-01",1.5703,3.969,3.0247],["2022-07-01",1.5876,3.7057,2.9125],["2022-08-01",1.5268,3.9858,3.0718],["2022-09-01",1.5365,3.8374,2.9377],["2022-10-03",1.608,3.5542,2.7722],["2022-11-01",1.6082,3.7165,2.8156],["2022-12-01",1.5393,3.924,2.9609],["2023-01-03",1.5471,3.672,2.8219],["2023-02-01",1.5561,3.947,2.9845],["2023-03-01",1.5206,3.7794,2.8484],["2023-04-03",1.4527,3.933,2.9728],["2023-05-01",1.4527,3.962,2.9724],["2023-06-01",1.4633,4.0043,2.9872],["2023-07-03",1.4745,4.2105,3.0497],["2023-08-01",1.4933,4.3129,3.0791],["2023-09-01",1.481,4.2424,3.0342],["2023-10-02",1.5059,4.0151,2.8915],["2023-11-01",1.5149,3.953,2.8601],["2023-12-01",1.5022,4.2751,3.0442],["2024-01-02",1.5636,4.4009,3.1225],["2024-02-01",1.5703,4.5353,3.1879],["2024-03-01",1.5972,4.7349,3.237],["2024-04-01",1.6418,4.8158,3.2568],["2024-05-01",1.6028,4.5936,3.137],["2024-06-03",1.6418,4.8235,3.251],["2024-07-01",1.6535,4.9802,3.3065],["2024-08-01",1.6257,4.9366,3.3372],["2024-09-03",1.6191,4.997,3.3788],["2024-10-01",1.6533,5.1434,3.4482],["2024-11-01",1.5903,5.1441,3.3833],["2024-12-02",1.6268,5.4188,3.5089],["2025-01-02",1.6253,5.2474,3.4072],["2025-02-03",1.591,5.3474,3.4506],["2025-03-03",1.552,5.2056,3.4335],["2025-04-01",1.5195,4.9998,3.353],["2025-05-01",1.5367,4.9601,3.3451],["2025-06-02",1.5256,5.2457,3.4398],["2025-07-01",1.559,5.4643,3.5455],["2025-08-01",1.5187,5.4801,3.5574],["2025-09-02",1.5532,5.6243,3.6114],["2025-10-01",1.6432,5.8691,3.7194],["2025-11-03",1.6688,5.979,3.7617],["2025-12-01",1.6667,5.9353,3.7491],["2026-01-02",1.6907,5.9596,3.7493],["2026-02-02",1.7422,6.0493,3.7739],["2026-03-02",1.784,5.9546,3.7657],["2026-04-01",1.7471,5.682,3.6309],["2026-05-01",1.7695,6.2306,3.8335],["2026-06-01",1.7883,6.5396,3.9379],["2026-07-01",1.7762,6.4264,3.8959],["2026-08-03",1.7473,6.5079,3.906],["2026-09-01",1.7436,6.523,3.9003],["2026-09-09",1.7428,6.5234,3.896]],"eras":{"pre":{"years":7.1,"base":0.32,"trendSR":0.399,"spySR":0.152,"gains":[[10,0.037],[20,0.078],[30,0.123],[40,0.167]],"dd":[[0,-32.8],[10,-28.6],[20,-24.5],[30,-20.5],[40,-16.7]]},"post":{"years":14.7,"base":0.834,"trendSR":0.255,"spySR":0.832,"gains":[[10,0.013],[20,0.014],[30,-0.003],[40,-0.044]],"dd":[[0,-21.9],[10,-18.7],[20,-17.3],[30,-16.4],[40,-15.5]]}},"bars":[["TSMOM long/short",0.3,"strategy"],["TSMOM long-only",0.45,"strategy"],["TSMOM futures",0.27,"strategy"],["SPY buy & hold",0.55,"bench"],["60/40 SPY/IEF",0.63,"bench"]],"crisis":[["GFC 2007-09",18.5,-47.2,-24.2],["Q4 2018",-2.7,-14.0,-7.3],["COVID 2020",-10.3,-23.3,-11.3],["2022",12.7,-18.8,-17.9]],"corr":0.016,"dsr":[[90,0.067],[200,0.035],[1000,0.008]],"window":["2004-11-19","2026-09-09"],"years":21.8};
+const NS = "http://www.w3.org/2000/svg";
+const tip = document.getElementById("tip");
+const el = (n, a) => { const e = document.createElementNS(NS, n);
+  for (const k in a) e.setAttribute(k, a[k]); return e; };
+const txt = (x, y, s, o = {}) => { const t = el("text", Object.assign(
+  { x, y, fill: "var(--muted)", "font-family": "IBM Plex Mono, monospace",
+    "font-size": 11, "font-variant-numeric": "tabular-nums" }, o));
+  t.textContent = s; return t; };
+
+function showTip(evt, html) {
+  tip.innerHTML = html; tip.style.opacity = 1;
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = evt.clientX + 14, y = evt.clientY - h - 12;
+  if (x + w > innerWidth - 8) x = evt.clientX - w - 14;
+  if (y < 8) y = evt.clientY + 16;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.style.opacity = 0; };
+
+/* ---------------------------------------------- 1. equity curves, log scale */
+(function () {
+  const s = document.getElementById("c1"), W = 720, H = 350;
+  const L = 46, R = 86, T = 14, B = 36, pw = W - L - R, ph = H - T - B;
+  const rows = D.curve, n = rows.length;
+  const lo = 0.8, hi = 7.5, ll = Math.log(lo), lh = Math.log(hi);
+  const X = i => L + (i / (n - 1)) * pw;
+  const Y = v => T + ph - ((Math.log(Math.max(v, lo)) - ll) / (lh - ll)) * ph;
+
+  [1, 2, 3, 5, 7].forEach(v => {
+    s.appendChild(el("line", { x1: L, x2: L + pw, y1: Y(v), y2: Y(v),
+      stroke: v === 1 ? "var(--rule-2)" : "var(--rule)", "stroke-width": 1 }));
+    s.appendChild(txt(L - 9, Y(v) + 4, "$" + v, { "text-anchor": "end" }));
+  });
+  const yrs = ["2006", "2010", "2014", "2018", "2022", "2026"];
+  yrs.forEach(y => { const i = rows.findIndex(r => r[0].slice(0, 4) === y);
+    if (i < 0) return;
+    s.appendChild(txt(X(i), H - 12, y, { "text-anchor": "middle" })); });
+
+  const series = [
+    { k: 3, c: "var(--base-line)", name: "60/40", dash: "5 4", w: 1.8 },
+    { k: 2, c: "var(--ochre)", name: "SPY", dash: "", w: 2 },
+    { k: 1, c: "var(--accent)", name: "TSMOM", dash: "", w: 2.4 }];
+  series.forEach(sr => {
+    const d = rows.map((r, i) => (i ? "L" : "M") + X(i).toFixed(1) + " " + Y(r[sr.k]).toFixed(1)).join(" ");
+    s.appendChild(el("path", { d, fill: "none", stroke: sr.c, "stroke-width": sr.w,
+      "stroke-dasharray": sr.dash, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    const last = rows[n - 1][sr.k];
+    s.appendChild(txt(L + pw + 8, Y(last) + 4, sr.name,
+      { fill: sr.c, "font-size": 11.5, "font-weight": 600 }));
+    s.appendChild(txt(L + pw + 8, Y(last) + 18, "$" + last.toFixed(2), { "font-size": 10.5 }));
+  });
+
+  const cross = el("line", { x1: 0, x2: 0, y1: T, y2: T + ph, stroke: "var(--rule-2)",
+    "stroke-width": 1, opacity: 0 });
+  s.appendChild(cross);
+  const dots = series.map(sr => { const c = el("circle", { r: 4, cx: L, cy: T, fill: sr.c,
+    stroke: "var(--raise)", "stroke-width": 2, opacity: 0 }); s.appendChild(c); return c; });
+  const hit = el("rect", { x: L, y: T, width: pw, height: ph, class: "hit" });
+  s.appendChild(hit);
+  hit.addEventListener("mousemove", e => {
+    const b = s.getBoundingClientRect();
+    const i = Math.max(0, Math.min(n - 1, Math.round(
+      (((e.clientX - b.left) / b.width * W) - L) / pw * (n - 1))));
+    const r = rows[i];
+    cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("opacity", 1);
+    series.forEach((sr, j) => { dots[j].setAttribute("cx", X(i));
+      dots[j].setAttribute("cy", Y(r[sr.k])); dots[j].setAttribute("opacity", 1); });
+    showTip(e, `<b>${r[0]}</b><br>TSMOM &nbsp;$${r[1].toFixed(2)}<br>SPY &nbsp;&nbsp;&nbsp;&nbsp;$${r[2].toFixed(2)}<br>60/40 &nbsp;$${r[3].toFixed(2)}`);
+  });
+  hit.addEventListener("mouseleave", () => { hideTip();
+    cross.setAttribute("opacity", 0); dots.forEach(d => d.setAttribute("opacity", 0)); });
+})();
+
+/* -------------------------------------------------- 2. Sharpe, horizontal */
+(function () {
+  const s = document.getElementById("c2"), W = 720, H = 264;
+  const L = 168, R = 54, T = 16, B = 34, pw = W - L - R;
+  const rows = D.bars, max = 0.70, bh = 24, gap = 16;
+  const X = v => L + (v / max) * pw;
+  [0, 0.2, 0.4, 0.6].forEach(v => {
+    s.appendChild(el("line", { x1: X(v), x2: X(v), y1: T, y2: T + rows.length * (bh + gap) - gap + 6,
+      stroke: v === 0 ? "var(--rule-2)" : "var(--rule)", "stroke-width": 1 }));
+    s.appendChild(txt(X(v), H - 26, v.toFixed(1), { "text-anchor": "middle" }));
+  });
+  rows.forEach((r, i) => {
+    const y = T + i * (bh + gap), c = r[2] === "bench" ? "var(--ochre)" : "var(--accent)";
+    s.appendChild(el("rect", { x: L, y, width: Math.max(X(r[1]) - L, 3), height: bh,
+      rx: 4, fill: c }));
+    s.appendChild(txt(L - 12, y + bh / 2 + 4, r[0],
+      { "text-anchor": "end", fill: "var(--ink-2)", "font-size": 11.5 }));
+    s.appendChild(txt(X(r[1]) + 9, y + bh / 2 + 4, r[1].toFixed(2),
+      { fill: "var(--ink)", "font-size": 12, "font-weight": 600 }));
+    const hit = el("rect", { x: L, y, width: Math.max(X(r[1]) - L, 3), height: bh, class: "hit" });
+    hit.addEventListener("mousemove", e => showTip(e,
+      `<b>${r[0]}</b><br>Sharpe ${r[1].toFixed(2)} &middot; ${r[2] === "bench" ? "benchmark" : "strategy"}`));
+    hit.addEventListener("mouseleave", hideTip);
+    s.appendChild(hit);
+  });
+  s.appendChild(txt(L + pw / 2, H - 8, "Sharpe ratio, excess of cash",
+    { "text-anchor": "middle", "font-size": 10.5 }));
+})();
+
+/* ------------------------------------------- 3. decay: grouped bars, signed */
+(function () {
+  const s = document.getElementById("c3"), W = 720, H = 310;
+  const L = 58, R = 20, T = 18, B = 56, pw = W - L - R, ph = H - T - B;
+  const lo = -0.06, hi = 0.18;
+  const Y = v => T + ph - ((v - lo) / (hi - lo)) * ph;
+  const pre = D.eras.pre.gains, post = D.eras.post.gains;
+  [-0.05, 0, 0.05, 0.10, 0.15].forEach(v => {
+    s.appendChild(el("line", { x1: L, x2: L + pw, y1: Y(v), y2: Y(v),
+      stroke: v === 0 ? "var(--ink-2)" : "var(--rule)", "stroke-width": v === 0 ? 1.4 : 1 }));
+    s.appendChild(txt(L - 10, Y(v) + 4, (v > 0 ? "+" : "") + v.toFixed(2), { "text-anchor": "end" }));
+  });
+  const gw = pw / pre.length, bw = 34;
+  pre.forEach((p, i) => {
+    const cx = L + gw * (i + 0.5);
+    [[p[1], "var(--accent)", -1, "2004–2011"], [post[i][1], "var(--ochre)", 1, "2012–2026"]]
+      .forEach(([v, c, side, era]) => {
+        const x = cx + (side < 0 ? -bw - 2 : 2);
+        const y0 = Y(0), y1 = Y(v), top = Math.min(y0, y1), h = Math.max(Math.abs(y1 - y0), 2);
+        s.appendChild(el("rect", { x, y: top, width: bw, height: h,
+          rx: 4, fill: c }));
+        s.appendChild(txt(x + bw / 2, v >= 0 ? top - 7 : top + h + 15,
+          (v > 0 ? "+" : "") + v.toFixed(3),
+          { "text-anchor": "middle", "font-size": 10.5, fill: "var(--ink-2)", "font-weight": 600 }));
+        const hit = el("rect", { x, y: top - 2, width: bw, height: h + 4, class: "hit" });
+        hit.addEventListener("mousemove", e => showTip(e,
+          `<b>${p[0]}% trend sleeve</b><br>${era}<br>Sharpe gain ${(v > 0 ? "+" : "") + v.toFixed(3)}`));
+        hit.addEventListener("mouseleave", hideTip);
+        s.appendChild(hit);
+      });
+    s.appendChild(txt(cx, T + ph + 20, p[0] + "%",
+      { "text-anchor": "middle", fill: "var(--ink-2)", "font-size": 12, "font-weight": 600 }));
+  });
+  s.appendChild(txt(L + pw / 2, H - 12, "weight of trend sleeve added to a 60/40 portfolio",
+    { "text-anchor": "middle", "font-size": 10.5 }));
+  s.appendChild(txt(L, T - 5, "Sharpe gain", { "text-anchor": "start", "font-size": 10 }));
+})();
+
+/* ------------------------------------------------------------ crisis table */
+(function () {
+  const tb = document.getElementById("tcrisis");
+  D.crisis.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${r[0]}</td>` + r.slice(1).map(v =>
+      `<td class="${v > 0 ? "pos" : "neg"}">${v > 0 ? "+" : ""}${v.toFixed(1)}%</td>`).join("");
+    tb.appendChild(tr);
+  });
+})();
+
+</script>

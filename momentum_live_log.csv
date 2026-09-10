@@ -1,0 +1,5 @@
+timestamp,action,price,price_20d_ago,signal,position,value_usd,note
+2026-08-27 21:42:30,hold,107.2459,75.9600,asset,asset,8.42,
+2026-08-28 03:42:31,hold,106.5988,75.9600,asset,asset,8.37,
+2026-08-28 10:14:59,hold,105.3490,75.9600,asset,asset,8.27,
+2026-08-28 10:30:02,hold,106.8470,75.9600,asset,asset,8.39,

@@ -1,0 +1,12 @@
+{
+  "positions": {},
+  "balance_usd": 3.5193232084866803,
+  "starting_balance_usd": 7.0,
+  "trades": 6,
+  "wins": 4,
+  "losses": 2,
+  "gross_profit_usd": 1.0824892290560406,
+  "total_fees_usd": 0.013590840129106878,
+  "skipped": 125,
+  "session_loss_usd": 0.5612291276568369
+}

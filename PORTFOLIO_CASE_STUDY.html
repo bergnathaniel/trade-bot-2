@@ -1,0 +1,532 @@
+<title>Trade Bot Post-Mortem</title>
+<meta name="description" content="A multi-strategy crypto trading system: what it did, why it lost money, and the engineering it proves out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper:      #f5f6f8;
+    --surface:    #ffffff;
+    --surface-2:  #eef0f3;
+    --ink:        #171a20;
+    --ink-soft:   #3d434f;
+    --muted:      #626977;
+    --line:       #e0e3e8;
+    --line-firm:  #c8ccd4;
+    --accent:     #1f5673;
+    --accent-ink: #17415a;
+    --negative:   #a3341f;
+    --positive:   #2f6f4f;
+    --shadow:     0 1px 2px rgba(20,24,33,.05), 0 8px 28px -14px rgba(20,24,33,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #101216;
+      --surface:    #181b21;
+      --surface-2:  #1f232b;
+      --ink:        #e7e9ed;
+      --ink-soft:   #c2c7d0;
+      --muted:      #949bab;
+      --line:       #2a2f38;
+      --line-firm:  #3a4048;
+      --accent:     #77b6d8;
+      --accent-ink: #9fcde5;
+      --negative:   #e58c72;
+      --positive:   #7cc0a0;
+      --shadow:     0 1px 2px rgba(0,0,0,.3), 0 10px 34px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:      #101216;
+    --surface:    #181b21;
+    --surface-2:  #1f232b;
+    --ink:        #e7e9ed;
+    --ink-soft:   #c2c7d0;
+    --muted:      #949bab;
+    --line:       #2a2f38;
+    --line-firm:  #3a4048;
+    --accent:     #77b6d8;
+    --accent-ink: #9fcde5;
+    --negative:   #e58c72;
+    --positive:   #7cc0a0;
+    --shadow:     0 1px 2px rgba(0,0,0,.3), 0 10px 34px -16px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 4rem) clamp(1.2rem, 5vw, 3.5rem) 6rem;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2rem;
+    margin-bottom: 3.5rem;
+    animation: rise .6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @media (prefers-reduced-motion: reduce) { .masthead { animation: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.1rem;
+  }
+  .kicker b { color: var(--accent-ink); font-weight: 500; }
+
+  h1 {
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 6vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -.012em;
+    text-wrap: balance;
+    margin: 0 0 1rem;
+  }
+
+  .standfirst {
+    font-family: "Spectral", Georgia, serif;
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 40rem;
+    margin: 0;
+  }
+  .standfirst em { font-style: italic; color: var(--ink); }
+
+  /* ---------- section grid ---------- */
+  .section {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem 2.5rem;
+    padding: 2.8rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .section:first-of-type { border-top: 0; padding-top: .5rem; }
+
+  .section > .label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: .45rem;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    height: max-content;
+  }
+  .section > .body { min-width: 0; }
+  .section > .body > :first-child { margin-top: 0; }
+  .section > .body > :last-child { margin-bottom: 0; }
+
+  .body { max-width: 41rem; }
+
+  h2 {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: .95rem;
+    margin: 1.8rem 0 .5rem;
+  }
+  p { margin: 0 0 1.05rem; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  strong { font-weight: 600; }
+  code, .mono {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .86em;
+  }
+  code {
+    background: var(--surface-2);
+    padding: .1em .38em;
+    border-radius: 3px;
+    color: var(--accent-ink);
+  }
+
+  /* ---------- stat strip ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.6rem 0 .4rem;
+  }
+  .stat { background: var(--surface); padding: 1rem 1.1rem 1.05rem; }
+  .stat .n {
+    font-family: "Spectral", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: -.01em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    margin-bottom: .3rem;
+  }
+  .stat .n.neg { color: var(--negative); }
+  .stat .k {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.35;
+    display: block;
+  }
+
+  /* ---------- system list ---------- */
+  .rows { margin: 1.4rem 0 .4rem; border-top: 1px solid var(--line); }
+  .row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: .3rem 1.4rem;
+    padding: .95rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row .rk {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .82rem;
+    color: var(--accent-ink);
+    padding-top: .12rem;
+  }
+  .row .rv { color: var(--ink-soft); font-size: .95rem; }
+  .row .rv b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- ledger ---------- */
+  .ledger {
+    border: 1px solid var(--line-firm);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    margin: 1.6rem 0 .6rem;
+    overflow: hidden;
+  }
+  .ledger-head {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: .8rem 1.2rem;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .ledger dl { margin: 0; padding: .4rem 1.2rem 1rem; }
+  .ledger .li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .2rem 1.5rem;
+    align-items: baseline;
+    padding: .8rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ledger .li:last-child { border-bottom: 0; }
+  .ledger dt { color: var(--ink-soft); font-size: .92rem; }
+  .ledger dt small { display: block; color: var(--muted); font-size: .8rem; margin-top: .15rem; }
+  .ledger dd {
+    margin: 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .95rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .ledger dd.neg { color: var(--negative); }
+  .ledger dd.flat { color: var(--muted); }
+
+  /* ---------- asymmetry bars ---------- */
+  .bars { margin: 1.5rem 0 .5rem; }
+  .bars .cap {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .9rem;
+  }
+  .bar { display: grid; grid-template-columns: 5.5rem 1fr 4.5rem; align-items: center; gap: .8rem; margin: .5rem 0; }
+  .bar .bl { font-size: .82rem; color: var(--ink-soft); }
+  .bar .bt {
+    height: 1.35rem;
+    border-radius: 2px;
+    background: var(--track, var(--positive));
+    transform-origin: left;
+    animation: grow .8s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @media (prefers-reduced-motion: reduce) { .bar .bt { animation: none; } }
+  @keyframes grow { from { transform: scaleX(.02); } to { transform: scaleX(1); } }
+  .bar .bv {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .82rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .bar.win .bt { --track: var(--positive); }
+  .bar.loss .bt { --track: var(--negative); }
+  .bar.win .bv { color: var(--positive); }
+  .bar.loss .bv { color: var(--negative); }
+
+  /* ---------- pull quote ---------- */
+  .pull {
+    font-family: "Spectral", Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--ink);
+    border-left: 3px solid var(--accent);
+    padding: .2rem 0 .2rem 1.3rem;
+    margin: 1.8rem 0;
+    text-wrap: pretty;
+  }
+
+  ul.tight { margin: 1rem 0 1.1rem; padding-left: 1.1rem; }
+  ul.tight li { margin: .5rem 0; padding-left: .3rem; }
+  ul.tight li::marker { color: var(--accent); }
+
+  /* ---------- contact ---------- */
+  .contact {
+    margin-top: 3rem;
+    border: 1px solid var(--line-firm);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 2rem 2rem 2.1rem;
+    box-shadow: var(--shadow);
+  }
+  .contact h2 { margin-bottom: .6rem; }
+  .contact p { color: var(--ink-soft); max-width: 38rem; }
+  .contact .fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem 2rem;
+    margin-top: 1.2rem;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .85rem;
+  }
+  .contact .fields span { color: var(--muted); }
+  .contact .fields span b { color: var(--accent-ink); font-weight: 500; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .74rem;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  @media (max-width: 680px) {
+    body { font-size: 16px; }
+    .section { grid-template-columns: 1fr; gap: .5rem; padding: 2.2rem 0; }
+    .section > .label { position: static; padding-top: 0; }
+    .row { grid-template-columns: 1fr; gap: .1rem; }
+    .row .rk { padding-top: 0; }
+    .bar { grid-template-columns: 4.5rem 1fr 3.8rem; gap: .5rem; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Engineering Case Study</span>
+      <span><b>Solana / Python</b></span>
+      <span>August 2026</span>
+      <span>Status: <b>concluded</b></span>
+    </p>
+    <h1>A trading system that worked, and a trade that didn't</h1>
+    <p class="standfirst">I spent August building an automated crypto trading stack &mdash; six strategies, real-time on-chain data, a backtester that runs the production code. It lost money, decisively and cheaply. This is the honest account: <em>what got built, why the trade has no edge, and what the build proves I can do.</em></p>
+  </header>
+
+  <section class="section">
+    <div class="label">Context</div>
+    <div class="body">
+      <h2>The goal was income. The result was a conclusion.</h2>
+      <p>The premise: retail crypto markets move fast and inefficiently, so a fast, disciplined, fee-aware bot might extract a small steady edge. I built the whole apparatus to test that properly rather than guess &mdash; paper-trading by default, one real-money session, every strategy measured against buying and holding.</p>
+      <p>The verdict came back clean and negative. Not &ldquo;needs tuning&rdquo; &mdash; <strong>structurally negative</strong>: at the position sizes a retail account actually runs, fixed transaction costs, slippage on thin liquidity, and adverse selection against faster bots exceed any edge these signals carry. The cost of learning that first-hand was <strong>$3.48</strong>.</p>
+      <div class="stats">
+        <div class="stat"><span class="n">~9k</span><span class="k">lines of Python</span></div>
+        <div class="stat"><span class="n">6</span><span class="k">independent strategies</span></div>
+        <div class="stat"><span class="n">4</span><span class="k">third-party deps</span></div>
+        <div class="stat"><span class="n neg">&minus;50%</span><span class="k">live run ($7 &rarr; $3.52)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="label">System</div>
+    <div class="body">
+      <h2>Six strategies on one execution and risk core</h2>
+      <p>Each bot is a separate loop with its own logs, state file, and bankroll cap, so they run concurrently against a shared wallet without touching each other's positions.</p>
+      <div class="rows">
+        <div class="row">
+          <div class="rk">bot.py</div>
+          <div class="rv"><b>Graduated-token scalper.</b> Subscribes to the pump.fun migration websocket, filters on liquidity / holders / authority state, exits once profit clears round-trip cost.</div>
+        </div>
+        <div class="row">
+          <div class="rk">insider_bot.py</div>
+          <div class="rv"><b>Smart-money copy-trader.</b> Mines early buyers of past 3&times;+ winners, scores wallets on early-win count, hit rate, recency and wash-trading shape, then copies live buys with conviction-weighted sizing.</div>
+        </div>
+        <div class="row">
+          <div class="rk">newcoin_bot.py</div>
+          <div class="rv"><b>Meme-coin momentum.</b> Seven-stage gate &mdash; liquidity/cap band &rarr; SOL regime filter &rarr; on-chain rug screen &rarr; live price-action classifier (breakout / pullback) &rarr; edge-vs-cost gate &rarr; optional learned scorer &rarr; two-stage trailing exit.</div>
+        </div>
+        <div class="row">
+          <div class="rk">alpha_bot.py</div>
+          <div class="rv"><b>Push-based real-time copy.</b> Helius websocket + X filtered stream + local webhook, fused on one async queue, signal-to-decision in under a second.</div>
+        </div>
+        <div class="row">
+          <div class="rk">momentum_basket.py</div>
+          <div class="rv"><b>20-day trend basket.</b> BTC / ETH / SOL held when price is above its 20-day-ago close, weighted inversely to recent volatility, rebalanced on drift. The one approach that beat buy-and-hold in backtest.</div>
+        </div>
+        <div class="row">
+          <div class="rk">dca_bot.py</div>
+          <div class="rv"><b>Dollar-cost-averaging baseline.</b> The control group &mdash; a fixed schedule with no timing, to measure everything else against.</div>
+        </div>
+      </div>
+      <h3>Shared core</h3>
+      <p><code>executors.py</code> (Jupiter swap: order + execute, signed with <code>solders</code>) &middot; <code>wallet.py</code> (BIP39 mnemonic &rarr; keypair, stdlib only) &middot; <code>rug_screen.py</code> &middot; per-strategy config with hard risk limits &middot; a backtester per strategy.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="label">Architecture</div>
+    <div class="body">
+      <h2>The parts that outlast the trade</h2>
+
+      <h3>Real-time ingestion</h3>
+      <p>Per-wallet Helius <code>logsSubscribe</code> websockets; the pump.fun migration feed; an X API v2 filtered stream with programmatic rule management; a local HTTP webhook endpoint. Multiple sources normalise onto a single async queue with de-duplication and a &ldquo;first source wins&rdquo; / &ldquo;N sources confirm&rdquo; fusion switch. Against live, partly-undocumented third-party APIs, with schemas verified against real traffic.</p>
+
+      <h3>On-chain analysis &mdash; the rug screen</h3>
+      <p>Eight hard checks, any one fails the token: mint authority live, freeze authority live, LP not locked or burned, liquidity below floor, single-wallet or top-10 holder concentration (read on-chain via <code>getTokenLargestAccounts</code>), gradual LP drain over the last hour, serial-deployer history, honeypot-shaped price impact on a probe sell. Softer signals dock a graded score rather than hard-failing; unverifiable data becomes a warning, never a silent pass.</p>
+
+      <h3>Backtesting that tests the real code</h3>
+      <p>The backtester replays the <em>actual</em> production classifier and exit logic over historical 5-minute OHLCV &mdash; not a re-implementation &mdash; with a cost and slippage model and a strict in-sample / out-of-sample split. It is what turned &ldquo;breakout looks great&rdquo; (in-sample +40%/trade) into &ldquo;breakout is noise&rdquo; (out-of-sample net loss) before any real money was involved.</p>
+
+      <h3>Risk framework</h3>
+      <p>Per-strategy bankroll caps, per-trade position caps, a daily-max-loss circuit breaker, a slippage-rejection guard, and every skipped candidate logged with the reason it was skipped. Live mode refuses to start without a typed confirmation phrase. Mnemonic derivation and the logistic-regression scorer are both hand-written on the standard library &mdash; four third-party packages in the whole system.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="label">Results</div>
+    <div class="body">
+      <h2>Stated plainly, no spin</h2>
+
+      <div class="ledger">
+        <div class="ledger-head">Realised outcomes &mdash; every strategy, in and out of sample</div>
+        <dl>
+          <div class="li">
+            <dt>Live scalper session <small>real capital, one session</small></dt>
+            <dd class="neg">$7.00 &rarr; $3.52</dd>
+          </div>
+          <div class="li">
+            <dt>Paper scalper <small>20 closed trades, 60% win rate</small></dt>
+            <dd class="neg">&minus;$12.72</dd>
+          </div>
+          <div class="li">
+            <dt>Meme-momentum backtest <small>194 trades; &minus;3.3%/trade; OOS equity &asymp; 0.05&times;</small></dt>
+            <dd class="neg">&minus;95%</dd>
+          </div>
+          <div class="li">
+            <dt>&hellip; same tokens, bought and held <small>median across the basket</small></dt>
+            <dd>+34%</dd>
+          </div>
+          <div class="li">
+            <dt>Insider copy-trader <small>wallets clearing the quality filter, of 141 scored</small></dt>
+            <dd class="flat">0</dd>
+          </div>
+          <div class="li">
+            <dt>Real-time alpha bot <small>pipeline verified in paper, sub-second latency</small></dt>
+            <dd class="flat">0 live trades</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="bars">
+        <div class="cap">Paper scalper &mdash; why a 60% win rate still loses</div>
+        <div class="bar win">
+          <span class="bl">Avg win</span>
+          <span class="bt" style="width:5.4%"></span>
+          <span class="bv">+$0.43</span>
+        </div>
+        <div class="bar loss">
+          <span class="bl">Avg loss</span>
+          <span class="bt" style="width:28%"></span>
+          <span class="bv">&minus;$2.23</span>
+        </div>
+        <div class="bar loss">
+          <span class="bl">Worst</span>
+          <span class="bt" style="width:100%"></span>
+          <span class="bv">&minus;$7.97</span>
+        </div>
+      </div>
+      <p>Wins get taken early at a fixed target; losses run to a stop that slips through thin liquidity. The hit rate is positive and the expectancy is <code>&minus;$0.64</code> per trade. In the copy strategies the failure mode is different but rhymes: by the time a retail order lands, the wallets worth copying have been front-run by faster bots &mdash; every dry-run candidate came back <code>too_crowded</code>.</p>
+
+      <p class="pull">The system did its job. It ingested, screened, sized, executed and logged exactly as designed &mdash; and used all of that to demonstrate, cheaply and repeatably, that there is no edge here to capture.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="label">Evidence</div>
+    <div class="body">
+      <h2>What the build demonstrates</h2>
+      <p>The trading thesis failed. These capabilities are what remain, and they transfer directly to production data and backend work:</p>
+      <ul class="tight">
+        <li><strong>Async, multi-source real-time pipelines</strong> against live third-party APIs &mdash; websockets, filtered streams, webhooks, fused and de-duplicated on one queue with sub-second latency.</li>
+        <li><strong>On-chain data analysis and fraud heuristics</strong> on Solana &mdash; authority state, holder concentration, liquidity forensics, honeypot detection, graded scoring with explicit handling of unverifiable data.</li>
+        <li><strong>Backtesting infrastructure</strong> that exercises real code paths, models costs, and enforces out-of-sample discipline &mdash; built to disprove its own strategies, and did.</li>
+        <li><strong>Risk and safety engineering</strong> &mdash; layered limits, circuit breakers, fail-closed defaults, fully auditable skip logging.</li>
+        <li><strong>Dependency restraint</strong> &mdash; cryptographic key derivation and a linear model written on the standard library; four external packages total.</li>
+        <li><strong>Calling a result</strong> &mdash; recognising when a negative finding is conclusive, and writing it down instead of tuning forever.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="contact">
+    <h2>Available for contract work</h2>
+    <p>Real-time data pipelines, on-chain analytics, backtesting and simulation infrastructure, Python backends. If you have a system that has to ingest messy live data and act on it reliably, this is the kind of thing I build.</p>
+    <div class="fields">
+      <span>contact&nbsp;&rarr;&nbsp;<b><a href="mailto:naberg30@gmail.com">naberg30@gmail.com</a></b></span>
+      <span>code&nbsp;&rarr;&nbsp;<b>samples on request</b></span>
+      <span>availability&nbsp;&rarr;&nbsp;<b>open now, 30+ hrs/wk</b></span>
+    </div>
+  </div>
+
+  <footer>
+    All figures taken from the project's own trade logs and backtest output. Paper results simulate fills; the one live session used real funds. Nothing here is investment advice.
+  </footer>
+
+</div>

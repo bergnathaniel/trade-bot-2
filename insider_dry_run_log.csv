@@ -1,0 +1,2 @@
+timestamp,event,mint,symbol,price_usd,size_usd,fee_usd,pnl_usd,insiders,reason
+2026-08-27 16:42:43,SKIP,9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump,Fartcoin,,,,,6LXutJ,too_crowded (170523 holders > 8000)

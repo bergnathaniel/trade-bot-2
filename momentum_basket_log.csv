@@ -1,0 +1,2 @@
+timestamp,action,signals,target_weights,value_usd,note
+2026-08-27 17:56:58,rebalance,"BTC:on,ETH:on,SOL:on","BTC:0.42,ETH:0.25,SOL:0.33,CASH:0.00",100.00,turnover $100.00 fee $0.30

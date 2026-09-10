@@ -1,0 +1,17 @@
+# --- secrets: never commit. .env holds SOLANA_PRIVATE_KEY (wallet mnemonic).
+.env
+.env.*
+!.env.example
+
+# --- python
+__pycache__/
+*.pyc
+
+# --- market-data caches: regenerable from the APIs, ~20MB, pure noise in a diff
+.candle_cache_*.json
+.stk_cache_*.json
+.mu_cache_*.json
+research/.cache/
+
+# --- macOS
+.DS_Store

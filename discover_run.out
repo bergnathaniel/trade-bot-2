@@ -1,0 +1,42 @@
+[discover] mode=dry_run | winner threshold >= 3x
+
+[discover] 8 winner token(s) to mine for early buyers
+  [1/8] AVBN6kXd… -> 18 early buyers
+  [2/8] CRJDgvxz… -> 11 early buyers
+  [3/8] MukLDtJ8… -> 11 early buyers
+  [4/8] BRZ5aeJC… -> 25 early buyers
+  [5/8] 4PFGKQbJ… -> 14 early buyers
+  [6/8] BsbsB3WL… -> 25 early buyers
+  [7/8] 5ncPV6YV… -> 25 early buyers
+  [8/8] A4FJQGuS… -> 25 early buyers
+
+[discover] scoring 141 candidate wallet(s)…
+  scored 10/141
+  scored 20/141
+  scored 30/141
+  scored 40/141
+  scored 50/141
+  scored 60/141
+  scored 70/141
+  scored 80/141
+  scored 90/141
+  scored 100/141
+  scored 110/141
+  scored 120/141
+  scored 130/141
+  scored 140/141
+
+===== WATCHLIST (0 wallets) -> insider_watchlist.json =====
+wallet                                           score   hit%   med x  earlyW  #tok   last
+
+129 rejected. Sample reasons:
+  6SyCrkBegBRNRP5r…  too_few_tokens (1 < 3)
+  DVoCfaAxCYHeUVHs…  not_enough_early_wins (1 < 2)
+  BQ72nSv9f3PRyRKC…  hit_rate_too_low (0.00 < 0.30)
+  Fp4FWL6h92s23qMY…  not_enough_early_wins (1 < 2)
+  4MV1ggHXPJ1vMVt3…  not_enough_early_wins (1 < 2)
+  8YGeL4zK5npyhLgh…  too_few_tokens (1 < 3)
+  2pGtrTGApqyWpTRF…  not_enough_early_wins (1 < 2)
+  6U91aKa8pmMxkJwB…  hit_rate_too_low (0.00 < 0.30)
+
+Run:  python insider_bot.py watch --minutes 120

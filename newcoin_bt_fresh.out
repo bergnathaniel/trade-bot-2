@@ -1,0 +1,76 @@
+building basket (target 50 pools)…
+  50 pools
+
+  [ 1/50] SOL              1000 bars /   83h  -> 4 trades
+  [ 2/50] fone              519 bars /   43h  -> 10 trades
+  [ 3/50] SOL              1000 bars /   83h  -> 3 trades
+  [ 4/50] SOL              1000 bars /   86h  -> 2 trades
+  [ 5/50] PINK              216 bars /   18h  -> 0 trades
+  [ 6/50] invest            102 bars /    8h  -> 3 trades
+  [ 7/50] SOL              1000 bars /   83h  -> 5 trades
+  [ 8/50] SOL              1000 bars /   83h  -> 3 trades
+  [ 9/50] WindChill         157 bars /   13h  -> 0 trades
+  [10/50] UMIA               78 bars /    6h  -> 1 trades
+  [11/50] SOL              1000 bars /   83h  -> 5 trades
+  [12/50] USDT             1000 bars /   83h  -> 0 trades
+  [13/50] SOL              1000 bars /   83h  -> 3 trades
+  [14/50] UMIA               69 bars /    6h  -> 1 trades
+  [15/50] moonkey           222 bars /   18h  -> 3 trades
+  [16/50] MTGA              139 bars /   12h  -> 2 trades
+  [17/50] NVDA               70 bars /    6h  -> 1 trades
+  [18/50] WOFI               57 bars /    5h  -> 1 trades
+  [19/50] Lara               92 bars /    8h  -> 0 trades
+  [20/50] fone              322 bars /   27h  -> 5 trades
+  [21/50] ELONMUSK          364 bars /   30h  -> 5 trades
+  [22/50] OTC                70 bars /    6h  -> 0 trades
+  [23/50] RST                81 bars /    7h  -> 1 trades
+  [24/50] SOL              1000 bars /   83h  -> 3 trades
+  [25/50] USDT             1000 bars /   93h  -> 0 trades
+  [26/50] GASSPAS           966 bars /   80h  -> 26 trades
+  [27/50] SOL              1000 bars /   83h  -> 4 trades
+  [28/50] b                 792 bars /   77h  -> 14 trades
+  [29/50] WOFI               78 bars /    6h  -> 1 trades
+  [30/50] AMZN               37 bars /    3h  -> 1 trades
+  [31/50] WOFI              208 bars /   17h  -> 2 trades
+  [32/50] ALLOX             223 bars /   18h  -> 9 trades
+  [33/50] $Chomp            121 bars /   10h  -> 2 trades
+  [34/50] AFD               323 bars /   27h  -> 9 trades
+  [35/50] KMNO             1000 bars /   83h  -> 5 trades
+  [36/50] SOL              1000 bars /   83h  -> 5 trades
+  [37/50] WOFI              211 bars /   18h  -> 2 trades
+  [38/50] SHRINCS           150 bars /   12h  -> 3 trades
+  [39/50] RST                83 bars /    7h  -> 1 trades
+  [40/50] TRUMP            1000 bars /   83h  -> 6 trades
+  [41/50] ROCKSTAR           33 bars /    3h  -> 0 trades
+  [42/50] WindChill         115 bars /   10h  -> 1 trades
+  [43/50] ASTRO             867 bars /   72h  -> 14 trades
+  [44/50] MRVL               38 bars /    3h  -> 1 trades
+  [45/50] SOL              1000 bars /   83h  -> 3 trades
+  [46/50] POKEMON           259 bars /   22h  -> 3 trades
+  [47/50] CYBERLEEK          40 bars /    3h  -> 1 trades
+  [48/50] GTA               582 bars /   52h  -> 10 trades
+  [49/50] Alon              957 bars /   87h  -> 9 trades
+  [50/50] RST                66 bars /    5h  -> 1 trades
+
+==============================================================================
+RESULTS  (194 trades across 50 pools, 5m candles)
+==============================================================================
+
+BREAKOUT
+  all                    n=194  win=  10%  exp= -3.27%/trade  PF=0.55  avgW=+41.6% avgL=-8.1%  eq=0.02x  maxDD=-99%
+  in-sample (first 60%)  n=116  win=  13%  exp= -0.62%/trade  PF=0.91  avgW=+47.5% avgL=-7.8%  eq=0.39x  maxDD=-78%
+  out-sample (last 40%)  n=78   win=   5%  exp= -7.22%/trade  PF=0.12  avgW=+19.3% avgL=-8.7%  eq=0.05x  maxDD=-95%
+
+PULLBACK
+  all                    no trades
+  in-sample (first 60%)  no trades
+  out-sample (last 40%)  no trades
+
+BOTH SETUPS
+  all                    n=194  win=  10%  exp= -3.27%/trade  PF=0.55  avgW=+41.6% avgL=-8.1%  eq=0.02x  maxDD=-99%
+
+BUY & HOLD the basket over the same window: mean +693.5%  median +33.7%  (n=50)
+
+------------------------------------------------------------------------------
+Read the KNOWN LIMITS block at the top of this file before acting on the above.
+A positive out-of-sample expectancy here = run it in dry_run next, not go live.

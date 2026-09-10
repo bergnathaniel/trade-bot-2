@@ -1,0 +1,883 @@
+timestamp,event,mint,symbol,price_usd,size_usd,fee_usd,pnl_usd,reason
+2026-08-25 14:09:43,BUY,MOCK00001,TKN1,0.00855151,3.00,0.0375,,needs 1.075x to exit profitably
+2026-08-25 14:09:46,SELL,MOCK00001,TKN1,0.00962913,3.41,0.0385,0.3361,take_profit
+2026-08-25 14:09:48,SKIP,MOCK00002,TKN2,,,,,too_few_holders
+2026-08-25 14:09:48,SKIP,MOCK00003,TKN3,,,,,too_few_holders
+2026-08-25 14:09:52,SKIP,MOCK00004,TKN4,,,,,concentration_risk
+2026-08-25 14:09:54,SKIP,MOCK00005,TKN5,,,,,concentration_risk
+2026-08-25 14:16:17,SKIP,8CfMGsD2tEp8DN1xJ1FhSgx144c2AhqMDytJeew9pump,IVY,,,,,concentration_risk
+2026-08-25 14:16:41,SKIP,CcqTFuCvGBau8fPqzPgC9eTkEVrUQ5PNJSrgJ3EEpump,BM,,,,,liquidity_too_low
+2026-08-25 14:17:29,SKIP,J289x3zbffMn2Moy5QZKszeTyfSw7ZnDDoEWGasjpump,DOLLY,,,,,liquidity_too_low
+2026-08-25 14:26:29,SKIP,MOCK00001,TKN1,,,,,concentration_risk
+2026-08-25 14:26:37,SKIP,MOCK00002,TKN2,,,,,concentration_risk
+2026-08-25 14:26:38,SKIP,MOCK00003,TKN3,,,,,concentration_risk
+2026-08-25 14:26:38,SKIP,MOCK00004,TKN4,,,,,liquidity_too_low
+2026-08-25 14:26:41,SKIP,MOCK00005,TKN5,,,,,concentration_risk
+2026-08-25 14:26:44,SKIP,MOCK00006,TKN6,,,,,lp_not_locked
+2026-08-25 14:26:49,SKIP,MOCK00007,TKN7,,,,,concentration_risk
+2026-08-25 14:26:58,BUY,MOCK00008,TKN8,0.00741289,3.00,0.0375,,needs 1.075x to exit profitably
+2026-08-25 14:26:59,BUY,MOCK00009,TKN9,0.00634610,3.00,0.0375,,needs 1.075x to exit profitably
+2026-08-25 14:26:59,SELL,MOCK00008,TKN8,0.00829407,3.39,0.0385,0.3145,take_profit
+2026-08-25 14:26:59,SELL,MOCK00009,TKN9,0.00778195,3.72,0.0393,0.6391,take_profit
+2026-08-25 14:27:02,SKIP,MOCK00010,TKN10,,,,,concentration_risk
+2026-08-25 14:27:13,SKIP,MOCK00011,TKN11,,,,,too_few_holders
+2026-08-25 14:27:14,SKIP,MOCK00012,TKN12,,,,,concentration_risk
+2026-08-25 14:27:15,SKIP,MOCK00013,TKN13,,,,,concentration_risk
+2026-08-25 14:27:15,SKIP,MOCK00014,TKN14,,,,,authority_not_renounced
+2026-08-25 14:27:18,SKIP,MOCK00015,TKN15,,,,,too_few_holders
+2026-08-25 14:27:18,SKIP,MOCK00016,TKN16,,,,,concentration_risk
+2026-08-25 14:27:20,SKIP,MOCK00017,TKN17,,,,,liquidity_too_low
+2026-08-25 14:27:23,SKIP,MOCK00018,TKN18,,,,,concentration_risk
+2026-08-25 14:27:24,SKIP,MOCK00019,TKN19,,,,,concentration_risk
+2026-08-25 14:27:29,BUY,MOCK00020,TKN20,0.00035444,3.00,0.0375,,needs 1.075x to exit profitably
+2026-08-25 14:27:29,SKIP,MOCK00021,TKN21,,,,,concentration_risk
+2026-08-25 14:27:34,SELL,MOCK00020,TKN20,0.00028665,2.45,0.0361,-0.6229,stop_loss
+2026-08-25 14:27:36,SKIP,MOCK00022,TKN22,,,,,too_few_holders
+2026-08-25 14:27:37,BUY,MOCK00023,TKN23,0.00026955,3.00,0.0375,,needs 1.075x to exit profitably
+2026-08-25 14:27:39,SELL,MOCK00023,TKN23,0.00021180,2.38,0.0360,-0.6924,stop_loss
+2026-08-25 14:27:42,SKIP,MOCK00024,TKN24,,,,,too_few_holders
+2026-08-25 14:27:46,SKIP,MOCK00025,TKN25,,,,,authority_not_renounced
+2026-08-25 14:27:50,SKIP,MOCK00026,TKN26,,,,,too_few_holders
+2026-08-25 16:10:10,SKIP,MOCK00001,TKN1,,,,,lp_not_locked
+2026-08-25 16:10:11,SKIP,MOCK00002,TKN2,,,,,lp_not_locked
+2026-08-25 16:10:11,BUY,MOCK00003,TKN3,0.00394846,8.00,0.0500,,needs 1.062x to exit profitably
+2026-08-25 16:10:11,SELL,MOCK00003,TKN3,0.00433000,8.86,0.0522,0.7595,take_profit
+2026-08-25 16:10:16,SKIP,MOCK00004,TKN4,,,,,too_few_holders
+2026-08-25 16:10:17,SKIP,MOCK00005,TKN5,,,,,concentration_risk
+2026-08-25 16:10:17,SKIP,MOCK00006,TKN6,,,,,concentration_risk
+2026-08-25 16:10:20,SKIP,MOCK00007,TKN7,,,,,authority_not_renounced
+2026-08-25 16:10:21,SKIP,MOCK00008,TKN8,,,,,concentration_risk
+2026-08-25 16:10:30,BUY,MOCK00009,TKN9,0.00401816,8.00,0.0500,,needs 1.062x to exit profitably
+2026-08-25 16:10:34,SELL,MOCK00009,TKN9,0.00432322,8.69,0.0517,0.5926,take_profit
+2026-08-25 16:10:35,SKIP,MOCK00010,TKN10,,,,,lp_not_locked
+2026-08-25 16:30:19,SKIP,CkmpBaT6nVugt9RruRuvhxRhjyYQgzSndvkJ7NzApump,meraz_199,,,,,liquidity_too_low
+2026-08-25 16:30:37,SKIP,motqcDgZ9mH9XzyPy1R1jGw9nWrZBC3QSqQWUcEpump,GOON,,,,,liquidity_too_low
+2026-08-25 16:30:44,SKIP,5JrFG62QLawWG3kik67fDRMsKvgfyUrLwY44f2Tcpump,GBB,,,,,liquidity_too_low
+2026-08-25 16:30:53,SKIP,BdT6K1xSSGeNsZt3h4USDLi5dRtvS5TazdmzcX4wpump,OPC,,,,,concentration_risk
+2026-08-25 16:33:56,SKIP,BLAfWE6DE1mM15JdS9V6rgHAWzv8MyYn8DavUZzDpump,CATOSHI,,,,,too_few_holders
+2026-08-25 16:34:41,SKIP,ApYouonDfvQzQcWmeggLzTDAz6ssCfJhRRUVfQqApump,Redbull,,,,,liquidity_too_low
+2026-08-25 16:34:41,SKIP,RkZPbKT3EnY58xi5XnwqyLnYYza2QMHPLh2NocMpump,WOFI,,,,,liquidity_too_low
+2026-08-25 16:34:44,SKIP,HCjmpmeZ8Fp6EHxo5oJK7kDTnxEhfDv8Zjow9zNNpump,NTDA,,,,,liquidity_too_low
+2026-08-25 16:42:25,SKIP,GSs69TmSyeatNb5YJwqnzSiAJCUkCJX3WPVkHwKqS6v7,BEEFBOSS,,,,,liquidity_too_low
+2026-08-25 16:48:41,SKIP,BnXLWBETwd9QnmFtUEKRhXVQ1egitNAKNZzSQr95pump,$FOMO,,,,,too_few_holders (7 < 30)
+2026-08-25 16:49:17,SKIP,zHtwuBUTjL3eGb9H65p8w5PCQA9LBoqhMW5HDuTpump,CASHCAT,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 16:50:14,SKIP,7h3jTPnEF7QT36YZ68eBRS1pg5pqBfj9XmFFbNfqpump,MARSCAT,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 16:51:20,SKIP,DYwcw4gepQfpSk3XztozWN3habnNj4sk2LYnNWoxpump,BULLV,,,,,concentration_risk (29.3% > 20.0%)
+2026-08-25 16:53:45,SKIP,dd7FaTspWtN2saZTUTibmyHZUBfKZAomj7uP3Wipump,UOTF,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 16:54:39,SKIP,77W5SbWHuPwiFy7zmD4DrHNTLVEYQcgjVjdPDdv4pump,KODA,,,,,concentration_risk (48.8% > 20.0%)
+2026-08-25 16:55:06,SKIP,AhYANiha5oM1oUf2y7HRfaeigKuvsDbZxBoAFArUpump,Sausage,,,,,too_few_holders (7 < 30)
+2026-08-25 16:56:52,SKIP,CmKYH5uNdCBaj9T6woQhzHxZ8wJ463GELDf2wWwtpump,$BUTTHOLE,,,,,too_few_holders (10 < 30)
+2026-08-25 16:57:01,SKIP,259jBZ3Y1EWivLVfKTxE8XTCfAhkyHg4bhwT5ZHXpump,MHG,,,,,concentration_risk (22.7% > 20.0%)
+2026-08-25 16:57:10,SKIP,5s5W3VNTvppyTZTBej5Gjmhbp6GW7SaTBsuzbCvppump,RACK,,,,,too_few_holders (7 < 30)
+2026-08-25 16:58:49,SKIP,ikc2Z4tndHReEP6jsYrh2Z2eBc4xsipbuxgUHZxpump,SpaceCat,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 16:59:28,SKIP,FagpQMfk46PSB6aHFzAXsqhukKqEvyo9NBRn6nL3pump,POOF,,,,,concentration_risk (27.9% > 20.0%)
+2026-08-25 17:01:29,SKIP,8FDSVzBWJ8HpivagjagBjac4HFxJSVx4j9VtTq5UAtd4,FBCS,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 17:02:23,SKIP,CqQcUQ7CNRbCrjuzjTSBZ5rCBFybq5EA2VYkdCxQpump,:3,,,,,concentration_risk (26.5% > 20.0%)
+2026-08-25 17:02:35,SKIP,Gn1di5dvrf7Pjmas7GW34xWMNvhCkaMakGyKgnsfpump,DOWN,,,,,too_few_holders (11 < 30)
+2026-08-25 17:03:41,SKIP,JgkQYsgE21fo9gh6g2WYtE38EGuTmWxe6gLfZdFpump,UOTF,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 17:03:59,SKIP,35Lvnpi3mCPfeRod3u5R7aVygBtrTyEGMGdcFJzHpump,$MICHI,,,,,too_few_holders (9 < 30)
+2026-08-25 17:06:00,SKIP,CcgRSw62atZK9EEAQVGyTcsshgtGJxtLHK2ZGwZ7pump,Sky,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 17:07:15,SKIP,6qGAzKie3qrzdYz5e7n7dA8GguzLCcNG3fjjSr8npump,$Pistacio,,,,,too_few_holders (8 < 30)
+2026-08-25 17:24:40,SKIP,C5sarhSZW5S2DKztuEvf4aPsJJVEJHZVJFo1SZXbpump,CHIEF,,,,,concentration_risk (27.0% > 20.0%)
+2026-08-25 17:25:01,SKIP,AFCeZPzBuemrEERZ4vJqCFuutgUCPWAVdYpEmwM2pump,CHIEF,,,,,too_few_holders (9 < 30)
+2026-08-25 17:26:10,SKIP,4kqEkiDmkkyQWayzQB5B3dUP6whgAL3becLH5jexpump,George,,,,,concentration_risk (29.9% > 20.0%)
+2026-08-25 17:35:26,SKIP,4AWtvyg24qZjf8FjSGFEoNTiKipcE5Mku52xtEi4pump,UNHGRE,,,,,liquidity_too_low (38 < 1500)
+2026-08-25 17:37:09,SKIP,Gei7hV255VyT4pSMEF7ejY2RQmJ365F92eQjF1UPpump,CASHCAT,,,,,concentration_risk (98.9% > 35.0%)
+2026-08-25 17:45:41,SKIP,AKfrjsytk1jiDTgbBFHHYruG3nFikP3SR7EDPKDrpump,USTF,,,,,concentration_risk (98.9% > 50.0%)
+2026-08-25 17:47:28,SKIP,BPamv5EHNtrRoVV8QYdqtWxFWKLUcDjJmNEjtx4Cpump,COIN,,,,,slippage_too_high
+2026-08-25 17:50:25,SKIP,FfaYTASCY7ZctzGdEMMQ4QhJQWQhiDiXxkTCAuLvpump,CEILINGCAT,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:50:34,SKIP,DTFa5QRfiDqPWGTvpKvrrfvQZfKodqhsu9XNaKWKpump,PÉPITO,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:53:14,SKIP,FZBTnTiAvNBhAuks7DG9kRgMrUkptNCq7ZsbCr1cpump,George,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:53:50,SKIP,4fWNBq11ayPW28o8uxs5RmDVB1vLeBq1hrSC1fpSpump,DONALTOSHI,,,,,liquidity_too_low (14 < 1500)
+2026-08-25 17:54:54,SKIP,2Y3AfgP9vGZj4JiDVZix5TpLcAEs49FU8JU5DDNDpump,claude,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:55:18,SKIP,4rDQPfkJW9eQfiXoc5RxEtrR6eDQm3oECgEo38yCpump,PONSBOT,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:56:01,SKIP,4rsd2NBg2Gq72QpQgu3mgXCko7s1T4LNGbZN8Bwhpump,Wassie,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 17:56:10,SKIP,WCq21aTfzgnC4329uQKKkx3CJh8YYCCkeWgnLRvpump,NTDA,,,,,buy_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 17:56:16,SKIP,2sLKA6PzFVjeTUaiKBCkDbDiS8MuoZAeXxZMgs9Apump,C4T,,,,,"buy_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 17:56:56,SKIP,71Ewq2DjSduF5R71eSvpyBAXW21hRAjtTz7XJ8sJpump,$CLOWN,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 17:57:32,SKIP,8T74XEZNShBnsXwVvRPQ3Nwry26Px33UY8KjvBsupump,panda,,,,,liquidity_too_low (1 < 1500)
+2026-08-25 17:57:41,SKIP,ZWh3uBETm4BeV1tLVDRrNgYiXc49ZAyVuEYWBDTpump,CATE,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 18:08:55,SKIP,AZB3NCwGRcFJhSXut7GSMECNc1DUEbAHVdgKG7evpump,TSP,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 18:08:58,SKIP,F7uXVqeiXWzGdTY7bUY1WS5eMxot4t3sixLDkdjwpump,JOBS,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 18:11:32,SKIP,QjHTqQhueRhoNzua8WMGfzfHdUFcy8ehYaVKEtmpump,UOTF,,,,,buy_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 18:21:03,BUY,ihg5LeV8NRDzLSoRUxfrhiFvt4R21Ha3hE8Ysvapump,Minecraft,0.00047016,8.00,0.0010,,needs 1.062x to exit profitably
+2026-08-25 18:21:25,SKIP,5NjTujQD6wfnjdJ5rwJPgRtN5Df6Nwwp7dWGmaCppump,SAOF,,,,,"buy_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:22:21,SKIP,547tWxWhym8U7Y7DvhGJktpkcs5eHeywvSYnhwvdpump,fih,,,,,"buy_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:22:43,SKIP,HrgSeQ3RYj3xQ564BB8kNHb2iMrF1y7VF2YdA16Fpump,ROGJUG,,,,,liquidity_too_low (87 < 1500)
+2026-08-25 18:29:11,BUY,DQRUpkfJPKMWs4L8ngRZJzs5CidhMzou2o3YLup8pump,HERO,0.00003693,8.00,0.0010,,needs 1.062x to exit profitably
+2026-08-25 18:29:31,SELL,DQRUpkfJPKMWs4L8ngRZJzs5CidhMzou2o3YLup8pump,HERO,0.00003946,9.15,0.0010,0.5463,take_profit
+2026-08-25 18:29:51,BUY,83RfCCAo1Qzh1kC2FMUpVTNTkDzBiLJA9chTn3JGpump,Waddles,0.00004387,8.00,0.0010,,needs 1.062x to exit profitably
+2026-08-25 18:30:00,ERROR,83RfCCAo1Qzh1kC2FMUpVTNTkDzBiLJA9chTn3JGpump,Waddles,,,,,sell_failed: No on-chain balance found for 83RfCCAo1Qzh1kC2FMUpVTNTkDzBiLJA9chTn3JGpump
+2026-08-25 18:30:05,SELL,83RfCCAo1Qzh1kC2FMUpVTNTkDzBiLJA9chTn3JGpump,Waddles,0.00000538,4.15,0.0010,-7.0209,stop_loss
+2026-08-25 18:30:05,HALT,,,,,,,daily_max_loss hit: -$7.02
+2026-08-25 18:36:12,SKIP,EYqtxMqXu1Lz4d8mbRGVj6NRQRb7uVwYePmFhqMHpump,OPR,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 18:37:21,SKIP,EpgfXxNFY7YqnLxqMein4522ozeg3VABMsdEutojpump,GTA6,,,,,liquidity_too_low (13 < 1500)
+2026-08-25 18:38:29,BUY,2j8ic8jVznyZF9PNvSSyoB2iEvL8L4urHUGgxyNupump,frog,0.00004122,5.00,0.0010,,needs 1.067x to exit profitably
+2026-08-25 18:39:04,SELL,2j8ic8jVznyZF9PNvSSyoB2iEvL8L4urHUGgxyNupump,frog,0.00003388,4.00,0.0010,-0.8922,stop_loss
+2026-08-25 18:39:57,BUY,8wpWpXtXgiGqRYERWa4Ns3Ydu8mzu2u18sqqHsJCpump,Choad,0.00003477,5.00,0.0010,,needs 1.067x to exit profitably
+2026-08-25 18:40:23,SELL,8wpWpXtXgiGqRYERWa4Ns3Ydu8mzu2u18sqqHsJCpump,Choad,0.00003413,4.38,0.0010,-0.0944,stop_loss
+2026-08-25 18:41:23,BUY,yAD4TFqijrq532amJwinG3zYXRRUipuf2YACvVWpump,DOLLY,0.00053180,5.00,0.0010,,needs 1.067x to exit profitably
+2026-08-25 18:41:42,SKIP,GyxH9VDZCpWsnUWTLF1n16fhSj1drR7xcgKuGUh7pump,PISTACHIO,,,,,"buy_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:41:51,ERROR,yAD4TFqijrq532amJwinG3zYXRRUipuf2YACvVWpump,DOLLY,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:41:56,SELL,yAD4TFqijrq532amJwinG3zYXRRUipuf2YACvVWpump,DOLLY,0.00058068,5.37,0.0010,0.4576,take_profit
+2026-08-25 18:42:37,BUY,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,0.00003893,5.00,0.0010,,needs 1.067x to exit profitably
+2026-08-25 18:43:11,ERROR,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:43:14,ERROR,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:43:24,SKIP,2pbt7zwqugqj1WzDL7pgpHBPvqhSrjxJkik3f6Fspump,Waddles,,,,,"buy_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:43:27,ERROR,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:43:30,ERROR,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:43:45,SELL,G2gXUNgVVXxNr5drzhvZFdFEd458zMcfWYtAb2uCpump,KIMIK3DEV,0.00004217,5.90,0.0010,0.4134,take_profit
+2026-08-25 18:45:01,BUY,AUGWmwRfFiU1xuz45ftpPmQ1b27esLNAcBZWCiUYpump,MEEMERS,0.00005886,5.00,0.0010,,needs 1.067x to exit profitably
+2026-08-25 18:48:22,BUY,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,0.00004423,0.50,0.0010,,needs 1.175x to exit profitably
+2026-08-25 18:49:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:49:56,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:50:05,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:50:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:50:12,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:50:15,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 18:50:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:50:21,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:50:25,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: Jupiter could not build a swap: Insufficient funds
+2026-08-25 18:50:28,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: 429 Client Error: Too Many Requests for url: https://api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112
+2026-08-25 18:50:37,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:50:41,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:17,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:20,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:23,SKIP,6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN,TRUMP,,,,,balance_too_low
+2026-08-25 18:52:23,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:26,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:30,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:33,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:36,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:46,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:49,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:52:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:02,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:05,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:11,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:14,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:17,SKIP,6niGCFrDGGQRkYueLNR5mvD9B7yc2mwcTCeR9Nkhpump,PNUTS,,,,,balance_too_low
+2026-08-25 18:53:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:30,SKIP,45FasWFrF3a7as8jRLKm863rbQpNuaxTJAPV6rkUpump,PNUTS,,,,,balance_too_low
+2026-08-25 18:53:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:43,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:46,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:49,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:53:59,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:02,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:05,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:11,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:15,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:18,SKIP,GirbBonpNJd4ff57iY7hPNNHzPnx3x1QPoGqggLMpump,VYV,,,,,liquidity_too_low (11 < 1500)
+2026-08-25 18:54:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:21,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:24,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:27,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:31,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:34,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:37,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:40,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:43,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:47,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:50,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:53,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:56,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:54:59,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:35,SKIP,37u67EJNRM4JYZmYjk1BJdqze2JXcKMW22sRQwRUpump,CYBERLEEK,,,,,balance_too_low
+2026-08-25 18:56:35,SKIP,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,USDC,,,,,authority_not_renounced
+2026-08-25 18:56:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:45,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:48,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:51,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:56:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:01,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:04,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:20,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:23,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:26,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:29,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:32,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:36,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:45,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:48,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:57:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:01,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:04,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:11,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:14,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:17,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:20,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:24,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:27,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:30,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:33,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:36,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:43,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:46,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:49,SKIP,E81JQEFASt1yZr88LV7zezQgXU6iWhCxJ9DuoQjrpump,BLESSYOU,,,,,liquidity_too_low (4 < 1500)
+2026-08-25 18:58:49,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:58:59,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:02,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:05,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:11,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:15,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:21,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:24,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:27,SKIP,dBKi98HCy89uiRBnDC6BGD8A46jS2tK8D3xoZ4Qpump,FTFS,,,,,balance_too_low
+2026-08-25 18:59:28,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:31,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:34,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:37,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:40,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:43,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:47,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:50,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:53,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:56,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 18:59:59,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:03,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:06,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:09,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:12,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:15,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:22,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:25,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:28,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:31,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:34,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:38,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:41,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:44,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:47,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:50,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:54,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:00:57,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:00,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:03,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:06,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:10,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:13,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:16,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:19,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:22,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:25,SKIP,BEWmW1qjBz7h8t9mbWCSdEFPeFmgwvchDQ5bCPfWpump,MARTIAN,,,,,balance_too_low
+2026-08-25 19:01:26,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:29,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:32,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:35,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:38,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:45,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:48,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:51,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:54,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:01:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:01,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:04,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:07,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:10,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:14,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:17,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:18,ERROR,ihg5LeV8NRDzLSoRUxfrhiFvt4R21Ha3hE8Ysvapump,Minecraft,,,,,"sell_failed: Jupiter could not build a swap: {'code': 429, 'message': '[API Gateway] Too many requests'}"
+2026-08-25 19:02:20,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:23,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:29,SELL,ihg5LeV8NRDzLSoRUxfrhiFvt4R21Ha3hE8Ysvapump,Minecraft,0.00000170,0.05,0.0010,-7.9731,stop_loss
+2026-08-25 19:02:29,HALT,,,,,,,daily_max_loss hit: -$7.97
+2026-08-25 19:02:32,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:36,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:45,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:48,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:02:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:01,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:04,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:07,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:23,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:26,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:29,SKIP,DaqX9cibfm3uFJP2a7Qpgr2BCh2iiLsNhihy8uh9pump,Bold,,,,,balance_too_low
+2026-08-25 19:03:30,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:33,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:36,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:39,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:42,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:46,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:49,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:52,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:55,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:03:58,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:02,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:05,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:08,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:11,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:14,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:18,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:21,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:24,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:28,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:31,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:34,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:37,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:40,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:44,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:47,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:50,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:53,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:04:56,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:05:00,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:05:03,ERROR,2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump,Cato,,,,,sell_failed: No on-chain balance found for 2gbZosc5iFgreVFEkh4frGkRA1XEU3LAF5Sot3YXpump
+2026-08-25 19:06:58,SKIP,i9q8ow33FBKRpvEZtpRzXSW1UvmYtfrj8bqKynUpump,MEEMERS,,,,,concentration_risk (81.5% > 40.0%)
+2026-08-25 19:07:32,SKIP,D39tFFWeCLbUvT8BU2419CcLpyVxA2bJtdF1Cvtepump,Retriever,,,,,liquidity_too_low (21 < 1500)
+2026-08-25 19:07:53,SKIP,BbF6bnegMqFfEA9yuwBeDWgoWPnL82rtQRiBLUKApump,Catacio,,,,,concentration_risk (48.5% > 40.0%)
+2026-08-25 19:08:23,SKIP,4fSxCKc91ELQYVdv3tmHW8R15KoALPwEngyoQe1Xpump,Nitter,,,,,organic_score_too_low (low)
+2026-08-25 19:08:56,SKIP,hg8wHZUmSr8kh1Tz4szdtdnN19roC9fzUp2ZFjUpump,FTFS,,,,,concentration_risk (99.3% > 40.0%)
+2026-08-25 19:11:35,SKIP,67BbxXCKN65KEqpPxhoLd6CLF1xtWx4f1qobyfsqpump,claude,,,,,concentration_risk (93.9% > 40.0%)
+2026-08-25 19:12:50,SKIP,CSyLNtxqSzqX3Jpe3v6b3FpiRYqYNDYnF8wHWEVHpump,FoMo?,,,,,concentration_risk (77.1% > 40.0%)
+2026-08-25 19:14:40,SKIP,Hu2i4ancwtHDk8FMhzqbeKFxmtY1wWTEP8HNYdBepump,MACK,,,,,organic_score_too_low (low)
+2026-08-25 19:17:10,SKIP,3VM66QnUh298jTGeukqZWH9suLtJztj8L5EUgrG7pump,Bold,,,,,concentration_risk (65.4% > 40.0%)
+2026-08-25 19:19:23,SKIP,59oHqL4isuwUX7mZH1QNykHsX8wndmVXB63ArBQXpump,Froovik,,,,,organic_score_too_low (low)
+2026-08-25 19:22:52,SKIP,zd3gzP2bNz34hkQVhRpkkLQ6c5bshV4HGXPcKXcpump,USMS,,,,,concentration_risk (96.4% > 40.0%)
+2026-08-25 19:32:12,SKIP,6LBntpeyjNhz1jKH1wjVNCGjfpZcEPvTi7UzE6Vspump,Pistacio,,,,,concentration_risk (98.5% > 40.0%)
+2026-08-25 19:33:09,SKIP,Hn9xsmR4UvUo5fxa2HpUSqbDstZkun6Uudsw6TpXpump,Pump,,,,,liquidity_too_low (22 < 1500)
+2026-08-25 19:33:21,SKIP,2Fr5NC5sMksbP21AqhnrwzYn2htbdeiaJeAPctAwpump,Grizzle,,,,,organic_score_too_low (low)
+2026-08-25 19:34:03,SKIP,ViNeuweAgFbkzeH73Ac7cREWpZKTSWL9KvwtFhLpump,FTFS,,,,,concentration_risk (99.3% > 40.0%)
+2026-08-25 19:34:48,SKIP,DtmhVeUz8cujyKHcNedXxsH86HU97hQ6xqnCigNqpump,Hound,,,,,liquidity_too_low (12 < 1500)
+2026-08-25 19:34:51,SKIP,7Lsb1Tdw1GkFDzN13eqqMcKgB3MX4H3MPAWxf2u7pump,GOLDBULL,,,,,concentration_risk (98.5% > 40.0%)
+2026-08-25 19:35:16,SKIP,WumydogCmSwBRuDQ2hJe3KqPoY7Keg8tT5SP17h8use,muse,,,,,organic_score_too_low (low)
+2026-08-25 19:42:26,SKIP,HepBDAaqT9cs9kFokrQkz5ids2cMUAjgftGNZeP5pump,Munkie,,,,,serial_dev (67 prior mints)
+2026-08-25 19:43:36,SKIP,7KDuERhNV1tDqeuAP5j6ook2bc1Xzy2JaxcU8cwepump,Artcoin,,,,,organic_score_too_low (low)
+2026-08-25 19:44:06,SKIP,ECLDS9hrEws6pGLpW8JhYJMpHvawaxJG71ae8oE6pump,PEPSTACIO,,,,,concentration_risk (85.1% > 40.0%)
+2026-08-25 19:44:33,SKIP,GAkLxpAJpLGCTmiMnE4uYjrD9yMedhs8nR9nqzYGpump,Opossum,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 19:45:06,SKIP,38nVTbKcZMGjHrdbuWYyoGYxN5UC7gTyDLWLFHbgpump,BLACOM,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 19:52:25,SKIP,6JXVQZYdAfHupjKUXFNgnZWSiw4MBVnz3MKNqvW3pump,Sue,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 19:54:25,SKIP,7QzNQneJiQTxPdEMJ76Zjwc8JbTZJ5RXkggYH6ajpump,MANGOL,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 20:01:35,SKIP,MOCK00001,TKN1,,,,,organic_score_too_low (57 < 60)
+2026-08-25 20:01:35,SKIP,MOCK00002,TKN2,,,,,too_few_holders (40 < 50)
+2026-08-25 20:01:41,SKIP,MOCK00003,TKN3,,,,,liquidity_too_low (4693 < 5000)
+2026-08-25 20:01:44,SKIP,MOCK00004,TKN4,,,,,lp_not_locked
+2026-08-25 20:05:57,SKIP,FrpXBz1JUvfA4dHcKeMMCsvjkgrPcWD5bpG9EMnypump,PCAT,,,,,liquidity_too_low (104 < 1500)
+2026-08-25 20:22:00,SKIP,CcqbhSr4cUcFkHDyd4omiLnYaeBd3ny3GctPiAeQpump,MEEMERS,,,,,concentration_risk (82.2% > 40.0%)
+2026-08-25 20:22:12,SKIP,AjSXgwtqKmJ7r4e4DsfTu8xS4ytrHigXhxfLtAwpump,Pistacio,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-25 20:22:36,SKIP,4XPpx8eqmskfJSDGuP8BA3NQKM4Dy6bWmHGxkECTpump,NUCROC,,,,,liquidity_too_low (9 < 1500)
+2026-08-25 20:23:06,SKIP,BQMZsjE9QpgCgTogzaX9BTPPg4ggdqsw75GjgMAFpump,$BROKE,,,,,liquidity_too_low (10 < 1500)
+2026-08-25 20:23:42,SKIP,3oXS3fySUBHjanN3EAPb7Mf5tSYoEb9P64EFjNbGpump,BABYPISTACIO,,,,,concentration_risk (83.7% > 40.0%)
+2026-08-25 20:24:09,SKIP,5JJudRuN6s3TUXYQzqvjCMK7mdG38EcqTSth4wR3pump,Pepe,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 20:25:16,SKIP,57DXSP9XdpzJPDz6dXJZr6jiQVTXwprEQ5xXPQgupump,BSD,,,,,liquidity_too_low (21 < 1500)
+2026-08-25 20:29:45,SKIP,4ueCFuRsEvsNXJmDPgpwfurXkN8vVKzmGMT25qRopump,SEET,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:29:57,SKIP,8mhAcw3CTVTZZo5vEurvU4epk52L5eq3HQj5FTmHpump,KAVONISM,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 20:32:39,SKIP,BpGwtyJKsmS31jsiSPkhMEjwA1uY22U4b8YjFMAXpump,UNHSPE,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 20:33:34,SKIP,FGFFx36WLh91MyBEk6ga8FWC8QB6neGHXz8z6qHNpump,WouldPist,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:35:31,SKIP,WtSynjt1ito2qawffVKDprr2CsqXAeUeHGu8yJ3pump,PORNHUB,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-25 20:36:13,SKIP,jZVvHjpguAMXPGbJXrMPcYg6fz3AmUcKfppMdi8pump,The 1,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 20:36:46,SKIP,LJnj2ir8M5R7HmGYXtBtJjMWaqr7TKe6jtzmUYdpump,Wukong,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:41:25,SKIP,Ayvtu3F59VToBAqWT1w3aRsTzL82XZAzzxbvBB1Qpump,TRENCHER,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 20:41:37,SKIP,AZoyhjpTwLfYWuVXatjsfcrRuGCDzzbhPDXGCcepump,RST,,,,,concentration_risk (96.6% > 40.0%)
+2026-08-25 20:42:02,SKIP,3N5imznFARN7MYo5cpv8mMCfPwsC769S9sYMbrcUpump,MEEMERS,,,,,concentration_risk (81.8% > 40.0%)
+2026-08-25 20:42:41,SKIP,A4NqZz6i3GjJLX2zvuphti13F3bW8aFy5bCiKdaTpump,MORGAN,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:43:11,SKIP,G5osLvwanxbmgakWfCeezJ4sgJQXKqhPiSNC26CSpump,Honk,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 20:43:41,SKIP,KeWYazjDvEje7y23XxW5dhYzYQj1Uw5iZ3B2Jfzpump,Basecat,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 20:43:56,SKIP,CSZnMhi3MLu5Z2W3unxgMjZM4usKC7eNspXiZfgQpump,Catetacio,,,,,concentration_risk (87.9% > 40.0%)
+2026-08-25 20:44:17,SKIP,6wPXieChtzdCMfQdV6E2pPdMoqbMaHUpE9xTfDX8pump,Pistacio,,,,,concentration_risk (98.2% > 40.0%)
+2026-08-25 20:49:36,SKIP,39s3sWDScsfR5RLxV5npiL8CK4XDbRFDHx2CswEwpump,Breeze,,,,,too_few_holders (13 < 15)
+2026-08-25 20:50:00,SKIP,FibGE6wNAVXa4XuM7EthHGv95tRPQuNVFDzcVQzApump,POG,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:52:28,SKIP,7WeBCnFvRvbby3Mthh646r2Z2VBvbMbqvC148GQcpump,UNLUCKY,,,,,concentration_risk (74.8% > 40.0%)
+2026-08-25 20:53:31,SKIP,FApBJVcTHh7kNtf79NK7H77bjmZwBDABibWVV7Y3pump,Chud,,,,,liquidity_too_low (4 < 1500)
+2026-08-25 20:57:38,SKIP,SrP9VjbTMQEEDWNSXYhJGj4i6iUsujc1CdJc8aGpump,USWS,,,,,concentration_risk (98.9% > 40.0%)
+2026-08-25 20:58:41,SKIP,GKNh9wTbc6YsP4PKWaBUpFYJpyvvCZaLCX4Q71eSpump,Larpy,,,,,organic_score_too_low (0 < 35)
+2026-08-25 20:59:20,SKIP,vEnWDhrgLFbpXVQafSTXY6e4tmQwJyZyXQz2S7fpump,WOFI,,,,,concentration_risk (98.9% > 40.0%)
+2026-08-25 21:00:44,SKIP,DMdGh5hDXBmgsBSHB8yy7QyPzEazAFpWsZCVYdE2pump,FART,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 21:01:50,SKIP,9SnPNeZJ8iCHK7kLMgw2coLVzHDoMmrocM3f7jQppump,SOURCE,,,,,organic_score_too_low (0 < 35)
+2026-08-25 21:03:14,SKIP,RDMwNtSV1b92bLHYEKUo5jaazAq94EKvdZU5dm4pump,Bully,,,,,organic_score_too_low (0 < 35)
+2026-08-25 21:04:51,SKIP,HyxHtmAnp5PmKRDuyr3gxJpPaFkLCJpXrd8FXFmapump,berry,,,,,serial_dev (472 prior mints)
+2026-08-25 21:35:56,SKIP,FBwiMSXSk6xeLtG973AvNjMB5YA6sNUTfnRK7ZMWpump,Pistacio,,,,,concentration_risk (97.4% > 40.0%)
+2026-08-25 21:36:14,SKIP,fBP7QuiFWS1nRNUYqVk1xD6LQD5K8DMw4mKNCxupump,Amazon,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-25 21:46:25,SKIP,aAusLt3LivQAmeLBjiMHJ9vJsHEKm2wWAZGtkb5pump,WWR,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-25 21:48:56,SKIP,Gd8QK9UdPrUYFipdHxLom7fAMRCxwdw6qbX83DSEpump,MRSCATE,,,,,serial_dev (1939 prior mints)
+2026-08-25 21:49:17,SKIP,9FMdivtbC9yRx2e8rfH93cm5AFbygErjuvGWnLi4pump,1738,,,,,liquidity_too_low (5 < 1500)
+2026-08-25 21:49:20,SKIP,aMcuWZ6oZ9bkkqTBpHaxBX6sbBaFnie2K2HPcSrpump,Amazon,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-25 21:52:05,SKIP,GxydJbp1fKYto8i9NZXYCpS8sRGHSFHi5YRzXKVXpump,TOXCOM,,,,,liquidity_too_low (35 < 1500)
+2026-08-25 21:52:20,SKIP,2FZjoWKuAZB2gyTwUSSGiDN1GVtydZ2T2smkCReJpump,BADGER,,,,,concentration_risk (43.0% > 40.0%)
+2026-08-25 21:53:36,SKIP,JE6quy5XC6ntPYwLYBn2Euo6KSQCTc1Nfp1wzmw3pump,BRUN🐂,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 21:54:21,SKIP,8cx1efMNgU2N7nNqc2fhsNZPikKL7iALii6YQWPpump,SpaceCat,,,,,concentration_risk (94.2% > 40.0%)
+2026-08-25 21:55:33,SKIP,Es839SES3KcZYoJ6zEuVCQhaXQcd4XvkqouZuRbMpump,SEYONG,,,,,concentration_risk (98.0% > 40.0%)
+2026-08-25 21:57:54,SKIP,Hq9ZiZcpGrD8tSpCMmd2w2yuEfHmkh4YKELWgbjZpump,Morty,,,,,organic_score_too_low (31 < 35)
+2026-08-25 21:58:47,BUY,161FPsYkSaSAbV9YdRjKQiagwmPf9atrvgtGppspump,CYBERBANK,0.00002769,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 21:58:50,SKIP,6b1E74QoQPntkpukQC19L97T1gYMxbo9sMcupi7fpump,MGTS3,,,,,liquidity_too_low (1 < 1500)
+2026-08-25 21:59:03,SKIP,2WbTSrJHr1hNCtmYBjuSetZNdsZWZ2eZTuK9GjNPpump,Pistacia,,,,,concentration_risk (85.9% > 40.0%)
+2026-08-25 21:59:13,SELL,161FPsYkSaSAbV9YdRjKQiagwmPf9atrvgtGppspump,CYBERBANK,0.00003153,2.22,0.0010,0.2759,take_profit
+2026-08-25 22:00:02,SKIP,7gxS5hbCdMdjxMCSBKrct3hKfTDEgrgdRDdGzRdhpump,ELX,,,,,concentration_risk (57.8% > 40.0%)
+2026-08-25 22:01:37,SKIP,BcTabpWKKshweRyYVDDD49TTmDxGQkFVzr8MnvBNpump,CLUB,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 22:02:55,SKIP,F85kUKL1zGmx9mHpMashwQ6GrNxxkwaZRrqiMmcupump,BITCATE,,,,,liquidity_too_low (1 < 1500)
+2026-08-25 22:03:02,SKIP,AFf278av4oRQicFnpeGHFvcXqjmfNac3XaVyVZAhpump,quant,,,,,serial_dev (219 prior mints)
+2026-08-25 22:06:05,SKIP,CBNVr9d58jqiZP5FtFZig9BvZKuMiuf5JwGK74MWc998,fih,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-25 22:07:53,SKIP,dftE1PdDv6eLGwzC2kybtsChb6AgVu1e2o7D9x9pump,Amazon,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-25 22:08:03,SKIP,6kxbZeE2wjprtMgW276j6Jq1ZD2jzbacPhuynvGcpump,CURINF,,,,,liquidity_too_low (10 < 1500)
+2026-08-25 22:08:51,SKIP,FLs6QpKbLCV5W2zG7sVHDqWPF6fQtTV8Fv6Ppan3pump,TG,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 22:08:51,SKIP,8cJbndfYfbWibJoJg1WgHVMsGZibAESpRpA3cYeapump,CYBERLEEK,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-25 22:09:30,SKIP,Aoc1CnKBD1XmYRr9j7jkXYL7QXQzVF36igsfL7Rvpump,LOAF,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 22:11:51,SKIP,8LzrcarfYaATMtcZcvTYybq1JF5tHSAXTQi9xTihpump,FATCAT,,,,,liquidity_too_low (10 < 1500)
+2026-08-25 22:12:25,SKIP,5g2qeJGCUcc91YsxS34yqjUDvS7jXcZWd6jCpJt1pump,EWARN,,,,,concentration_risk (71.1% > 40.0%)
+2026-08-25 22:12:37,SKIP,CrJC3T5pPneEoSzyg34noD7NzX1XR7ShQxspzypapump,Rizzdian,,,,,serial_dev (4495 prior mints)
+2026-08-25 22:14:43,SKIP,46Z2fe8DNhhKPFdDCk2pjCA9Wq8Fvk12JjjmETf1pump,Geiger,,,,,concentration_risk (48.2% > 40.0%)
+2026-08-25 22:18:59,SKIP,Hxx9cgjudFcAoeqKC9XRcAw6r9AY7bzbdxqEiBV2pump,PUNCH,,,,,liquidity_too_low (8 < 1500)
+2026-08-25 22:20:59,SKIP,85iJBWiKwuuU7qTPWFVKxskpATv2uX7vjMSruq9vpump,ELX,,,,,concentration_risk (65.2% > 40.0%)
+2026-08-25 22:21:51,SKIP,wraeuVRXjp5YibVC7zRY6xMjz35GrZnQttqSJAgpump,fish,,,,,serial_dev (39 prior mints)
+2026-08-25 22:22:03,SKIP,F9fQT57ZQrAidqcsAC75boFF8EbWH4vKbqY1v4Enpump,AI,,,,,liquidity_too_low (5 < 1500)
+2026-08-25 22:22:03,SKIP,5MrW8JuudQo1MBuRuBYxz8jaE1CwPE6xc13qjeRJpump,CYBERLEEK,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-25 22:23:12,SKIP,CBd2Ric82VNa7uZ9w57fSuk5i9AzuyYHzyU9jhmApump,SUPERSLOP,,,,,liquidity_too_low (6 < 1500)
+2026-08-25 22:25:01,SKIP,FZ74gJYDm3juwt7rM9ibzxTjfFwjn8ovF5QERRkNpump,BEAST,,,,,concentration_risk (93.9% > 40.0%)
+2026-08-25 22:29:02,SKIP,3UHb2Cx83aNiC2XLaQmZbPvniio8LqDCZLXApu6Fpump,Martians,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 22:29:50,SKIP,9e4UQ9wGGqTkwkf4yaBS68efqw9kFJcUKRzcBrspump,fih,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-25 22:31:20,SKIP,8CnbsW1FSPYVeKG2Fu5meVWapaR84nh4H9TKD6bypump,PEPEDOG,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 22:31:26,SKIP,mR6Aa9usScq4C69rhD2R2S7dLPfhVMAqRKjTdM1pump,NIGO,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 22:32:17,SKIP,F1U9oud5PT4NYy8k9ix4nJnJhuhTaEbW9gBULKJ3pump,Froovik,,,,,concentration_risk (72.8% > 40.0%)
+2026-08-25 22:32:33,SKIP,4EbBNyUG3F2KNHxPJtT8XQs8ESLqWbjYHJzTNqAWpump,doechii,,,,,concentration_risk (81.4% > 40.0%)
+2026-08-25 22:32:48,SKIP,5MiFfYLtj9B7g5CqVCVqd27gspFdyWEUuDkNXg8wpump,tscatbraz,,,,,liquidity_too_low (0 < 1500)
+2026-08-25 22:34:48,SKIP,BB2acqudCdUpBetgtiKULY83EsQXjAjpYEwXHiwXpump,fish,,,,,concentration_risk (98.5% > 40.0%)
+2026-08-25 22:35:45,SKIP,4UiT8o7FTGWAk8A8jhzEaAqKm3kkK4Wc5Rypo2XLpump,NAAAY,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 22:35:57,SKIP,u7DQzoNSS477TqCVg5ZBtJgrEi1KLXfd59s8CbKpump,Minecraft,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-25 22:36:36,SKIP,3rimNymdxFnAPzauZj9Q5JqcV9Bxm4oms7GWnVTBpump,WWR,,,,,concentration_risk (99.1% > 40.0%)
+2026-08-25 22:37:31,SKIP,Ctx8jmoeUnv54TUBf5RBt4W5ar4dapYZDcxUKdccpump,TINY,,,,,concentration_risk (95.6% > 40.0%)
+2026-08-25 22:37:46,SKIP,Fht82sWn9BzsUCSTpU8hAtNrfybfGDhhBn8oZs3Dpump,MAVENSBOT,,,,,organic_score_too_low (30 < 35)
+2026-08-25 22:39:37,SKIP,28L83MKgUUG5FtZyxLpXpM5k7UZnrjCAoPBQMejMpump,dog,,,,,serial_dev (173 prior mints)
+2026-08-25 22:42:39,BUY,DUsxzGppjqvSeYkvNVYW1SGxkxnaAt43FNxuQRLfpump,eˣ,0.00003890,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 22:42:52,SKIP,4fMLUXWo3F74ZtrZioeYtyEaUHKSEnyyzu7yjcKipump,doechii,,,,,concentration_risk (84.3% > 40.0%)
+2026-08-25 22:42:55,SKIP,EgCMT7PDxSnxnggdH9x6bs9x9MZg4JD8Q85hVymtpump,SIRIwahter,,,,,liquidity_too_low (6 < 1500)
+2026-08-25 22:44:01,SELL,DUsxzGppjqvSeYkvNVYW1SGxkxnaAt43FNxuQRLfpump,eˣ,0.00003583,1.77,0.0010,-0.1599,stop_loss
+2026-08-25 22:44:04,SKIP,DJJDYFpCZYaRA69Wmk4EdzbZQwMiBurfJFCerft1pump,$CLOWN,,,,,liquidity_too_low (5 < 1500)
+2026-08-25 22:49:44,SKIP,7jZGwsMyRWymBoinRT8iEB4rRv3uvp7zU97YEBF2pump,DOOPIR,,,,,liquidity_too_low (8 < 1500)
+2026-08-25 22:49:59,SKIP,GkiTPULh3uyaupLP8TiGXzeRGWZbLXHNjDMr7zdypump,Please,,,,,serial_dev (23 prior mints)
+2026-08-25 22:52:15,SKIP,6XicMtSu2Q1y29iyVqD2Z2Xc9WiwiKWaG3RvBd9Wpump,USTF,,,,,concentration_risk (98.9% > 40.0%)
+2026-08-25 22:52:51,SKIP,GqTNZQpeUdgXoeGFHqfWg33BWUwrF7zRJKFbPQvupump,point,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 22:53:06,SKIP,8XHE3K3NH35KxjLc4P1VF9vrYTutE8N1aqcj3APnpump,KIT,,,,,serial_dev (127 prior mints)
+2026-08-25 22:54:03,SKIP,5Uf93yywANj2AWS7kxauFWJ2QSwW9MTaUCPa3ooipump,DCA,,,,,serial_dev (35 prior mints)
+2026-08-25 22:55:04,SKIP,27Zcv2SPwT8mi6P7GHxvLuu24iT1R8c3DG7rcS3Lpump,PistaNGMI,,,,,concentration_risk (71.4% > 40.0%)
+2026-08-25 22:56:46,SKIP,6nJ6PNB4Uj1xvWMsh3oAH5vyeZzXKcXUvZsLfP1cpump,BLAPIL,,,,,liquidity_too_low (4 < 1500)
+2026-08-25 22:58:19,SKIP,99BW4pYn4rszvSGNpvSUD65H6Sn77vJRVfpJsan6pump,CYBERLEEK,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-25 23:04:05,SKIP,DPxk9o57vZPpSBHrTF1DaTWMV6vziQq3zN36EY8kpump,RATMAN,,,,,concentration_risk (81.8% > 40.0%)
+2026-08-25 23:05:17,SKIP,DckYpts3STaL5mQMFbnarBj5TuVZqzPynMKqGdCgpump,DOG,,,,,serial_dev (476 prior mints)
+2026-08-25 23:06:24,SKIP,H4RAafMB9BApq4DdfXBa9vNc9pfwai7FbhnfMJB8pump,NEEGON,,,,,concentration_risk (60.6% > 40.0%)
+2026-08-25 23:08:33,SKIP,E5KngUiGfDs83yD454snYtADVgat35xPKhoobBHepump,DOG,,,,,liquidity_too_low (14 < 1500)
+2026-08-25 23:10:12,SKIP,BAJQGf4PJfHCyTAzyfn7Khp7okVSkNmPD3QWqC4Spump,HIMALIA,,,,,concentration_risk (70.0% > 40.0%)
+2026-08-25 23:10:25,SKIP,az2yZsaaU53CRYEVk4P4GmdVe2gQqzG5NANstHUpump,fish,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-25 23:11:24,BUY,6ytaGf1bLHuZeyBU57R9fHJZhWVY9VHNGdrUJfB5pump,FFPS,0.00003698,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 23:11:53,SELL,6ytaGf1bLHuZeyBU57R9fHJZhWVY9VHNGdrUJfB5pump,FFPS,0.00004053,2.46,0.0010,0.1901,take_profit
+2026-08-25 23:13:24,SKIP,G9r45pUxKAJ9rdeTU1upLP3qdMiFUwUpN8PpXYfWpump,USOpen,,,,,liquidity_too_low (117 < 1500)
+2026-08-25 23:14:24,SKIP,52UYiv1djyQkVDzpzPjeEznBK36kMinwxBqdz5Jmpump,Marcos,,,,,serial_dev (173 prior mints)
+2026-08-25 23:14:24,SKIP,A7yNi54BQ2rVuRyy6p6Tnxpu5JWzHzWoy9aTuZiupump,Solana,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 23:15:30,SKIP,E4wW63BGz2u5kGAdbkfYNC7vxrkgnaKKg5ZGB2S4pump,BA JAJA,,,,,liquidity_too_low (8 < 1500)
+2026-08-25 23:16:24,SKIP,w5mPVn573DUtGL4MRXesZuFezL8qKqCFsfSm7Yxpump,CRIBAN,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 23:19:25,SKIP,6ZpvRHkHrYXxHxqEb4DNoaJW5G5fEknRjbrY9tc1pump,Turtle,,,,,serial_dev (101 prior mints)
+2026-08-25 23:20:19,SKIP,8GB6MhYXzu2VEVMxbUq6REAmHowmYXwdoUUdSrSKpump,NEEGON,,,,,concentration_risk (62.4% > 40.0%)
+2026-08-25 23:22:03,BUY,3YVwvY2ysuAe9B7bJbcuBFGy7tJnZNUdwk9pA18ipump,WUF,0.00005532,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 23:22:37,SKIP,8mWTrp2SmcuHiuvt4YsVHM7mDGYBnM1XyURuGyjapump,fih,,,,,concentration_risk (98.8% > 40.0%)
+2026-08-25 23:22:39,SELL,3YVwvY2ysuAe9B7bJbcuBFGy7tJnZNUdwk9pA18ipump,WUF,0.00006956,2.33,0.0010,0.5128,take_profit
+2026-08-25 23:26:12,SKIP,GxmYLRpBN1WM9UZWkwEuCrrmXZSgYSyN5iVAnYB9pump,send,,,,,serial_dev (51 prior mints)
+2026-08-25 23:30:01,SKIP,9stWL9bTfxuPQmKPF4XyKgbBLDTjdSSj9TD7yKumpump,fih,,,,,concentration_risk (98.9% > 40.0%)
+2026-08-25 23:30:19,SKIP,6r5Ygq3dd1fZcf1h3wQ4wq9hVYKqSFvWnfCuHCspump,BLACKBEAR,,,,,concentration_risk (94.5% > 40.0%)
+2026-08-25 23:30:43,SKIP,71kKSkaX1gX5nKPV9eQNWLkJmVjLnCgGW12yTYPDpump,DONA,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 23:30:48,BUY,AEeYTijohQT1XejCCLs3Ms3eoVgzRZ2fVZZyCzxepump,ThreeUI,0.00003965,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 23:30:52,ERROR,AEeYTijohQT1XejCCLs3Ms3eoVgzRZ2fVZZyCzxepump,ThreeUI,,,,,position_lost: No on-chain balance found for AEeYTijohQT1XejCCLs3Ms3eoVgzRZ2fVZZyCzxepump
+2026-08-25 23:31:25,SKIP,DFWHL5texPH2PJxovbi1TK9Dj8ppFbXi1tmceoTwpump,APE,,,,,liquidity_too_low (15 < 1500)
+2026-08-25 23:31:25,SKIP,FwMDCvNnb3NzM2gBvm6JVS4v1bLq4YAMFf1yeberpump,$richness,,,,,liquidity_too_low (16 < 1500)
+2026-08-25 23:34:55,SKIP,7dMEQpXuU4bv9Kvrh5ULJrFAZ61MXRLwqSHbEmpWpump,$MOOSE,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 23:35:35,SKIP,629Jy1hJnMqo76isnpw7gENbuoEwFzE8aKJVSAbcpump,章尼哥,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 23:37:49,BUY,3tgwHbthufLT2ur1zxXyZZ1qoTA2iXtb8rkXC1Wkpump,FROG,0.00002607,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-25 23:38:03,SELL,3tgwHbthufLT2ur1zxXyZZ1qoTA2iXtb8rkXC1Wkpump,FROG,0.00002745,2.18,0.0010,0.1036,take_profit
+2026-08-25 23:39:21,SKIP,ApQKD7B5gWBGEEHQm161u4XhgxZcSfdcbFEnjnRRpump,MIRIN,,,,,liquidity_too_low (5 < 1500)
+2026-08-25 23:41:51,SKIP,7PPYVN557oeatHCQN6nP4aWRUUV1VHx2J6AhMza2pump,MORRIS,,,,,concentration_risk (69.7% > 40.0%)
+2026-08-25 23:43:10,SKIP,8Q2vNpKH3jJHAkrcgBvNbNqpfTL8PTBNxksAB1s1pump,$NGY$,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 23:43:25,SKIP,BpzoLhCGhQUbHZeiCN1kB3SoJPEiqsuEiPEe9Jwapump,$richness,,,,,liquidity_too_low (2 < 1500)
+2026-08-25 23:43:34,SKIP,Va1EgN6Dy3PUR7mrx2a9mfhYtmgiCQAf5ddKQeypump,Pistacio,,,,,concentration_risk (95.1% > 40.0%)
+2026-08-25 23:43:40,SKIP,AM5J9qY9Z1mMRSKYmcRNUEjQhDXThEcDfiHB6mYtEnsM,Salem,,,,,serial_dev (3855 prior mints)
+2026-08-25 23:45:43,SKIP,3S5NYghdAX7mZSyQzqBrVvQC6MJngcSwNcCxsRznpump,fwag,,,,,concentration_risk (69.5% > 40.0%)
+2026-08-25 23:46:11,SKIP,2tRFPbFSVEr7nxnuQgSxnaWFNzEZuFzTQmXomgNTpump,Neegy,,,,,liquidity_too_low (7 < 1500)
+2026-08-25 23:52:48,SKIP,5k2yVeKQwGBzgo6Ne8GXVDq7Z2UPpzuQmubYVxiTpump,Sue,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-25 23:54:12,SKIP,n1vHUQ6Wso99fsALt1r8SRo2EnVuv9aXxZjpeY3pump,Martians,,,,,concentration_risk (94.5% > 40.0%)
+2026-08-25 23:55:00,SKIP,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,USDC,,,,,authority_not_renounced
+2026-08-25 23:56:49,SKIP,99N9rnWm574UGYTSajrkmcrZwokiayma9PJ5E6JQpump,SUI,,,,,liquidity_too_low (3 < 1500)
+2026-08-25 23:58:19,SKIP,3rfvGR6oR3SDgZA7wiu1mXkTk72a5w9XWZzUyaeMpump,UNHGRE,,,,,liquidity_too_low (4 < 1500)
+2026-08-25 23:58:28,SKIP,AsCZjwUhQRfVeHxqBNEYYERrjozNfNAGyeTqKukfpump,IBULL,,,,,liquidity_too_low (19 < 1500)
+2026-08-26 00:01:09,BUY,jYvaigGbPZ8oMMbb5Gs9dRasRQnoVqTXoEaHKGvpump,ATM,0.00003267,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-26 00:01:12,SKIP,5iaqy3Hz1v2Puo37Ha89jjUz8u7FCJQceJ8baEEpump,Dickcoin,,,,,serial_dev (122 prior mints)
+2026-08-26 00:01:19,ERROR,jYvaigGbPZ8oMMbb5Gs9dRasRQnoVqTXoEaHKGvpump,ATM,,,,,position_lost: No on-chain balance found for jYvaigGbPZ8oMMbb5Gs9dRasRQnoVqTXoEaHKGvpump
+2026-08-26 00:05:32,SKIP,tSn7NPim7yAS7r2JHWdNtQdEiqtp6581HaovoYNpump,WINFREY,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-26 00:05:50,SKIP,EGRbU6rbyhW839jmX4WRUu8HJnxq9uAntDvGeTP1pump,$CLOWN,,,,,liquidity_too_low (21 < 1500)
+2026-08-26 00:06:14,SKIP,CxktsaAvWUvWcoHyuae6iAC59JKkXN5HZpXG6XRwpump,CNDAVSUSA,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 00:06:20,SKIP,5e54t9xo79Hbwbj3ezJMQPhKPwmrYiisEhURdYwPpump,CURAGE,,,,,liquidity_too_low (10 < 1500)
+2026-08-26 00:09:14,SKIP,7GrhJjS1DqGGrHuyA33FPfn4ogLJzdGqoGLvQ82wpump,FERGOL,,,,,liquidity_too_low (67 < 1500)
+2026-08-26 00:09:36,SKIP,6PeJUg1mASWR3zwZoheTJB9zm1C1Y6zdam4spjA1pump,BATON,,,,,concentration_risk (92.7% > 40.0%)
+2026-08-26 00:12:00,SKIP,8h99rxk7LEnBM4UWXa2Js797Pn2VmmZC39WKUdgzpump,wtf,,,,,liquidity_too_low (7 < 1500)
+2026-08-26 00:12:24,SKIP,HBnHKeXLXzCrtD72USuLHDrXV7epCfEs1s6SG3hWpump,FERMON,,,,,liquidity_too_low (20 < 1500)
+2026-08-26 00:12:57,SKIP,Y4w9nX3PYBNWdwy8h8HkbajiYn3aVNM6nmKYVL5pump,PORNHUB,,,,,concentration_risk (93.9% > 40.0%)
+2026-08-26 00:14:12,SKIP,5mySqQMuKYLCDHPkUQtxEpBuai1nGYXQyKYjdjWrpump,TRUMPPISTA,,,,,concentration_risk (85.4% > 40.0%)
+2026-08-26 00:16:07,SKIP,86eYi3G7xMrL1YFKnnj253MwsXu7gUYWUQBLY68Vpump,VORATH,,,,,liquidity_too_low (14 < 1500)
+2026-08-26 00:16:43,SKIP,93Tr9fA1g1f8urE6HjPYu45oAFLWaH2StSvnj7bepump,nosis,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-26 00:17:25,SKIP,D6BY7gTmfEcNBezSSpNaRex7W6gwfcm6mEgBvkUApump,POSHI,,,,,liquidity_too_low (6 < 1500)
+2026-08-26 00:17:25,SKIP,NARjvMeUHxb7Eto4BfwXic5ubDzhpBaMYcDxeovpump,ATM,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-26 00:17:40,SKIP,xPXDWxauL9XZMhNMhi21r1ZNjdWd1MN3JAxJT8bpump,nosis,,,,,concentration_risk (93.4% > 40.0%)
+2026-08-26 00:17:49,SKIP,3HE7sJpuvshLvNMFBkboMzPVhMN3bC9gCrbAhiq4pump,NVIDIA,,,,,concentration_risk (93.7% > 40.0%)
+2026-08-26 00:17:52,SKIP,7msoWhX3uqZLsXWu1SFfbg3VVkSZfPWq6WwB56Kxpump,CringeCoin,,,,,serial_dev (8086 prior mints)
+2026-08-26 00:21:23,SKIP,2UJ8DeZiuVdGFR8226sQ8ezHWhzpbSwyAf4xQ1PPpump,TOADSTACIO,,,,,concentration_risk (84.3% > 40.0%)
+2026-08-26 00:22:20,SKIP,cYhjCtfhB2Gzfw5pcGyQNjiaAxRGFk7bYuCbrSYpump,three,,,,,concentration_risk (93.9% > 40.0%)
+2026-08-26 00:22:23,SKIP,JCSoZuwf7R9wFBCACPqcxXukYa4RGo8hxop3Pwgpump,Redbull,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-26 00:24:54,SKIP,34AnX3vhKG8GfuzbeWKA3BYF8avq2uki9ngYuTrmpump,Pistache,,,,,serial_dev (107 prior mints)
+2026-08-26 00:27:00,SKIP,GWd3w1gRgXtdJvyz82fzukiunQBZLoVAVPXhcUtnpump,SAD WHCH,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 00:29:03,SKIP,A8gT1EgeA8NHx2URFUNM9x341qA4oqecVLMHtRTppump,BEAVERS,,,,,concentration_risk (94.9% > 40.0%)
+2026-08-26 00:31:07,SKIP,EkmWJ5jTJzkNgLC6whNCYnfE3FY5c52PwsjYYX97pump,Pistacio,,,,,concentration_risk (99.7% > 40.0%)
+2026-08-26 00:32:43,SKIP,EumP1q4oc1DVcZAJ4mRBeXpbTRtvkyr8xRrLL4qApump,TRUMPPISTA,,,,,concentration_risk (87.9% > 40.0%)
+2026-08-26 00:32:49,SKIP,7ixYkK7GEL6v7ur2UjuTE5iNbcpwJBd4XKvxAyNepump,DRILLPIG,,,,,concentration_risk (94.5% > 40.0%)
+2026-08-26 00:34:50,SKIP,9k2NR76g59uAC7bNvM1JFvRCYaTt1VuceCTwAp9ipump,UNHGRE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 00:35:47,SKIP,6f8c5uqFzpDKLP8RfRuX1e5F6L6oYThgCY6dRVN2pump,DOLLY,,,,,liquidity_too_low (8 < 1500)
+2026-08-26 00:36:32,SKIP,GyXtDGbjPVLD2GcFKRiwqa4WksUprnht7F7UXuh7pump,TURRAP,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 00:36:35,SKIP,FsHszqGn5C9UGGPfTeULQYT5wswEcHwiwTp5zVTUpump,HIGHER,,,,,concentration_risk (64.4% > 40.0%)
+2026-08-26 00:38:22,BUY,3Zmci14Gi6nacGQn96DihGvFikxmCZ23A1bNEs6Gpump,MILKERS,0.00006981,2.00,0.0010,,needs 1.085x to exit profitably
+2026-08-26 00:38:39,SELL,3Zmci14Gi6nacGQn96DihGvFikxmCZ23A1bNEs6Gpump,MILKERS,0.00005587,1.70,0.0010,-0.4013,stop_loss
+2026-08-26 00:40:49,SKIP,is36h3uuKTQ9a7CB4cwUgjxNYpzd5Q1Vwvphq24pump,OpenAI,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-26 00:41:01,SKIP,3JHuHHWQ2gQbAfmD2FFijBGCV72CC1jD6TmkJYo2pump,GLIPIR,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 00:43:14,SKIP,3NxvqceoBLsY3eQWFzpZMY7Zbeedx6KUCjkMjK6Hpump,WhitePist,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03c98-1269-7384-9b8e-bd1ad5215789', 'error': 'Failed to get quotes'}"
+2026-08-26 00:44:17,SKIP,e3W48WnEJCv4NEK7KqGsXJyrc31RaGLxfzFtasYpump,LULU,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 00:45:17,SKIP,4oyzNqjXqf73rM4JhLfBJkCSHeVsEtvpueJsywucpump,DeepSeek,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-26 00:46:48,SKIP,FaMijhdUWyDTJwhpmQmsRCoUddEp1sNHXWGxFoVQpump,$TRMPD,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 00:48:54,SKIP,2EdJLaiVZt6G8N3K3VhTxifbL3JWsspgQD7sQ5eMpump,$TRMPD,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 00:49:09,SKIP,FE1j1WvHNHVugknjZgTGfKDMnmiZuQB9Q4j1Zy9Tpump,SINFUL,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 00:50:58,SKIP,3HbyG5r5SUfyTiLw5mZkzk1hMCkJfkzeEQR5kcB5pump,$FRDM,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 00:51:22,SKIP,H1XCsoU1Jyj4tajsGQ6DBzdwmrUdriDrw2gQdDFWpump,$CLOWN,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 00:52:34,SKIP,G7tWdwmeJ4XjjEjSv9jabWLEpQRJoqRWjEVBqDycpump,$CLOWN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 00:53:37,SKIP,eK5BHro482b9EyKuFcV4GcA7tHNnMVpusLPGUn3pump,USWR,,,,,concentration_risk (97.6% > 40.0%)
+2026-08-26 00:54:34,SKIP,Fy8tJajtyH3nrTb58NAuG9MXQNMyb5RG4LbFkw1xpump,$TRMPD,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 00:54:53,SKIP,xAiyrK6p9Akzf5fY8Nv8ABhddGEpbnuVp22GsfLpump,dih,,,,,concentration_risk (95.6% > 40.0%)
+2026-08-26 00:56:38,SKIP,BfHXMwoX28ox4n76tk7Xdxbk8R4H5qrafFRw1cc6pump,Coin,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03ca4-58d6-74d4-9443-ae5f7c7dee05', 'error': 'Failed to get quotes'}"
+2026-08-26 00:56:44,SKIP,5bGMWY1V9bp1wXJsHqTHdXPF8ykJyuLkNQD5tRkJpump,BLASPE,,,,,liquidity_too_low (15 < 1500)
+2026-08-26 00:57:18,SKIP,FRA4DrzMrwzBWt6RXT23o3eDJpc8nSWXxgGoAn5epump,PHNX,,,,,concentration_risk (65.4% > 40.0%)
+2026-08-26 00:57:51,SKIP,HkkFpHwpERFUkhZhLrFXMbz5J7WA1bZqSKLnP3wpump,WOFI,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 00:59:00,SKIP,132TpenAuwJZztFvy2VgpJqkfkVVdXE1GvHYzBEKpump,TNOS,,,,,concentration_risk (97.9% > 40.0%)
+2026-08-26 00:59:12,SKIP,85F6XCeFfxxsgcx23MdLHVF6dAnR14utJhACCwuBpump,MORTY,,,,,liquidity_too_low (6 < 1500)
+2026-08-26 00:59:57,SKIP,aYKxGPPWEJoXz6NScZw5WCRpjwz8DKL8iifKVwGpump,wsol,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 01:04:43,SKIP,SDHRvozCtqDBvjjrEr6KYKb6aG9T2PUr3U3rgvVpump,NTDA,,,,,concentration_risk (97.6% > 40.0%)
+2026-08-26 01:07:13,SKIP,Csy95cpbog42EwtTMbj5LXoEgjP2oPj5Xq3aAFT2pump,CYN,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 01:09:08,SKIP,wFmsXPAi67huR35aRCYCztCBBeT49TJjRU2hZKzpump,mug,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 01:09:53,SKIP,4fVk7cC54k5TUhU927se6TxFnWgiQ4gV3692EkPspump,rolex,,,,,liquidity_too_low (44 < 1500)
+2026-08-26 01:10:38,SKIP,ERbqmhiwvNwnx9g7Y9YYb3ivWbjauqsp1n9qaTyGpump,WWNUA,,,,,serial_dev (3871 prior mints)
+2026-08-26 01:11:29,SKIP,H9U4ciU8RQkg5JvqpkDwFyN5MU2fN34G2zDmSxozpump,PHNX,,,,,concentration_risk (63.6% > 40.0%)
+2026-08-26 01:11:54,SKIP,BGhvLBCG7G3RsoDiMsA1NxPwo8r7DjBnB7sTsZKYpump,Dogtasio,,,,,concentration_risk (71.6% > 40.0%)
+2026-08-26 01:14:03,SKIP,CXPN9eerHYS3A4kLLguvAnbkBfJutfGWoduhJAUSpump,RoundHead,,,,,serial_dev (925 prior mints)
+2026-08-26 01:14:33,SKIP,wwzB1h7EWa3jDmV3n2C7rp6tmHTqYABLXTXwgunpump,WWR,,,,,concentration_risk (97.0% > 40.0%)
+2026-08-26 01:17:01,SKIP,K9TQWBMb2H4GTeQYWUpaU4FgzxZcogbijBCHpb5pump,Corgi,,,,,serial_dev (20287 prior mints)
+2026-08-26 01:19:46,SKIP,HzxQ54wrYxh2RYsX3m9TXAAsucQRxYPe4maVmEUZpump,MVA,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03cb9-8706-70a3-86e4-63a3a2ff74f4', 'error': 'Failed to get quotes'}"
+2026-08-26 01:20:44,SKIP,9Jh9mNzR9UHnxyeWnUnZa9pUwaJ8QGKtuisvnJKUpump,Starbucks,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-26 01:22:35,SKIP,F41p9Ar8kRQbGUmYzXkFpEwhkFHgbZDGokm7bQ1Xpump,Corgi,,,,,serial_dev (51 prior mints)
+2026-08-26 01:24:32,SKIP,5eYMDMuBDMN4wdsAGcdqGVHdARzD4rd1ZEgt77eupump,Json,,,,,concentration_risk (95.7% > 40.0%)
+2026-08-26 01:24:48,SKIP,QxXfWp1weebyN76Fi8WsXnWaMwcCy6YpTQFgwb9pump,WWR,,,,,concentration_risk (98.3% > 40.0%)
+2026-08-26 01:26:03,SKIP,F9vcSYWQRQrHHf7szkqvnaK9yQDinvufcy8o7AFpump,nosis,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 01:29:09,SKIP,AzZTA6PppZNa2tLeW982A1R4kdCr5TZn8SPgn65Tpump,Json,,,,,concentration_risk (94.3% > 40.0%)
+2026-08-26 01:29:24,SKIP,6567khQXmTUGMC1bey3V2TGdbz46H5vBkJMx8yXNpump,LIFE,,,,,liquidity_too_low (18 < 1500)
+2026-08-26 01:29:27,SKIP,6hekwc4iXJTMZzzz8Zws9CkDeKey7xhqYYL6W1n7pump,Joguman,,,,,concentration_risk (74.2% > 40.0%)
+2026-08-26 01:29:43,SKIP,JA373VsHAwkyu3MXkPck6E549ioCEQZRq8enr3L6pump,XST,,,,,concentration_risk (99.7% > 40.0%)
+2026-08-26 01:32:22,SKIP,7mMQoNvUhTWmNMc3TEFc3h4b1az8uij5vK3AWxBcpump,hexumlite,,,,,concentration_risk (44.4% > 40.0%)
+2026-08-26 01:36:29,SKIP,GhK7eqPEceWzZU75NLEvaJTfm7LpvgsvLeuFUPfUpump,DOLLY,,,,,serial_dev (3255 prior mints)
+2026-08-26 01:36:56,SKIP,DNrdAqfcj4ZaiYCkPYZ5t7eEtxRZgqy41hQuGgpKpump,MARCELLO,,,,,concentration_risk (81.2% > 40.0%)
+2026-08-26 01:37:41,SKIP,BPg6vtfGWceR9fJda9pT3KKE7REGewKPhxMGaRwGpump,TCAT,,,,,serial_dev (14 prior mints)
+2026-08-26 01:37:56,SKIP,5uwwwwPHn19GQEMzihoWZ4K6hXY9JWJHyZ7a3Fy7pump,okk,,,,,liquidity_too_low (202 < 1500)
+2026-08-26 01:40:00,SKIP,Ef3LLa5XbyN5GANHUeLrWAuy4mr6GJ9MgPzewiqLpump,PHNX,,,,,concentration_risk (71.6% > 40.0%)
+2026-08-26 01:40:24,SKIP,25Act4iAtQ9Ckhg5bKTHYt4mr97iVB2x7XcwRidhpump,Ninjacat,,,,,liquidity_too_low (98 < 1500)
+2026-08-26 01:42:09,SKIP,HBtrhJKYzfWo3dFWKHW5dRVC5Gau8nhqiCDraMcspump,Clauconomy,,,,,serial_dev (6776 prior mints)
+2026-08-26 01:43:39,SKIP,7GxPej4KEcetUBLrL2rZ8ZF1bvPczmZxZiHbwJ7Fpump,BIC COIN,,,,,liquidity_too_low (0 < 1500)
+2026-08-26 01:44:21,SKIP,4HXW1g4T5QTDnqqemZ8DAjCwaoNuTeUuDop54rMapump,LIFE,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 01:47:19,SKIP,2xFvryTBPwkV9rwr12HWtQeaSgfJVmjKZxGwsJ1Epump,sept,,,,,liquidity_too_low (835 < 1500)
+2026-08-26 01:48:49,SKIP,5EpK8MjNH3ZMYcm2egGdTky4NSUviWFiH675DmKBpump,5Dream,,,,,liquidity_too_low (283 < 1500)
+2026-08-26 01:50:47,SKIP,7sAyXAdB7vZYtFXNqFg3Lei9fCw7AcfHXyzLzxgKpump,DOLLY,,,,,serial_dev (2575 prior mints)
+2026-08-26 01:51:50,SKIP,GfG1ETW4W7QGNDWAKgMq8XZDT38rrZPpeFHcywecpump,PNUTS,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 01:52:02,SKIP,5SbCAf8bDUudSkRkBfHrqGkvmjT4itbeUyZncU76pump,MSB,,,,,liquidity_too_low (13 < 1500)
+2026-08-26 01:54:11,SKIP,D2UVXhxLs6aY5kyWe8VZbsDcsNMDCUz1pu45zXcbpump,DOLLY,,,,,serial_dev (11 prior mints)
+2026-08-26 01:54:39,SKIP,2K5bY5Q9idgJE5C6gwztHhHcR8tBRLovjJEYUF8Hpump,Hezbollah,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03cd9-7572-7402-b1a6-a9eb3e01001a', 'error': 'Failed to get quotes'}"
+2026-08-26 01:55:48,SKIP,b8QvcSTUGf1WAX8vy2DChaZesGkCmNXrkFBAXEEpump,WOFI,,,,,concentration_risk (97.9% > 40.0%)
+2026-08-26 01:59:46,SKIP,962CY2TAr3iqJ7eZwbjPwLvUyCDXU6doykLc2nAspump,okk,,,,,liquidity_too_low (14 < 1500)
+2026-08-26 02:00:01,SKIP,zeFHNghoKfvTkNrVjSA9E99JtQ2aLW4LxL3aj32pump,Pistacio,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-26 02:00:19,SKIP,jaZBKhFYAV9WZ7n8ywDZucakDoXkFF6fQ5oLhpqpump,TWD,,,,,concentration_risk (78.9% > 40.0%)
+2026-08-26 02:04:17,SKIP,G5ZQZNDCRn6kGC8bLDtXGxRyteXxTRzMXpvtXKh7pump,XST,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 02:05:38,SKIP,3aNrzs5CqJa6sPYss1XPCbjDBejU8E9CsLxjnhVNpump,NPC,,,,,serial_dev (4537 prior mints)
+2026-08-26 02:07:08,SKIP,5hVsyKkjTxCtVCqG6L63grs8ancV38cSRuXnBs75pump,GLIREA,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 02:09:33,SKIP,J69vhRVymWgGKG6B9hwavJuYEY3Cg6XMSxD9Bez2pump,dop,,,,,liquidity_too_low (31 < 1500)
+2026-08-26 02:09:54,SKIP,DMoRRheiQrGVRm6Z76Hfg5XxqJF5kJ4vX9A2cDNKpump,Dogtasio,,,,,concentration_risk (67.4% > 40.0%)
+2026-08-26 02:10:42,SKIP,4wc5VGrCqLqc7MKWvwHEJ3pBMyYzaxJQwapFNRakpump,LIFE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 02:12:16,SKIP,EpY9EurXwPnQbVM6fk84goG1kBf9K3GZRCuqgV6Tpump,CLOWN,,,,,concentration_risk (44.4% > 40.0%)
+2026-08-26 02:13:34,SKIP,5VomAjJBbjxv1A3ZqHkcDMjiAN2dhsLwU3C1Q1Kxpump,BOTCHED,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03cea-c794-70af-acc5-d53f1730c4f4', 'error': 'Failed to get quotes'}"
+2026-08-26 02:14:17,SKIP,EC99bW1jaWo1gSovbbSVgfJkYRefDf4CXB89L4xBpump,xBot,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03ceb-6ddf-757d-8461-9a1a4aeffbb8', 'error': 'Failed to get quotes'}"
+2026-08-26 02:14:38,SKIP,618dCCQwn2HKjdKXohobtjuARsS4iUoHMmhY9pi6pump,WOFI,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 02:14:59,SKIP,ErPSfJY2uVjmdEnXGhKNwJ3U6kfVspDCHkRNke4Gpump,TANT,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 02:15:11,SKIP,HqciUthVrJjgoqGfWhCecMjvaush4hcKiczJ9br2pump,redmood,,,,,concentration_risk (74.9% > 40.0%)
+2026-08-26 02:15:53,SKIP,GvJ6CiCxgsaPZNUU6P6PvfC9taUfocT5eFzAACwrpump,Sue,,,,,concentration_risk (98.3% > 40.0%)
+2026-08-26 02:16:00,SKIP,4q1hqq3EjhBMMiox6d2r6Y1QFSiBzsc6wBxpHsKGpump,ARACHIO,,,,,concentration_risk (44.1% > 40.0%)
+2026-08-26 02:16:00,SKIP,FygostGGmhzzMDbmwfjKKE8GC3Kvz4F4YCYvFEw6pump,Hezbollah,,,,,concentration_risk (98.2% > 40.0%)
+2026-08-26 02:17:39,SKIP,BaCajvhMMsq6JdwJodUTrxFJzdszhTYytm1kViBnpump,YouTube,,,,,concentration_risk (93.6% > 40.0%)
+2026-08-26 02:18:12,SKIP,AR4ucaZksVTTe7CyLbdonpyAeViLps19s1BEQBWpump,CYBERLEEK,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-26 02:19:10,SKIP,Ev1Pi4G49S8G6d3Wr1RR4XL3435jPD7k49mVKmmapump,STRONGBAD,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03cef-e5c5-72ef-a134-35b0049a252e', 'error': 'Failed to get quotes'}"
+2026-08-26 02:19:13,SKIP,Y61KbxFLkSU8GGiknx2tg2fyPp5gRj1n6EVzuWbpump,WOFI,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 02:20:19,SKIP,BXtsaDsbwY1gCmEE3mMAMVU4QupbeqiBTkb4psMypump,FG,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 02:20:31,SKIP,DfcMm3Ybm2qtaamtg5ZKFDCdMb38CsqN6dk2KvRDpump,paxx,,,,,liquidity_too_low (14 < 1500)
+2026-08-26 02:20:46,SKIP,ubyM1zsKRmdw8PLTXu93xCukLnwGCDA2iW42KwKpump,Claude,,,,,concentration_risk (93.8% > 40.0%)
+2026-08-26 02:25:47,SKIP,vhNyNHfQS7QFcGHhJnoCntbe6XeuTgCaUXsAo66pump,GrokBot,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 02:29:51,SKIP,7tAEnivcWKer49uSBCagw3vmjSkwyun58wwBJZgapump,PISTACHIO,,,,,concentration_risk (95.1% > 40.0%)
+2026-08-26 02:32:15,SKIP,3ko26kuW1jLv4wT84stmocJTLeYzU8Fkxf8paUqZpump,MORTY,,,,,liquidity_too_low (7 < 1500)
+2026-08-26 02:32:28,SKIP,Fy3n6AqYfwZrHosrdxKKvsxWh8CKaUste2DCpHTspump,VWANCE,,,,,concentration_risk (91.5% > 40.0%)
+2026-08-26 02:32:43,SKIP,DohHgyMwK2TV56XCUove8UN73CGFECzXV4FGFQ9epump,LIFE,,,,,liquidity_too_low (6 < 1500)
+2026-08-26 02:34:28,SKIP,eMkqusB95bp5GNDLfHmxaRAgmD2f9JVp2kVFvfHpump,RST,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 02:36:37,SKIP,DCez4stiToJv5KhvHRwVEn5i3LwgKghm6SGdRrCS3ViR,Council,,,,,concentration_risk (95.1% > 40.0%)
+2026-08-26 02:36:41,SKIP,JAtRnXf3vTMfvhmoy2Reu5MH9V1L6aQrySQsykQUpump,TOXGRE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 02:37:32,SKIP,Fw85h5Hi3qGvU7BqUJFzrjBZy1rPS5agUCf3fbqwpump,FOB,,,,,concentration_risk (77.1% > 40.0%)
+2026-08-26 02:38:41,SKIP,G8M81K2SbS7KA2qVTnbBDob7BdTZWTVg2iPCxSMxpump,CATJET,,,,,concentration_risk (43.9% > 40.0%)
+2026-08-26 02:41:08,SKIP,4ZuJs4RwWkLReVNooFHjrtfSSERdjVvvLjTQiq78pump,GTA6,,,,,concentration_risk (98.5% > 40.0%)
+2026-08-26 02:41:51,SKIP,AAMiaVLRx3nZRcsxcBph86WFsKLtZENcL3PaBMM7pump,Hailey,,,,,serial_dev (428 prior mints)
+2026-08-26 02:42:42,SKIP,3591R6QrDEZBrTNjeUAsuit5rfAwYaDyQuTpchfTpump,MAGA,,,,,liquidity_too_low (14 < 1500)
+2026-08-26 02:42:48,SKIP,6scSpigoLBKATEY8UGjqPek17GZNWHANFguqvDTDpump,WOFI,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-26 02:45:57,SKIP,EeZQBuGmPUpMAD43hTYDocUPWajRx7HZMQBDRij7pump,POP IT,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 02:47:10,SKIP,319SLAacyoFQ85aCrQsk4jhp6EuhCGThSzFvQALEpump,LIFE,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 02:47:22,SKIP,6t1DSRqDVDGTxweA9WCBoATQBuEjFFvCmxuv5YTDpump,snigga,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 02:49:22,SKIP,jQoSxYL3kK6tQGoeVwFhtSdwF3vYmnVmciNsfZcpump,CYBERLEEK,,,,,concentration_risk (95.7% > 40.0%)
+2026-08-26 02:51:07,SKIP,D2Jso78HRVM3NFoKQyyMVLAPU7hodCS14ibpz1rhpump,YELLOW,,,,,serial_dev (18852 prior mints)
+2026-08-26 02:51:41,SKIP,CxrF9yM4w1BgFLA55r3bVfFvsi76HGaQtUrBBK5epump,dog,,,,,serial_dev (203 prior mints)
+2026-08-26 02:52:35,SKIP,6NDxh1CGizJtsPtiMrjSGLtQ7bujHJyEVTMoRkMgpump,SCRVAN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 02:52:47,SKIP,21PLMfTgJ5f4sv9w3y6eeNRouWqwuXfXyf7Kpdxypump,SMILE,,,,,concentration_risk (44.8% > 40.0%)
+2026-08-26 02:53:29,SKIP,4VyMAxNFTUzYnWpyHvMKDVTXqivy87S3DMnE1diXpump,Hailey,,,,,serial_dev (6784 prior mints)
+2026-08-26 02:53:44,SKIP,7cDrKpQkjCr18kFxXuyUZFFfauJXM91caEaddC2ipump,LIFE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 02:54:11,SKIP,CNAZCznvApkh7H7Uekpy9NEG3w2beRjU74R39zXspump,OFI,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 02:56:45,SKIP,4njBxQmBoBEAcuRxb25ktQB6iv2qtJMPh35tQkFBpump,RUN,,,,,liquidity_too_low (0 < 1500)
+2026-08-26 02:57:12,SKIP,F32Lgwi2CHUpC12yFpzKiE7mdsWE5DHyaxYZWXcopump,PHANTOM,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 02:58:51,SKIP,GHuTwQJbAL2pxxqruK1fjeE2qJRpq3p1yqh9Md6qpump,SCRVAN,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 03:00:28,SKIP,8dD5MhbhFykrLpUVSE92fR7wzYPNAsuyCypYWoDLpump,TRUMPIST,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:01:13,SKIP,VkGwWUW2wCmTkWreyE8eNAXENNrD46EVf9i27LHpump,GPD,,,,,concentration_risk (77.2% > 40.0%)
+2026-08-26 03:02:19,SKIP,wLT7EJCEKx9SEH36oQ13muctirVjSdmnY2WhqzTpump,XST,,,,,concentration_risk (95.2% > 40.0%)
+2026-08-26 03:02:19,SKIP,9BVCgSmrMokqM9PByADsXPyPSnC3bQDz3uxvjnoFpump,LIFE,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:02:46,SKIP,Cibct6H7ski5RSMiRL1RjGst18GaqAyVUH3cFuurpump,DSB,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 03:04:41,SKIP,GFUynHPuFBLvgSY1vdgDhBRgEc7xSQY3L5X81gVupump,Coin,,,,,concentration_risk (93.7% > 40.0%)
+2026-08-26 03:05:02,SKIP,8K4bZxZQrbGPMhfQpH7R96w9NFNXk3KZA7wCLWRypump,$TRMPD,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 03:07:59,SKIP,o4UAUX9WBkWYRVFmccHQah4UytnKn6hDAj7q4Rmpump,WOFI,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-26 03:08:06,SKIP,A4B8H9DKfJDG1UDiKsjMjoCAczzv8iHAPrYgmFvjpump,NPC,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d1c-b3f5-76ea-bd14-d0919e81233d', 'error': 'Failed to get quotes'}"
+2026-08-26 03:08:07,SKIP,DU7Lhe2QtcRBJdor7KbpjfUDmLyA2kdhR49Li3czpump,ORACLE7,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d1c-b62f-7568-ad94-d6908cb3c828', 'error': 'Failed to get quotes'}"
+2026-08-26 03:09:01,SKIP,64xL1YYZWBtPZYtyztv7R5VVPhS4YcLQjxGEUmN5NwKm,Sue,,,,,concentration_risk (94.4% > 40.0%)
+2026-08-26 03:11:46,SKIP,2XVqrZ6CXHEKkzxhFeFmhdGTSqbeKG6EmaKfebRqpump,TOXbab,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 03:16:44,SKIP,G5jV5wtNvUais1iaRnJsuRa8Q2DCubcaZ1Ftjxaapump,WASTACIO,,,,,concentration_risk (82.5% > 40.0%)
+2026-08-26 03:18:45,SKIP,2ANGXzXaXqPjJzVtr49TxhLk6LSwMjCexbDwbAs4pump,GTA,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 03:20:45,SKIP,GKnbpnePstkxEigx7wbECmTKBu3VWqNSGat4swPYpump,happyseb,,,,,concentration_risk (94.5% > 40.0%)
+2026-08-26 03:21:06,SKIP,48EcRMnZRDK7QFot73hNWNQMYfWDYU52Pw9JQgkxpump,CRISPE,,,,,liquidity_too_low (17 < 1500)
+2026-08-26 03:23:28,SKIP,EaK2pP5FA9YGKZcPeKyR5eEAywvUKTxg31uLZGHRpump,PISTGUY,,,,,concentration_risk (44.7% > 40.0%)
+2026-08-26 03:26:16,SKIP,8gLD2RZwERAmjUbGAngZFM9DFquPcYtu6LaNzMRepump,ANGEL,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:26:19,SKIP,AvRx8p71UNKPEJBZsXGbWC9SrVd2xRE518hkZFWqHkYv,IQD,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 03:28:13,SKIP,7t8V2QyhwcMQ74FLxoxGhBFWQg84a18gambGgMCDpump,WOFI,,,,,concentration_risk (99.7% > 40.0%)
+2026-08-26 03:28:22,SKIP,4KY16Amt3YvfPDbsW9jxXzEkEWYB4DDN9YvfCieBpump,LIFE,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:30:26,SKIP,BXNPCeFeJ4PmCacRtENV2VY6exr49n5AvdDZXzQypump,NG,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 03:30:47,SKIP,WEZhZx72dUS7Y1rf39sd19DyTc1D6AUFX1pKhDkpump,Bold,,,,,concentration_risk (94.9% > 40.0%)
+2026-08-26 03:32:08,SKIP,7dt7z4CXKZDV1bSX42otpy8mf9Yz82ovYHWrcqgHpump,D.S.C,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 03:32:14,SKIP,HChyCHjEc95Cs1ohYpCvn3nmPUS7cY4TubqvK5uNpump,WWR,,,,,concentration_risk (99.1% > 40.0%)
+2026-08-26 03:32:21,SKIP,96S6uerwpVFXbgudzx2bJRoe9MyRDEFEGS8ECVP2pump,Sigoli,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d32-e710-7024-b76e-74c452a858a7', 'error': 'Failed to get quotes'}"
+2026-08-26 03:33:00,SKIP,JDemSC1m7kUJDpC5q5p3nECQFpo54pN5NQ1U5NSEpump,CASHCAT,,,,,liquidity_too_low (12 < 1500)
+2026-08-26 03:33:42,SKIP,AD2VX8ZpvKDapxnVMZqrkuGoq9WVqGSzv2Xj3PmFnvZD,Sigoli,,,,,serial_dev (130 prior mints)
+2026-08-26 03:36:22,SKIP,2wbFprRpZkCRGTzTHke21j8W2HBoATDhUYhEaj2Upump,solder,,,,,concentration_risk (74.2% > 40.0%)
+2026-08-26 03:36:37,SKIP,7Kc7J8oikL1iTbADG2spRbTNxUnznFfRkhkGTWUkpump,LIFE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 03:37:19,SKIP,EPYCc8yk4gsiwzBi2gjRhVffhxXpnxgqfyp6WMxMpump,USWS,,,,,concentration_risk (99.1% > 40.0%)
+2026-08-26 03:38:04,SKIP,BZnqHkePt7WgEX9Pta1hjKdhxmQd6dPnUHSLBzGEpump,TOXbab,,,,,liquidity_too_low (23 < 1500)
+2026-08-26 03:40:17,SKIP,BMMCV5jYei3XDRK4tNtuC3qQ8PxNR76ipVH6Uzdnpump,PISTCHUA,,,,,concentration_risk (43.3% > 40.0%)
+2026-08-26 03:40:53,SKIP,9ezNGxFRiM5T7HqmGxvRA3mcmZ4CS89FEFA48pMRpump,GoonBot,,,,,serial_dev (26337 prior mints)
+2026-08-26 03:41:44,SKIP,G8S2H2BWiVxGPmu5MTKfdP2heeeSjnBuw3JKhKb4pump,GUSTACIO,,,,,concentration_risk (88.6% > 40.0%)
+2026-08-26 03:43:56,SKIP,HwcLWejaQnYTdyq99RqQpUggz92HBUcM8R2769iqpump,Martians,,,,,concentration_risk (98.6% > 40.0%)
+2026-08-26 03:44:15,SKIP,6qS63yEcy11c7zG6W4vGRxz9nZhSsvMttz61BtSpump,C4T,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 03:44:27,SKIP,8fWK78csEfaz5qmKt7hjt5vdd3qPJWAmPqNWqejapump,Martians,,,,,concentration_risk (99.4% > 40.0%)
+2026-08-26 03:45:27,SKIP,A7WiytF4EwpXxc2WS3tpkpS3MnTLAHukwp7n7ZrXpump,DT,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:47:36,SKIP,6FjR2QSPT2FYd962oY1QZQdSbtds6TTfFgSPeJJYxAJv,GROK,,,,,liquidity_too_low (11 < 1500)
+2026-08-26 03:51:16,SKIP,eMyeSR3yQzhkhj1BxWENL1RqpQzLZv2RPb6sTw1pump,CATE,,,,,concentration_risk (95.9% > 40.0%)
+2026-08-26 03:53:58,SKIP,2iWH2HmGqCfUXwTcGMj8PcCnnpNC9evV7yFSfzTgpump,COON,,,,,concentration_risk (71.1% > 40.0%)
+2026-08-26 03:54:34,SKIP,D3KjjGYyKVFm5cJt1aN4AZET4mAvZed9P5LK9A6Cpump,KOKO,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 03:55:32,SKIP,CJK8Y4BXif4MPJ2qmZUHy5ekGvCJUFq8Axq3G8qUpump,$STKNG,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 03:56:17,SKIP,FoG2zBd4yw47tZorCwZbsTgfcQ1ubtCYdDCLA6Zipump,Bold,,,,,concentration_risk (94.5% > 40.0%)
+2026-08-26 03:56:38,SKIP,8eZwHwMjpcgczXnYDweUM23piREmx2PaS7yzV1Uupump,SCRVAN,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 03:57:14,SKIP,FuDZACfSRXz6a29jPzsCXViHLdCDA5VNraNc7NNZvGn1,Chiikawa,,,,,concentration_risk (95.4% > 40.0%)
+2026-08-26 03:58:44,SKIP,DB2s8Ws67p13EvgKVd1ugtF743z8cuSApmy9fXVopump,TB,,,,,concentration_risk (74.8% > 40.0%)
+2026-08-26 04:00:00,SKIP,EzNDhwQ8FCrNS8Y7jSnR6NazTiJNXqaQ4xDnGwQhpump,$HKITTY,,,,,liquidity_too_low (220 < 1500)
+2026-08-26 04:00:36,SKIP,Fn9gZYJ8vFQ6WXo7UEfPJkYZzDNiQtujH65XtvYppump,navicce,,,,,liquidity_too_low (24 < 1500)
+2026-08-26 04:02:24,SKIP,2SwStzwc9A8QVpRgBMmf1nDeQiDvojUE8nE5eiAcpump,ISRL,,,,,liquidity_too_low (26 < 1500)
+2026-08-26 04:02:45,SKIP,DQJ9P44cwzT4zRc7YfpGRaA7EaimKz8vQFd9Pjc2pump,Wittgenstein,,,,,serial_dev (6796 prior mints)
+2026-08-26 04:05:10,SKIP,RjiuJeWXAqEZft7RuDeujR9QW2MvJ6z3gBonWeUpump,CATE,,,,,concentration_risk (97.8% > 40.0%)
+2026-08-26 04:05:52,SKIP,4cZVhJNLwDodZRgz6bSS4FVLGJSUPB3qFBzoJhVPpump,4fingers,,,,,liquidity_too_low (51 < 1500)
+2026-08-26 04:09:05,SKIP,aWwdWt2kFAqSbdfvisKkpSkMnbPY2qr7o2Axe8bpump,George,,,,,concentration_risk (95.1% > 40.0%)
+2026-08-26 04:10:38,SKIP,7n3LjJ6WqobhJXUEkDxePbtrdhzFsW7jqV8ycqFepump,zoomah,,,,,liquidity_too_low (7 < 1500)
+2026-08-26 04:11:50,SKIP,25AnvzzU1ETn4w9SCU4zF9FxiggEEpqjtHEj711Vpump,TOTH,,,,,liquidity_too_low (44 < 1500)
+2026-08-26 04:11:53,SKIP,7bYj8Sk1dWBUWG6TBGinqiNRrgvhDaqnFLwB9gUxmrxK,Lion,,,,,serial_dev (3566 prior mints)
+2026-08-26 04:15:06,SKIP,Fp6n5r5Gtqu64jsphb9ZSrF1WfAMC7t8em42jbdEpump,OASIA,,,,,liquidity_too_low (19 < 1500)
+2026-08-26 04:16:12,SKIP,8w5AMn4JSv2HqLZ1VXx7Lk3bU2qTAfYghoDovr6Rpump,BLABAN,,,,,liquidity_too_low (12 < 1500)
+2026-08-26 04:19:18,SKIP,85gAz63MbAmhbvpHUvPDXCh2G71rCV2mmeaAZtKqpump,SPMG,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 04:19:34,SKIP,ou14rSwTWSwQKRRECMSps5Xc2tkdXxRQ9gym6TDpump,PAL,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d5e-221d-77a4-b9cb-750ae1b9a8a3', 'error': 'Failed to get quotes'}"
+2026-08-26 04:20:19,SKIP,9bnjUUavLcg5TYpJwKp354GRcTC8s6oLLNtBndpgpump,LIFE,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 04:20:19,SKIP,HakXFbZY9eUHvYftYu8DXYi1TAJf4LEtfzcmgDjApump,$MAGA,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 04:20:37,SKIP,Hf7mMK4gWYijr6Eju9SBiBUXqkCcLq5s9qYJ32Kdpump,DUCKRABBIT,,,,,serial_dev (2062 prior mints)
+2026-08-26 04:20:50,SKIP,4neLohckncsZyD5cFXLULBRZGMtGJpAB2QFmgqNupump,venus,,,,,liquidity_too_low (8 < 1500)
+2026-08-26 04:21:35,SKIP,7nVigThivgzrxtNWMcadFMQH85nMz6Wo45CSzgv6pump,CHAJUG,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 04:22:20,SKIP,4vd5fQjkD13rT7ntDSaanzfH8n4QWcifMfLB6TRbpump,CRISPE,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 04:23:14,SKIP,4nEHzcnm2jrnEPSfbp9Ex3ge2BbYZYRFuzoFrPCRpump,MARDOGE,,,,,concentration_risk (87.3% > 40.0%)
+2026-08-26 04:24:02,SKIP,6fyrQpmSHmp3cz2nckz3fpULVM3VnPR29uCMDHN5pump,Wittgenstein,,,,,serial_dev (59 prior mints)
+2026-08-26 04:25:12,SKIP,FFCsNXhzyyQJKRaR5Nh4LVPemr2gKG1JYiNH7QeMpump,hm,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 04:25:24,SKIP,6eCnYiJ4FmSJRq7bajVAB8LRcnNMGh9izmQmUSY7pump,JESUS,,,,,liquidity_too_low (13 < 1500)
+2026-08-26 04:27:24,SKIP,BefFGD5nMc5Gqruh7FxeX6Zmf4nWKjuoF5TWbFHpump,Hailey,,,,,concentration_risk (95.2% > 40.0%)
+2026-08-26 04:29:03,SKIP,56Yy43CCnnHknRZwayDu4jUgrR3tzSgXcbF499ypump,Pinktacio,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 04:30:22,SKIP,5zsZHQLkn8GxBEBZmB896cebC51RcYnLZERMeFYhpump,VOLJUG,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:30:43,SKIP,DfBjYAwovjQkD3gKXZHgtxz7Z1aaFn9tcUQ6ZsiGpump,LIFE,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:31:01,SKIP,AACTNu6DEKeH9G3upFdFMf5G5KzAQG2SHjMqL5gMpump,牛逼吧,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:31:46,SKIP,6Yi6ugPeeXm8SGG6p4NvXCYq1Kcd2cQy9UMyXsCJpump,rizz,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 04:31:58,SKIP,DmkoAAigTuiPZ45PKGfoTxPQ2fVTo8K3LqdQ29zHpump,green,,,,,concentration_risk (78.0% > 40.0%)
+2026-08-26 04:33:38,SKIP,FzJ1Cm4kwEjiPmfna8WXWwjC7i41KnB9oi9wz3nHpump,Frug,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d6b-02cf-71c8-bbdc-4a13d248cba9', 'error': 'Failed to get quotes'}"
+2026-08-26 04:33:53,SKIP,2Jo1F9HWQHP1ysBLgeaznawuydw1LwnFJHFxknbjpump,FROG,,,,,concentration_risk (93.9% > 40.0%)
+2026-08-26 04:35:05,SKIP,7HqJ6pM9yQeBquVhnq22axgwC66edcsJkg4cCpCipump,$SSG,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 04:35:09,SKIP,FxFF8jFrx4Z6vnrae4pxzTHaCts1oX2YrNk77Q4Epump,DUCKUSSY,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:36:15,SKIP,5WTfSMQfu51H2AXC2tfPXnFVxx2Po11VkSDKGriEJsDs,MANIFEST,,,,,concentration_risk (95.5% > 40.0%)
+2026-08-26 04:36:21,SKIP,6a2M1nrtMFoJp5go5iUV4Gn6b4vVYsoYAtA6QkDdpump,MEOW,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:36:42,SKIP,AiDz9FHbrhLGk2X5HpXjVZGtFDxGGQH6TsCnMThZpump,$BAG,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 04:37:51,SKIP,E8kcKcPSjC1q64WAuPyooMhmSixvqrYiipws497Rpump,LIFE,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 04:38:24,SKIP,25AqGJfts7cAHcGq8KAGapoLGYTKP32EshLNmxi6pump,TOTH,,,,,liquidity_too_low (11 < 1500)
+2026-08-26 04:38:43,SKIP,DGhe1xmJzdKFuyj17AzLzYjcqnQUTkvCZp1grtD8pump,Martians,,,,,concentration_risk (99.0% > 40.0%)
+2026-08-26 04:38:49,SKIP,2qr66zmKvXL91XVm5HSp2RTHV615F7eKhj81n4tHpump,LIFE,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 04:38:52,SKIP,9xFDeY3RygtFjdtdSrjGPJzEiZzmUtup8y2xXNAzpump,Meep,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:39:16,SKIP,9viwPpiYEvFiNg2A6yatGeQz6uACdjE9sKjms29Qpump,$Ponsi,,,,,liquidity_too_low (33 < 1500)
+2026-08-26 04:40:16,SKIP,2DDKvWKVJLwuJPHdn97KHyGSeYwjt7Tp7VqtP7EHpump,GIRAFLUX,,,,,concentration_risk (68.9% > 40.0%)
+2026-08-26 04:40:49,SKIP,ygTGWyAdr7bXjmUBXzRCcSwjPAXL5UcQk8Aasudpump,Sue,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-26 04:41:07,SKIP,84fU3qGFUg2sBiLhTRkuQyLTbnJzPKzFjgmmB9rLpump,OpenAI,,,,,concentration_risk (93.6% > 40.0%)
+2026-08-26 04:41:50,SKIP,94SrHwmroWtQEh6cWxMpWrNSRBac7GkHokxAgbZWpump,MJ,,,,,liquidity_too_low (6 < 1500)
+2026-08-26 04:42:14,SKIP,5WswXDru48T5g9KTTD9c3Hb4kDUMzF9T6X1NYKC1pump,Meep,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:43:53,SKIP,DJkCsUHDPmkY4EJmPBoCqosJoARfu6DNq8eFXV6Hpump,XST,,,,,concentration_risk (99.0% > 40.0%)
+2026-08-26 04:44:32,SKIP,HPYBHph2VuuMEup9tmERzhM1TowUA47GHfGiC6brpump,$BLING,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 04:47:15,SKIP,opsYUZeGvgPCB9sKRctu2S2oG5A9CUCFF84WC93pump,memedog,,,,,serial_dev (78 prior mints)
+2026-08-26 04:47:51,SKIP,C9Cuh68BCcQVTw3oa2YYgM4JabtpaSw8ERUy8Andpump,PONS PONGO,,,,,liquidity_too_low (7 < 1500)
+2026-08-26 04:48:00,SKIP,BQio7hbxmS2vPb54kBpM5WLeW16YfoRVHiFfdQMQpump,$Ponsi,,,,,liquidity_too_low (22 < 1500)
+2026-08-26 04:48:03,SKIP,CA9iNHHicQnP5zYZKh4mp24zQdWprBKJFgMeHrK9pump,sticky,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 04:48:27,SKIP,3zjnRMLJoP31UbXMhuYZKvjjDCgfW6qWqWzS5dcepump,PISTASOL,,,,,concentration_risk (89.0% > 40.0%)
+2026-08-26 04:50:00,SKIP,A4PmBMALRRCNgGaohidw78yEgkALkFV8AZGhoCjUpump,$CHMSE,,,,,liquidity_too_low (8 < 1500)
+2026-08-26 04:50:09,SKIP,DV1ahTZXWQ9dG3VnR8ze4m2ftVa8uJ1cTM1p34HRpump,Meltdown,,,,,concentration_risk (93.5% > 40.0%)
+2026-08-26 04:50:37,SKIP,22iKiyv2KNYSoucPyEfXrk8L1n5BgrZaoksG6uhbpump,TANT,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 04:51:49,SKIP,C3dme2BNxC5aJeVinRB8xpPi97y4ZwTZEMUxRtKPpump,Meep,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 04:52:22,SKIP,4p4mdCxXhHJcgfFhmMstrqchBdFLEf6oxPrsvi46pump,SCRVAN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:53:40,SKIP,4oXPEwu9AxH5yQwrDqXAfyLChFAX6HtQwETiC52Spump,snigga,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 04:54:40,SKIP,3arbLfrMry4PubPZHCKQJksjfL3B3AgmLRsXrf2Jpump,kimchi,,,,,concentration_risk (83.3% > 40.0%)
+2026-08-26 04:54:59,SKIP,5v6MSE3gHVjCf35zeDa1B2KxrUCzbEMmTnAvdfFwpump,Thresh,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:55:50,SKIP,8fUyx9HLhm8xkp5P1pCr7jM4NGuw7PzChJyFSVcgpump,MANBAN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:56:17,SKIP,J1xeTqoSh3BsNcE5uvnmsuqjp4w89H27uq3qAtA5pump,Wittgenstein,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d7f-c104-777f-bb5a-c35244ab6bf8', 'error': 'Failed to get quotes'}"
+2026-08-26 04:57:15,SKIP,7izVqxsJBmatrSgWoWKGYVTCRwbRfaWWGa7AiFKMpump,$richness,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:58:09,SKIP,55rCV9tKpzWEJFyMqqAiZ84N6N75MuVFQbNs7kYppump,pisscat,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:58:18,SKIP,3Vm6fL4zAGzStbaKXY4U3axDZPe9gFwma7wcJ955pump,GPH,,,,,concentration_risk (98.0% > 40.0%)
+2026-08-26 04:58:30,SKIP,629Vt4i1TwiwkuH8Qw7KBRHXrbTM7ifE2rCwhUJ7pump,GTA,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 04:59:54,SKIP,ANwi5jwF9uJaEBUAVnJpbDbpCBAsgTJ5CjfaeqMApump,$GOBLIN,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 04:59:57,SKIP,25AqMVqAtryx6PXVSYbUuDNfZ1g5PempboYRD7zWpump,TOTH,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:00:55,SKIP,Ge4WQoXwhq9XK5YmwvUCYmcp55DRo9qBBxASGrR8pump,CRIWAR,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 05:02:31,SKIP,9FDqMFSckPhQ3U5AJWUtSxE5tUm76bqQCqy8Vwmipump,$30k,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:02:49,SKIP,DtwkHVJK2pqPng3kDvykGCHJvWpRys6rUXRKKbQnpump,Depe,,,,,serial_dev (12 prior mints)
+2026-08-26 05:03:01,SKIP,FtpJptHg5Y4s9Hnn8msz8wELiGUeyZDhMAiVzvybpump,CHACAN,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:04:07,SKIP,HePgiXZp6aujutFr43R2P7e6QXUwJpbp3FHDUCYwpump,ROGREA,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:04:43,SKIP,4nbz4td3Y75DuzfaMrSDMXbi5MrghG1CqvZMBsrFpump,PISTASOL,,,,,concentration_risk (87.8% > 40.0%)
+2026-08-26 05:04:59,SKIP,GeGD5NeR3zFXsoW75U9b7u29VZvUMtiG6ucmMTfxpump,pumpchaintest,,,,,too_few_holders (9 < 15)
+2026-08-26 05:05:08,SKIP,2vu1n7JJiSYK9JAMZVCq4WoMWVi9pZkMt5NjEedtpump,crocs,,,,,serial_dev (27736 prior mints)
+2026-08-26 05:05:08,SKIP,HHjgXKdY1reHb9r9YMcMbWaQ6hdXANthHNmbgGwBpump,COZY,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:06:02,SKIP,CEJ6Rnh5xSwpyPBnGZ41MPearnpv2Xyrb9GAYKRepump,MOLJUG,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:06:20,SKIP,DwnDEYixuaQmkKuA7W4mj2iGQGm5f4trXvZpuzi8pump,$PERFORM,,,,,liquidity_too_low (31 < 1500)
+2026-08-26 05:06:51,SKIP,5mwE2nHofUg5hn6uc2dqaNnsyBMCNNcCzUKFmwsZpump,ASCII,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d89-6acb-717a-8527-837b84c2177a', 'error': 'Failed to get quotes'}"
+2026-08-26 05:07:39,SKIP,BzwhY7GH3uFni3YWLtifx1d51hEnRfvbnwWVciLQpump,ANGEL,,,,,liquidity_too_low (11 < 1500)
+2026-08-26 05:09:30,SKIP,9KeV8FL3hv5f667h2Yh9zYB8Yab48jYXGRtK14Depump,Frug,,,,,concentration_risk (98.7% > 40.0%)
+2026-08-26 05:09:58,SKIP,4UpsXDbf5yZqRGXtL63oe7jgHzeM1o2UXbmJBis9pump,$GOBLIN,,,,,liquidity_too_low (12 < 1500)
+2026-08-26 05:10:43,SKIP,HwzRDENU12CVRGA22opsCayaLHbZzY3sJJ1xV3Lapump,RR,,,,,concentration_risk (95.7% > 40.0%)
+2026-08-26 05:11:16,SKIP,9HBVAfzDqUAXRwBmombspLnGyYCnrb6X1YGGbPRbpump,HEART,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:12:40,SKIP,jgQCGjV6xKttDpVYSxh3QbsnZMDj9qjKFNhEhYfpump,DrPigeon,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:13:07,SKIP,4FweSHbzmmAwQZvEYndnFAzAmhCDG6EFaVP8fbbLpump,CHUD,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:13:17,SKIP,2nzxMoPuXcr79m85crwCmKHRf7tLvVBsnaDkNjLmpump,crocs,,,,,serial_dev (10 prior mints)
+2026-08-26 05:14:05,SKIP,8deKqTJUarkegWEhZAE5iF7wfbdSu7aFdyfpiitpump,PISTARD,,,,,concentration_risk (80.9% > 40.0%)
+2026-08-26 05:14:17,SKIP,HhR3Jzb11RUkaH8jLG2rQ7Ht1i24Pa9rDJFZhGtdpump,LIFE,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:14:35,SKIP,HCakBbJb7sVUMobqZn6K4eq4JdTYuFS7MapanvCrFU2w,100x,,,,,concentration_risk (98.0% > 40.0%)
+2026-08-26 05:15:11,SKIP,9miH9iH5cM2JArTKZwUg8GWrFeH9BrZjNvBW4JUapump,LAZY,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:16:17,SKIP,25AptPbwAa4i7ePBQ4v9Gv3GGqYxkhg7hS6jU6Gwpump,TOTH,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:16:54,SKIP,43VHgY4ApK2Cc7CwPjsbYGbKo4TDQ72dQ9bV1AbLpump,HOTPUMP,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03d92-9f56-73da-a2c4-953ba13715ce', 'error': 'Failed to get quotes'}"
+2026-08-26 05:16:57,SKIP,8dGXFTF5wod45nASqALs6JA1ZDqqxheDUWUrywAtpump,$CLOWN,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:17:33,SKIP,ExjQUVacLg637J1PHJ95dn8tURzMopMVmnybwtzZpump,elonmusk,,,,,liquidity_too_low (13 < 1500)
+2026-08-26 05:17:55,SKIP,9xhCfNtspzfR7noQ8jybBwJjx4iVcdTCy9LZKVwtpump,RABROC,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 05:18:04,SKIP,HQLgdbDaSoX3DLR1MwaALCjdCf7mmRVS69SKMK5Ypump,angel,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:18:34,SKIP,HQKhWkrPtdLyRxWGVZAajfxoja2y8FMJeckKqZEFpump,OPTIMUS,,,,,serial_dev (282 prior mints)
+2026-08-26 05:20:25,SKIP,8qu2Q5YdDUCihLAJEo6ACGXJjVNgtzuTV36n4Y7Rpump,CRIWAR,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:21:01,SKIP,F42FirB4TWSNaiMZHDovfNe26HeNe7vEiuKDcarBpump,GTA7,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:22:35,SKIP,4r9pAJYisxDw7zevNBQUaA2Wr7KUfbXZyjeb9nG1pump,ANAL,,,,,serial_dev (8041 prior mints)
+2026-08-26 05:23:17,SKIP,96ZJ1dRZQFs5vM2YEpn2kXBuzrkyGBnCx2C5fHeDpump,TOXJUG,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:23:20,SKIP,N6dMhvVMBQB5d3prmvkmJNEFAHPovVayXPP9gVopump,Frug,,,,,concentration_risk (95.0% > 40.0%)
+2026-08-26 05:23:50,SKIP,J5sNP66fDLUSjCV2yGCzYong9MSrvLBqWkGC8oKrpump,SCRVAN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:24:38,SKIP,7kfbFYtneeEWHrEByn1DdHvZeHFzjcmh1FhJfcZepump,BULLBOOM,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:25:11,SKIP,2fntBymz1FpXKgZMGnj8ocDqGc9VHdrbMRRxpKxGpump,DIDDY,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:25:38,SKIP,FvgaNNnTbtxDv1S8pUmbLGapurZfmMmFY6X1K5zMctSE,GROKBOT,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:25:42,SKIP,5Cg1ceYYn6sKD5Wtv87ak7dCxxAhseghdS38Kz4Hpump,DIHC,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:26:00,SKIP,GgCUW2ViLkJVd7vMBFJdzjv4Ww6QhNBwrrb1UW6Tpump,DAIR,,,,,concentration_risk (64.5% > 40.0%)
+2026-08-26 05:26:00,SKIP,8tMbPLeaZ2r2bbfdgjfjEH7WSxRxgqgyMEsEZJ4Npump,Ayo,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:26:33,SKIP,5YsVaz2YfTw2scy63NhT2UDHW6iv9GQ7wNHRQSxhpump,CHUD,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:26:45,SKIP,GJziw7YtsrxqLLmH9ntfJHcFkvtFc9zK5JHf2T2Ppump,MARDOGE,,,,,concentration_risk (87.9% > 40.0%)
+2026-08-26 05:26:57,SKIP,D6h6RjNt525bWdDtVWYqgTzx3Q9iGUJnQt936HLdpump,may,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:27:21,SKIP,GMCaKHzMdH1nJJ6Dhm1MPHfJNizpDawQ8ZSdL74Zpump,QUEER,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:28:00,SKIP,BVyPqfa9X4kqTW9KSofZPKZ1r4WTPbNQkEZzEotLpump,EGG,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:28:40,SKIP,3eL8FETDGfSgLLdJfCkF4RMapUBvuqSWkeJf1M5rpump,DOOSPE,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:29:07,SKIP,DVKuf7gNBDQpUNhpHNRf5jf6W5Wdr63cLLqZc8aDpump,TOXbab,,,,,liquidity_too_low (9 < 1500)
+2026-08-26 05:29:52,SKIP,7SHFY58FCrdPeJtmwvtb84BCeR8F6LcUAzPHosLgpump,$CLOWN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:30:10,SKIP,BBa88rUhHxH1noehkDAgSPNXVnVPnFTX6tvX6q5pump,earl,,,,,concentration_risk (95.2% > 40.0%)
+2026-08-26 05:30:52,SKIP,2SNQ72H4dgtNHfy7kepkFqxr1oT5XATTas2dzGbopump,$CLOWN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:32:13,SKIP,uTYexU9Vx2a9g2p7Anmg5E5Y3f71jwKCusCQiiMpump,ROGGOB,,,,,liquidity_too_low (21 < 1500)
+2026-08-26 05:32:20,SKIP,7TYm8BfY84mQPzE4rKB3EAru1gignUSwWxW1vbJ9pump,$richness,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:33:02,SKIP,E8w731SfSSBz636GTbkuJxTSrkp62NntU9UM1LuHpump,LILFROGG,,,,,concentration_risk (60.6% > 40.0%)
+2026-08-26 05:33:53,SKIP,HPiMjD9vUv66jQPhQDNYv4jaua7xzCZBHMm9Uip6oiEw,WDOG,,,,,serial_dev (4320 prior mints)
+2026-08-26 05:34:53,SKIP,8KgzYcvzxZvaZpy1CM9rcpBodbVdbYzVWVwGhssQpump,$richness,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:35:02,SKIP,Dp1GaoEvvSAJu7rLBUwvk1syqU4s5CjRJH8n1fEVpump,JBIDEN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:35:26,SKIP,D7WuVGVXrKfHDAvy9yXibpcfbmS1M7Fuy4fRfFGGpump,angel,,,,,liquidity_too_low (4 < 1500)
+2026-08-26 05:35:35,SKIP,6a8T1UHS8GCXQMujp65zU3wigAJBToa1NrrBhJL2pump,$richness,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:35:57,SKIP,4uk964RvC6oyvzeSs9LGVBNQH5Z6ZdC7xLmTwKZFpump,CATE,,,,,liquidity_too_low (11 < 1500)
+2026-08-26 05:36:27,SKIP,7WcKahWLhqDMooJWrTv1MUBC5d6FmvioQN6LmwN3pump,CHAGOB,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:39:27,SKIP,GUwNSeAVEu89W1QW2SPiCKXhswiNUyPbTBahdqq2pump,SCRMON,,,,,liquidity_too_low (5 < 1500)
+2026-08-26 05:39:48,SKIP,G26n4bPae8JoBQ9Jx4z5g5XzTtLykkHC2WrQoSAipump,MANBAN,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:40:28,SKIP,AmPVnGY2YDr4KWWQjCe5g4wrzn3mKunAsG3zpcc1pump,Hitlini,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:40:58,SKIP,3XHopf38BmcgyFoDQxNLj17uTANFQDLmWESoZMfEpump,$DOLLY,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:41:40,SKIP,4ipfo2GFR6vRyK7QTVvhiPmVUeiavV2ZiSTRmeTqpump,DIDDY,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:42:37,SKIP,FZAvkJ7wNgGb9DNmXQUaMiQSrREJhwtFQ2unAzU5pump,$richness,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:43:01,SKIP,94LJJvw1Uo2ikMiauM5r1WYjmidNkJyRjGW5JmwNpump,TRUPHIES,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:43:52,SKIP,hRB75Qy1SAyzDqy2tNw5TzWFYSsAvETR6izRFtqpump,WUF,,,,,concentration_risk (95.3% > 40.0%)
+2026-08-26 05:44:53,SKIP,8zCZH1dMdbi3BLMpSqVfrZVYu4mocFZXwG8rr6VPpump,TRUST,,,,,liquidity_too_low (12 < 1500)
+2026-08-26 05:49:17,SKIP,EE9uHqR2vZZziLpmbYfPNsbBaeLdohDHP1TBdPAKpump,MANJUG,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:49:45,SKIP,HLD7wcQciQxbUFLi5rVJ26WVkFQEksBkt3MxZSERpump,MARDOGE,,,,,concentration_risk (84.5% > 40.0%)
+2026-08-26 05:50:36,SKIP,5Edfi1dtGUGT7Aa15p7qkasncWWafbPaYRKbcUc3pump,Snoofdog,,,,,liquidity_too_low (7 < 1500)
+2026-08-26 05:51:21,SKIP,SdVHNEwdV3yJ7v24ByoaBUm23Edtoe9em2JbUH8pump,CYBERLEEK,,,,,concentration_risk (99.6% > 40.0%)
+2026-08-26 05:51:54,SKIP,7ryPNkD9wHzXUDN5cmW2UUGk8KGMTNTMQrKfZUhapump,cg,,,,,liquidity_too_low (17 < 1500)
+2026-08-26 05:52:24,SKIP,HtfG1mjEQ8dTio1xtktkQ714uSA9zRyvxkpCt8scpump,BERRAP,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:53:52,SKIP,25Am6quUcWBmmKGqHdPAZYesaBeUiiCBLvmqTfLkpump,panc,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:54:58,SKIP,5WmMmvc5o3xRETstsNntpANnMA9ktaG6bjkuqx1Fpump,Sputin,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:55:10,SKIP,9Tw2XY5c3L2FgrvFHAFWgpg3KawAr8Y1DdrrU3Tcpump,COUNTY,,,,,"buy_failed: Jupiter could not build a swap: {'requestId': '01a03db5-a95b-7211-ad06-a58dd14b768a', 'error': 'Failed to get quotes'}"
+2026-08-26 05:55:31,SKIP,6KUz7HY7m5PymaMh5ndkmBoMEFqsGNE6PbjQ6fVwpump,Polycat,,,,,concentration_risk (98.4% > 40.0%)
+2026-08-26 05:55:35,SKIP,9YJzAMEeVsXnArkQxW2FAT8kprAes7LWa6PmDs5Epump,WINNIE,,,,,liquidity_too_low (1374 < 1500)
+2026-08-26 05:55:44,SKIP,BgvP5dQUogHUz8R47oo7mau1iyrWLNzznzoyvewvpump,BIGCAT,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:55:56,SKIP,Bxv6QFCSfBSbyHeTniLn5yffPSsM7PbtmUGf6yWipump,LIFE,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:56:32,SKIP,3pajLnE1S7E4rfqSxVn6QKjTpLoDzTbCckKD5bx2pump,sponge,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:57:02,SKIP,9wttnjpJD3BRNxhnGT7T6QkvTJ2u9ohChdrphzk8pump,DATE,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:57:44,SKIP,GnDFLfQrWHaLe39hxtRPTzF86HKyewxg59k2VZ23pump,BELLA,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:58:29,SKIP,HUoskAHtjeLxgK8mXDeoETSqQqhH8KcVth1J4B5mpump,PHAINF,,,,,liquidity_too_low (2 < 1500)
+2026-08-26 05:58:48,SKIP,3wB3LmYZv3WoAXXxD3GJZ1rpGNzenLK4wGnUEptupump,JOKER,,,,,liquidity_too_low (3 < 1500)
+2026-08-26 05:59:15,SKIP,4aK4FCnkCxiwDAGEcw81VFy2Qx7MspBhKPhkySTzYPGv,GROKBOT,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 05:59:42,SKIP,CrV15TuS1hvLvubHE9qoZwQiSzn8d6FXkYChT1u1pump,not pink,,,,,liquidity_too_low (1 < 1500)
+2026-08-26 06:00:03,SKIP,FiDRxdMrNBq9gRwGADwKs2oSkEQTfFRV8J968M2i83RB,cc,,,,,concentration_risk (94.9% > 40.0%)
+2026-08-26 06:00:06,SKIP,89jTzEoHL1XpoLG9hnsc2NvvSuE53z8WrR6u5Ep7pump,MUR,,,,,liquidity_too_low (1 < 1500)

@@ -1,0 +1,56 @@
+{
+  "positions": {
+    "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx": {
+      "mint": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+      "symbol": "STONK",
+      "setup": "pullback",
+      "entry_price": 0.015458188086508423,
+      "size_usd": 5.0,
+      "entry_time": 1787879694.9289348,
+      "entry_fee_usd": 0.0010909502938709454,
+      "stop_price": 0.013603205516127412,
+      "trail_pct": 9.0,
+      "tp1_done": false,
+      "peak_price": 0.01563332701278616,
+      "last_price": 0.015427813191008203,
+      "entry_liquidity_usd": 845916.3070629509,
+      "entry_top1_pct": 19.629197718672074,
+      "rug_score": 84.0,
+      "features_str": "rug_score=84;liq_usd=845916;mcap_usd=1.38857e+07;vol24_usd=4.57418e+06;holders=12620;top1_pct=19.63;organic_score=89.66;chg5m_pct=1.08;chg1h_pct=-4.14;chg24h_pct=12.72;organic_buyers_5m=1;buys_5m=4;sells_5m=9;dev_mints=5810;setup_breakout=0;setup_pullback=1;mv_return_pct=-0.899;mv_drawdown_pct=-0.954;mv_slope=-0.0191;mv_late_slope=-1.2474;mv_vol_pct=0.692;mv_below_high_pct=-0.954;mv_above_low_pct=0.099;mv_holder_growth=0.307;mv_liq_trend_pct=-0.108",
+      "last_meta_at": 1787881770.796745,
+      "last_liquidity_usd": 857486.8849246972
+    },
+    "GUmbtfjSZkybSFgPibBcvwExEBdXwewJHR5PkTjzpump": {
+      "mint": "GUmbtfjSZkybSFgPibBcvwExEBdXwewJHR5PkTjzpump",
+      "symbol": "Morty",
+      "setup": "breakout",
+      "entry_price": 0.0014673346653031303,
+      "size_usd": 5.0,
+      "entry_time": 1787881800.713283,
+      "entry_fee_usd": 0.0010845675650300913,
+      "stop_price": 0.0012912545054667547,
+      "trail_pct": 9.0,
+      "tp1_done": false,
+      "peak_price": 0.0014673346653031303,
+      "last_price": 0.0014673346653031303,
+      "entry_liquidity_usd": 162963.17300656758,
+      "entry_top1_pct": 17.361104290818112,
+      "rug_score": 100.0,
+      "features_str": "rug_score=100;liq_usd=162963;mcap_usd=1.35337e+06;vol24_usd=2.2858e+06;holders=6793;top1_pct=17.36;organic_score=75;chg5m_pct=3.74;chg1h_pct=7.41;chg24h_pct=-19.37;organic_buyers_5m=3;buys_5m=29;sells_5m=28;dev_mints=110;setup_breakout=1;setup_pullback=0;mv_return_pct=2.834;mv_drawdown_pct=0;mv_slope=0.8247;mv_late_slope=6.565;mv_vol_pct=1.006;mv_below_high_pct=0;mv_above_low_pct=3.709;mv_holder_growth=3.122;mv_liq_trend_pct=2.968",
+      "last_meta_at": 0.0,
+      "last_liquidity_usd": 162963.17300656758
+    }
+  },
+  "balance_usd": 5.180067842728715,
+  "starting_balance_usd": 15.0,
+  "trades": 2,
+  "wins": 1,
+  "losses": 1,
+  "gross_profit_usd": 1.2106254419463238,
+  "total_fees_usd": 0.006535678520437144,
+  "session_loss_usd": 1.0283820813587077,
+  "cooldown_until": {
+    "6ismWYLTwvzngqAzeWLhAfq1jSY2yv8hG55te1HnTw9j": 1787885239.78059,
+    "FZqdw6oSDCbHtKYxmhnfbi97SnyVy8jaYpdCoMrrjKa2": 1787886935.958804
+  }
+}
