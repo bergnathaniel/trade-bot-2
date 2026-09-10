@@ -262,3 +262,29 @@ def risk_free_daily(dates):
             last = have[d]
         lut[d] = max(0.0, last) / 100.0 / 252.0
     return lut
+
+
+# Liquid US large caps with deep history, spread across sectors so that
+# same-industry pairs can form. NOTE: these are companies that still exist in
+# 2026, which is survivorship bias - see pairs.py for what that does to the
+# result.
+STOCK_UNIVERSE = {s: ("stock", s, 2000) for s in [
+    # tech
+    "AAPL","MSFT","INTC","CSCO","ORCL","IBM","TXN","QCOM","ADBE","AMD","MU","HPQ","ADI","AMAT",
+    # comms / media
+    "T","VZ","CMCSA","DIS","NFLX",
+    # financials
+    "JPM","BAC","WFC","C","GS","MS","USB","PNC","AXP","BK","SCHW","TRV","ALL","MMC","AIG",
+    # health
+    "JNJ","PFE","MRK","ABT","BMY","LLY","AMGN","GILD","UNH","CI","HUM","CAH","MCK","BDX","SYK",
+    # staples
+    "PG","KO","PEP","WMT","COST","CL","KMB","GIS","K","SYY","gis","gis",
+    # energy / materials
+    "XOM","CVX","COP","SLB","HAL","OXY","PSX","VLO","NEM","FCX","DD","DOW","LIN","APD","SHW",
+    # industrials
+    "GE","BA","CAT","DE","MMM","HON","UPS","UNP","CSX","NSC","LMT","NOC","RTX","EMR","ITW",
+    # utilities / reits
+    "NEE","DUK","SO","D","AEP","EXC","XEL","PSA","SPG","O","AMT",
+    # discretionary
+    "HD","LOW","MCD","SBUX","NKE","TGT","F","GM","TJX","YUM",
+]}
