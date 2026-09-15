@@ -33,6 +33,7 @@ LATEST = os.path.join(ROOT, "paper_latest.json")
 LATEST_PRACTICE = os.path.join(ROOT, "paper_latest_practice.json")   # runs from a pretend start date
 KRAKEN_PAIR = re.compile(r"^[A-Z0-9]{2,10}USD$")
 INTERVALS = {"1", "5", "15", "60", "240", "1440"}
+HISTORY_CANDLES = 2000   # how much history the live/replay chart loads on open (was 720, Kraken's single-page max)
 # arena interval in minutes -> (Yahoo interval, days of history Yahoo serves for it)
 YAHOO_INTERVALS = {"5": ("5m", 59), "15": ("15m", 59), "60": ("60m", 729), "1440": ("1d", 1100)}
 SYMBOL = re.compile(r"^[A-Z0-9^][A-Z0-9.\-=^]{0,11}$")   # AAPL, BRK-B, BTC-USD, ^GSPC, GC=F
@@ -75,7 +76,14 @@ def yahoo_rows(symbol, interval):
         if None in (o, h, l, c) or min(o, h, l, c) <= 0 or h < l:
             continue
         rows.append([t, o, h, l, c, None, v or 0])
-    return rows[-721:]
+    return rows[-(HISTORY_CANDLES + 1):]
+
+
+def kraken_rows(pair, interval):
+    """Kraken's OHLC candles. Its public endpoint only ever serves its own most recent ~720, regardless of `since`
+    (tried paginating past that with `since`; Kraken silently ignores it and returns the same 720 every time) - so
+    unlike yahoo_rows, this doesn't reach HISTORY_CANDLES. Left as a real ceiling of that free endpoint."""
+    return fetch_json(f"https://api.kraken.com/0/public/OHLC?pair={pair}&interval={interval}")
 
 
 def coinbase_rows(product):
@@ -95,10 +103,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         interval = q.get("interval", "")
         try:
             if url.path == "/api/ohlc":
-                if not KRAKEN_PAIR.match(q.get("pair", "")) or interval not in INTERVALS:
+                pair = q.get("pair", "")
+                if not KRAKEN_PAIR.match(pair) or interval not in INTERVALS:
                     return self._send(400, {"error": ["bad pair or interval"]})
-                return self._send(200, fetch_json(
-                    f"https://api.kraken.com/0/public/OHLC?pair={q['pair']}&interval={interval}"))
+                return self._send(200, cached(("kraken", pair, interval), lambda: kraken_rows(pair, interval)))
             if url.path == "/api/yahoo":
                 symbol = q.get("symbol", "")
                 if not SYMBOL.match(symbol) or interval not in YAHOO_INTERVALS:
