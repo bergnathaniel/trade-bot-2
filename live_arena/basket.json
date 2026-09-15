@@ -1,0 +1,196 @@
+{
+ "label": "Micro-cap stocks",
+ "made": "2026-09-12",
+ "pool_size": 431,
+ "rule": "- every stock in Nasdaq's US screener (NYSE, Nasdaq, NYSE American) worth $50M-$300M today\n  - a US company, a price of at least $1, and at least 50,000 shares traded on the day the list is pulled\n  - plain common stock: a letters-only symbol, with warrants, rights, units, preferred and depositary shares left out\n  - sorted by symbol, shuffled with a fixed seed, and the first 30 kept that Yahoo has 721 daily candles for\n    (about 3 years of trading)",
+ "index": {
+  "symbol": "IWC",
+  "name": "iShares Micro-Cap ETF"
+ },
+ "stocks": [
+  {
+   "symbol": "NMAD",
+   "name": "Nomad Power Solutions Inc.",
+   "marketCap": 56997781.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "OM",
+   "name": "Outset Medical Inc.",
+   "marketCap": 60338896.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "BATL",
+   "name": "Battalion Oil Corporation",
+   "marketCap": 76758088.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "BSEM",
+   "name": "BioStem Technologies Inc.",
+   "marketCap": 76931220.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "IPWR",
+   "name": "Ideal Power Inc.",
+   "marketCap": 78721997.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "NTRB",
+   "name": "Nutriband Inc.",
+   "marketCap": 84603554.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "TGEN",
+   "name": "Tecogen Inc.",
+   "marketCap": 92072857.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "BWEN",
+   "name": "Broadwind Inc.",
+   "marketCap": 94156345.0,
+   "sector": "Telecommunications"
+  },
+  {
+   "symbol": "ANIX",
+   "name": "Anixa Biosciences Inc.",
+   "marketCap": 95948094.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "RDZN",
+   "name": "Roadzen Inc.",
+   "marketCap": 97088172.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "VATE",
+   "name": "INNOVATE Corp.",
+   "marketCap": 97675761.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "EP",
+   "name": "Empire Petroleum Corporation",
+   "marketCap": 103993353.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "SEER",
+   "name": "Seer Inc.",
+   "marketCap": 107975429.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "OESX",
+   "name": "Orion Energy Systems Inc.",
+   "marketCap": 111433044.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "ACNT",
+   "name": "Ascent Industries Co.",
+   "marketCap": 135141795.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "OWLT",
+   "name": "Owlet Inc.",
+   "marketCap": 137049665.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "EGAN",
+   "name": "eGain Corporation",
+   "marketCap": 144387426.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "NMRA",
+   "name": "Neumora Therapeutics Inc.",
+   "marketCap": 195411748.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "CUE",
+   "name": "Cue Biopharma Inc.",
+   "marketCap": 208779258.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "EU",
+   "name": "enCore Energy Corp.",
+   "marketCap": 213709068.0,
+   "sector": "Basic Materials"
+  },
+  {
+   "symbol": "KLTR",
+   "name": "Kaltura Inc.",
+   "marketCap": 215097224.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "SND",
+   "name": "Smart Sand Inc.",
+   "marketCap": 220899108.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "AMWL",
+   "name": "American Well Corporation",
+   "marketCap": 221113854.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "RAIL",
+   "name": "FreightCar America Inc.",
+   "marketCap": 223308617.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "RNAC",
+   "name": "Cartesian Therapeutics Inc.",
+   "marketCap": 247791333.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "RILY",
+   "name": "BRC Group Holdings Inc.",
+   "marketCap": 265318383.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "RMBI",
+   "name": "Richmond Mutual Bancorporation Inc.",
+   "marketCap": 266468831.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "RC",
+   "name": "Ready Capital Corporation",
+   "marketCap": 270913227.0,
+   "sector": "Real Estate"
+  },
+  {
+   "symbol": "PLAY",
+   "name": "Dave & Buster's Entertainment Inc.",
+   "marketCap": 283179969.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "SSP",
+   "name": "E.W. Scripps Company (The)",
+   "marketCap": 292834012.0,
+   "sector": "Industrials"
+  }
+ ],
+ "checked_but_not_used": [
+  "XHLD (396 candles)"
+ ],
+ "caveat": "How the list was picked matters. These are today's micro-caps, so the list includes companies that shrank into this size over the last 3 years and leaves out ones that grew past it, which tilts it toward past losers. It also leaves out companies that went bust or were delisted, which tilts it the other way. Real trading costs on stocks this small are often 0.5% or more per trade, from the gap between the buy and sell price."
+}

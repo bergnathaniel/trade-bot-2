@@ -1,0 +1,83 @@
+{
+ "label": "Crypto coins, group B (confirmation 1)",
+ "unit": "coins",
+ "source": "Coinbase daily",
+ "made": "2026-09-12",
+ "seed": 20260914,
+ "window": [
+  "2022-01-01",
+  "2026-09-11"
+ ],
+ "rule": "- coins with a USD market on Coinbase (online, trading enabled) that rank 21-250 by market cap on CoinGecko today\n  - not a stablecoin, wrapped, bridged, staked or gold-backed token, and not a coin whose daily close barely moves\n    (spread of daily closes under 3% of their average, which is a stablecoin by behavior)\n  - Coinbase daily candles from 2022-01-01 or earlier, with no more than 2% of days missing since then\n  - sorted by symbol, shuffled with a fixed seed and dealt into three equal groups (see CRYPTO_SEARCH.md):\n      A, discovery       -> crypto_basket.json, the basket the app shows\n      B, confirmation 1  -> crypto_confirm_b.json\n      C, confirmation 2  -> crypto_confirm_c.json",
+ "index": {
+  "symbol": "BTC-USD",
+  "name": "Bitcoin",
+  "file": "data/crypto/BTC-USD.json"
+ },
+ "items": [
+  {
+   "symbol": "BCH-USD",
+   "name": "Bitcoin Cash",
+   "marketCap": 4536974409,
+   "rank": 23,
+   "file": "data/crypto/BCH-USD.json"
+  },
+  {
+   "symbol": "LTC-USD",
+   "name": "Litecoin",
+   "marketCap": 4162486367,
+   "rank": 25,
+   "file": "data/crypto/LTC-USD.json"
+  },
+  {
+   "symbol": "UNI-USD",
+   "name": "Uniswap",
+   "marketCap": 3970460646,
+   "rank": 26,
+   "file": "data/crypto/UNI-USD.json"
+  },
+  {
+   "symbol": "CRO-USD",
+   "name": "Cronos",
+   "marketCap": 2904635348,
+   "rank": 35,
+   "file": "data/crypto/CRO-USD.json"
+  },
+  {
+   "symbol": "AAVE-USD",
+   "name": "Aave",
+   "marketCap": 1940726182,
+   "rank": 45,
+   "file": "data/crypto/AAVE-USD.json"
+  },
+  {
+   "symbol": "DOT-USD",
+   "name": "Polkadot",
+   "marketCap": 1746228873,
+   "rank": 50,
+   "file": "data/crypto/DOT-USD.json"
+  },
+  {
+   "symbol": "ALGO-USD",
+   "name": "Algorand",
+   "marketCap": 842333526,
+   "rank": 82,
+   "file": "data/crypto/ALGO-USD.json"
+  },
+  {
+   "symbol": "FIL-USD",
+   "name": "Filecoin",
+   "marketCap": 664856637,
+   "rank": 94,
+   "file": "data/crypto/FIL-USD.json"
+  },
+  {
+   "symbol": "AXS-USD",
+   "name": "Axie Infinity",
+   "marketCap": 161577437,
+   "rank": 202,
+   "file": "data/crypto/AXS-USD.json"
+  }
+ ],
+ "caveat": "How the coins were picked matters. They are ranked by today's size, so coins that shrank into this range since 2022 are in, and coins that died or were delisted from Coinbase are out. The window starts in the 2022 crash, which flatters any bot that spends time in cash. Many exchanges charge small accounts well over 0.1% per trade, and big orders in small coins move the price."
+}

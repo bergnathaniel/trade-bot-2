@@ -1,0 +1,201 @@
+{
+ "label": "Micro-cap stocks",
+ "made": "2026-09-12",
+ "seed": 20260913,
+ "excluded_stocks_from": [
+  "basket.json"
+ ],
+ "pool_size": 401,
+ "rule": "- every stock in Nasdaq's US screener (NYSE, Nasdaq, NYSE American) worth $50M-$300M today\n  - a US company, a price of at least $1, and at least 50,000 shares traded on the day the list is pulled\n  - plain common stock: a letters-only symbol, with warrants, rights, units, preferred and depositary shares left out\n  - sorted by symbol, shuffled with a fixed seed, and the first 30 kept that Yahoo has 721 daily candles for\n    (about 3 years of trading)",
+ "index": {
+  "symbol": "IWC",
+  "name": "iShares Micro-Cap ETF"
+ },
+ "stocks": [
+  {
+   "symbol": "IDN",
+   "name": "Intellicheck Inc.",
+   "marketCap": 52693532.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "SOTK",
+   "name": "Sono-Tek Corporation",
+   "marketCap": 72139759.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "CPSH",
+   "name": "CPS Technologies Corp.",
+   "marketCap": 79102803.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "BZFD",
+   "name": "BuzzFeed Inc.",
+   "marketCap": 90001512.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "ZVIA",
+   "name": "Zevia PBC",
+   "marketCap": 97455205.0,
+   "sector": "Consumer Staples"
+  },
+  {
+   "symbol": "KULR",
+   "name": "KULR Technology Group Inc.",
+   "marketCap": 110147166.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "SIEB",
+   "name": "Siebert Financial Corp.",
+   "marketCap": 110972527.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "RTB",
+   "name": "RTB Digital Inc.",
+   "marketCap": 112099991.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "DMRC",
+   "name": "Digimarc Corporation",
+   "marketCap": 112376645.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "RFL",
+   "name": "Rafael Holdings Inc.",
+   "marketCap": 118559991.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "APYX",
+   "name": "Apyx Medical Corporation",
+   "marketCap": 122159667.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "BHR",
+   "name": "Braemar Hotels & Resorts Inc.",
+   "marketCap": 127743531.0,
+   "sector": "Real Estate"
+  },
+  {
+   "symbol": "TLYS",
+   "name": "Tilly's Inc.",
+   "marketCap": 140701419.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "LFMD",
+   "name": "LifeMD Inc.",
+   "marketCap": 147012553.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "UNCY",
+   "name": "Unicycive Therapeutics Inc.",
+   "marketCap": 147354310.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "SJT",
+   "name": "San Juan Basin Royalty Trust",
+   "marketCap": 149148147.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "TUSK",
+   "name": "Mammoth Energy Services Inc.",
+   "marketCap": 149195514.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "DFDV",
+   "name": "DeFi Development Corp.",
+   "marketCap": 157468773.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "CURI",
+   "name": "CuriosityStream Inc.",
+   "marketCap": 157839154.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "EAF",
+   "name": "GrafTech International Ltd.",
+   "marketCap": 171686439.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "ANTX",
+   "name": "AN2 Therapeutics Inc.",
+   "marketCap": 204153042.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "MPAA",
+   "name": "Motorcar Parts  of America Inc.",
+   "marketCap": 204667968.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "PEPG",
+   "name": "PepGen Inc.",
+   "marketCap": 206393361.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "CMTG",
+   "name": "Claros Mortgage Trust Inc.",
+   "marketCap": 213037151.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "TARA",
+   "name": "Protara Therapeutics Inc.",
+   "marketCap": 225744764.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "STIM",
+   "name": "Neuronetics Inc.",
+   "marketCap": 230877583.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "KGEI",
+   "name": "Kolibri Global Energy Inc. Common stock",
+   "marketCap": 234678739.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "NAGE",
+   "name": "Niagen Bioscience Inc.",
+   "marketCap": 240543046.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "TTGT",
+   "name": "TechTarget Inc.",
+   "marketCap": 279927394.0,
+   "sector": "Telecommunications"
+  },
+  {
+   "symbol": "CMRC",
+   "name": "Commerce.com Inc. Series 1",
+   "marketCap": 290420763.0,
+   "sector": "Technology"
+  }
+ ],
+ "checked_but_not_used": [
+  "VRM (392 candles)",
+  "FJET (183 candles)"
+ ],
+ "caveat": "How the list was picked matters. These are today's micro-caps, so the list includes companies that shrank into this size over the last 3 years and leaves out ones that grew past it, which tilts it toward past losers. It also leaves out companies that went bust or were delisted, which tilts it the other way. Real trading costs on stocks this small are often 0.5% or more per trade, from the gap between the buy and sell price."
+}

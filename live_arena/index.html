@@ -1,0 +1,1766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Arena</title>
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+  :root{--bg:#0b0e14;--panel:#121722;--line:#1f2635;--text:#d6dbe4;--mute:#7d8799;--up:#26a69a;--down:#ef5350;--acc:#f5b041}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+  header{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  header h1{font-size:15px;margin:0 8px 0 0;letter-spacing:.3px}
+  select,button,input{background:#1a2030;color:var(--text);border:1px solid #2a3244;border-radius:6px;padding:5px 9px;font:inherit}
+  button{cursor:pointer}button:hover{border-color:#44506a}
+  .seg{display:flex}.seg button{border-radius:0}.seg button:first-child{border-radius:6px 0 0 6px}.seg button:last-child{border-radius:0 6px 6px 0}
+  .seg button.on{background:#2b3550;border-color:#4a5a80}
+  #price{font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;margin-left:4px}
+  #status{display:flex;align-items:center;gap:6px;color:var(--mute)}
+  #dot{width:8px;height:8px;border-radius:50%;background:#555}
+  .grow{flex:1}
+  .note{color:var(--mute);font-size:11px}
+  main{flex:1;display:grid;grid-template-columns:1fr 410px;min-height:0}
+  #left{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line)}
+  #feed{height:190px;overflow-y:auto;border-top:1px solid var(--line);padding:6px 10px;font-variant-numeric:tabular-nums}
+  .ev{padding:2px 0;border-bottom:1px solid #151a26;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ev .t{color:var(--mute);margin-right:6px}.ev.think{color:#98a2b3}
+  #right{overflow-y:auto;min-height:0}
+  .card{padding:10px 12px;border-bottom:1px solid var(--line)}
+  .card h2{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--mute);margin:0 0 8px}
+  #watchName{font-size:16px;font-weight:600}
+  #watchDesc{color:var(--mute);margin:4px 0 8px}
+  #thought{background:#0d1320;border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:6px;padding:8px;min-height:38px}
+  #legend span{margin-right:10px;font-size:11px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th{color:var(--mute);font-weight:500;font-size:11px;text-align:right;padding:3px 4px}
+  td{text-align:right;padding:4px 4px;border-top:1px solid #182030}
+  th:first-child,td:first-child{text-align:left}
+  tr.row{cursor:pointer}tr.row:hover{background:#171e2c}tr.watch{background:#1b2436}
+  .sw{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+  .tag{font-size:10px;color:var(--mute);border:1px solid #2a3244;border-radius:4px;padding:0 4px;margin-left:4px;font-weight:400}
+  .pos{color:var(--up)}.neg{color:var(--down)}
+  .btns{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+  .buy{background:#123a35;border-color:#1f6b60}.sell{background:#3d1a1d;border-color:#7a2d33}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-variant-numeric:tabular-nums}
+  .stats b{float:right;font-weight:600}
+  #replayCtl{display:none;gap:6px;align-items:center}
+  #banner{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(11,14,20,.85);z-index:5;text-align:center;padding:20px}
+  #chartWrap{position:relative;flex:1;display:flex;min-height:0}
+  label.opt{display:block;margin:2px 0}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  #basketPanel,#paperPanel{position:fixed;inset:0;background:rgba(11,14,20,.97);z-index:20;overflow:auto;padding:16px 20px}
+  #basketPanel table,#paperPanel table{max-width:980px}
+  #basketPanel p,#paperPanel p{max-width:980px}
+  .paperCard{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:0 0 14px;max-width:980px}
+  .paperCard h3{margin:0 0 4px;font-size:14px}
+  tr.yard td{color:var(--mute)}
+  #paperPanel details summary{cursor:pointer;margin:8px 0 4px}
+  #paperPanel a{color:#7fb0ff}
+  @media (max-width:900px){main{grid-template-columns:1fr;overflow-y:auto}#right{overflow:visible}#left{min-height:520px}body{overflow:auto;height:auto}}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚔️ Live Arena</h1>
+  <select id="pair"></select>
+  <input id="ticker" placeholder="Any ticker…" title="Type any stock, ETF or crypto ticker Yahoo Finance knows (AAPL, SPY, BTC-USD) and press Enter. Coins with a Kraken feed (ADA, PEPE…) open live." style="width:110px" autocomplete="off" spellcheck="false">
+  <select id="tf">
+    <option value="1">1m</option><option value="5">5m</option><option value="15">15m</option><option value="60">1h</option><option value="240">4h</option><option value="1440">1d</option>
+  </select>
+  <div class="seg" id="modeSeg"><button data-m="live" class="on">● Live</button><button data-m="replay">⏪ Replay</button></div>
+  <select id="basketPick" title="Which basket the basket test uses" hidden></select>
+  <select id="basketFill" title="When the bots' orders fill during the basket test" hidden><option value="close">fill at the close</option><option value="open">fill at the next open</option></select>
+  <button id="basketBtn" title="Run every bot on every item in the chosen basket and compare them" hidden>🧪 Basket test</button>
+  <button id="paperBtn" title="Forward paper tests of the best strategies found so far">📒 Paper tests</button>
+  <div id="replayCtl">
+    <button id="play">▶ Play</button><button id="step">Step</button>
+    <select id="speed"><option value="1">1 candle/s</option><option value="3">3/s</option><option value="8" selected>8/s</option><option value="20">20/s</option><option value="50">50/s</option></select>
+    <span class="note" id="replayPos"></span>
+  </div>
+  <span id="price">—</span>
+  <span class="grow"></span>
+  <label class="note">Fee per trade <input id="fee" type="number" step="0.01" min="0" value="0.10" style="width:62px">%</label>
+  <span id="status"><span id="dot"></span><span id="statusText">starting</span></span>
+</header>
+<main>
+  <section id="left">
+    <div id="chartWrap"><div id="chart" style="flex:1"></div><div id="banner"></div></div>
+    <div id="feed"></div>
+  </section>
+  <aside id="right">
+    <div class="card">
+      <h2>Watching (click a row below to switch)</h2>
+      <div id="watchName"></div>
+      <div id="watchDesc"></div>
+      <div id="thought">Waiting for the first candle to close…</div>
+      <div id="legend" style="margin-top:6px"></div>
+    </div>
+    <div class="card">
+      <h2>Leaderboard · everyone starts with $10,000 paper</h2>
+      <div style="margin-bottom:6px"><select id="typeFilter" title="Filter by strategy type"></select> <span class="note">yardsticks always shown</span></div>
+      <table><thead><tr><th>Trader</th><th>Equity</th><th>Return</th><th>Trades</th><th>Win%</th><th>Fees</th></tr></thead><tbody id="board"></tbody></table>
+      <div class="note" style="margin-top:6px">Coin Flip, Buy &amp; Hold and Steady Buyer are the yardsticks. A strategy that can't beat them isn't doing anything. The Control bots have no edge on purpose, as another thing to compare against. A • means the bot is in a trade.</div>
+    </div>
+    <div class="card">
+      <h2>Your paper account</h2>
+      <div class="stats">
+        <span>Cash <b id="yCash"></b></span><span>Coins <b id="yQty"></b></span>
+        <span>Equity <b id="yEq"></b></span><span>Open P&amp;L <b id="yPnl"></b></span>
+      </div>
+      <div class="btns">
+        <button class="buy" data-buy="0.25">Buy 25%</button><button class="buy" data-buy="0.5">Buy 50%</button><button class="buy" data-buy="1">Buy all</button>
+        <button class="sell" data-sell="0.25">Sell 25%</button><button class="sell" data-sell="0.5">Sell 50%</button><button class="sell" data-sell="1">Sell all</button>
+      </div>
+      <div class="note" style="margin-top:8px">Fills at the current price plus a small slippage and the fee above. Paper money only. Nothing here touches a real exchange account.</div>
+    </div>
+    <div class="card">
+      <label class="note opt"><input type="checkbox" id="showThink" checked> Show the watched bot's reasoning on every candle</label>
+      <label class="note opt"><input type="checkbox" id="onlyWatched"> Only show trades from the bot I'm watching</label>
+    </div>
+  </aside>
+</main>
+<div id="paperPanel" hidden>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <h2 style="margin:0;font-size:16px">📒 Paper tests</h2><span class="note" id="paperStatus"></span>
+    <span class="grow"></span><button id="paperClose">Close</button>
+  </div>
+  <div id="paperBody"></div>
+</div>
+<div id="basketPanel" hidden>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <h2 style="margin:0;font-size:16px">🧪 Basket test</h2><span class="note" id="basketStatus"></span>
+    <span class="grow"></span><button id="basketClose">Close</button>
+  </div>
+  <div id="basketBody"></div>
+</div>
+<script>
+"use strict";
+const PAIRS = {
+  "BTC/USD": { rest: "XBTUSD", dp: 1 }, "ETH/USD": { rest: "ETHUSD", dp: 2 }, "SOL/USD": { rest: "SOLUSD", dp: 2 },
+  "XRP/USD": { rest: "XRPUSD", dp: 4 }, "DOGE/USD": { rest: "DOGEUSD", dp: 5 },
+};
+// more coins with a live Kraken feed; their price decides how many decimals to show
+for (const coin of ["ADA", "LINK", "AVAX", "DOT", "LTC", "BCH", "XLM", "UNI", "ATOM", "NEAR", "AAVE", "ETC", "FIL", "ALGO", "HBAR", "TRX",
+                    "TON", "SUI", "APT", "ARB", "OP", "INJ", "POL", "RENDER", "FET", "TAO", "ONDO", "SEI", "JUP", "SHIB", "PEPE", "BONK", "WIF"])
+  PAIRS[`${coin}/USD`] = { rest: `${coin}USD` };
+// popular stocks and ETFs, replay only (Yahoo); any other ticker can be typed into the ticker box
+const STOCKS = { SPY: "S&P 500 ETF", QQQ: "Nasdaq 100 ETF", IWM: "Russell 2000 ETF", DIA: "Dow Jones ETF", AAPL: "Apple", MSFT: "Microsoft",
+  NVDA: "Nvidia", TSLA: "Tesla", AMZN: "Amazon", META: "Meta", GOOGL: "Alphabet", AMD: "AMD", NFLX: "Netflix", AVGO: "Broadcom",
+  PLTR: "Palantir", COIN: "Coinbase", MSTR: "Strategy", JPM: "JPMorgan", GLD: "Gold ETF", TLT: "20+ year Treasury ETF" };
+for (const [symbol, name] of Object.entries(STOCKS)) PAIRS[symbol] = { yahoo: symbol, name };
+const START_CASH = 10000, SLIP = 0.0002, REPLAY_WARMUP = 60;
+const OFF = new Date().getTimezoneOffset() * 60;     // chart shows local time
+const $ = id => document.getElementById(id);
+
+// ---------- indicators (always computed only from candles that have closed) ----------
+function ema(v, n) {
+  const o = Array(v.length).fill(null), k = 2 / (n + 1), f = v.findIndex(x => x != null);
+  if (f < 0) return o;
+  let e = null, s = 0;
+  for (let i = f; i < v.length; i++) {
+    if (e === null) { s += v[i]; if (i - f === n - 1) o[i] = e = s / n; }
+    else o[i] = e = v[i] * k + e * (1 - k);
+  }
+  return o;
+}
+function sma(v, n) {
+  const o = Array(v.length).fill(null);
+  let s = 0;
+  for (let i = 0; i < v.length; i++) {
+    s += v[i];
+    if (i >= n) s -= v[i - n];
+    if (i >= n - 1) o[i] = s / n;
+  }
+  return o;
+}
+function bands(v, n, m) {
+  const mid = Array(v.length).fill(null), up = mid.slice(), lo = mid.slice();
+  for (let i = n - 1; i < v.length; i++) {
+    let s = 0, q = 0;
+    for (let j = i - n + 1; j <= i; j++) s += v[j];
+    const a = s / n;
+    for (let j = i - n + 1; j <= i; j++) q += (v[j] - a) ** 2;
+    const sd = Math.sqrt(q / n);
+    mid[i] = a; up[i] = a + m * sd; lo[i] = a - m * sd;
+  }
+  return { mid, up, lo };
+}
+function rsi(v, n) {
+  const o = Array(v.length).fill(null);
+  if (v.length <= n) return o;
+  let g = 0, l = 0;
+  for (let i = 1; i <= n; i++) { const d = v[i] - v[i - 1]; if (d > 0) g += d; else l -= d; }
+  g /= n; l /= n; o[n] = l === 0 ? 100 : 100 - 100 / (1 + g / l);
+  for (let i = n + 1; i < v.length; i++) {
+    const d = v[i] - v[i - 1];
+    g = (g * (n - 1) + Math.max(d, 0)) / n; l = (l * (n - 1) + Math.max(-d, 0)) / n;
+    o[i] = l === 0 ? 100 : 100 - 100 / (1 + g / l);
+  }
+  return o;
+}
+function channel(v, n, fn) {   // highest/lowest of the PREVIOUS n candles
+  const o = Array(v.length).fill(null);
+  for (let i = n; i < v.length; i++) o[i] = fn(...v.slice(i - n, i));
+  return o;
+}
+function atr(high, low, close, n) {   // average candle size, Wilder smoothing
+  const o = Array(close.length).fill(null);
+  let a = 0;
+  for (let i = 1; i < close.length; i++) {
+    const tr = Math.max(high[i] - low[i], Math.abs(high[i] - close[i - 1]), Math.abs(low[i] - close[i - 1]));
+    if (i < n) a += tr;
+    else if (i === n) o[i] = a = (a + tr) / n;
+    else o[i] = a = (a * (n - 1) + tr) / n;
+  }
+  return o;
+}
+function supertrend(high, low, close, at, m) {
+  const line = Array(close.length).fill(null), dir = line.slice();
+  let up = null, dn = null, d = 1;
+  for (let i = 0; i < close.length; i++) {
+    if (at[i] == null) continue;
+    const mid = (high[i] + low[i]) / 2, bu = mid + m * at[i], bd = mid - m * at[i];
+    if (up === null) { up = bu; dn = bd; }
+    else {
+      up = bu < up || close[i - 1] > up ? bu : up;
+      dn = bd > dn || close[i - 1] < dn ? bd : dn;
+    }
+    if (d === 1 && close[i] < dn) d = -1;
+    else if (d === -1 && close[i] > up) d = 1;
+    dir[i] = d; line[i] = d === 1 ? dn : up;
+  }
+  return { line, dir };
+}
+function stochastic(high, low, close, n, smooth) {
+  const k = Array(close.length).fill(null);
+  for (let i = n - 1; i < close.length; i++) {
+    let hh = -Infinity, ll = Infinity;
+    for (let j = i - n + 1; j <= i; j++) { hh = Math.max(hh, high[j]); ll = Math.min(ll, low[j]); }
+    k[i] = hh === ll ? 50 : (close[i] - ll) / (hh - ll) * 100;
+  }
+  const d = k.map((_, i) => i < n + smooth - 2 ? null : k.slice(i - smooth + 1, i + 1).reduce((s, x) => s + x, 0) / smooth);
+  return { k, d };
+}
+function rollingVwap(high, low, close, vol, n) {
+  const o = Array(close.length).fill(null), tp = close.map((c, i) => (high[i] + low[i] + c) / 3);
+  let pv = 0, v = 0;
+  for (let i = 0; i < close.length; i++) {
+    pv += tp[i] * vol[i]; v += vol[i];
+    if (i >= n) { pv -= tp[i - n] * vol[i - n]; v -= vol[i - n]; }
+    if (i >= n - 1 && v > 1e-12) o[i] = pv / v;
+  }
+  return o;
+}
+function heikinAshi(c) {
+  const open = [], close = [];
+  c.forEach((x, i) => {
+    close.push((x.open + x.high + x.low + x.close) / 4);
+    open.push(i === 0 ? (x.open + x.close) / 2 : (open[i - 1] + close[i - 1]) / 2);
+  });
+  return { open, close, high: c.map((x, i) => Math.max(x.high, open[i], close[i])), low: c.map((x, i) => Math.min(x.low, open[i], close[i])) };
+}
+// Bitcoin's daily candles, for the bots that compare a coin with bitcoin. Only saved crypto histories provide them.
+const BTC_FILE = "data/crypto/BTC-USD.json";
+let REF = null;
+function alignRef(c) {   // bitcoin's close on each candle's day (the latest one at or before it), or null
+  if (!REF || !REF.length || !c.length || c[0].time < REF[0].time) return null;
+  const out = [];
+  let j = 0;
+  for (const x of c) {
+    while (j + 1 < REF.length && REF[j + 1].time <= x.time) j++;
+    out.push(REF[j].close);
+  }
+  return out;
+}
+function annualVol(close, i, n) {   // yearly volatility from the last n daily log returns (crypto trades 365 days)
+  const r = [];
+  for (let j = i - n + 1; j <= i; j++) r.push(Math.log(close[j] / close[j - 1]));
+  const m = r.reduce((a, x) => a + x, 0) / n;
+  return Math.sqrt(r.reduce((a, x) => a + (x - m) ** 2, 0) / (n - 1) * 365);
+}
+function rolling(v, n, fn) {   // highest/lowest of the last n candles INCLUDING the current one
+  const o = Array(v.length).fill(null);
+  for (let i = n - 1; i < v.length; i++) o[i] = fn(...v.slice(i - n + 1, i + 1));
+  return o;
+}
+function ichimoku(high, low) {
+  const mid = n => { const h = rolling(high, n, Math.max), l = rolling(low, n, Math.min); return h.map((x, i) => x == null ? null : (x + l[i]) / 2); };
+  const tenkan = mid(9), kijun = mid(26), spanB = mid(52);
+  const spanA = tenkan.map((t, i) => t == null || kijun[i] == null ? null : (t + kijun[i]) / 2);
+  const shift = s => s.map((_, i) => i >= 26 ? s[i - 26] : null);   // the cloud at candle i was drawn 26 candles earlier
+  return { tenkan, kijun, cloudA: shift(spanA), cloudB: shift(spanB) };
+}
+function parabolicSar(high, low, step = 0.02, max = 0.2) {
+  const sar = Array(high.length).fill(null), up = sar.slice();
+  if (high.length < 2) return { sar, up };
+  let isUp = high[1] >= high[0], af = step;
+  let ep = isUp ? Math.max(high[0], high[1]) : Math.min(low[0], low[1]);
+  let s = isUp ? Math.min(low[0], low[1]) : Math.max(high[0], high[1]);
+  sar[1] = s; up[1] = isUp;
+  for (let i = 2; i < high.length; i++) {
+    s += af * (ep - s);
+    if (isUp) {
+      s = Math.min(s, low[i - 1], low[i - 2]);
+      if (low[i] < s) { isUp = false; s = ep; ep = low[i]; af = step; }
+      else if (high[i] > ep) { ep = high[i]; af = Math.min(af + step, max); }
+    } else {
+      s = Math.max(s, high[i - 1], high[i - 2]);
+      if (high[i] > s) { isUp = true; s = ep; ep = high[i]; af = step; }
+      else if (low[i] < ep) { ep = low[i]; af = Math.min(af + step, max); }
+    }
+    sar[i] = s; up[i] = isUp;
+  }
+  return { sar, up };
+}
+function directional(high, low, close, n) {   // Wilder's +DI, -DI and ADX
+  const pdi = Array(close.length).fill(null), mdi = pdi.slice(), adx = pdi.slice();
+  let trS = 0, pS = 0, mS = 0, dxSum = 0, dxN = 0, a = null;
+  for (let i = 1; i < close.length; i++) {
+    const upMove = high[i] - high[i - 1], downMove = low[i - 1] - low[i];
+    const pdm = upMove > downMove && upMove > 0 ? upMove : 0, mdm = downMove > upMove && downMove > 0 ? downMove : 0;
+    const tr = Math.max(high[i] - low[i], Math.abs(high[i] - close[i - 1]), Math.abs(low[i] - close[i - 1]));
+    if (i <= n) { trS += tr; pS += pdm; mS += mdm; if (i < n) continue; }
+    else { trS += tr - trS / n; pS += pdm - pS / n; mS += mdm - mS / n; }
+    const p = trS ? 100 * pS / trS : 0, m = trS ? 100 * mS / trS : 0, dx = p + m ? 100 * Math.abs(p - m) / (p + m) : 0;
+    pdi[i] = p; mdi[i] = m;
+    if (a === null) { dxSum += dx; if (++dxN === n) adx[i] = a = dxSum / n; }
+    else adx[i] = a = (a * (n - 1) + dx) / n;
+  }
+  return { pdi, mdi, adx };
+}
+function computeInd(c) {
+  const close = c.map(x => x.close), open = c.map(x => x.open), high = c.map(x => x.high), low = c.map(x => x.low), vol = c.map(x => x.volume);
+  const e12 = ema(close, 12), e26 = ema(close, 26);
+  const macd = close.map((_, i) => e12[i] == null || e26[i] == null ? null : e12[i] - e26[i]);
+  const atr14 = atr(high, low, close, 14);
+  let tally = 0;
+  const obv = close.map((x, i) => (tally += i ? Math.sign(x - close[i - 1]) * vol[i] : 0));
+  const btc = alignRef(c), ratio = btc && close.map((x, i) => x / btc[i]);
+  return {
+    time: c.map(x => x.time), open, close, high, low, vol, atr14,
+    ema9: ema(close, 9), ema20: ema(close, 20), ema21: ema(close, 21), ema50: ema(close, 50), ema130: ema(close, 130),
+    sma5: sma(close, 5), sma50: sma(close, 50), sma200: sma(close, 200),
+    rsi14: rsi(close, 14), rsi2: rsi(close, 2), bb: bands(close, 20, 2), macd, signal: ema(macd, 9),
+    hi20: channel(high, 20, Math.max), lo10: channel(low, 10, Math.min),
+    st: supertrend(high, low, close, atr(high, low, close, 10), 3), stoch: stochastic(high, low, close, 14, 3),
+    vwap50: rollingVwap(high, low, close, vol, 50), volAvg20: sma(vol, 20), ha: heikinAshi(c),
+    ichi: ichimoku(high, low), psar: parabolicSar(high, low), dmi: directional(high, low, close, 14), obv, obvEma: ema(obv, 20),
+    btc, btcSma200: btc && sma(btc, 200), ratio, ratioSma50: ratio && sma(ratio, 50),
+  };
+}
+
+// ---------- bot helpers ----------
+const buy = why => ({ act: "buy", why }), sell = why => ({ act: "sell", why }), wait = why => ({ act: null, why });
+let fmtP = x => x.toFixed(2);
+function mulberry32(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// Bots that buy with a stop-loss and/or take-profit. The levels are drawn on the chart while the trade is open.
+function enter(b, i, why, { stop = null, target = null, maxBars = null } = {}) {
+  b.st = { stop, target, maxBars, entryIdx: i };
+  if (target != null) b.lv.tp[i] = target;
+  if (stop != null) b.lv.sl[i] = stop;
+  return buy(why);
+}
+function checkExits(b, I, i) {
+  const s = b.st, c = I.close[i];
+  if (s.target != null) b.lv.tp[i] = s.target;
+  if (s.stop != null) b.lv.sl[i] = s.stop;
+  if (s.target != null && c >= s.target) return sell(`Closed at ${fmtP(c)}, past the take-profit (${fmtP(s.target)}). Locking in the win.`);
+  if (s.stop != null && c <= s.stop) return sell(`Closed at ${fmtP(c)}, under the stop-loss (${fmtP(s.stop)}). Cutting the loss.`);
+  if (s.maxBars != null && i - s.entryIdx >= s.maxBars) return sell(`${s.maxBars} candles went by without an exit. Time's up.`);
+  return null;
+}
+const riskLines = b => [["Take-profit", b.lv.tp, "#26a69a"], ["Stop-loss", b.lv.sl, "#ef5350"]];
+const holdingMsg = b => `Holding.${b.st.target != null ? ` Take-profit ${fmtP(b.st.target)}.` : ""}${b.st.stop != null ? ` Stop ${fmtP(b.st.stop)}.` : ""}`;
+const isGreen = (I, j) => I.close[j] > I.open[j], isRed = (I, j) => I.close[j] < I.open[j];
+const NY = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+function nyClock(epoch) {
+  const p = Object.fromEntries(NY.formatToParts(new Date(epoch * 1000)).map(x => [x.type, x.value]));
+  return { day: p.weekday, mins: +p.hour * 60 + +p.minute };
+}
+
+// ---------- the bots ----------
+const BOTS = [
+  // ----- trend followers -----
+  { id: "trend", name: "Trend Rider", type: "Trend", color: "#4f8ff7",
+    desc: "Buys when the fast average (EMA 9) crosses above the slow average (EMA 21). Sells when it crosses back below.",
+    overlays: I => [["EMA 9", I.ema9, "#7fb0ff"], ["EMA 21", I.ema21, "#2f5fbf"]],
+    decide(I, i, pos) {
+      const a = I.ema9, b = I.ema21;
+      if (b[i - 1] == null) return wait("Warming up. Needs 22 candles of history.");
+      const up = a[i] > b[i], wasUp = a[i - 1] > b[i - 1];
+      if (!pos && up && !wasUp) return buy(`EMA 9 (${fmtP(a[i])}) just crossed above EMA 21 (${fmtP(b[i])}). Trend turning up.`);
+      if (pos && !up && wasUp) return sell(`EMA 9 crossed back below EMA 21. Trend over.`);
+      return wait(up ? (pos ? "Fast average still above slow. Holding." : "Above, but the cross already happened. Waiting for a fresh one.")
+                     : (pos ? "Holding, watching for a cross down." : "Fast average below slow. Staying out."));
+    } },
+  { id: "golden", name: "Golden Cross", type: "Trend", color: "#ffd60a",
+    desc: "The famous slow signal. Buys when the 50-candle average crosses above the 200-candle average (a 'golden cross'). Sells on the opposite 'death cross'.",
+    overlays: I => [["SMA 50", I.sma50, "#ffe36e"], ["SMA 200", I.sma200, "#a88600"]],
+    decide(I, i, pos) {
+      const a = I.sma50, b = I.sma200;
+      if (b[i - 1] == null) return wait(`Warming up. Needs 201 candles (has ${i + 1}).`);
+      const up = a[i] > b[i], wasUp = a[i - 1] > b[i - 1];
+      if (!pos && up && !wasUp) return buy(`Golden cross. SMA 50 (${fmtP(a[i])}) moved above SMA 200 (${fmtP(b[i])}).`);
+      if (pos && !up && wasUp) return sell("Death cross. SMA 50 fell below SMA 200.");
+      return wait(`SMA 50 is ${up ? "above" : "below"} SMA 200. ${pos ? "Holding." : up ? "Missed this cross. Waiting for the next one." : "Waiting for a golden cross."}`);
+    } },
+  { id: "super", name: "Supertrend", type: "Trend", color: "#00b4d8",
+    desc: "Draws a line 3 ATRs (3 average candle sizes) away from price that follows the trend. Owns the coin whenever price is above the line, sells when price closes below it.",
+    overlays: I => [["Supertrend", I.st.line, "#48cae4"]],
+    decide(I, i, pos) {
+      const d = I.st.dir[i], line = I.st.line[i];
+      if (d == null) return wait("Warming up. Needs 11 candles.");
+      if (!pos && d === 1) return buy(`Price is above the Supertrend line (${fmtP(line)}). Trend is up.`);
+      if (pos && d === -1) return sell(`Closed below the Supertrend line. Trend flipped down.`);
+      return wait(d === 1 ? `Trend up. Holding while price stays above ${fmtP(line)}.` : `Trend down. Needs a close above ${fmtP(line)}.`);
+    } },
+  { id: "macd", name: "MACD Crosser", type: "Trend", color: "#ff6b9a",
+    desc: "Buys when the MACD line crosses above its signal line. Sells when it crosses below.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const m = I.macd, s = I.signal;
+      if (s[i - 1] == null) return wait("Warming up. Needs about 35 candles.");
+      const up = m[i] > s[i], wasUp = m[i - 1] > s[i - 1];
+      if (!pos && up && !wasUp) return buy("MACD crossed above its signal line. Momentum turning up.");
+      if (pos && !up && wasUp) return sell("MACD crossed below its signal line. Momentum fading.");
+      return wait(`MACD ${up ? "above" : "below"} signal. ${pos ? "Holding." : "No fresh cross."}`);
+    } },
+  { id: "mom", name: "Momentum", type: "Trend", color: "#8bd346",
+    desc: "Buys when price is above the 50-candle average and up over the last 10 candles. Sells when either stops being true.",
+    overlays: I => [["EMA 50", I.ema50, "#5f9a2b"]],
+    decide(I, i, pos) {
+      const c = I.close, e = I.ema50[i];
+      if (e == null || i < 10) return wait("Warming up. Needs 50 candles.");
+      const roc = c[i] / c[i - 10] - 1, good = c[i] > e && roc > 0;
+      if (!pos && good) return buy(`Above EMA 50 and up ${(roc * 100).toFixed(2)}% over 10 candles.`);
+      if (pos && !good) return sell(c[i] <= e ? "Dropped below EMA 50." : "10-candle move turned negative.");
+      return wait(`${c[i] > e ? "Above" : "Below"} EMA 50, 10-candle change ${(roc * 100).toFixed(2)}%. ${pos ? "Holding." : "Staying out."}`);
+    } },
+  { id: "heikin", name: "Heikin Ashi Rider", type: "Trend", color: "#4cc9f0",
+    desc: "Heikin Ashi is a smoothed way of drawing candles that hides the noise. Buys when a smoothed candle is green with almost no lower wick (a strong push up). Sells on the first red smoothed candle.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const H = I.ha;
+      if (i < 3) return wait("Warming up.");
+      const green = H.close[i] > H.open[i], range = H.high[i] - H.low[i], wick = Math.min(H.open[i], H.close[i]) - H.low[i];
+      const strong = green && range > 0 && wick <= 0.05 * range;
+      if (!pos && strong) return buy("Smoothed candle is green with no lower wick. Buyers in control.");
+      if (pos && !green) return sell("First red smoothed candle. The push up is fading.");
+      return wait(`Smoothed candle is ${green ? (strong ? "strong green" : "green with a lower wick") : "red"}. ${pos ? "Holding." : "Waiting for a strong green one."}`);
+    } },
+  { id: "ichimoku", name: "Ichimoku Cloud", type: "Trend", color: "#d62828",
+    desc: "The Japanese all-in-one trend system. Buys when price is above the cloud and the fast line (Tenkan) is above the slow line (Kijun). Sells when price closes back under the slow line.",
+    overlays: I => [["Tenkan", I.ichi.tenkan, "#ff8fa3"], ["Kijun", I.ichi.kijun, "#9d0208"], ["Cloud", I.ichi.cloudA, "#6a994e"], ["Cloud", I.ichi.cloudB, "#bc4749"]],
+    decide(I, i, pos) {
+      const { tenkan: T, kijun: K, cloudA, cloudB } = I.ichi, c = I.close[i];
+      if (cloudB[i] == null) return wait(`Warming up. Needs 78 candles (has ${i + 1}).`);
+      const top = Math.max(cloudA[i], cloudB[i]), bottom = Math.min(cloudA[i], cloudB[i]);
+      if (pos && c < K[i]) return sell(`Closed under the Kijun line (${fmtP(K[i])}). Trend weakening.`);
+      if (pos) return wait(`Holding while price stays above the Kijun line (${fmtP(K[i])}).`);
+      if (c > top && T[i] > K[i] && c > K[i]) return buy(`Above the cloud (${fmtP(top)}) with Tenkan above Kijun. All three agree: uptrend.`);
+      return wait(c > top ? "Above the cloud, but the Tenkan and Kijun lines don't confirm yet." : c < bottom ? "Below the cloud. Downtrend, staying out." : "Inside the cloud. No clear trend.");
+    } },
+  { id: "psar", name: "Parabolic SAR", type: "Trend", color: "#80ed99",
+    desc: "Parabolic SAR puts a stop under price in an uptrend that speeds up the longer the trend runs. Owns the coin while the SAR is below price and sells the moment price touches it (the SAR flips above).",
+    overlays: I => [["SAR", I.psar.sar, "#80ed99"]],
+    decide(I, i, pos) {
+      const up = I.psar.up[i], sar = I.psar.sar[i];
+      if (up == null) return wait("Warming up.");
+      if (!pos && up) return buy(`SAR (${fmtP(sar)}) is below price. Uptrend.`);
+      if (pos && !up) return sell("Price touched the SAR and it flipped above. Trend over.");
+      return wait(up ? `Uptrend. SAR stop at ${fmtP(sar)}.` : `Downtrend. SAR is above price at ${fmtP(sar)}.`);
+    } },
+  { id: "adx", name: "ADX Trend Strength", type: "Trend", color: "#4361ee",
+    desc: "ADX measures how strong a trend is (over 25 = strong), and +DI and −DI show which way it's going. Buys when ADX is over 25 and +DI is above −DI (a strong uptrend). Sells when −DI moves above +DI.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const a = I.dmi.adx[i], p = I.dmi.pdi[i], m = I.dmi.mdi[i];
+      if (a == null) return wait("Warming up. Needs 28 candles.");
+      if (!pos && a > 25 && p > m) return buy(`ADX ${a.toFixed(0)} (strong trend), +DI ${p.toFixed(0)} above −DI ${m.toFixed(0)}. Riding the uptrend.`);
+      if (pos && m > p) return sell(`−DI (${m.toFixed(0)}) moved above +DI (${p.toFixed(0)}). Sellers took over.`);
+      return wait(`ADX ${a.toFixed(0)}, +DI ${p.toFixed(0)}, −DI ${m.toFixed(0)}. ${pos ? "Holding." : a <= 25 ? "Trend too weak (needs ADX over 25)." : "Strong trend, but it's pointing down."}`);
+    } },
+  { id: "triple", name: "Triple Screen", type: "Trend", color: "#b5179e",
+    desc: "Alexander Elder's two-timeframe system. The 'tide' is a slow average (EMA 130, roughly a 26-candle average on a chart with 5x bigger candles). While the tide is rising, it buys dips where Stochastic falls under 30. Sells when Stochastic is back over 70 or the tide turns down.",
+    overlays: I => [["Tide (EMA 130)", I.ema130, "#e05fc4"]],
+    decide(I, i, pos) {
+      const e = I.ema130, k = I.stoch.k[i];
+      if (e[i - 5] == null || k == null) return wait(`Warming up. Needs 135 candles (has ${i + 1}).`);
+      const rising = e[i] > e[i - 5];
+      if (pos && k > 70) return sell(`Stochastic back up to ${k.toFixed(0)}. Selling the bounce.`);
+      if (pos && !rising) return sell("The tide turned down. Getting out.");
+      if (pos) return wait(`Tide rising. Holding until Stochastic is over 70 (now ${k.toFixed(0)}).`);
+      if (rising && k < 30) return buy(`Tide is rising and Stochastic dipped to ${k.toFixed(0)}. Buying the dip.`);
+      return wait(rising ? `Tide rising. Waiting for Stochastic under 30 (now ${k.toFixed(0)}).` : "Tide falling. Not buying.");
+    } },
+  { id: "scalp", name: "Pullback Scalper", type: "Scalp", color: "#ff99c8",
+    desc: "Quick in-and-out trades. In an uptrend (EMA 9 above EMA 21), buys when a candle dips to EMA 9 and closes back above it. Take-profit 1 ATR up, stop-loss 1 ATR down.",
+    overlays(I) { return [["EMA 9", I.ema9, "#7fb0ff"], ["EMA 21", I.ema21, "#2f5fbf"], ...riskLines(this)]; },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(holdingMsg(this));
+      const e9 = I.ema9[i], e21 = I.ema21[i], a = I.atr14[i], c = I.close[i];
+      if (e21 == null || a == null) return wait("Warming up. Needs 21 candles.");
+      if (e9 > e21 && I.low[i] <= e9 && c > e9)
+        return enter(this, i, `Uptrend, and this candle dipped to EMA 9 (${fmtP(e9)}) then closed above it. Aiming for ${fmtP(c + a)}.`, { target: c + a, stop: c - a });
+      return wait(e9 > e21 ? `Uptrend. Waiting for a dip to EMA 9 (${fmtP(e9)}).` : "No uptrend (EMA 9 under EMA 21). Sitting out.");
+    } },
+
+  // ----- bounce (mean reversion) -----
+  { id: "dip", name: "Dip Buyer", type: "Bounce", color: "#2ec4b6",
+    desc: "Buys when RSI drops under 30 (sold off hard). Sells once RSI recovers above 55.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const r = I.rsi14[i];
+      if (r == null) return wait("Warming up. Needs 15 candles.");
+      if (!pos && r < 30) return buy(`RSI is ${r.toFixed(0)}, under 30. Betting the drop snaps back.`);
+      if (pos && r > 55) return sell(`RSI recovered to ${r.toFixed(0)}. Taking the bounce.`);
+      return wait(`RSI ${r.toFixed(0)}. ${pos ? "Holding until it's above 55." : "Waiting for it to go under 30."}`);
+    } },
+  { id: "ibs", name: "IBS Swing", type: "Bounce", color: "#ffb4a2",
+    desc: "The IBS swing trade from the strategy page (research Phase 7). IBS shows where a candle closed inside its high-low range: 0 = at the low, 1 = at the high. Buys after a close near the low (IBS under 0.2) and sells after a close near the high (over 0.8). It was tested on daily S&P 500 and Nasdaq candles, so 1d is the closest match.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const range = I.high[i] - I.low[i], ibs = range > 0 ? (I.close[i] - I.low[i]) / range : 0.5;
+      const where = ibs < 0.2 ? "near the low" : ibs > 0.8 ? "near the high" : "mid-range";
+      if (!pos && ibs < 0.2) return buy(`Closed ${where} (IBS ${ibs.toFixed(2)}). Betting on a bounce.`);
+      if (pos && ibs > 0.8) return sell(`Closed ${where} (IBS ${ibs.toFixed(2)}). Taking the bounce.`);
+      return wait(`IBS ${ibs.toFixed(2)}, closed ${where}. ${pos ? "Holding until a close above 0.8." : "Waiting for a close under 0.2."}`);
+    } },
+  { id: "rsi2", name: "RSI-2 Snapback", type: "Bounce", color: "#a7c957",
+    desc: "A well-known short-term rule. Only buys dips in an uptrend: price above the 200-candle average and 2-candle RSI under 10. Sells when price closes above the 5-candle average.",
+    overlays: I => [["SMA 200", I.sma200, "#577590"], ["SMA 5", I.sma5, "#c5e1a5"]],
+    decide(I, i, pos) {
+      const r = I.rsi2[i], c = I.close[i], s200 = I.sma200[i], s5 = I.sma5[i];
+      if (pos && c > s5) return sell(`Closed above the 5-candle average (${fmtP(s5)}). Dip recovered.`);
+      if (pos) return wait(`Holding until a close above ${fmtP(s5)}.`);
+      if (s200 == null) return wait(`Warming up. Needs 200 candles (has ${i + 1}).`);
+      if (c > s200 && r < 10) return buy(`Uptrend (above SMA 200) with a sharp 2-candle dip (RSI-2 = ${r.toFixed(0)}).`);
+      return wait(c <= s200 ? "Below SMA 200, so no uptrend. Not buying dips." : `Uptrend. RSI-2 is ${r.toFixed(0)}, waiting for it to go under 10.`);
+    } },
+  { id: "stoch", name: "Stochastic Swing", type: "Bounce", color: "#e76f51",
+    desc: "Stochastic shows where price closed inside its last 14 candles' range (0 = bottom, 100 = top). Buys when it turns up from under 20. Sells once it's above 80.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const k = I.stoch.k, d = I.stoch.d;
+      if (d[i - 1] == null) return wait("Warming up. Needs 17 candles.");
+      if (!pos && k[i] > d[i] && k[i - 1] <= d[i - 1] && k[i - 1] < 20) return buy(`Stochastic turned up from ${k[i - 1].toFixed(0)}, near the bottom of its range.`);
+      if (pos && k[i] > 80) return sell(`Stochastic hit ${k[i].toFixed(0)}, near the top of the range. Taking the swing.`);
+      return wait(`Stochastic ${k[i].toFixed(0)}. ${pos ? "Holding until it's above 80." : "Waiting for a turn up from under 20."}`);
+    } },
+  { id: "band", name: "Band Bouncer", type: "Bounce", color: "#c77dff",
+    desc: "Buys when price closes below the lower Bollinger Band (unusually low). Sells when it gets back to the middle.",
+    overlays: I => [["Upper", I.bb.up, "#7a4fa8"], ["Middle", I.bb.mid, "#b58ae0"], ["Lower", I.bb.lo, "#7a4fa8"]],
+    decide(I, i, pos) {
+      const c = I.close[i], lo = I.bb.lo[i], mid = I.bb.mid[i];
+      if (lo == null) return wait("Warming up. Needs 20 candles.");
+      if (!pos && c < lo) return buy(`Closed at ${fmtP(c)}, below the lower band (${fmtP(lo)}). Stretched too far down.`);
+      if (pos && c >= mid) return sell(`Back to the middle band (${fmtP(mid)}). Bounce done.`);
+      return wait(pos ? `Holding. Target is the middle band at ${fmtP(mid)}.` : `Price is inside the bands. Waiting for a close under ${fmtP(lo)}.`);
+    } },
+  { id: "vwap", name: "VWAP Magnet", type: "Bounce", color: "#f72585",
+    desc: "VWAP is the average price weighted by how much traded at each price. Buys when price closes far below the 50-candle VWAP (1.5 ATRs under). Sells when it gets back up to VWAP.",
+    overlays: I => [["VWAP 50", I.vwap50, "#ff75c3"], ["Buy zone", I.vwap50.map((v, j) => v == null || I.atr14[j] == null ? null : v - 1.5 * I.atr14[j]), "#8a1c55"]],
+    decide(I, i, pos) {
+      const v = I.vwap50[i], a = I.atr14[i], c = I.close[i];
+      if (v == null || a == null) return wait("Warming up. Needs 50 candles.");
+      const zone = v - 1.5 * a;
+      if (!pos && c < zone) return buy(`Closed at ${fmtP(c)}, well under VWAP (${fmtP(v)}). Betting it gets pulled back up.`);
+      if (pos && c >= v) return sell(`Back to VWAP at ${fmtP(v)}. Target reached.`);
+      return wait(pos ? `Holding. Target is VWAP at ${fmtP(v)}.` : `Waiting for a close under ${fmtP(zone)}.`);
+    } },
+
+  // ----- breakouts -----
+  { id: "break", name: "Breakout Hunter", type: "Breakout", color: "#f5b041",
+    desc: "Buys when price closes above the highest high of the last 20 candles. Sells on a close below the lowest low of the last 10.",
+    overlays: I => [["20-candle high", I.hi20, "#b8862b"], ["10-candle low", I.lo10, "#7d6130"]],
+    decide(I, i, pos) {
+      const c = I.close[i], hi = I.hi20[i], lo = I.lo10[i];
+      if (hi == null) return wait("Warming up. Needs 21 candles.");
+      if (!pos && c > hi) return buy(`Closed at ${fmtP(c)}, above the 20-candle high (${fmtP(hi)}). Breakout.`);
+      if (pos && c < lo) return sell(`Closed under the 10-candle low (${fmtP(lo)}). Breakout failed or faded.`);
+      return wait(pos ? `Holding. Exit if it closes under ${fmtP(lo)}.` : `Needs a close above ${fmtP(hi)}.`);
+    } },
+  { id: "squeeze", name: "Squeeze Breakout", type: "Breakout", color: "#7b61ff",
+    desc: "Waits for the Bollinger Bands to pinch unusually tight (their narrowest 20% of the last 100 candles). Quiet stretches like that often come right before a big move. Buys when price then breaks out above the upper band. Sells on a close back under the middle band.",
+    overlays: I => [["Upper", I.bb.up, "#b69cf0"], ["Middle", I.bb.mid, "#6d55b8"], ["Lower", I.bb.lo, "#b69cf0"]],
+    decide(I, i, pos) {
+      const c = I.close[i], mid = I.bb.mid[i], top = I.bb.up[i];
+      if (pos && c < mid) return sell(`Closed under the middle band (${fmtP(mid)}). Breakout lost steam.`);
+      if (pos) return wait(`Holding while price stays above ${fmtP(mid)}.`);
+      if (I.bb.mid[i - 105] == null) return wait(`Warming up. Needs 125 candles (has ${i + 1}).`);
+      const width = j => (I.bb.up[j] - I.bb.lo[j]) / I.bb.mid[j];
+      const pinched = j => { let narrower = 0; for (let k = j - 99; k <= j; k++) if (width(k) < width(j)) narrower++; return narrower < 20; };
+      let recent = 0;
+      for (let j = i - 5; j < i; j++) if (pinched(j)) recent++;
+      if (recent && c > top) return buy(`Bands were pinched tight in ${recent} of the last 5 candles, and price just closed above the upper band (${fmtP(top)}). Breakout.`);
+      return wait(pinched(i) ? `Bands are pinched tight (quiet market). Waiting for a close above ${fmtP(top)}.` : recent ? `Just had a squeeze. Needs a close above ${fmtP(top)} to buy.` : "Bands aren't unusually tight. No squeeze.");
+    } },
+
+  { id: "trail", name: "Trailing Stop Rider", type: "Breakout", color: "#f77f00",
+    desc: "Buys a close above the 20-candle high and never sets a profit target. Instead a stop follows price up, 3 ATRs under the highest close since buying, and it only ever moves up. Lets winners run and cuts losers.",
+    overlays(I) { return [["20-candle high", I.hi20, "#b8862b"], ["Trailing stop", this.lv.sl, "#ef5350"]]; },
+    decide(I, i, pos) {
+      const c = I.close[i], a = I.atr14[i], s = this.st;
+      if (pos) {
+        s.peak = Math.max(s.peak, c);
+        s.stop = Math.max(s.stop, s.peak - 3 * a);
+        this.lv.sl[i] = s.stop;
+        if (c <= s.stop) return sell(`Closed at ${fmtP(c)}, under the trailing stop (${fmtP(s.stop)}). Ride over.`);
+        return wait(`Holding. The stop has trailed up to ${fmtP(s.stop)} (highest close ${fmtP(s.peak)}).`);
+      }
+      const hi = I.hi20[i];
+      if (hi == null || a == null) return wait("Warming up. Needs 21 candles.");
+      if (c > hi) {
+        this.st = { peak: c, stop: c - 3 * a };
+        this.lv.sl[i] = c - 3 * a;
+        return buy(`Closed above the 20-candle high (${fmtP(hi)}). Stop starts 3 ATRs below, at ${fmtP(c - 3 * a)}.`);
+      }
+      return wait(`Needs a close above ${fmtP(hi)}.`);
+    } },
+
+  // ----- candlestick patterns -----
+  { id: "engulf", name: "Engulfing Pattern", type: "Pattern", color: "#fb8500",
+    desc: "Candlestick pattern. After a pullback, a big green candle whose body swallows the previous red candle. Buys with a stop under that candle's low. Sells on the opposite red engulfing candle or if the stop breaks.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) {
+        const exit = checkExits(this, I, i);
+        if (exit) return exit;
+        if (isGreen(I, i - 1) && isRed(I, i) && I.open[i] >= I.close[i - 1] && I.close[i] <= I.open[i - 1])
+          return sell("Bearish engulfing. A red candle swallowed the last green one.");
+        return wait(holdingMsg(this));
+      }
+      const a = I.atr14[i];
+      if (a == null) return wait("Warming up. Needs 15 candles.");
+      const reds = [1, 2, 3].filter(k => isRed(I, i - k)).length;
+      const engulf = isRed(I, i - 1) && isGreen(I, i) && I.open[i] <= I.close[i - 1] && I.close[i] >= I.open[i - 1];
+      if (engulf && reds >= 2 && I.close[i] - I.open[i] > 0.5 * a)
+        return enter(this, i, `Bullish engulfing after ${reds} red candles. Stop under this candle's low at ${fmtP(I.low[i])}.`, { stop: I.low[i] });
+      return wait(engulf ? "Engulfing candle, but too small or no pullback before it. Skipping." : "No bullish engulfing candle after a pullback.");
+    } },
+  { id: "hammer", name: "Hammer Hunter", type: "Pattern", color: "#d4a373",
+    desc: "Candlestick pattern. After a drop, a candle with a long lower wick (sellers pushed price down, buyers shoved it back up). Buys with a stop under the wick and a take-profit twice as far away as the stop.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(holdingMsg(this));
+      const a = I.atr14[i];
+      if (a == null) return wait("Warming up. Needs 15 candles.");
+      const o = I.open[i], c = I.close[i], h = I.high[i], l = I.low[i], range = h - l;
+      const body = Math.abs(c - o), lower = Math.min(o, c) - l, upper = h - Math.max(o, c);
+      const hammer = range > 0.8 * a && lower >= 2 * body && lower >= 0.6 * range && upper <= 0.25 * range;
+      const dropped = I.close[i - 1] < I.close[i - 4];
+      if (hammer && dropped) {
+        const risk = c - l;
+        return enter(this, i, `Hammer after a drop. Risking ${fmtP(risk)} (stop ${fmtP(l)}) to make ${fmtP(2 * risk)} (target ${fmtP(c + 2 * risk)}).`, { stop: l, target: c + 2 * risk });
+      }
+      return wait(hammer ? "Hammer shape, but price wasn't falling before it. Skipping." : "No hammer candle.");
+    } },
+
+  { id: "inside", name: "Inside Bar Breakout", type: "Pattern", color: "#90e0ef",
+    desc: "Candlestick pattern. An inside bar fits completely inside the candle before it (the 'mother'): the market pausing. Buys when the next candle closes above the mother's high. Stop under the mother's low, target twice the risk.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(holdingMsg(this));
+      if (i < 3) return wait("Warming up.");
+      const inside = I.high[i - 1] < I.high[i - 2] && I.low[i - 1] > I.low[i - 2];
+      const mHigh = I.high[i - 2], stop = I.low[i - 2], c = I.close[i];
+      if (inside && c > mHigh) {
+        const risk = c - stop;
+        return enter(this, i, `Broke out of an inside bar: closed above the mother candle's high (${fmtP(mHigh)}). Risking ${fmtP(risk)} to make ${fmtP(2 * risk)}.`, { stop, target: c + 2 * risk });
+      }
+      const nowInside = I.high[i] < I.high[i - 1] && I.low[i] > I.low[i - 1];
+      return wait(nowInside ? `This candle is an inside bar. Watching for a close above ${fmtP(I.high[i - 1])}.` : inside ? "The inside bar didn't break upward. Pattern over." : "No inside bar.");
+    } },
+  { id: "morning", name: "Morning Star", type: "Pattern", color: "#ffc6ff",
+    desc: "Three-candle reversal pattern: a big red candle, a small 'star' candle, then a big green candle that closes past the middle of the red one. Buys it with a stop under the pattern's low and a target twice the risk.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(holdingMsg(this));
+      const a = I.atr14[i];
+      if (a == null) return wait("Warming up. Needs 15 candles.");
+      const body = j => Math.abs(I.close[j] - I.open[j]);
+      const bigRed = isRed(I, i - 2) && body(i - 2) > 0.8 * a, star = body(i - 1) < 0.3 * body(i - 2);
+      const mid = (I.open[i - 2] + I.close[i - 2]) / 2, c = I.close[i];
+      if (bigRed && star && isGreen(I, i) && c > mid && body(i) > 0.5 * a) {
+        const stop = Math.min(I.low[i - 2], I.low[i - 1], I.low[i]), risk = c - stop;
+        return enter(this, i, `Morning star: a big red candle, a small star, then a green candle closing past the red one's middle (${fmtP(mid)}). Stop ${fmtP(stop)}.`, { stop, target: c + 2 * risk });
+      }
+      return wait(bigRed && star ? "Big red candle and a star, but this candle didn't finish the pattern." : "No morning star.");
+    } },
+
+  // ----- levels -----
+  { id: "fib", name: "Fibonacci Bounce", type: "Levels", color: "#e9ff70",
+    desc: "Many traders watch Fibonacci levels on pullbacks. Finds the latest up-move in the last 50 candles (lowest low, then highest high). Buys when price dips to the 61.8% pullback level and closes back above it. Stop under the 78.6% level, target the old high.",
+    reset() { this.lv.fib = []; },
+    overlays() { return [["61.8% level", this.lv.fib, "#e9ff70"], ...riskLines(this)]; },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(holdingMsg(this));
+      const a = I.atr14[i];
+      if (i < 50 || a == null) return wait("Warming up. Needs 50 candles.");
+      const from = i - 49;
+      let hiIdx = from;
+      for (let j = from; j < i; j++) if (I.high[j] >= I.high[hiIdx]) hiIdx = j;
+      if (hiIdx - from < 5 || i - hiIdx < 3) return wait("No up-move followed by a pullback yet.");
+      let loIdx = from;
+      for (let j = from; j < hiIdx; j++) if (I.low[j] <= I.low[loIdx]) loIdx = j;
+      const hi = I.high[hiIdx], lo = I.low[loIdx], range = hi - lo, c = I.close[i];
+      if (range < 3 * a) return wait("The last up-move is too small to trade.");
+      const f618 = hi - 0.618 * range, f786 = hi - 0.786 * range;
+      this.lv.fib[i] = f618;
+      if (I.low[i] <= f618 && c > f618 && c < hi)
+        return enter(this, i, `Dipped to the 61.8% level (${fmtP(f618)}) and closed back above it. Target the old high ${fmtP(hi)}, stop ${fmtP(f786)}.`, { stop: f786, target: hi });
+      return wait(c > f618 ? `Up-move ${fmtP(lo)} → ${fmtP(hi)}. Waiting for a dip to the 61.8% level (${fmtP(f618)}).` : `Price is under the 61.8% level (${fmtP(f618)}). Pullback went too deep.`);
+    } },
+
+  // ----- volume -----
+  { id: "volume", name: "Volume Surge", type: "Volume", color: "#06d6a0",
+    desc: "Big volume means big players are active. Buys a strong green candle with 3x the normal volume, stop under that candle's low. Sells after 10 candles if the stop isn't hit.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(`${holdingMsg(this)} ${10 - (i - this.st.entryIdx)} candles left.`);
+      const avg = I.volAvg20[i - 1];
+      if (avg == null) return wait("Warming up. Needs 21 candles.");
+      const o = I.open[i], c = I.close[i], h = I.high[i], l = I.low[i], ratio = avg > 0 ? I.vol[i] / avg : 0;
+      if (ratio >= 3 && c > o && c >= l + 0.6 * (h - l))
+        return enter(this, i, `Volume ${ratio.toFixed(1)}x normal on a strong green candle. Following the big buyers.`, { stop: l, maxBars: 10 });
+      return wait(`Volume is ${ratio.toFixed(1)}x normal. Needs 3x on a strong green candle.`);
+    } },
+
+  { id: "obv", name: "Volume Flow (OBV)", type: "Volume", color: "#2a9d8f",
+    desc: "On-Balance Volume keeps a running tally: add the volume on candles that close up, subtract it on candles that close down. Buys when that tally crosses above its 20-candle average while price is above EMA 20. Sells when the tally drops back under its average.",
+    overlays: I => [["EMA 20", I.ema20, "#2a9d8f"]],
+    decide(I, i, pos) {
+      const o = I.obv, oe = I.obvEma, e = I.ema20[i], c = I.close[i];
+      if (oe[i - 1] == null || e == null) return wait("Warming up. Needs 21 candles.");
+      const flowUp = o[i] > oe[i];
+      if (!pos && flowUp && o[i - 1] <= oe[i - 1] && c > e) return buy("The volume tally just crossed above its average, with price above EMA 20. Buyers stepping in.");
+      if (pos && !flowUp) return sell("The volume tally fell under its average. Buying pressure faded.");
+      return wait(`Volume flow is ${flowUp ? "positive" : "negative"}. ${pos ? "Holding." : c > e ? "Waiting for the tally to cross above its average." : "Price is under EMA 20. Staying out."}`);
+    } },
+
+  // ----- grid -----
+  { id: "grid", name: "Grid Trader", type: "Grid", color: "#bdb2ff",
+    desc: "A classic crypto bot. Splits the money into 5 slices. Buys a slice each time price drops one grid step, and sells each slice one step above where it bought it. The step is 1.5 ATRs but never narrower than the fees, so every sold slice is a real win. The catch: in a crash it gets stuck holding.",
+    reset() { this.st.lots = []; this.lv.nb = []; this.lv.ns = []; },
+    overlays() { return [["Next buy", this.lv.nb, "#26a69a"], ["Next sell", this.lv.ns, "#ef5350"]]; },
+    decide(I, i) {
+      const a = I.atr14[i], c = I.close[i], s = this.st, lots = s.lots;
+      if (a == null) return wait("Warming up. Needs 15 candles.");
+      const step = Math.max(1.5 * a, c * (2 * feeRate() + 0.001));   // wide enough that a sold slice beats the round-trip fee
+      if (!lots.length && s.ref != null && c > s.ref + 2 * step) s.ref = null;   // price ran away, re-center
+      const nextBuy = lots.length ? Math.min(...lots.map(l => l.entry)) - step : s.ref != null ? s.ref - step : c;
+      const nextSell = lots.length ? Math.min(...lots.map(l => l.target)) : null;
+      if (lots.length < 5) this.lv.nb[i] = nextBuy;
+      if (nextSell != null) this.lv.ns[i] = nextSell;
+      const ready = lots.filter(l => c >= l.target).sort((x, y) => x.entry - y.entry)[0];
+      if (ready) return { act: "sell", lot: ready, costBasis: ready.cost, frac: lots.length === 1 ? 1 : ready.qty / acct[this.id].qty,
+        why: `The slice bought at ${fmtP(ready.entry)} reached its sell level (${fmtP(ready.target)}).` };
+      if (lots.length < 5 && c <= nextBuy) return { act: "buy", step, frac: 1 / (5 - lots.length),
+        why: lots.length ? `Dropped a full grid step to ${fmtP(c)}. Buying slice ${lots.length + 1} of 5.` : `Starting a grid at ${fmtP(c)}. Buying slice 1 of 5.` };
+      return wait(`${lots.length} of 5 slices held.${lots.length < 5 ? ` Next buy at ${fmtP(nextBuy)}.` : " All slices bought."}${nextSell != null ? ` Next sell at ${fmtP(nextSell)}.` : ""}`);
+    },
+    filled(d, r) {
+      const s = this.st;
+      if (d.act === "buy") s.lots.push({ entry: r.fill, qty: r.qty, cost: r.spend, target: r.fill + d.step });
+      else { s.lots = s.lots.filter(l => l !== d.lot); if (!s.lots.length) s.ref = r.fill; }
+    } },
+
+  // ----- position sizing -----
+  { id: "martingale", name: "Martingale Doubler", type: "Sizing", color: "#ff4d6d",
+    desc: "The famous 'double down' system. Starts with a small buy. Each time price falls another 1.5 ATRs, it buys twice as much as last time (up to 6 buys), pulling its average price down. Sells everything once price is 1 ATR above its average cost. Wins most rounds, until one long drop uses up all the money.",
+    reset() { this.st = { n: 0 }; },
+    overlays() { return [["Sell target", this.lv.tp, "#26a69a"], ["Next double-down", this.lv.sl, "#ef5350"]]; },
+    decide(I, i, pos) {
+      const a = I.atr14[i], c = I.close[i], ac = acct[this.id], s = this.st;
+      if (a == null) return wait("Warming up. Needs 15 candles.");
+      if (!pos) return { act: "buy", frac: 1 / 63, step: 1.5 * a, why: "New round. Buying 1 part of 63; each drop of 1.5 ATRs doubles the next buy." };
+      const avg = ac.cost / ac.qty, target = avg + a;
+      this.lv.tp[i] = target;
+      if (s.n < 6) this.lv.sl[i] = s.next;
+      if (c >= target) return sell(`Back 1 ATR above the average cost (${fmtP(avg)}). Selling all ${s.n} buys.`);
+      if (s.n < 6 && c <= s.next) return { act: "buy", frac: 2 ** s.n / (64 - 2 ** s.n), step: 1.5 * a,
+        why: `Dropped to ${fmtP(c)}. Doubling down: buy ${s.n + 1} of 6 is ${2 ** s.n} parts.` };
+      return wait(s.n < 6 ? `${s.n} of 6 buys used, average cost ${fmtP(avg)}. Sells at ${fmtP(target)}, doubles down at ${fmtP(s.next)}.`
+                          : `All 6 buys used. Out of money, stuck holding until ${fmtP(target)}.`);
+    },
+    filled(d, r) {
+      const s = this.st;
+      if (d.act === "buy") { s.n++; s.next = r.fill - d.step; }
+      else { s.n = 0; s.next = null; }
+    } },
+  { id: "pyramid", name: "Pyramid Builder", type: "Sizing", color: "#52b788",
+    desc: "The opposite of doubling down: adds to winners, never losers. Buys 25% on a close above the 20-candle high, then adds another 25% each time price climbs 1 ATR higher (up to 4 buys). One trailing stop, 2 ATRs under the highest close, sells everything.",
+    reset() { this.st = { n: 0 }; },
+    overlays(I) { return [["20-candle high", I.hi20, "#b8862b"], ["Next add", this.lv.tp, "#26a69a"], ["Trailing stop", this.lv.sl, "#ef5350"]]; },
+    decide(I, i, pos) {
+      const a = I.atr14[i], c = I.close[i], s = this.st, hi = I.hi20[i];
+      if (a == null || hi == null) return wait("Warming up. Needs 21 candles.");
+      if (!pos) return c > hi ? { act: "buy", frac: 0.25, atr: a, why: `Closed above the 20-candle high (${fmtP(hi)}). First 25% in.` }
+                              : wait(`Needs a close above ${fmtP(hi)} to start.`);
+      s.peak = Math.max(s.peak, c);
+      s.stop = Math.max(s.stop, s.peak - 2 * a);
+      this.lv.sl[i] = s.stop;
+      if (s.n < 4) this.lv.tp[i] = s.nextAdd;
+      if (c <= s.stop) return sell(`Closed under the trailing stop (${fmtP(s.stop)}). Selling all ${s.n} buys.`);
+      if (s.n < 4 && c >= s.nextAdd) return { act: "buy", frac: 0.25 / (1 - 0.25 * s.n), atr: a, why: `Up another ATR to ${fmtP(c)}. Adding buy ${s.n + 1} of 4.` };
+      return wait(`${s.n} of 4 buys in. Stop at ${fmtP(s.stop)}.${s.n < 4 ? ` Next add at ${fmtP(s.nextAdd)}.` : " Fully loaded."}`);
+    },
+    filled(d, r) {
+      if (d.act === "sell") { this.st = { n: 0 }; return; }
+      const s = this.st;
+      s.n++;
+      s.peak = Math.max(s.peak ?? r.fill, r.fill);
+      s.stop = Math.max(s.stop ?? -Infinity, r.fill - 2 * d.atr);
+      s.nextAdd = r.fill + d.atr;
+    } },
+
+  // ----- time of day -----
+  { id: "ushours", name: "US Hours Only", type: "Time", color: "#bc6c25",
+    desc: "Tests the idea that crypto moves when American traders are awake. Owns the coin only during US stock-market hours (9:30 am to 4 pm New York time, Monday to Friday, holidays ignored) and sits in cash otherwise. Needs candles of 1 hour or shorter.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      const tf = +$("tf").value;
+      if (tf > 60) return wait("Needs candles of 1 hour or shorter to see the time of day.");
+      const t = nyClock(I.time[i] + OFF + tf * 60);
+      const hhmm = `${String(Math.floor(t.mins / 60)).padStart(2, "0")}:${String(t.mins % 60).padStart(2, "0")}`;
+      const open = t.day !== "Sat" && t.day !== "Sun" && t.mins >= 570 && t.mins < 960;
+      if (!pos && open) return buy(`${t.day} ${hhmm} in New York. US market is open: buying.`);
+      if (pos && !open) return sell(`${t.day} ${hhmm} in New York. US market is closed: selling.`);
+      return wait(`${t.day} ${hhmm} in New York. ${open ? "Market open, holding." : "Market closed, waiting in cash."}`);
+    } },
+
+  // ----- crypto ideas (round 2 of CRYPTO_SEARCH.md) -----
+  { id: "btcweather", name: "Bitcoin Weather", type: "vs Bitcoin", color: "#f7931a",
+    desc: "Smaller coins tend to crash when bitcoin's trend breaks. Owns the coin only while bitcoin is above its 200-day average, and sits in cash otherwise. Needs a saved crypto basket (for bitcoin's prices).",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (!I.btc) return wait("Needs bitcoin's prices for the same days. Only saved crypto baskets have them.");
+      const b = I.btc[i], s = I.btcSma200[i];
+      if (s == null) return wait(`Warming up. Needs 200 days of bitcoin prices (has ${i + 1}).`);
+      if (!pos && b > s) return buy(`Bitcoin (${b.toFixed(0)}) is above its 200-day average (${s.toFixed(0)}). Good weather: buying.`);
+      if (pos && b < s) return sell(`Bitcoin fell below its 200-day average (${s.toFixed(0)}). Bad weather: selling.`);
+      return wait(`Bitcoin is ${b > s ? "above" : "below"} its 200-day average. ${pos ? "Holding." : "Staying in cash."}`);
+    } },
+  { id: "beatbtc", name: "Beating Bitcoin", type: "vs Bitcoin", color: "#e76f00",
+    desc: "Owns the coin only while it's doing better than bitcoin: its price measured in bitcoin is above its 50-day average. Sits in cash when bitcoin is winning. Needs a saved crypto basket.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (!I.btc) return wait("Needs bitcoin's prices for the same days. Only saved crypto baskets have them.");
+      const r = I.ratio[i], s = I.ratioSma50[i];
+      if (s == null) return wait("Warming up. Needs 50 days.");
+      if (!pos && r > s) return buy("Measured in bitcoin, this coin is above its 50-day average. It's beating bitcoin: buying.");
+      if (pos && r < s) return sell("Measured in bitcoin, it dropped below its 50-day average. Bitcoin is winning: selling.");
+      return wait(`${r > s ? "Beating" : "Trailing"} bitcoin. ${pos ? "Holding." : "Staying in cash."}`);
+    } },
+  { id: "dualcoin", name: "Dual Momentum Coin", type: "vs Bitcoin", color: "#ffb703",
+    desc: "Needs two things at once: the coin is up over the last 30 days, and it's up more than bitcoin over those 30 days. Sells when either stops being true. Needs a saved crypto basket.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (!I.btc) return wait("Needs bitcoin's prices for the same days. Only saved crypto baskets have them.");
+      if (i < 30) return wait("Warming up. Needs 30 days.");
+      const own = I.close[i] / I.close[i - 30] - 1, lead = own - (I.btc[i] / I.btc[i - 30] - 1), good = own > 0 && lead > 0;
+      const why = `30-day change ${(own * 100).toFixed(1)}%, ${lead >= 0 ? "ahead of" : "behind"} bitcoin by ${Math.abs(lead * 100).toFixed(1)} points.`;
+      if (!pos && good) return buy(`${why} Up and beating bitcoin: buying.`);
+      if (pos && !good) return sell(`${why} ${own <= 0 ? "No longer rising" : "No longer beating bitcoin"}: selling.`);
+      return wait(`${why} ${pos ? "Holding." : "Waiting for both."}`);
+    } },
+  { id: "volsized", name: "Volatility-Sized Trend", type: "Trend", color: "#9ef01a",
+    desc: "Owns the coin while it's up over the last 90 days, but bets less on wild coins: it buys 40% ÷ the coin's yearly volatility of its cash (all of it only if the coin is calm). Sells when the 90-day change turns negative.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (i < 90) return wait("Warming up. Needs 90 days.");
+      const change = I.close[i] / I.close[i - 90] - 1;
+      if (pos && change < 0) return sell(`Down ${(-change * 100).toFixed(1)}% over 90 days. Trend over: selling.`);
+      if (!pos && change > 0) {
+        const vol = annualVol(I.close, i, 30), frac = Math.min(1, 0.4 / vol);
+        return { act: "buy", frac, why: `Up ${(change * 100).toFixed(1)}% over 90 days. It swings about ${(vol * 100).toFixed(0)}% a year, so buying with ${(frac * 100).toFixed(0)}% of the cash.` };
+      }
+      return wait(`90-day change ${(change * 100).toFixed(1)}%. ${pos ? "Holding." : "Waiting for it to turn positive."}`);
+    } },
+  { id: "crash", name: "Crash Buyer", type: "Bounce", color: "#ff5d8f",
+    desc: "Buys coins that crashed: at least 70% below their highest close of the past year, once the last 7 days are up. Sells after a 50% gain or after 90 candles, whichever comes first. No stop-loss.",
+    overlays() { return riskLines(this); },
+    decide(I, i, pos) {
+      if (pos) return checkExits(this, I, i) || wait(`${holdingMsg(this)} ${90 - (i - this.st.entryIdx)} candles left.`);
+      if (i < 365) return wait(`Warming up. Needs a year of prices (has ${i + 1}).`);
+      const c = I.close[i], hi = Math.max(...I.close.slice(i - 364, i + 1)), drop = 1 - c / hi, week = c / I.close[i - 7] - 1;
+      if (drop >= 0.7 && week > 0) return enter(this, i, `${(drop * 100).toFixed(0)}% below its 1-year high and up ${(week * 100).toFixed(1)}% this week. Buying the crash.`, { target: c * 1.5, maxBars: 90 });
+      return wait(drop >= 0.7 ? `Crashed ${(drop * 100).toFixed(0)}% from its high, but still falling this week.` : `Only ${(drop * 100).toFixed(0)}% below its 1-year high. Waiting for a 70% crash.`);
+    } },
+  { id: "yearhigh", name: "Yearly High Breakout", type: "Breakout", color: "#00f5d4",
+    desc: "Buys when the coin closes at a new 1-year high, above every close of the previous 365 candles. Sells when it closes below its lowest close of the last 50.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (i < 366) return wait(`Warming up. Needs a year of prices (has ${i + 1}).`);
+      const c = I.close[i], hi = Math.max(...I.close.slice(i - 365, i)), lo = Math.min(...I.close.slice(i - 50, i));
+      if (!pos && c > hi) return buy(`New 1-year closing high: ${fmtP(c)} beats ${fmtP(hi)}. Riding the breakout.`);
+      if (pos && c < lo) return sell(`Closed under its 50-candle low (${fmtP(lo)}). Breakout over.`);
+      return wait(pos ? `Holding. Exit below ${fmtP(lo)}.` : `Needs a close above ${fmtP(hi)}.`);
+    } },
+  { id: "weekend", name: "Weekend Holder", type: "Time", color: "#cdb4db",
+    desc: "Crypto trades every day, and some traders say weekends behave differently. Owns the coin only on Saturdays and Sundays (UTC) and sits in cash on weekdays. Needs daily candles.",
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (+$("tf").value !== 1440) return wait("Needs daily candles.");
+      const next = new Date((I.time[i] + OFF + 86400) * 1000).getUTCDay();   // the day an order placed now would fill
+      const weekend = next === 6 || next === 0;
+      if (!pos && weekend) return buy("The weekend starts tomorrow: buying.");
+      if (pos && !weekend) return sell("The weekend is over: selling.");
+      return wait(weekend ? "Weekend: holding." : "Weekday: waiting in cash.");
+    } },
+
+  // ----- yardsticks -----
+  { id: "coin", name: "Coin Flip", type: "Yardstick", color: "#9aa3b2", bench: true,
+    desc: "No analysis at all. Each candle it has a 1-in-10 chance to buy (if out) or sell (if in). The yardstick for luck.",
+    reset() { this.rng = mulberry32(42); },
+    overlays: () => [],
+    decide(I, i, pos) {
+      if (this.rng() < 0.1) return pos ? sell("Flipped a coin. Sell.") : buy("Flipped a coin. Buy.");
+      return wait("Coin says do nothing.");
+    } },
+  { id: "hold", name: "Buy & Hold", type: "Yardstick", color: "#e8e8e8", bench: true,
+    desc: "Buys on the first candle and never sells. If the active bots can't beat this, they're just paying fees.",
+    overlays: () => [],
+    decide() { return this.st.done ? wait("Holding forever.") : (this.st.done = true, buy("Buying once and holding.")); } },
+  { id: "dca", name: "Steady Buyer", type: "Yardstick", color: "#8d99ae", bench: true,
+    desc: "Dollar-cost averaging. Splits the money into 20 equal buys, one every 10 candles, and never sells. No predictions, just steady buying.",
+    overlays: () => [],
+    decide(I, i) {
+      const s = this.st;
+      s.n = s.n || 0;
+      if (s.n >= 20) return wait("All 20 buys done. Holding.");
+      if (s.last == null || i - s.last >= 10) {
+        s.last = i; s.n++;
+        return { act: "buy", frac: 1 / (21 - s.n), why: `Scheduled buy ${s.n} of 20.` };
+      }
+      return wait(`Next scheduled buy in ${10 - (i - s.last)} candles (${s.n} of 20 done).`);
+    } },
+];
+const YOU = { id: "you", name: "You", color: "#ffd166" };
+</script>
+<!-- more bots, kept in their own file so the bot section above (fingerprinted by the paper tests) never changes -->
+<script src="more_bots.js"></script>
+<!-- a third batch: more_bots.js is frozen too now, because paper tests use some of its bots -->
+<script src="extra_bots.js"></script>
+<!-- a fourth batch: fast bots for 5- and 15-minute candles (extra_bots.js is frozen too now) -->
+<script src="fast_bots.js"></script>
+<!-- a fifth batch: bots that read more data (the speed test's group and outside signals, and published intraday effects) -->
+<script src="data_bots.js"></script>
+<!-- a sixth batch: bots built from what the speed test's practice weeks showed (big-drop bounces, fee-aware bots, more outside data, controls) -->
+<script src="lesson_bots.js"></script>
+<!-- a seventh batch: bots that trade on the forecasts of Kronos, an open-source AI model for price candles (speed test only) -->
+<script src="kronos_bots.js"></script>
+<!-- an eighth batch: group rankings, pairs, Kronos combinations and teams of existing bots (speed test counts them from 2026-09-21) -->
+<script src="team_bots.js"></script>
+<!-- a ninth batch: one bot that re-picks its own settings from trailing performance instead of using one frozen setting (speed test counts it from 2026-09-21; not in the year-long paper tests) -->
+<script src="selftune_bots.js"></script>
+<script>
+"use strict";
+// ---------- accounts ----------
+const acct = {};
+function resetAccounts() {
+  for (const t of [...BOTS, YOU]) acct[t.id] = { cash: START_CASH, qty: 0, cost: 0, trades: 0, sells: 0, wins: 0, fees: 0, markers: [], fills: [] };
+  for (const b of BOTS) { b.st = {}; b.lv = { tp: [], sl: [] }; b.thought = ""; b.reset?.(); }
+}
+const feeRate = () => Math.max(0, +$("fee").value || 0) / 100;
+// costBasis lets a bot that holds separate slices (the grid) score each slice against its own buy price.
+function execute(id, side, price, time, frac = 1, costBasis = null) {
+  const a = acct[id];
+  if (side === "buy") {
+    const spend = a.cash * frac;
+    if (spend < 1) return null;
+    const fill = price * (1 + SLIP), fee = spend * feeRate(), qty = (spend - fee) / fill;
+    a.qty += qty; a.cash -= spend; a.cost += spend; a.fees += fee; a.trades++;
+    a.markers.push({ time, position: "belowBar", color: "#26a69a", shape: "arrowUp", text: id === "you" ? "YOU BUY" : "BUY" });
+    a.fills.push({ time, side: "buy", price: fill, qty });
+    return { fill, qty, spend };
+  }
+  const q = a.qty * frac;
+  if (q <= 0) return null;
+  const fill = price * (1 - SLIP), gross = q * fill, fee = gross * feeRate(), costPart = costBasis ?? a.cost * frac, pnl = gross - fee - costPart;
+  a.qty -= q; a.cash += gross - fee; a.cost -= costPart; a.fees += fee; a.trades++; a.sells++;
+  if (pnl > 0) a.wins++;
+  if (a.qty < 1e-12) { a.qty = 0; a.cost = 0; }
+  a.markers.push({ time, position: "aboveBar", color: "#ef5350", shape: "arrowDown", text: id === "you" ? "YOU SELL" : "SELL" });
+  a.fills.push({ time, side: "sell", price: fill, qty: q, pnl });
+  return { fill, qty: q, pnl };
+}
+const equity = (id, px) => acct[id].cash + acct[id].qty * px;
+
+// ---------- chart ----------
+const chart = LightweightCharts.createChart($("chart"), {
+  autoSize: true,
+  layout: { background: { type: "solid", color: "#0b0e14" }, textColor: "#aab3c2" },
+  grid: { vertLines: { color: "#151b27" }, horzLines: { color: "#151b27" } },
+  timeScale: { timeVisible: true, secondsVisible: false, borderColor: "#1f2635", rightOffset: 6 },
+  rightPriceScale: { borderColor: "#1f2635" },
+  crosshair: { mode: 0 },
+});
+const candleS = chart.addCandlestickSeries({ upColor: "#26a69a", downColor: "#ef5350", borderVisible: false, wickUpColor: "#26a69a", wickDownColor: "#ef5350" });
+const volS = chart.addHistogramSeries({ priceFormat: { type: "volume" }, priceScaleId: "vol", lastValueVisible: false, priceLineVisible: false });
+chart.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
+const lineS = [0, 1, 2, 3].map(() => chart.addLineSeries({ lineWidth: 1, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false }));
+const volBar = c => ({ time: c.time, value: c.volume, color: c.close >= c.open ? "rgba(38,166,154,.35)" : "rgba(239,83,80,.35)" });
+
+// ---------- app state ----------
+let mode = "live", pairKey = "BTC/USD", gen = 0;
+let candles = [], live = null, hist = [], cursor = 0, startIdx = 0, I = null;
+let ws = null, retryT = null, playT = null, watching = "trend", dirty = true;
+
+function curPrice() { return live ? live.close : candles.length ? candles[candles.length - 1].close : 0; }
+function curTime() { return live ? live.time : candles[candles.length - 1].time; }
+const clock = t => new Date(t * 1000).toISOString().slice(+$("tf").value >= 240 ? 5 : 11, 16).replace("T", " ");
+const money = x => "$" + x.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function log(html, cls = "") {
+  const d = document.createElement("div");
+  d.className = "ev " + cls;
+  d.innerHTML = `<span class="t">${candles.length ? clock(curTime()) : ""}</span>${html}`;
+  $("feed").prepend(d);
+  while ($("feed").childElementCount > 300) $("feed").lastChild.remove();
+}
+const who = t => `<b style="color:${t.color}">${t.name}</b>`;
+function setStatus(text, color) { $("statusText").textContent = text; $("dot").style.background = color; }
+
+// Called once each time a candle finishes. Every bot sees only closed candles, then acts at that close.
+function onCandleClose() {
+  I = computeInd(candles);
+  const i = candles.length - 1, c = candles[i];
+  if (i < startIdx) return;
+  for (const b of BOTS) {
+    const d = b.decide(I, i, acct[b.id].qty > 0);
+    b.thought = `Candle ${clock(c.time)} closed at ${fmtP(c.close)}. ${d.why}`;
+    if (d.act) {
+      const r = execute(b.id, d.act, c.close, c.time, d.frac ?? 1, d.costBasis);
+      if (r) {
+        b.filled?.(d, r, i);
+        if (!$("onlyWatched").checked || b.id === watching) {
+          const extra = d.act === "sell" ? ` · trade P&amp;L <span class="${r.pnl >= 0 ? "pos" : "neg"}">${money(r.pnl)}</span>` : "";
+          log(`${d.act === "buy" ? "🟢" : "🔴"} ${who(b)} ${d.act.toUpperCase()} @ ${fmtP(r.fill)}. ${d.why}${extra}`);
+        }
+      }
+    } else if (b.id === watching && $("showThink").checked) {
+      log(`💭 ${who(b)} ${d.why}`, "think");
+    }
+  }
+  dirty = true;
+}
+
+function render() {
+  requestAnimationFrame(render);
+  if (!dirty || !I) return;
+  dirty = false;
+  const px = curPrice(), bot = BOTS.find(b => b.id === watching);
+  $("price").textContent = px ? fmtP(px) : "—";
+  $("price").style.color = live && live.close < live.open ? "var(--down)" : "var(--up)";
+  // watched bot: overlays (blank points leave gaps, so stop lines only show during trades), markers, thought
+  const ov = bot.overlays(I);
+  lineS.forEach((s, k) => {
+    const o = ov[k];
+    s.applyOptions({ visible: !!o, color: o ? o[2] : "#000" });
+    s.setData(o ? candles.map((c, j) => o[1][j] == null ? { time: c.time } : { time: c.time, value: o[1][j] }) : []);
+  });
+  $("legend").innerHTML = [...new Map(ov.map(o => [o[0], o])).values()].map(o => `<span style="color:${o[2]}">━ ${o[0]}</span>`).join("");
+  candleS.setMarkers([...acct[watching].markers, ...acct.you.markers].sort((a, b) => a.time - b.time));
+  $("watchName").innerHTML = `<span class="sw" style="background:${bot.color}"></span>${bot.name}<span class="tag">${bot.type}</span>${acct[watching].qty > 0 ? '<span class="tag">IN A TRADE</span>' : '<span class="tag">OUT</span>'}`;
+  $("watchDesc").textContent = bot.desc;
+  $("thought").textContent = bot.thought || "Waiting for the first candle to close…";
+  // leaderboard
+  const filter = $("typeFilter").value;
+  const rows = [...BOTS, YOU].filter(t => filter === "all" || t.type === filter || t.bench || t === YOU)
+    .map(t => ({ t, eq: equity(t.id, px), a: acct[t.id] })).sort((x, y) => y.eq - x.eq);
+  $("board").innerHTML = rows.map(({ t, eq, a }) => {
+    const ret = eq / START_CASH - 1;
+    return `<tr class="row ${t.id === watching ? "watch" : ""}" data-id="${t.id}">
+      <td><span class="sw" style="background:${t.color}"></span>${t.name}${t.bench ? '<span class="tag">yardstick</span>' : ""}${a.qty > 0 ? " •" : ""}</td>
+      <td>${money(eq)}</td><td class="${ret >= 0 ? "pos" : "neg"}">${(ret * 100).toFixed(2)}%</td>
+      <td>${a.trades}</td><td>${a.sells ? Math.round(a.wins / a.sells * 100) + "%" : "–"}</td><td>${money(a.fees)}</td></tr>`;
+  }).join("");
+  // you
+  const y = acct.you;
+  $("yCash").textContent = money(y.cash);
+  $("yQty").textContent = y.qty ? y.qty.toFixed(6) : "0";
+  $("yEq").textContent = money(equity("you", px));
+  const open = y.qty * px - y.cost;
+  $("yPnl").innerHTML = y.qty ? `<span class="${open >= 0 ? "pos" : "neg"}">${money(open)}</span>` : "–";
+  if (mode === "replay") $("replayPos").textContent = `candle ${cursor} / ${hist.length}`;
+}
+
+// ---------- data: live ----------
+function connect() {
+  const g = gen;
+  ws = new WebSocket("wss://ws.kraken.com/v2");
+  ws.onopen = () => ws.send(JSON.stringify({ method: "subscribe", params: { channel: "ohlc", symbol: [pairKey], interval: +$("tf").value, snapshot: false } }));
+  ws.onmessage = e => {
+    if (g !== gen) return;
+    const m = JSON.parse(e.data);
+    if (m.method === "subscribe" && m.success) setStatus("live", "#26a69a");
+    if (m.channel !== "ohlc" || !m.data) return;
+    for (const d of m.data) onTick(d);
+  };
+  ws.onclose = () => { if (g !== gen) return; setStatus("reconnecting…", "#f5b041"); retryT = setTimeout(connect, 3000); };
+}
+function onTick(d) {
+  const bar = { time: Math.floor(Date.parse(d.interval_begin) / 1000) - OFF, open: +d.open, high: +d.high, low: +d.low, close: +d.close, volume: +d.volume };
+  if (bar.time < live.time) return;
+  if (bar.time > live.time) { candles.push(live); live = bar; onCandleClose(); }
+  else live = bar;
+  candleS.update(live); volS.update(volBar(live));
+  dirty = true;
+}
+
+// ---------- data: replay ----------
+function stepReplay() {
+  if (cursor >= hist.length) { stopPlay(); log("🏁 Replay finished. Check the leaderboard against the yardsticks."); return; }
+  const c = hist[cursor++];
+  candles.push(c); candleS.update(c); volS.update(volBar(c));
+  onCandleClose();
+}
+function stopPlay() { clearInterval(playT); playT = null; $("play").textContent = "▶ Play"; }
+function startPlay() { stopPlay(); playT = setInterval(stepReplay, 1000 / +$("speed").value); $("play").textContent = "⏸ Pause"; }
+
+// ---------- boot / switching ----------
+async function loadRows(url) {
+  const j = await (await fetch(url)).json();
+  if (j.error && j.error.length) throw new Error(j.error.join(", "));
+  const key = Object.keys(j.result).find(k => k !== "last");
+  return j.result[key].map(x => ({ time: x[0] - OFF, open: +x[1], high: +x[2], low: +x[3], close: +x[4], volume: +x[6] }));
+}
+const STOCK_TFS = ["5", "15", "60", "1440"];   // Yahoo has no 4h candles and too little 1m history
+const dataUrl = (P, tf) => P.file ? P.file
+  : P.yahoo ? `/api/yahoo?symbol=${encodeURIComponent(P.yahoo)}&interval=${tf}` : `/api/ohlc?pair=${P.rest}&interval=${tf}`;
+// decimals for a price: 2 from $1 up, 4 down to a cent, more for coins that cost a fraction of a cent
+const autoDp = px => px >= 1 ? 2 : px >= 0.01 ? 4 : Math.min(10, Math.ceil(-Math.log10(px)) + 3);
+function setPriceFormat(dp) {
+  fmtP = x => (+x).toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
+  candleS.applyOptions({ priceFormat: { type: "price", precision: dp, minMove: 1 / 10 ** dp } });
+}
+
+async function init() {
+  const g = ++gen;
+  stopPlay(); clearTimeout(retryT);
+  if (ws) { ws.onclose = null; ws.close(); ws = null; }
+  const P = PAIRS[pairKey];
+  // stocks and saved coin histories have no live feed here, so they are replay-only (saved histories are daily)
+  const replayOnly = !!(P.yahoo || P.file);
+  [...$("tf").options].forEach(o => { o.disabled = P.file ? o.value !== "1440" : !!P.yahoo && !STOCK_TFS.includes(o.value); });
+  if ($("tf").selectedOptions[0].disabled) $("tf").value = "1440";
+  if (replayOnly) mode = "replay";
+  [...$("modeSeg").children].forEach(b => { b.classList.toggle("on", b.dataset.m === mode); b.disabled = replayOnly && b.dataset.m === "live"; });
+  $("replayCtl").style.display = mode === "replay" ? "flex" : "none";
+  $("banner").style.display = "none";
+  setStatus("loading history…", "#888");
+  let rows;
+  try {
+    rows = await loadRows(dataUrl(P, $("tf").value));
+    if (rows.length < REPLAY_WARMUP + 10) throw new Error(`only ${rows.length} candles of history`);
+    REF = P.file ? await loadRows(BTC_FILE) : null;
+  } catch (e) {
+    if (g !== gen) return;
+    setStatus("no data", "#ef5350");
+    $("banner").style.display = "flex";
+    $("banner").innerHTML = `<div><b>Couldn't load prices for ${pairKey}.</b><br><br>${P.yahoo ? "Check that Yahoo Finance knows this ticker and has candles at this timeframe. " : ""}The app needs <code>python3 live_arena/server.py</code> running, opened at <code>http://127.0.0.1:8765</code>.<br><span class="note">${e.message}</span></div>`;
+    return;
+  }
+  if (g !== gen) return;
+  setPriceFormat(P.dp ?? autoDp(rows[rows.length - 1].close));
+  const label = P.name ? `${pairKey} (${P.name})` : pairKey;
+  resetAccounts();
+  $("feed").innerHTML = "";
+  if (mode === "live") {
+    live = rows.pop(); candles = rows; startIdx = candles.length;
+    candleS.setData([...candles, live]); volS.setData([...candles, live].map(volBar));
+    I = computeInd(candles);
+    log(`▶️ Live ${label}. ${BOTS.length} bots have read the last ${candles.length} candles and start trading on the next close.`);
+    connect();
+  } else {
+    live = null; hist = rows.slice(0, -1); cursor = REPLAY_WARMUP; startIdx = cursor;
+    candles = hist.slice(0, cursor);
+    candleS.setData(candles); volS.setData(candles.map(volBar));
+    I = computeInd(candles);
+    setStatus("replay (real past candles)", "#4f8ff7");
+    log(`⏪ Replaying the last ${hist.length} real ${label} candles one at a time with ${BOTS.length} bots. Press Play or Step.`);
+  }
+  chart.timeScale().scrollToRealTime();
+  dirty = true;
+}
+
+// countdown to next live candle
+setInterval(() => {
+  if (mode !== "live" || !live || !$("statusText").textContent.startsWith("live")) return;
+  const left = Math.max(0, live.time + +$("tf").value * 60 - (Date.now() / 1000 - OFF));
+  const h = Math.floor(left / 3600), m = Math.floor(left % 3600 / 60), s = String(Math.floor(left % 60)).padStart(2, "0");
+  $("statusText").textContent = `live · next candle ${h ? `${h}h ${m}m` : `${m}:${s}`}`;
+}, 1000);
+
+// ---------- controls ----------
+const cryptoGroup = document.createElement("optgroup"), stockGroup = document.createElement("optgroup");
+cryptoGroup.label = "Crypto · live (Kraken)";
+stockGroup.label = "Stocks & ETFs · replay (Yahoo)";
+Object.entries(PAIRS).forEach(([k, P]) => P.yahoo ? stockGroup.appendChild(new Option(`${k} · ${P.name}`, k)) : cryptoGroup.appendChild(new Option(k, k)));
+$("pair").append(cryptoGroup, stockGroup);
+// the ticker box: a coin with a Kraken feed opens live; anything else loads from Yahoo as a replay
+const TICKER = /^[A-Z0-9^][A-Z0-9.\-=^]{0,11}$/;
+let tickerGroup = null;
+$("ticker").onkeydown = e => {
+  if (e.key !== "Enter") return;
+  const s = $("ticker").value.trim().toUpperCase().replace(/\/USD$/, "");
+  if (!TICKER.test(s)) return setStatus("that isn't a ticker", "#ef5350");
+  const key = PAIRS[`${s}/USD`] ? `${s}/USD` : s;
+  if (!PAIRS[key]) {
+    PAIRS[key] = { yahoo: s, name: s };
+    if (!tickerGroup) {
+      tickerGroup = document.createElement("optgroup");
+      tickerGroup.label = "Typed tickers · replay (Yahoo)";
+      $("pair").appendChild(tickerGroup);
+    }
+    tickerGroup.appendChild(new Option(s, s));
+  }
+  $("ticker").value = "";
+  pairKey = key;
+  $("pair").value = key;
+  init();
+};
+["all", ...new Set(BOTS.filter(b => !b.bench).map(b => b.type))]
+  .forEach(v => $("typeFilter").add(new Option(v === "all" ? `All ${BOTS.length} bots` : v, v)));
+$("typeFilter").onchange = () => { dirty = true; };
+$("pair").onchange = () => { pairKey = $("pair").value; init(); };
+$("tf").onchange = init;
+$("modeSeg").onclick = e => {
+  const m = e.target.dataset.m;
+  if (!m || m === mode) return;
+  mode = m;
+  [...$("modeSeg").children].forEach(b => b.classList.toggle("on", b.dataset.m === m));
+  init();
+};
+$("play").onclick = () => playT ? stopPlay() : startPlay();
+$("step").onclick = () => { stopPlay(); stepReplay(); };
+$("speed").onchange = () => { if (playT) startPlay(); };
+$("board").onclick = e => {
+  const id = e.target.closest("tr")?.dataset.id;
+  if (!id || id === "you") return;
+  watching = id; dirty = true;
+  log(`👀 Now watching ${who(BOTS.find(b => b.id === id))}`);
+};
+document.querySelectorAll("[data-buy],[data-sell]").forEach(btn => btn.onclick = () => {
+  if (!candles.length) return;
+  const side = btn.dataset.buy ? "buy" : "sell", frac = +(btn.dataset.buy || btn.dataset.sell);
+  const r = execute("you", side, curPrice(), curTime(), frac);
+  if (!r) return log(side === "buy" ? "⚠️ You have no cash left to buy with." : "⚠️ You don't hold any coins to sell.");
+  log(`${side === "buy" ? "🟢" : "🔴"} ${who(YOU)} ${side.toUpperCase()} ${r.qty.toFixed(6)} @ ${fmtP(r.fill)}` +
+      (side === "sell" ? ` · P&amp;L <span class="${r.pnl >= 0 ? "pos" : "neg"}">${money(r.pnl)}</span>` : ""));
+  dirty = true;
+});
+
+// ---------- basket test: every bot on every item in a basket file ----------
+// A basket file: {label, unit, source, index: {symbol, name, file?}, stocks or items: [{symbol, name, marketCap, file?}], caveat}.
+// Items with a `file` load a saved daily history; the rest load from Yahoo.
+const BASKET_FILES = ["basket.json", "crypto_basket.json"];
+let BASKETS = [], BASKET = null, basketRun = 0;
+const fmtCap = x => x >= 1e9 ? `${(x / 1e9).toFixed(1)}B` : `${Math.round(x / 1e6)}M`;
+const basketItems = B => B.items || B.stocks;
+async function loadBasket() {
+  for (const file of BASKET_FILES) {
+    let B;
+    try {
+      const r = await fetch(file);
+      if (!r.ok) continue;
+      B = await r.json();
+    } catch {
+      continue;
+    }
+    const grp = document.createElement("optgroup");
+    grp.label = `${B.label} · replay (${B.source || "Yahoo"})`;
+    for (const s of [B.index, ...basketItems(B)]) {
+      PAIRS[s.symbol] = s.file ? { file: s.file, name: s.name } : { yahoo: s.symbol, name: s.name };
+      grp.appendChild(new Option(`${s.symbol} · ${s.name}${s.marketCap ? ` · $${fmtCap(s.marketCap)}` : ""}`, s.symbol));
+    }
+    $("pair").appendChild(grp);
+    $("basketPick").add(new Option(`${B.label} (${basketItems(B).length})`, BASKETS.length));
+    BASKETS.push(B);
+  }
+  if (!BASKETS.length) return;
+  BASKET = BASKETS[0];
+  $("basketPick").onchange = () => { BASKET = BASKETS[+$("basketPick").value]; };
+  $("basketBtn").hidden = $("basketPick").hidden = $("basketFill").hidden = false;
+}
+
+// Same decisions as a replay, in one pass: every indicator is causal (its value at candle i uses only
+// candles 0..i) and bots only read up to index i, so computing them once over all candles changes nothing.
+// bots: which bots to run. The paper tests run only their own, so a problem in any other bot can't reach them.
+function simulateRows(rows, nextOpen = false, fromTime = null, bots = BOTS) {
+  candles = rows; live = null; I = computeInd(rows);
+  resetAccounts();
+  // fromTime: trading starts at the first candle at or after it (a forward paper test); earlier candles only warm up
+  const k = fromTime == null ? 0 : rows.findIndex(r => r.time >= fromTime);
+  // nextOpen: an order decided at candle i's close fills at candle i+1's open (so nothing fills after the last candle)
+  for (let i = k < 0 ? rows.length : Math.max(REPLAY_WARMUP, k); i < rows.length - (nextOpen ? 1 : 0); i++) {
+    const c = nextOpen ? rows[i + 1] : rows[i];
+    for (const b of bots) {
+      const d = b.decide(I, i, acct[b.id].qty > 0);
+      if (!d.act) continue;
+      const r = execute(b.id, d.act, nextOpen ? c.open : c.close, c.time, d.frac ?? 1, d.costBasis);
+      if (r) b.filled?.(d, r, i);
+    }
+  }
+  const px = rows[rows.length - 1].close;
+  return Object.fromEntries(bots.map(b => [b.id, { ret: equity(b.id, px) / START_CASH - 1, trades: acct[b.id].trades,
+                                                   holding: acct[b.id].qty > 0, fills: acct[b.id].fills }]));
+}
+
+async function basketTest() {
+  const g = basketRun = ++gen;
+  stopPlay(); clearTimeout(retryT);
+  if (ws) { ws.onclose = null; ws.close(); ws = null; }
+  const items = basketItems(BASKET), nextOpen = $("basketFill").value === "open", unit = BASKET.unit || "stocks";
+  if (items.some(s => s.file) || !STOCK_TFS.includes($("tf").value)) $("tf").value = "1440";
+  const tf = $("tf").value, tfName = $("tf").selectedOptions[0].text;
+  $("basketPanel").hidden = false;
+  $("basketBody").innerHTML = "";
+  REF = BASKET.index.file ? await loadRows(BASKET.index.file) : null;   // bitcoin's prices for the bots that compare with it
+  const per = {}, skipped = [], all = [BASKET.index, ...items];
+  let bars = 0;
+  for (const [k, s] of all.entries()) {
+    $("basketStatus").textContent = `Running ${BOTS.length} bots on ${s.symbol} (${k + 1} of ${all.length})…`;
+    try {
+      // live sources can end on an unfinished candle; saved histories only hold finished ones
+      const rows = (await loadRows(dataUrl(PAIRS[s.symbol], tf))).slice(0, s.file ? undefined : -1);
+      if (g !== gen) return;
+      if (rows.length < REPLAY_WARMUP + 50) throw new Error("too little history");
+      per[s.symbol] = simulateRows(rows, nextOpen);
+      bars = Math.max(bars, rows.length);
+    } catch (e) {
+      if (g !== gen) return;
+      skipped.push(`${s.symbol} (${e.message})`);
+    }
+  }
+  const stocks = items.map(s => s.symbol).filter(s => per[s]);
+  const median = xs => { const a = [...xs].sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+  const rows = BOTS.map(b => {
+    const rets = stocks.map(s => per[s][b.id].ret);
+    return { b, avg: rets.reduce((x, y) => x + y, 0) / rets.length, med: median(rets), up: rets.filter(r => r > 0).length,
+             beat: b.id === "hold" ? null : stocks.filter(s => per[s][b.id].ret > per[s].hold.ret).length,
+             trades: stocks.reduce((n, s) => n + per[s][b.id].trades, 0) };
+  }).sort((x, y) => y.avg - x.avg);
+  const index = per[BASKET.index.symbol];
+  window.basketResult = { label: BASKET.label, tf, fee: $("fee").value, nextOpen, stocks: stocks.length, bars, skipped, indexHold: index && index.hold.ret, per,
+                          rows: rows.map(({ b, ...r }) => ({ id: b.id, ...r })) };
+  const pc = x => `<span class="${x >= 0 ? "pos" : "neg"}">${(x * 100).toFixed(1)}%</span>`;
+  $("basketBody").innerHTML = `
+    <p>Every bot started with $10,000 in each of ${stocks.length} ${unit} from the ${BASKET.label.toLowerCase()} basket, on ${tfName}
+      candles (up to ${bars} each, the first ${REPLAY_WARMUP} used as warm-up), paying ${$("fee").value}% per trade, with orders
+      filling ${nextOpen ? "at the next candle's open" : "at the close that triggered them"}.
+      <b>Average</b> is what splitting your money evenly across all of them would have returned.</p>
+    ${index ? `<p>Just holding ${BASKET.index.name} (${BASKET.index.symbol}) over the same stretch: ${pc(index.hold.ret)}.</p>` : ""}
+    <table><thead><tr><th>Bot</th><th>Average</th><th>Median</th><th>Beat buy &amp; hold</th><th>Made money</th><th>Trades</th></tr></thead><tbody>
+    ${rows.map(r => `<tr><td><span class="sw" style="background:${r.b.color}"></span>${r.b.name}${r.b.bench ? '<span class="tag">yardstick</span>' : ""}</td>
+      <td>${pc(r.avg)}</td><td>${pc(r.med)}</td><td>${r.beat == null ? "–" : `${r.beat} of ${stocks.length}`}</td>
+      <td>${r.up} of ${stocks.length}</td><td>${r.trades}</td></tr>`).join("")}
+    </tbody></table>
+    <p class="note">${BASKET.caveat}${skipped.length ? ` Skipped: ${skipped.join(", ")}.` : ""}</p>`;
+  $("basketStatus").textContent = `Done: ${stocks.length} ${unit} × ${BOTS.length} bots.`;
+  basketRun = 0;
+  init();
+}
+$("basketBtn").onclick = basketTest;
+$("basketClose").onclick = () => { $("basketPanel").hidden = true; if (basketRun) { basketRun = 0; init(); } };
+
+// ---------- forward paper tests of the best strategies so far (rules frozen in PAPER_TESTS.md) ----------
+const PAPER_START = "2026-09-14";
+const PAPER_FROM = Date.parse(`${PAPER_START}T00:00:00Z`) / 1000 - OFF;   // candle times are shifted to local time
+const PAPER_REVIEWS = ["2027-03-14", "2027-09-14"];
+const PAPER_TESTS = [
+  { id: "crypto", title: "Crypto: the three round-2 finalists on all 29 coins", bots: ["crash", "martingale", "pyramid"],
+    fee: "0.25", unit: "coin", baskets: ["crypto_basket.json", "crypto_confirm_b.json", "crypto_confirm_c.json"],
+    why: "They beat luck and beat holding the coins on coins they had never seen, but not holding bitcoin (CRYPTO_SEARCH.md)." },
+  { id: "microcaps", title: "Micro-caps: Martingale Doubler on all 60 stocks", bots: ["martingale"], fee: "0.50", unit: "stock",
+    baskets: ["basket.json", "basket_b.json"],
+    why: "It beat luck on unseen micro-caps, but made less than half of what the micro-cap index fund made (CONFIRM.md)." },
+  { id: "ibs", title: "IBS Swing on QQQ and SPY", bots: ["ibs"], fee: "0.01", symbols: ["QQQ", "SPY"],
+    why: "The closest research candidate: it beat 95% of random timing on QQQ, but only matched the index's return per unit of risk (PHASE7_RESULTS.md)." },
+  { id: "levtrend", title: "Leveraged trend: SSO (2x S&P 500) while the S&P 500 is above its 200-day average, else cash", fee: "0.02",
+    why: "It made more money than SPY since 2017 by using leverage, with the same return per unit of risk (PHASE5_RESULTS.md)." },
+  { id: "green", title: "Crypto: the 22 other bots with a positive average in the 93-bot basket test, on all 29 coins",
+    bots: ["keltner", "ichimoku", "ratiosnap", "break", "awesome", "regress", "dbottom", "ratiobreak", "bigcandle", "cmf", "adx", "darvas",
+           "scaleout", "connors", "trail", "risk1", "streak", "volsized", "threered", "mom", "panic", "btcfollow"],
+    fee: "0.25", unit: "coin", baskets: ["crypto_basket.json", "crypto_confirm_b.json", "crypto_confirm_c.json"], btc: true, strict: true,
+    why: "Every bot with a positive average on crypto group A when all 93 ran there, led by Keltner Breakout (+175.5%, but its median coin made +1.8%: FET carried it). Crash Buyer, Martingale and Pyramid were positive too and are already in the first crypto test." },
+  { id: "greenmicro", title: "Micro-caps: the 21 other bots with a positive average in the 93-bot basket test, on all 60 stocks",
+    bots: ["crash", "stoch", "ladder", "grid", "inside", "volume", "keyrev", "dip", "willr", "mfi", "dbottom", "harami", "band", "adx", "ibs",
+           "trix", "opposite", "vwap", "fib", "soldiers", "quiet"],
+    fee: "0.50", unit: "stock", baskets: ["basket.json", "basket_b.json"], strict: true,
+    why: "Every bot with a positive average on micro-cap basket A when all 93 ran there, led by Crash Buyer (+34.8%). None came close to holding IWC (+66.8%). Martingale was positive too and is already in the micro-cap test above. Opposite Day has no edge on purpose: if it passes, the bar is too easy." },
+  { id: "bothcrypto", title: "Both markets, crypto half: Breakout on Volume, Hikkake and Bull Flag on all 29 coins",
+    bots: ["volbreak", "hikkake", "flag"], fee: "0.25", unit: "coin", baskets: ["crypto_basket.json", "crypto_confirm_b.json", "crypto_confirm_c.json"], strict: true,
+    why: "Of the 39 bots added last, the only ones with a positive average in both the crypto and the micro-cap basket tests (Santa Claus Rally was too, but a one-year test sees just one holiday week). None beat the luck bar in both. A bot passes only if it clears the bar here and in the micro-cap half." },
+  { id: "bothmicro", title: "Both markets, micro-cap half: the same three bots on all 60 stocks",
+    bots: ["volbreak", "hikkake", "flag"], fee: "0.50", unit: "stock", baskets: ["basket.json", "basket_b.json"], strict: true,
+    why: "The same three bots as the crypto half. A bot passes only if it clears the bar in both halves." },
+  { id: "newgreen", title: "Crypto: the 10 other newest bots with a positive average in the 132-bot basket test, on all 29 coins",
+    bots: ["pocket", "chaikinosc", "alligator", "fractal", "sellmay", "santa", "kelly", "renko", "rsitrend", "risingthree"],
+    fee: "0.25", unit: "coin", baskets: ["crypto_basket.json", "crypto_confirm_b.json", "crypto_confirm_c.json"], strict: true,
+    why: "Added on request after Claude had left them out. Except Santa Claus Rally, each lost money in the micro-cap basket test, which points to luck. Led by Pocket Pivot (+58.1% on crypto group A, −19.2% on micro-caps)." },
+  { id: "newgreenmicro", title: "Micro-caps: the 9 other newest bots with a positive average in the 132-bot basket test, on all 60 stocks",
+    bots: ["fisher", "cmo", "ultimate", "nvi", "santa", "stc", "dipdca", "eqcurve", "piercing"],
+    fee: "0.50", unit: "stock", baskets: ["basket.json", "basket_b.json"], strict: true,
+    why: "Added on request after Claude had left them out. Except Santa Claus Rally, each lost money in the crypto basket test, which points to luck. Led by Fisher Transform (+46.3% on micro-cap basket A, −46.2% on crypto)." },
+];
+let paperFrom = PAPER_FROM, paperRun = 0;
+const pctText = x => x == null ? "–" : `<span class="${x >= 0 ? "pos" : "neg"}">${(x * 100).toFixed(1)}%</span>`;
+const medianOf = xs => { const a = [...xs].sort((x, y) => x - y), m = a.length >> 1; return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+const nyDay = epoch => new Date(epoch * 1000).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+const rowDay = r => new Date((r.time + OFF) * 1000).toISOString().slice(0, 10);
+const fmtPrice = x => x >= 100 ? x.toFixed(2) : x >= 1 ? x.toFixed(3) : x.toPrecision(3);
+const forwardIndex = rows => rows.findIndex(r => r.time >= paperFrom);
+const botName = id => id === "lev" ? "Leveraged trend" : BOTS.find(b => b.id === id).name;
+const paperBots = ids => BOTS.filter(b => ids.includes(b.id) || b.id === "hold");   // a test's own bots, plus Buy & Hold to compare with
+const luckLabel = t => t.strict ? `Luck bar: the best of ${t.bots.length} random Coin Flips (90th percentile of 200 tries)`
+                                : "Luck bar: the 90th percentile of 200 random Coin Flips";
+
+function finishedSessions(rows) {   // today's daily stock bar isn't final until the US close (16:15 New York time)
+  const now = Date.now() / 1000, last = rows[rows.length - 1];
+  return nyDay(last.time + OFF) === nyDay(now) && nyClock(now).mins < 975 ? rows.slice(0, -1) : rows;
+}
+async function paperRows(item) {
+  if (!item.file) return { rows: finishedSessions(await loadRows(dataUrl({ yahoo: item.symbol }, "1440"))), fresh: true };
+  const byTime = new Map((await loadRows(item.file)).map(r => [r.time, r]));   // saved history, then the latest finished days
+  let fresh = true;
+  try {
+    for (const r of await loadRows(`/api/coinbase?product=${item.symbol}`)) byTime.set(r.time, r);
+  } catch {
+    fresh = false;
+  }
+  return { rows: [...byTime.values()].sort((a, b) => a.time - b.time), fresh };
+}
+async function loadAll(items) {   // eight at a time, so the price sources aren't flooded
+  const out = {};
+  for (let k = 0; k < items.length; k += 8) {
+    await Promise.all(items.slice(k, k + 8).map(async s => {
+      try {
+        out[s.symbol] = await paperRows(s);
+      } catch {
+        // missing symbols are reported by the caller
+      }
+    }));
+  }
+  return out;
+}
+function holdReturn(rows, fee) {   // bought at the open after the first forward close, like the Buy & Hold bot
+  const k = forwardIndex(rows);
+  if (k < 0 || k + 1 >= rows.length) return null;
+  return (1 - fee / 100) / (1 + SLIP) * rows[rows.length - 1].close / rows[k + 1].open - 1;
+}
+function pendingOrders(rows, ids) {   // what each bot will do at the next open, decided at the last finished candle
+  const i = rows.length - 1;
+  if (rows[i].time < paperFrom) return [];
+  return ids.map(id => [id, BOTS.find(b => b.id === id).decide(I, i, acct[id].qty > 0)]).filter(([, d]) => d.act);
+}
+function prepareLuck(rowsList) {   // each coin or stock's candles and indicators, and where forward trading starts
+  return rowsList.map(r => {
+    const k = forwardIndex(r);
+    return { r, Ic: computeInd(r), from: k < 0 ? r.length : Math.max(REPLAY_WARMUP, k) };
+  }).filter(p => p.from < p.r.length - 1);
+}
+function coinFlipAverage(prepared, seed) {   // one random Coin Flip calendar's average return across all of them, filling at the next open
+  const coinBot = BOTS.find(b => b.id === "coin");
+  let sum = 0;
+  for (const { r, Ic, from } of prepared) {
+    acct.coin = { cash: START_CASH, qty: 0, cost: 0, trades: 0, sells: 0, wins: 0, fees: 0, markers: [], fills: [] };
+    coinBot.rng = mulberry32(seed);
+    for (let i = from; i < r.length - 1; i++) {
+      const d = coinBot.decide(Ic, i, acct.coin.qty > 0);
+      if (d.act) execute("coin", d.act, r[i + 1].open, r[i + 1].time);
+    }
+    sum += equity("coin", r[r.length - 1].close) / START_CASH - 1;
+  }
+  return sum / prepared.length;
+}
+const percentile90 = xs => [...xs].sort((a, b) => a - b)[Math.floor(0.9 * (xs.length - 1))];
+function luckBar(rowsList, seeds = 200) {   // 90th percentile of the averages of 200 Coin Flips with different random calendars
+  const prepared = prepareLuck(rowsList);
+  return prepared.length ? percentile90(Array.from({ length: seeds }, (_, k) => coinFlipAverage(prepared, k + 1))) : null;
+}
+// For a test of many bots: in each of 200 tries, run as many Coin Flips as there are bots and keep the best average.
+// The bar is the 90th percentile of those bests, so a bot has to beat the luckiest of that many random bots.
+function bestLuckBar(rowsList, bots, tries = 200) {
+  const prepared = prepareLuck(rowsList);
+  return prepared.length ? percentile90(Array.from({ length: tries }, (_, t) =>
+    Math.max(...Array.from({ length: bots }, (_, k) => coinFlipAverage(prepared, 10000 + t * 100 + k))))) : null;
+}
+
+async function paperBasketTest(t) {
+  const items = [];
+  let index = null;
+  for (const file of t.baskets) {
+    const B = await (await fetch(file)).json();
+    items.push(...basketItems(B));
+    index = index || B.index;
+  }
+  const data = await loadAll([index, ...items]);
+  REF = t.btc && data[index.symbol] ? data[index.symbol].rows : null;   // bitcoin's prices, for the bots that compare a coin with bitcoin
+  $("fee").value = t.fee;
+  const per = {}, fills = [], pending = [], stale = [];
+  let through = 0;
+  for (const s of items) {
+    const got = data[s.symbol];
+    if (!got || !got.fresh) stale.push(s.symbol);
+    if (!got) continue;
+    per[s.symbol] = simulateRows(got.rows, true, paperFrom, paperBots(t.bots));
+    through = Math.max(through, got.rows[got.rows.length - 1].time);
+    for (const id of t.bots) for (const f of per[s.symbol][id].fills) fills.push({ ...f, symbol: s.symbol, id });
+    for (const [id, d] of pendingOrders(got.rows, t.bots)) pending.push({ symbol: s.symbol, id, act: d.act });
+  }
+  const syms = Object.keys(per);
+  const stat = id => {
+    const v = syms.map(s => per[s][id].ret), sum = v.reduce((a, x) => a + x, 0);
+    const out = { id, avg: sum / v.length, med: medianOf(v), up: v.filter(x => x > 0).length,
+                  holding: syms.filter(s => per[s][id].holding).length, trades: syms.reduce((n, s) => n + per[s][id].trades, 0) };
+    if (t.strict && v.length > 1) out.withoutBest = (sum - Math.max(...v)) / (v.length - 1);   // the average with its single best coin left out
+    return out;
+  };
+  const rowsList = syms.map(s => data[s].rows);
+  return { t, n: syms.length, symbols: syms, through, stale, index, idx: data[index.symbol] ? holdReturn(data[index.symbol].rows, t.fee) : null,
+           luck: t.strict ? bestLuckBar(rowsList, t.bots.length) : luckBar(rowsList), hold: stat("hold"), bots: t.bots.map(stat), fills, pending };
+}
+
+async function paperIbsTest(t) {
+  REF = null;
+  const data = await loadAll(t.symbols.map(symbol => ({ symbol })));
+  $("fee").value = t.fee;
+  const rows = [], fills = [], pending = [];
+  let through = 0;
+  for (const symbol of t.symbols) {
+    if (!data[symbol]) continue;
+    const r = data[symbol].rows, res = simulateRows(r, true, paperFrom, paperBots(t.bots)).ibs;
+    rows.push({ symbol, ret: res.ret, trades: res.trades, holding: res.holding, hold: holdReturn(r, t.fee) });
+    for (const f of res.fills) fills.push({ ...f, symbol, id: "ibs" });
+    for (const [id, d] of pendingOrders(r, ["ibs"])) pending.push({ symbol, id, act: d.act });
+    through = Math.max(through, r[r.length - 1].time);
+  }
+  return { t, rows, symbols: t.symbols.filter(s => data[s]), fills, pending, through };
+}
+
+async function paperLevTest(t) {
+  const data = await loadAll([{ symbol: "SPY" }, { symbol: "SSO" }]);
+  if (!data.SPY || !data.SSO) return { t, error: "no SPY or SSO prices" };
+  $("fee").value = t.fee;
+  const spy = data.SPY.rows, sso = data.SSO.rows;
+  resetAccounts();
+  acct.lev = { cash: START_CASH, qty: 0, cost: 0, trades: 0, sells: 0, wins: 0, fees: 0, markers: [], fills: [] };
+  const closes = spy.map(r => r.close), avg = sma(closes, 200), ssoAt = new Map(sso.map(r => [r.time, r]));
+  const k = forwardIndex(spy);
+  const pending = [];
+  if (k >= 0) {
+    for (let i = Math.max(199, k); i < spy.length; i++) {   // decide at SPY's close, trade SSO at the next open
+      const want = closes[i] > avg[i];
+      if (want === (acct.lev.qty > 0)) continue;
+      if (i + 1 >= spy.length) {
+        pending.push({ symbol: "SSO", id: "lev", act: want ? "buy" : "sell" });
+        break;
+      }
+      const next = ssoAt.get(spy[i + 1].time);
+      if (next) execute("lev", want ? "buy" : "sell", next.open, next.time);
+    }
+  }
+  return { t, ret: equity("lev", sso[sso.length - 1].close) / START_CASH - 1, trades: acct.lev.trades, holding: acct.lev.qty > 0,
+           above: closes[closes.length - 1] > avg[avg.length - 1], spyHold: holdReturn(spy, t.fee), ssoHold: holdReturn(sso, t.fee),
+           fills: acct.lev.fills.map(f => ({ ...f, symbol: "SSO", id: "lev" })), pending, through: spy[spy.length - 1].time };
+}
+
+const FIRST_FILL_DAY = "2026-09-15";   // the open after the first forward close
+function tradeTable(r) {
+  const all = [...r.fills].sort((a, b) => b.time - a.time), shown = all.slice(0, 300);
+  if (!all.length) return `<p class="note">No buys or sells yet. The earliest a bot can trade is the open on ${FIRST_FILL_DAY}.</p>`;
+  const what = f => f.id === "lev" ? "SSO"
+    : `<a href="#" data-test="${r.t.id}" data-chart="${f.symbol}" data-bot="${f.id}">${f.symbol.replace("-USD", "")}</a>`;
+  return `<details${all.length <= 60 ? " open" : ""}><summary class="note">Every buy and sell, newest first: ${all.length}${all.length > shown.length ? ` (latest ${shown.length} shown)` : ""}.${r.t.id === "levtrend" ? "" : " Click a name to see its buys and sells on the chart."}</summary>
+    <table><thead><tr><th>Date (filled at the open)</th><th>Bot</th><th>What</th><th>Action</th><th>Price</th><th>Profit on the sale</th></tr></thead><tbody>
+    ${shown.map(f => `<tr><td>${rowDay(f)}</td><td>${botName(f.id)}</td><td>${what(f)}</td>
+      <td>${f.side === "buy" ? '<span class="pos">Bought</span>' : '<span class="neg">Sold</span>'}</td><td>${fmtPrice(f.price)}</td>
+      <td>${f.side === "sell" ? `<span class="${f.pnl >= 0 ? "pos" : "neg"}">${money(f.pnl)}</span>` : ""}</td></tr>`).join("")}
+    </tbody></table></details>`;
+}
+function chartPicker(r) {
+  if (!r.symbols || !r.symbols.length) return "";
+  return `<p class="note">See a bot's buys and sells on the chart:
+    <select data-pick-bot>${r.t.bots.map(id => `<option value="${id}">${botName(id)}</option>`).join("")}</select>
+    <select data-pick-symbol>${r.symbols.map(s => `<option value="${s}">${s.replace("-USD", "")}</option>`).join("")}</select>
+    <button data-test="${r.t.id}" data-open-chart>Show chart</button></p>`;
+}
+function paperNotes(r) {
+  return (r.pending.length ? `<p class="note">Waiting to fill at the next open: ${r.pending.map(p => `${botName(p.id)} ${p.act}s ${p.symbol.replace("-USD", "")}`).join(" · ")}</p>` : "")
+    + chartPicker(r) + tradeTable(r) + (r.through ? `<p class="note">Prices through ${rowDay({ time: r.through })}.</p>` : "");
+}
+function paperCard(r) {
+  const t = r.t, head = `<h3>${t.title}</h3><p class="note">${t.why} ${t.fee}% per trade; orders fill at the next open.</p>`;
+  if (r.error) return `<div class="paperCard">${head}<p class="neg">Couldn't update: ${r.error}</p></div>`;
+  const th = `<tr><th>Since ${PAPER_START}</th><th>Return</th>`;
+  if (r.bots) {
+    const n = r.n, strict = !!t.strict, cell = x => strict ? `<td>${x}</td>` : "", span = strict ? 5 : 4;
+    return `<div class="paperCard">${head}<p class="note">$10,000 of paper money per ${t.unit}. The average is what splitting the money evenly across all ${n} would have returned.</p>
+      ${strict ? `<p class="note">Testing ${t.bots.length} bots at once gives luck ${t.bots.length} chances, so this test has a stricter bar: its luck bar is the luckiest of ${t.bots.length} random bots, and a bot also has to beat holding ${r.index.name} with its single best ${t.unit} left out.</p>` : ""}
+      <table><thead>${th}${strict ? `<th>Without its best ${t.unit}</th>` : ""}<th>Median ${t.unit}</th><th>Made money</th><th>Holding now</th><th>Trades</th></tr></thead><tbody>
+      ${r.bots.map(b => `<tr><td>${botName(b.id)}</td><td>${pctText(b.avg)}</td>${cell(pctText(b.withoutBest))}<td>${pctText(b.med)}</td><td>${b.up} of ${n}</td><td>${b.holding} of ${n}</td><td>${b.trades}</td></tr>`).join("")}
+      <tr class="yard"><td>Just holding all ${n}</td><td>${pctText(r.hold.avg)}</td>${cell(pctText(r.hold.withoutBest))}<td>${pctText(r.hold.med)}</td><td>${r.hold.up} of ${n}</td><td></td><td></td></tr>
+      <tr class="yard"><td>Just holding ${r.index.name} (${r.index.symbol.replace("-USD", "")})</td><td>${pctText(r.idx)}</td><td colspan="${span}"></td></tr>
+      <tr class="yard"><td>${luckLabel(t)}</td><td>${pctText(r.luck)}</td><td colspan="${span}"></td></tr>
+      </tbody></table>${paperNotes(r)}${r.stale.length ? `<p class="note">No fresh prices for: ${r.stale.join(", ")}.</p>` : ""}</div>`;
+  }
+  if (r.rows) {
+    return `<div class="paperCard">${head}<table><thead>${th}<th>Just holding it</th><th>Holding now</th><th>Trades</th></tr></thead><tbody>
+      ${r.rows.map(x => `<tr><td>IBS Swing on ${x.symbol}</td><td>${pctText(x.ret)}</td><td>${pctText(x.hold)}</td><td>${x.holding ? "yes" : "no"}</td><td>${x.trades}</td></tr>`).join("")}
+      </tbody></table>${paperNotes(r)}</div>`;
+  }
+  return `<div class="paperCard">${head}<table><thead>${th}<th>Holding now</th><th>Trades</th></tr></thead><tbody>
+    <tr><td>Leveraged trend</td><td>${pctText(r.ret)}</td><td>${r.holding ? "SSO" : "cash"}</td><td>${r.trades}</td></tr>
+    <tr class="yard"><td>Just holding SPY</td><td>${pctText(r.spyHold)}</td><td colspan="2"></td></tr>
+    <tr class="yard"><td>Just holding SSO</td><td>${pctText(r.ssoHold)}</td><td colspan="2"></td></tr>
+    </tbody></table><p class="note">The S&amp;P 500 is ${r.above ? "above" : "below"} its 200-day average right now.</p>${paperNotes(r)}</div>`;
+}
+
+const ledgerEntry = r => r.bots
+  ? { test: r.t.id, n: r.n, index: r.idx, luck: r.luck, hold_avg: r.hold.avg,
+      bots: r.bots.map(b => ({ bot: b.id, avg: b.avg, median: b.med, up: b.up, holding: b.holding, trades: b.trades,
+                               ...(b.withoutBest != null ? { without_best: b.withoutBest } : {}) })) }
+  : r.rows ? { test: r.t.id, rows: r.rows }
+    : { test: r.t.id, ret: r.ret, trades: r.trades, holding: r.holding, spy: r.spyHold, sso: r.ssoHold };
+const dataThrough = results => Math.max(...results.map(r => r.through || 0));
+async function logPaper(results) {   // one line per new day of prices in paper_ledger.jsonl, so the history is kept as it happened
+  const through = dataThrough(results);
+  if (through < paperFrom || paperFrom !== PAPER_FROM) return;   // a practice run from another start date is never logged
+  const day = rowDay({ time: through });
+  try {
+    const text = await (await fetch("paper_ledger.jsonl", { cache: "no-store" })).text();
+    if (text.includes(`"data_through": "${day}"`)) return;
+  } catch {
+    // no ledger yet
+  }
+  await fetch("/api/paperlog", { method: "POST", headers: { "Content-Type": "application/json" },
+                                 body: JSON.stringify({ data_through: day, start: PAPER_START, tests: results.filter(r => !r.error).map(ledgerEntry) }) });
+}
+// The whole update, trades included, for weekly_check.py: paper_latest.json (practice runs: paper_latest_practice.json).
+async function saveLatest(results) {
+  const through = dataThrough(results);
+  const tests = results.map(r => r.error ? { test: r.t.id, title: r.t.title, error: r.error } : {
+    ...ledgerEntry(r), title: r.t.title, fee: r.t.fee, unit: r.t.unit || null, strict: !!r.t.strict,
+    luck_label: r.bots ? luckLabel(r.t).replace("Luck bar: ", "") : null, through: r.through ? rowDay({ time: r.through }) : null, stale: r.stale || [],
+    index_name: r.index ? `${r.index.name} (${r.index.symbol.replace("-USD", "")})` : null,
+    bot_names: Object.fromEntries((r.t.bots || ["lev"]).map(id => [id, botName(id)])),
+    fills: r.fills.map(f => ({ day: rowDay(f), bot: botName(f.id), symbol: f.symbol.replace("-USD", ""), side: f.side, price: f.price, pnl: f.pnl ?? null })),
+    pending: r.pending.map(p => ({ bot: botName(p.id), symbol: p.symbol.replace("-USD", ""), act: p.act })) });
+  await fetch("/api/paperlatest", { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ start: PAPER_START, from: rowDay({ time: paperFrom }), practice: paperFrom !== PAPER_FROM, reviews: PAPER_REVIEWS,
+                           data_through: through ? rowDay({ time: through }) : null, run_utc: new Date().toISOString(), tests }) });
+}
+
+async function paperTests() {
+  const g = paperRun = ++gen;
+  stopPlay(); clearTimeout(retryT);
+  if (ws) { ws.onclose = null; ws.close(); ws = null; }
+  const tf = $("tf").value, fee = $("fee").value;
+  $("tf").value = "1440";
+  $("paperPanel").hidden = false;
+  $("paperBody").innerHTML = "";
+  const results = [];
+  for (const t of PAPER_TESTS) {
+    $("paperStatus").textContent = `Updating: ${t.title.split(":")[0]}…`;
+    try {
+      results.push(await (t.baskets ? paperBasketTest(t) : t.symbols ? paperIbsTest(t) : paperLevTest(t)));
+    } catch (e) {
+      results.push({ t, error: e.message });
+    }
+    if (g !== gen) return;
+  }
+  $("tf").value = tf;
+  $("fee").value = fee;
+  const day = Math.floor((Date.now() / 1000 - (paperFrom + OFF)) / 86400) + 1;
+  $("paperBody").innerHTML = `<p>Paper money only. These are the strategies that came closest in every test so far, plus every bot with a positive average in the 93-bot and 132-bot crypto and micro-cap basket tests. Each one trades
+      forward from ${PAPER_START} on prices nobody had seen when it was picked, next to the simple alternatives. The rules and
+      the bar they have to clear are in <code>PAPER_TESTS.md</code>. Claude doesn't place real trades.</p>`
+    + results.map(paperCard).join("");
+  $("paperStatus").textContent = day < 1 ? `Starts ${PAPER_START}; nothing has traded yet.`
+    : `Day ${day} since ${PAPER_START}. Reviews on ${PAPER_REVIEWS.join(" and ")}.`;
+  paperRun = 0;
+  logPaper(results);
+  if (AUTO) saveLatest(results);
+  init();
+}
+// The main chart for one symbol, showing one bot's paper-test buys and sells as arrows and in the feed.
+async function showPaperChart(testId, symbol, id) {
+  const g = ++gen, t = PAPER_TESTS.find(x => x.id === testId), bot = BOTS.find(b => b.id === id);
+  stopPlay(); clearTimeout(retryT);
+  if (ws) { ws.onclose = null; ws.close(); ws = null; }
+  $("paperPanel").hidden = true;
+  if (!PAIRS[symbol]) {
+    PAIRS[symbol] = { yahoo: symbol, name: symbol };
+    $("pair").add(new Option(symbol, symbol));
+  }
+  const P = PAIRS[symbol];
+  pairKey = symbol;
+  $("pair").value = symbol;
+  $("tf").value = "1440";
+  mode = "replay";
+  [...$("modeSeg").children].forEach(b => b.classList.toggle("on", b.dataset.m === "replay"));
+  $("replayCtl").style.display = "flex";
+  $("banner").style.display = "none";
+  setStatus("loading the paper test…", "#888");
+  const rows = (await paperRows(P.file ? { symbol, file: P.file } : { symbol })).rows;
+  const btc = t.btc ? (await paperRows({ symbol: "BTC-USD", file: BTC_FILE })).rows : null;
+  if (g !== gen) return;
+  REF = btc;
+  const fee = $("fee").value;
+  $("fee").value = t.fee;
+  simulateRows(rows, true, paperFrom);
+  const pend = pendingOrders(rows, [id]);
+  $("fee").value = fee;
+  setPriceFormat(P.dp ?? autoDp(rows[rows.length - 1].close));
+  candles = rows; hist = rows; cursor = rows.length; live = null; startIdx = rows.length;
+  candleS.setData(rows);
+  volS.setData(rows.map(volBar));
+  const k = forwardIndex(rows);
+  if (k >= 0) acct[id].markers.push({ time: rows[k].time, position: "aboveBar", color: "#f5b041", shape: "square", text: "paper start" });
+  watching = id;
+  bot.thought = k < 0 ? `The paper test starts ${PAPER_START}. The first buy or sell can happen at the open on ${FIRST_FILL_DAY}.`
+    : `Paper test since ${PAPER_START}: ${acct[id].trades} buys and sells so far. `
+      + (pend.length ? `At the next open it will ${pend[0][1].act}: ${pend[0][1].why}` : "No order for the next open.");
+  const feed = $("feed");
+  feed.innerHTML = "";
+  const add = html => { const d = document.createElement("div"); d.className = "ev"; d.innerHTML = html; feed.prepend(d); };
+  add(`📒 Paper test: ${who(bot)} on ${symbol.replace("-USD", "")} since ${PAPER_START}, ${t.fee}% per trade. Open 📒 Paper tests to go back.`);
+  for (const f of acct[id].fills) {
+    add(`<span class="t">${rowDay(f)}</span>${f.side === "buy" ? "🟢" : "🔴"} ${who(bot)} ${f.side === "buy" ? "bought" : "sold"} at ${fmtP(f.price)}`
+        + (f.side === "sell" ? ` · profit <span class="${f.pnl >= 0 ? "pos" : "neg"}">${money(f.pnl)}</span>` : ""));
+  }
+  chart.timeScale().setVisibleRange({ from: rows[Math.max(0, (k < 0 ? rows.length : k) - 45)].time, to: rows[rows.length - 1].time });
+  setStatus(`paper test view: ${bot.name} on ${symbol.replace("-USD", "")}`, "#f5b041");
+  dirty = true;
+}
+$("paperBody").onclick = e => {
+  const link = e.target.closest("[data-chart]");
+  if (link) {
+    e.preventDefault();
+    showPaperChart(link.dataset.test, link.dataset.chart, link.dataset.bot);
+    return;
+  }
+  const btn = e.target.closest("[data-open-chart]");
+  if (btn) showPaperChart(btn.dataset.test, btn.parentElement.querySelector("[data-pick-symbol]").value,
+                          btn.parentElement.querySelector("[data-pick-bot]").value);
+};
+$("paperBtn").onclick = paperTests;
+$("paperClose").onclick = () => { $("paperPanel").hidden = true; if (paperRun) { paperRun = 0; init(); } };
+
+// ?paper=auto opens the paper tests right away and saves the result for weekly_check.py.
+// &from=YYYY-MM-DD makes it a practice run from a pretend start date (never logged).
+const PARAMS = new URLSearchParams(location.search), AUTO = PARAMS.get("paper") === "auto";
+if (AUTO && /^\d{4}-\d{2}-\d{2}$/.test(PARAMS.get("from") || "")) paperFrom = Date.parse(`${PARAMS.get("from")}T00:00:00Z`) / 1000 - OFF;
+init();
+render();
+loadBasket();
+if (AUTO) paperTests();
+</script>
+<!-- the weekly speed test (SPEED_TEST.md); it only runs when the page is opened with ?speed=YYYY-MM-DD -->
+<script src="speed_test.js"></script>
+</body>
+</html>

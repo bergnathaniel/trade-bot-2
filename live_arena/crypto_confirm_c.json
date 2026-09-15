@@ -1,0 +1,83 @@
+{
+ "label": "Crypto coins, group C (confirmation 2)",
+ "unit": "coins",
+ "source": "Coinbase daily",
+ "made": "2026-09-12",
+ "seed": 20260914,
+ "window": [
+  "2022-01-01",
+  "2026-09-11"
+ ],
+ "rule": "- coins with a USD market on Coinbase (online, trading enabled) that rank 21-250 by market cap on CoinGecko today\n  - not a stablecoin, wrapped, bridged, staked or gold-backed token, and not a coin whose daily close barely moves\n    (spread of daily closes under 3% of their average, which is a stablecoin by behavior)\n  - Coinbase daily candles from 2022-01-01 or earlier, with no more than 2% of days missing since then\n  - sorted by symbol, shuffled with a fixed seed and dealt into three equal groups (see CRYPTO_SEARCH.md):\n      A, discovery       -> crypto_basket.json, the basket the app shows\n      B, confirmation 1  -> crypto_confirm_b.json\n      C, confirmation 2  -> crypto_confirm_c.json",
+ "index": {
+  "symbol": "BTC-USD",
+  "name": "Bitcoin",
+  "file": "data/crypto/BTC-USD.json"
+ },
+ "items": [
+  {
+   "symbol": "SHIB-USD",
+   "name": "Shiba Inu",
+   "marketCap": 3126236053,
+   "rank": 32,
+   "file": "data/crypto/SHIB-USD.json"
+  },
+  {
+   "symbol": "ICP-USD",
+   "name": "Internet Computer",
+   "marketCap": 1526452612,
+   "rank": 55,
+   "file": "data/crypto/ICP-USD.json"
+  },
+  {
+   "symbol": "ETC-USD",
+   "name": "Ethereum Classic",
+   "marketCap": 1206645083,
+   "rank": 68,
+   "file": "data/crypto/ETC-USD.json"
+  },
+  {
+   "symbol": "DASH-USD",
+   "name": "Dash",
+   "marketCap": 706331160,
+   "rank": 91,
+   "file": "data/crypto/DASH-USD.json"
+  },
+  {
+   "symbol": "XTZ-USD",
+   "name": "Tezos",
+   "marketCap": 286202187,
+   "rank": 141,
+   "file": "data/crypto/XTZ-USD.json"
+  },
+  {
+   "symbol": "ENS-USD",
+   "name": "Ethereum Name Service",
+   "marketCap": 245021308,
+   "rank": 153,
+   "file": "data/crypto/ENS-USD.json"
+  },
+  {
+   "symbol": "JASMY-USD",
+   "name": "JasmyCoin",
+   "marketCap": 198067639,
+   "rank": 177,
+   "file": "data/crypto/JASMY-USD.json"
+  },
+  {
+   "symbol": "MANA-USD",
+   "name": "Decentraland",
+   "marketCap": 143791312,
+   "rank": 218,
+   "file": "data/crypto/MANA-USD.json"
+  },
+  {
+   "symbol": "1INCH-USD",
+   "name": "1INCH",
+   "marketCap": 128455511,
+   "rank": 232,
+   "file": "data/crypto/1INCH-USD.json"
+  }
+ ],
+ "caveat": "How the coins were picked matters. They are ranked by today's size, so coins that shrank into this range since 2022 are in, and coins that died or were delisted from Coinbase are out. The window starts in the 2022 crash, which flatters any bot that spends time in cash. Many exchanges charge small accounts well over 0.1% per trade, and big orders in small coins move the price."
+}

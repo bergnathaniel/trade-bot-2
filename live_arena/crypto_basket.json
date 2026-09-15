@@ -1,0 +1,97 @@
+{
+ "label": "Crypto coins, group A (discovery)",
+ "unit": "coins",
+ "source": "Coinbase daily",
+ "made": "2026-09-12",
+ "seed": 20260914,
+ "window": [
+  "2022-01-01",
+  "2026-09-11"
+ ],
+ "rule": "- coins with a USD market on Coinbase (online, trading enabled) that rank 21-250 by market cap on CoinGecko today\n  - not a stablecoin, wrapped, bridged, staked or gold-backed token, and not a coin whose daily close barely moves\n    (spread of daily closes under 3% of their average, which is a stablecoin by behavior)\n  - Coinbase daily candles from 2022-01-01 or earlier, with no more than 2% of days missing since then\n  - sorted by symbol, shuffled with a fixed seed and dealt into three equal groups (see CRYPTO_SEARCH.md):\n      A, discovery       -> crypto_basket.json, the basket the app shows\n      B, confirmation 1  -> crypto_confirm_b.json\n      C, confirmation 2  -> crypto_confirm_c.json",
+ "index": {
+  "symbol": "BTC-USD",
+  "name": "Bitcoin",
+  "file": "data/crypto/BTC-USD.json"
+ },
+ "items": [
+  {
+   "symbol": "AVAX-USD",
+   "name": "Avalanche",
+   "marketCap": 3279804675,
+   "rank": 30,
+   "file": "data/crypto/AVAX-USD.json"
+  },
+  {
+   "symbol": "QNT-USD",
+   "name": "Quant",
+   "marketCap": 927634282,
+   "rank": 78,
+   "file": "data/crypto/QNT-USD.json"
+  },
+  {
+   "symbol": "ATOM-USD",
+   "name": "Cosmos Hub",
+   "marketCap": 853148194,
+   "rank": 81,
+   "file": "data/crypto/ATOM-USD.json"
+  },
+  {
+   "symbol": "CRV-USD",
+   "name": "Curve DAO",
+   "marketCap": 520544810,
+   "rank": 103,
+   "file": "data/crypto/CRV-USD.json"
+  },
+  {
+   "symbol": "FET-USD",
+   "name": "Artificial Superintelligence Alliance",
+   "marketCap": 386404495,
+   "rank": 120,
+   "file": "data/crypto/FET-USD.json"
+  },
+  {
+   "symbol": "COMP-USD",
+   "name": "Compound",
+   "marketCap": 200760894,
+   "rank": 174,
+   "file": "data/crypto/COMP-USD.json"
+  },
+  {
+   "symbol": "GRT-USD",
+   "name": "The Graph",
+   "marketCap": 198796352,
+   "rank": 175,
+   "file": "data/crypto/GRT-USD.json"
+  },
+  {
+   "symbol": "CHZ-USD",
+   "name": "Chiliz",
+   "marketCap": 150392424,
+   "rank": 213,
+   "file": "data/crypto/CHZ-USD.json"
+  },
+  {
+   "symbol": "TRAC-USD",
+   "name": "OriginTrail",
+   "marketCap": 146577430,
+   "rank": 216,
+   "file": "data/crypto/TRAC-USD.json"
+  },
+  {
+   "symbol": "SNX-USD",
+   "name": "Synthetix",
+   "marketCap": 124469923,
+   "rank": 240,
+   "file": "data/crypto/SNX-USD.json"
+  },
+  {
+   "symbol": "ZEN-USD",
+   "name": "Horizen",
+   "marketCap": 115764048,
+   "rank": 247,
+   "file": "data/crypto/ZEN-USD.json"
+  }
+ ],
+ "caveat": "How the coins were picked matters. They are ranked by today's size, so coins that shrank into this range since 2022 are in, and coins that died or were delisted from Coinbase are out. The window starts in the 2022 crash, which flatters any bot that spends time in cash. Many exchanges charge small accounts well over 0.1% per trade, and big orders in small coins move the price."
+}
