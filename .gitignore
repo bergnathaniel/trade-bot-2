@@ -7,11 +7,15 @@
 __pycache__/
 *.pyc
 
-# --- market-data caches: regenerable from the APIs, ~20MB, pure noise in a diff
+# --- market-data caches: regenerable from the APIs, pure noise in a diff
 .candle_cache_*.json
 .stk_cache_*.json
 .mu_cache_*.json
 research/.cache/
+research/data/
+research/results/*.log
+research/results/*.csv.gz
+live_arena/data/
 
 # --- macOS
 .DS_Store

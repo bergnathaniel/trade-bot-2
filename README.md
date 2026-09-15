@@ -1,10 +1,11 @@
 # Trade Bot — a trading research project that concluded "don't"
 
-This started as a Solana scalping bot and ended as a research harness. Roughly
-**51 strategy configurations** were tested across crypto and US equities —
-patterns, systematic rules, cross-sectional, mean-reversion, and finally
-diversified trend following. Every one that was tested honestly failed to beat
-buying an index fund.
+This started as a Solana scalping bot and ended as a research harness. **192
+strategy configurations** have now been tested across crypto and US equities:
+patterns, systematic rules, cross-sectional, mean-reversion, trend following,
+pairs, carry, and 31 pre-registered published anomalies on survivorship-free
+data (Phase 1 of the edge research program). Every one that was tested honestly
+failed to beat buying an index fund.
 
 That conclusion is the deliverable. The code here is kept so the conclusion can
 be checked, not so the bots can be rerun.
@@ -53,6 +54,38 @@ silently manufacturing edge:
    Sharpe of 0.75 scores 0.99 alone and 0.11 against 50 trials.
 
 Read **[`research/FINDINGS.md`](research/FINDINGS.md)** for the full write-up.
+
+### The edge research program (Phase 1)
+
+A pre-registered test of 31 published anomalies on survivorship-free data (Ken
+French / CRSP), judged only on data from after each idea was published, against
+nine gates fixed before any return was computed. The anomalies: the volatility
+risk premium, pre-FOMC drift, overnight returns, turn of the month,
+volatility-managed equity, 11 equity factors (long/short and long-only) and
+industry momentum.
+
+```bash
+python3 research/selftest.py      # known-answer tests: engine, statistics, look-ahead detector
+python3 research/run_phase1.py    # every pre-registered test, ~12 s with a warm cache
+```
+
+| file | what it does |
+|---|---|
+| `PROGRAM.md` | the program: 30 ranked hypotheses, point-in-time data rules, research/paper/live architectures, evidence gates, kill criteria |
+| `PREREG_PHASE1.md` | exact rules and gates, frozen before testing; amendments appended with reasons, never edited in place |
+| `REGISTRY.csv` | every configuration ever tested; feeds the deflated-Sharpe trial count |
+| `sources.py` | Ken French library, FRED, FOMC calendar parser |
+| `engine.py` | weight-path backtester with overnight/intraday segments and explicit execution timing |
+| `evaluate.py` | full metric set, Newey-West alpha, block bootstrap, Monte Carlo bands, regimes, the gates |
+| `leakage.py` | truncation test: deletes the future, checks no past decision changes |
+| `h_vol.py`, `h_calendar.py`, `h_factors.py` | the hypotheses |
+| `PHASE1_RESULTS.md` | the write-up |
+
+**Result: 0 of 31 pass — no edge found.** Every one fails the alpha gate, and
+none of the seven directional strategies beat SPY's Sharpe over its own
+out-of-sample window. The dominant pattern is publication decay: across ten
+equity factors the average gross Sharpe fell from 0.48 before publication to
+0.13 after.
 
 ---
 
@@ -162,7 +195,8 @@ real live run that lost half its capital. Fee drag is visible in every paper
 session — compare "Total fees paid" against "Gross profit" in the report. A
 positive win rate is not enough if the average winner does not clear costs.
 
-The honest summary after 51 configurations: **nothing here beat holding an
+The honest summary after 192 configurations: **nothing here beat holding an
 index fund or dollar-cost averaging.** The failure is structural — round-trip
-costs plus no persistent daily-bar edge in liquid markets — not a missing
-indicator, so searching for a 52nd rule will keep producing this result.
+costs, no persistent daily-bar edge in liquid markets, and published edges
+decaying once they're known — not a missing indicator, so searching for a 193rd
+rule will keep producing this result.

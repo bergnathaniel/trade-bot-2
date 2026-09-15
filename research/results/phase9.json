@@ -1,0 +1,448 @@
+{
+ "prereg_sha256": "79a4c026165baa32fe34aa048a520af64cb03c1c025a7930d1f4654604105600",
+ "run_utc": "2026-09-14T00:06:53Z",
+ "n_trials": 118,
+ "sr_dispersion": 0.28948,
+ "results": [
+  {
+   "meta": {
+    "id": "H46",
+    "cluster": "CRYPTOTREND",
+    "name": "Crypto trend ensemble: top 20 Coinbase coins, 9 Donchian models, 25% vol target",
+    "hypothesis": "Long-only trend-following on the 20 most-traded coins, sized by volatility, keeps beating holding bitcoin after its 2025 publication (Zarattini, Pagani & Barbon)",
+    "data": "Coinbase Exchange daily candles, all USD pairs incl. delisted, 2022-01 -> 2026-09-12; ^IRX",
+    "costs": "0.25%/side (2x: 0.50%)",
+    "oos_start": "2025-04-01",
+    "bench": "BTC",
+    "implementable": true
+   },
+   "status": "FAIL",
+   "failed": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G6",
+    "G7"
+   ],
+   "gates": {
+    "G1": {
+     "pass": false,
+     "detail": "SR -0.12, 95% CI [-1.89, 1.34]"
+    },
+    "G2": {
+     "pass": false,
+     "detail": "alpha -0.64%/yr, NW t -0.16, beta 0.06"
+    },
+    "G3": {
+     "pass": false,
+     "detail": "DSR 0.149 vs luck bar SR 0.75 (N=118, disp 0.29); N=2: 0.374, N=200: 0.135"
+    },
+    "G4": {
+     "pass": false,
+     "detail": "SR at 2x costs -0.34"
+    },
+    "G5": {
+     "pass": true,
+     "detail": "thirds +2.3% / -4.3% / +1.1%"
+    },
+    "G6": {
+     "pass": false,
+     "detail": "0% positive, median SR -0.12 vs base -0.12: gross up to 200% (the paper's cap; not implementable on spot) -0.12, 50% volatility target -0.12, top 10 coins -0.14, lookbacks 20-360 only -0.15, no volatility sizing -0.08, 10% no-trade band -0.11"
+    },
+    "G7": {
+     "pass": false,
+     "detail": "placebo p95 SR 0.07, median -0.38; share of placebos >= base 19.7%"
+    },
+    "G8": {
+     "pass": true,
+     "detail": "retail-implementable"
+    },
+    "G9": {
+     "pass": null,
+     "detail": "no live fund with >= 4y"
+    },
+    "G10": {
+     "pass": true,
+     "detail": "survivorship-free data"
+    }
+   },
+   "sharpe_oos": -0.116676,
+   "ci": [
+    -1.885853,
+    1.344927
+   ],
+   "alpha_ann": -0.006387,
+   "alpha_t": -0.16433,
+   "beta": 0.060304,
+   "dsr": 0.148702,
+   "metrics_full": {
+    "start": "2023-01-01",
+    "end": "2026-09-12",
+    "years": 3.70137,
+    "n_obs": 1351,
+    "net_total_excess": 0.160389,
+    "gross_total_excess": 0.211938,
+    "cagr_excess": 0.041008,
+    "gross_cagr_excess": 0.053305,
+    "vol": 0.069786,
+    "sharpe": 0.610789,
+    "sortino": 0.903336,
+    "max_dd": -0.111757,
+    "calmar": 0.366936,
+    "skew": -0.01859,
+    "kurt": 11.972562,
+    "cvar5": -0.008829,
+    "ac1": 0.00127,
+    "cagr_total": 0.088736,
+    "worst_day": null,
+    "worst_month": -0.029575,
+    "recovery_obs": 643,
+    "underwater_at_end": true,
+    "ann_turnover": 4.699724
+   },
+   "metrics_oos": {
+    "start": "2025-04-01",
+    "end": "2026-09-12",
+    "years": 1.452055,
+    "n_obs": 530,
+    "net_total_excess": -0.010691,
+    "gross_total_excess": 0.006192,
+    "cagr_excess": -0.007375,
+    "gross_cagr_excess": 0.00426,
+    "vol": 0.051917,
+    "sharpe": -0.116676,
+    "sortino": -0.166422,
+    "max_dd": -0.096259,
+    "calmar": -0.076617,
+    "skew": 0.129282,
+    "kurt": 11.729984,
+    "cvar5": -0.006935,
+    "ac1": 0.045246,
+    "cagr_total": 0.031336,
+    "worst_day": null,
+    "worst_month": -0.016046,
+    "recovery_obs": 417,
+    "underwater_at_end": true,
+    "ann_turnover": 4.661998
+   },
+   "bench_oos": {
+    "start": "2025-04-01",
+    "end": "2026-09-12",
+    "years": 1.452055,
+    "n_obs": 530,
+    "net_total_excess": -0.114473,
+    "gross_total_excess": null,
+    "cagr_excess": -0.080316,
+    "gross_cagr_excess": null,
+    "vol": 0.422512,
+    "sharpe": 0.012926,
+    "sortino": 0.018597,
+    "max_dd": -0.543094,
+    "calmar": -0.147885,
+    "skew": 0.067276,
+    "kurt": 8.42461,
+    "cvar5": -0.049151,
+    "ac1": -0.035017,
+    "worst_day": null,
+    "worst_month": -0.139924,
+    "recovery_obs": 341,
+    "underwater_at_end": true
+   },
+   "regimes_oos": {},
+   "regimes_full": {},
+   "crises": {
+    "strategy": {
+     "GFC": null,
+     "Volmageddon": null,
+     "COVID crash": null,
+     "2022 bear": null
+    },
+    "benchmark": {
+     "GFC": null,
+     "Volmageddon": null,
+     "COVID crash": null,
+     "2022 bear": null
+    }
+   },
+   "mc": {
+    "1y": {
+     "p_loss": 0.594,
+     "p5_return": -0.080662,
+     "median_return": -0.010409,
+     "p95_return": 0.085564,
+     "p5_max_dd": -0.099353
+    }
+   },
+   "factor": null,
+   "leakage": {
+    "ok": true,
+    "cuts": [
+     402,
+     866,
+     1077,
+     1428,
+     1618,
+     1678
+    ]
+   },
+   "live": null,
+   "extra": {
+    "in_sample_2023_to_2025_03": {
+     "excess_cagr": 0.0735,
+     "sharpe": 0.94,
+     "days": 821
+    },
+    "paper_sharpe_2015_2025": 1.58,
+    "oos_sharpe_at_0.10pct": 0.02,
+    "oos_sharpe_at_0.50pct": -0.34,
+    "oos_avg_gross_exposure": 0.065,
+    "oos_share_of_days_invested": 0.979,
+    "btc_oos": {
+     "excess_cagr": -0.0803,
+     "sharpe": 0.01
+    },
+    "coins_ever_picked": 66,
+    "oos_most_held": {
+     "BTC-USD": 0.734,
+     "ETH-USD": 0.711,
+     "LINK-USD": 0.604,
+     "SOL-USD": 0.596,
+     "LTC-USD": 0.589,
+     "XRP-USD": 0.568,
+     "SUI-USD": 0.504,
+     "ADA-USD": 0.504,
+     "AVAX-USD": 0.489,
+     "ONDO-USD": 0.481,
+     "XLM-USD": 0.479,
+     "HBAR-USD": 0.477
+    },
+    "equal_weight_monthly_picks_no_costs_oos": {
+     "excess_cagr": -0.1876,
+     "sharpe": 0.05,
+     "days": 530
+    }
+   },
+   "notes": [
+    "Rules follow CXO Advisory's summary of the paper and a public pre-registration of the same strategy; the PDF couldn't be retrieved. Details neither states are Claude's choices, marked in PREREG_PHASE9.md.",
+    "Out-of-sample is only 1.45 years: even a strategy that works as published would probably fail G1 or G2 (see the power note in PREREG_PHASE9.md)."
+   ],
+   "unregistered": [
+    "Coinbase-only universe; the paper aggregates volume across exchanges and all coins since 2015.",
+    "Close-to-close returns on UTC daily candles; weights are daily targets, and drift between days is ignored.",
+    "^IRX is forward-filled across weekends and holidays."
+   ],
+   "n_neighbours": 6
+  },
+  {
+   "meta": {
+    "id": "H47",
+    "cluster": "CRYPTOTREND",
+    "name": "Bitcoin trend ensemble: 9 Donchian models, 25% vol target",
+    "hypothesis": "The same long-only trend ensemble on bitcoin alone beats holding bitcoin after publication",
+    "data": "Coinbase Exchange BTC-USD daily candles 2022-01 -> 2026-09-12; ^IRX",
+    "costs": "0.25%/side (2x: 0.50%)",
+    "oos_start": "2025-04-01",
+    "bench": "BTC",
+    "implementable": true
+   },
+   "status": "FAIL",
+   "failed": [
+    "G1",
+    "G2",
+    "G3",
+    "G4",
+    "G6",
+    "G7"
+   ],
+   "gates": {
+    "G1": {
+     "pass": false,
+     "detail": "SR -0.23, 95% CI [-1.61, 1.28]"
+    },
+    "G2": {
+     "pass": false,
+     "detail": "alpha -2.50%/yr, NW t -0.36, beta 0.15"
+    },
+    "G3": {
+     "pass": false,
+     "detail": "DSR 0.117 vs luck bar SR 0.75 (N=118, disp 0.29); N=2: 0.322, N=200: 0.105"
+    },
+    "G4": {
+     "pass": false,
+     "detail": "SR at 2x costs -0.46"
+    },
+    "G5": {
+     "pass": true,
+     "detail": "thirds +3.9% / -9.1% / +1.4%"
+    },
+    "G6": {
+     "pass": false,
+     "detail": "0% positive, median SR -0.21 vs base -0.23: cap 200% (not implementable on spot) -0.23, 50% volatility target -0.08, lookbacks 20-360 only -0.33, no volatility sizing -0.06, 10% no-trade band -0.21"
+    },
+    "G7": {
+     "pass": false,
+     "detail": "placebo p95 SR 0.69, median -0.54; share of placebos >= base 28.5%"
+    },
+    "G8": {
+     "pass": true,
+     "detail": "retail-implementable"
+    },
+    "G9": {
+     "pass": null,
+     "detail": "no live fund with >= 4y"
+    },
+    "G10": {
+     "pass": true,
+     "detail": "survivorship-free data"
+    }
+   },
+   "sharpe_oos": -0.230052,
+   "ci": [
+    -1.610976,
+    1.283952
+   ],
+   "alpha_ann": -0.025018,
+   "alpha_t": -0.361628,
+   "beta": 0.148706,
+   "dsr": 0.117047,
+   "metrics_full": {
+    "start": "2023-01-01",
+    "end": "2026-09-12",
+    "years": 3.70137,
+    "n_obs": 1351,
+    "net_total_excess": 0.4338,
+    "gross_total_excess": 0.566949,
+    "cagr_excess": 0.102246,
+    "gross_cagr_excess": 0.129011,
+    "vol": 0.148438,
+    "sharpe": 0.729744,
+    "sortino": 1.142455,
+    "max_dd": -0.180975,
+    "calmar": 0.564972,
+    "skew": 0.916504,
+    "kurt": 16.701275,
+    "cvar5": -0.017172,
+    "ac1": -0.014561,
+    "cagr_total": 0.152774,
+    "worst_day": null,
+    "worst_month": -0.054496,
+    "recovery_obs": 634,
+    "underwater_at_end": true,
+    "ann_turnover": 9.604092
+   },
+   "metrics_oos": {
+    "start": "2025-04-01",
+    "end": "2026-09-12",
+    "years": 1.452055,
+    "n_obs": 530,
+    "net_total_excess": -0.042303,
+    "gross_total_excess": -0.008076,
+    "cagr_excess": -0.029329,
+    "gross_cagr_excess": -0.005569,
+    "vol": 0.105221,
+    "sharpe": -0.230052,
+    "sortino": -0.308856,
+    "max_dd": -0.173972,
+    "calmar": -0.168584,
+    "skew": -1.592326,
+    "kurt": 26.309608,
+    "cvar5": -0.013302,
+    "ac1": 0.042134,
+    "cagr_total": 0.008528,
+    "worst_day": null,
+    "worst_month": -0.054496,
+    "recovery_obs": 395,
+    "underwater_at_end": true,
+    "ann_turnover": 9.682829
+   },
+   "bench_oos": {
+    "start": "2025-04-01",
+    "end": "2026-09-12",
+    "years": 1.452055,
+    "n_obs": 530,
+    "net_total_excess": -0.114473,
+    "gross_total_excess": null,
+    "cagr_excess": -0.080316,
+    "gross_cagr_excess": null,
+    "vol": 0.422512,
+    "sharpe": 0.012926,
+    "sortino": 0.018597,
+    "max_dd": -0.543094,
+    "calmar": -0.147885,
+    "skew": 0.067276,
+    "kurt": 8.42461,
+    "cvar5": -0.049151,
+    "ac1": -0.035017,
+    "worst_day": null,
+    "worst_month": -0.139924,
+    "recovery_obs": 341,
+    "underwater_at_end": true
+   },
+   "regimes_oos": {},
+   "regimes_full": {},
+   "crises": {
+    "strategy": {
+     "GFC": null,
+     "Volmageddon": null,
+     "COVID crash": null,
+     "2022 bear": null
+    },
+    "benchmark": {
+     "GFC": null,
+     "Volmageddon": null,
+     "COVID crash": null,
+     "2022 bear": null
+    }
+   },
+   "mc": {
+    "1y": {
+     "p_loss": 0.659,
+     "p5_return": -0.165266,
+     "median_return": -0.036576,
+     "p95_return": 0.125284,
+     "p5_max_dd": -0.204933
+    }
+   },
+   "factor": null,
+   "leakage": {
+    "ok": true,
+    "cuts": [
+     402,
+     866,
+     1077,
+     1428,
+     1618,
+     1678
+    ]
+   },
+   "live": null,
+   "extra": {
+    "in_sample_2023_to_2025_03": {
+     "excess_cagr": 0.1965,
+     "sharpe": 1.14,
+     "days": 821
+    },
+    "paper_sharpe_2015_2025": 1.58,
+    "oos_sharpe_at_0.10pct": -0.09,
+    "oos_sharpe_at_0.50pct": -0.46,
+    "oos_avg_gross_exposure": 0.215,
+    "oos_share_of_days_invested": 0.732,
+    "btc_oos": {
+     "excess_cagr": -0.0803,
+     "sharpe": 0.01
+    }
+   },
+   "notes": [
+    "Rules follow CXO Advisory's summary of the paper and a public pre-registration of the same strategy; the PDF couldn't be retrieved. Details neither states are Claude's choices, marked in PREREG_PHASE9.md.",
+    "Out-of-sample is only 1.45 years: even a strategy that works as published would probably fail G1 or G2 (see the power note in PREREG_PHASE9.md)."
+   ],
+   "unregistered": [
+    "Coinbase-only universe; the paper aggregates volume across exchanges and all coins since 2015.",
+    "Close-to-close returns on UTC daily candles; weights are daily targets, and drift between days is ignored.",
+    "^IRX is forward-filled across weekends and holidays."
+   ],
+   "n_neighbours": 5
+  }
+ ]
+}

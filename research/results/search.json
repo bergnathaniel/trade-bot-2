@@ -1,0 +1,1655 @@
+{
+ "split_day": 20530,
+ "meta": {
+  "BTC-USD": {
+   "candidates": 24440,
+   "counts": {
+    "stop_too_wide": 4913,
+    "stale": 201,
+    "blackout": 336,
+    "eligible": 100551
+   },
+   "fired": {
+    "REV": 2875,
+    "SWP": 9947,
+    "SRR": 2943,
+    "VWR": 2059,
+    "BRK": 2721,
+    "BOS": 2401,
+    "MRV": 212,
+    "MOM": 2106,
+    "PBK": 2061,
+    "RET": 2028
+   }
+  },
+  "ETH-USD": {
+   "candidates": 23552,
+   "counts": {
+    "stop_too_wide": 5104,
+    "stale": 201,
+    "blackout": 336,
+    "eligible": 100551
+   },
+   "fired": {
+    "SWP": 9400,
+    "BRK": 2931,
+    "BOS": 2484,
+    "RET": 2208,
+    "PBK": 1932,
+    "REV": 2831,
+    "VWR": 2124,
+    "MOM": 1999,
+    "SRR": 2530,
+    "MRV": 217
+   }
+  },
+  "SOL-USD": {
+   "candidates": 25467,
+   "counts": {
+    "stop_too_wide": 4495,
+    "stale": 213,
+    "blackout": 336,
+    "eligible": 100539
+   },
+   "fired": {
+    "BRK": 2749,
+    "SWP": 10410,
+    "BOS": 2197,
+    "REV": 2915,
+    "SRR": 3138,
+    "VWR": 2091,
+    "PBK": 1744,
+    "RET": 2058,
+    "MOM": 2363,
+    "MRV": 297
+   }
+  },
+  "XRP-USD": {
+   "candidates": 24401,
+   "counts": {
+    "stop_too_wide": 4344,
+    "stale": 263,
+    "blackout": 336,
+    "eligible": 100489
+   },
+   "fired": {
+    "BOS": 2230,
+    "REV": 2942,
+    "SWP": 9402,
+    "SRR": 2595,
+    "BRK": 2868,
+    "RET": 2122,
+    "PBK": 1715,
+    "MOM": 2430,
+    "VWR": 2141,
+    "MRV": 300
+   }
+  },
+  "DOGE-USD": {
+   "candidates": 22465,
+   "counts": {
+    "stop_too_wide": 4555,
+    "stale": 10928,
+    "blackout": 322,
+    "eligible": 89838
+   },
+   "fired": {
+    "SRR": 2610,
+    "SWP": 9738,
+    "REV": 2697,
+    "BRK": 2510,
+    "MRV": 252,
+    "BOS": 2039,
+    "VWR": 1969,
+    "MOM": 1932,
+    "RET": 1710,
+    "PBK": 1563
+   }
+  }
+ },
+ "tracks": {
+  "retail": [
+   {
+    "config": "RET  both  score>=70 any   | stop x3 none   480m inval off",
+    "filter": [
+     "RET",
+     "both",
+     70,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 66,
+    "vi": 23,
+    "train": [
+     203,
+     -0.826577009111252,
+     -3.334935678673572
+    ],
+    "test": {
+     "n": 179,
+     "mean": -1.9617251064438217,
+     "win_rate": 0.1787709497206704,
+     "avg_win": 2.1129073033323937,
+     "avg_loss": -2.848719916735243,
+     "pf": 0.16145940060557246,
+     "lo995": -2.6625813486100767
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.02887112513992949,
+     "placebo_mean": -0.016011957071830746,
+     "p95": 0.30808835474483265,
+     "p995": 0.5598485954461212,
+     "pct": 0.503
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -2.945301944084435,
+     "ETH-USD": -1.8831397539919075,
+     "SOL-USD": -1.3422655837886326,
+     "XRP-USD": -1.926498389554883,
+     "DOGE-USD": -1.5109502565784303
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=80 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     80,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 346,
+    "vi": 23,
+    "train": [
+     390,
+     -0.43095434810274674,
+     -4.024421779878942
+    ],
+    "test": {
+     "n": 310,
+     "mean": -1.32665420919432,
+     "win_rate": 0.15161290322580645,
+     "avg_win": 1.2129886859286345,
+     "avg_loss": -1.7805067417828329,
+     "pf": 0.12174615019684117,
+     "lo995": -1.5968908243949216
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.20878114697905442,
+     "placebo_mean": -0.017066098810334326,
+     "p95": 0.13589758563241947,
+     "p995": 0.23456449941305796,
+     "pct": 0.014
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.4518072906400619,
+     "ETH-USD": -1.1152842597348667,
+     "SOL-USD": -1.319416873057354,
+     "XRP-USD": -1.406029602157412,
+     "DOGE-USD": -1.2994753593706139
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=70 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     70,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 343,
+    "vi": 23,
+    "train": [
+     547,
+     -0.43029318942356004,
+     -4.50962649603037
+    ],
+    "test": {
+     "n": 464,
+     "mean": -1.3163940041556241,
+     "win_rate": 0.15948275862068967,
+     "avg_win": 1.416949843364508,
+     "avg_loss": -1.8350284777876493,
+     "pf": 0.14651388412823926,
+     "lo995": -1.577243564503851
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.1512955578780305,
+     "placebo_mean": -0.0032178232307038435,
+     "p95": 0.12067545381839308,
+     "p995": 0.19448766631103995,
+     "pct": 0.0245
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.5747582406021872,
+     "ETH-USD": -1.1841737203956246,
+     "SOL-USD": -1.2611179756641093,
+     "XRP-USD": -1.2804347587358473,
+     "DOGE-USD": -1.2675897927190891
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "RET  long  score>=0  with  | stop x3 none   480m inval off",
+    "filter": [
+     "RET",
+     "long",
+     0,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 37,
+    "vi": 23,
+    "train": [
+     240,
+     -1.1649266714638884,
+     -5.217282723576599
+    ],
+    "test": {
+     "n": 273,
+     "mean": -1.6835273664257144,
+     "win_rate": 0.1575091575091575,
+     "avg_win": 3.0916445235888976,
+     "avg_loss": -2.576276893689316,
+     "pf": 0.22435597198416482,
+     "lo995": -2.1666241222730185
+    },
+    "test_no_fee_vs_random": {
+     "mean": 0.06051564781000388,
+     "placebo_mean": 0.08737773498201899,
+     "p95": 0.4905404826073327,
+     "p995": 0.7614085238054269,
+     "pct": 0.511
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -2.3825022413191967,
+     "ETH-USD": -1.6672727527961209,
+     "SOL-USD": -1.324308799008373,
+     "XRP-USD": -1.3531194168017837,
+     "DOGE-USD": -1.4517139056209316
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "REV  short score>=60 with  | stop x3 none   480m inval off",
+    "filter": [
+     "REV",
+     "short",
+     60,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 376,
+    "vi": 23,
+    "train": [
+     237,
+     -0.6607293158896284,
+     -5.308120012311395
+    ],
+    "test": {
+     "n": 168,
+     "mean": -1.1181567775119463,
+     "win_rate": 0.23214285714285715,
+     "avg_win": 1.725981648394885,
+     "avg_loss": -1.9780125806930813,
+     "pf": 0.26380439155035523,
+     "lo995": -1.626925995835626
+    },
+    "test_no_fee_vs_random": {
+     "mean": 0.12063213391598779,
+     "placebo_mean": -0.017631284446445267,
+     "p95": 0.19432993692376443,
+     "p995": 0.32157602175553396,
+     "pct": 0.867
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.3715232103431718,
+     "ETH-USD": -1.1591044568406372,
+     "SOL-USD": -0.8043234741952998,
+     "XRP-USD": -1.3501184199058343,
+     "DOGE-USD": -0.8485231354092941
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=80 any   | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     80,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 345,
+    "vi": 23,
+    "train": [
+     446,
+     -0.5285475373824186,
+     -5.32838872905045
+    ],
+    "test": {
+     "n": 360,
+     "mean": -1.3613477709906239,
+     "win_rate": 0.15833333333333333,
+     "avg_win": 1.2058253654939886,
+     "avg_loss": -1.8442813313194122,
+     "pf": 0.12299557081708715,
+     "lo995": -1.6551736239414538
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.19241624712886657,
+     "placebo_mean": -0.02238265523516853,
+     "p95": 0.12651721781830713,
+     "p995": 0.2125755209846897,
+     "pct": 0.018
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.702151082287549,
+     "ETH-USD": -1.0987900420183265,
+     "SOL-USD": -1.2328148256405271,
+     "XRP-USD": -1.4168956983639736,
+     "DOGE-USD": -1.307555121019093
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "RET  long  score>=60 any   | stop x3 none   480m inval off",
+    "filter": [
+     "RET",
+     "long",
+     60,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 39,
+    "vi": 23,
+    "train": [
+     266,
+     -1.226367135851638,
+     -5.556444931147965
+    ],
+    "test": {
+     "n": 295,
+     "mean": -2.0054844478039846,
+     "win_rate": 0.15593220338983052,
+     "avg_win": 2.2080881347664465,
+     "avg_loss": -2.783895446993703,
+     "pf": 0.1465284541569492,
+     "lo995": -2.5365186778758297
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.12317785842170308,
+     "placebo_mean": -0.0038328346732774917,
+     "p95": 0.2930443894561008,
+     "p995": 0.5287550642849347,
+     "pct": 0.235
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -3.0265107208694975,
+     "ETH-USD": -2.296207633443178,
+     "SOL-USD": -1.3412409537965375,
+     "XRP-USD": -1.2445521862326199,
+     "DOGE-USD": -1.6862776306631977
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=60 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     60,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 340,
+    "vi": 23,
+    "train": [
+     630,
+     -0.49093660077570955,
+     -5.565166293154839
+    ],
+    "test": {
+     "n": 527,
+     "mean": -1.3592273466520681,
+     "win_rate": 0.15939278937381404,
+     "avg_win": 1.4442588809623584,
+     "avg_loss": -1.8908138999694761,
+     "pf": 0.1448344319432612,
+     "lo995": -1.6236630743575216
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.16786393284770776,
+     "placebo_mean": -0.011449889497345555,
+     "p95": 0.10256581546128352,
+     "p995": 0.16535321906487813,
+     "pct": 0.008
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.681736425875867,
+     "ETH-USD": -1.1972362921646722,
+     "SOL-USD": -1.2559535753138922,
+     "XRP-USD": -1.3468895479977414,
+     "DOGE-USD": -1.2851408260755783
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=0  with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     0,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 337,
+    "vi": 23,
+    "train": [
+     649,
+     -0.5052249959476658,
+     -5.868622899663315
+    ],
+    "test": {
+     "n": 548,
+     "mean": -1.3754012341446344,
+     "win_rate": 0.1624087591240876,
+     "avg_win": 1.433475491043478,
+     "avg_loss": -1.9200418192028958,
+     "pf": 0.14476277684654434,
+     "lo995": -1.6381989043133136
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.16035009456847513,
+     "placebo_mean": -0.003099844895879488,
+     "p95": 0.1144242240665514,
+     "p995": 0.17460636785450534,
+     "pct": 0.0065
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.7394576583850425,
+     "ETH-USD": -1.253033831089508,
+     "SOL-USD": -1.2722330004158735,
+     "XRP-USD": -1.2988433669388297,
+     "DOGE-USD": -1.2871585898734814
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "RET  short score>=60 with  | stop x3 none   480m inval off",
+    "filter": [
+     "RET",
+     "short",
+     60,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 52,
+    "vi": 23,
+    "train": [
+     265,
+     -0.9966493483456522,
+     -6.07477781879634
+    ],
+    "test": {
+     "n": 173,
+     "mean": -1.8045907348549293,
+     "win_rate": 0.16184971098265896,
+     "avg_win": 1.63699630981445,
+     "avg_loss": -2.46917306072212,
+     "pf": 0.12802246925032632,
+     "lo995": -2.2213858207473693
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.204793279518184,
+     "placebo_mean": 0.0191405801600508,
+     "p95": 0.2844062509952356,
+     "p995": 0.45758250136458006,
+     "pct": 0.074
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -1.9670599950785284,
+     "ETH-USD": -1.4003212307374215,
+     "SOL-USD": -1.773551472836413,
+     "XRP-USD": -2.3803590644994985,
+     "DOGE-USD": -1.464251854198732
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   }
+  ],
+  "low": [
+   {
+    "config": "MOM  short score>=70 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     70,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 343,
+    "vi": 23,
+    "train": [
+     547,
+     0.25804026107628963,
+     2.7390712519292877
+    ],
+    "test": {
+     "n": 464,
+     "mean": -0.3177381930605439,
+     "win_rate": 0.29094827586206895,
+     "avg_win": 1.5483340064950841,
+     "avg_loss": -1.083451709595528,
+     "pf": 0.5863986526571896,
+     "lo995": -0.5501587006773594
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.1512955578780305,
+     "placebo_mean": -0.0032178232307038435,
+     "p95": 0.12067545381839308,
+     "p995": 0.19448766631103995,
+     "pct": 0.0245
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.21729370848699298,
+     "ETH-USD": -0.28095134039780684,
+     "SOL-USD": -0.4293625963227536,
+     "XRP-USD": -0.26553351939413017,
+     "DOGE-USD": -0.4055727839965938
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=60 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     60,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 340,
+    "vi": 23,
+    "train": [
+     630,
+     0.21100762696281158,
+     2.416822349095791
+    ],
+    "test": {
+     "n": 527,
+     "mean": -0.3380587062483307,
+     "win_rate": 0.2827324478178368,
+     "avg_win": 1.5844109161792035,
+     "avg_loss": -1.095857578580877,
+     "pf": 0.5699124954592762,
+     "lo995": -0.5613997622003569
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.16786393284770776,
+     "placebo_mean": -0.011449889497345555,
+     "p95": 0.10256581546128352,
+     "p995": 0.16535321906487813,
+     "pct": 0.008
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.30739555698556115,
+     "ETH-USD": -0.26647829134127493,
+     "SOL-USD": -0.3971543959927567,
+     "XRP-USD": -0.3107100745154652,
+     "DOGE-USD": -0.4117854614195539
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=0  with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     0,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 337,
+    "vi": 23,
+    "train": [
+     649,
+     0.20274442112680882,
+     2.3830013896996456
+    ],
+    "test": {
+     "n": 548,
+     "mean": -0.3339288287936407,
+     "win_rate": 0.28284671532846717,
+     "avg_win": 1.6063954562409952,
+     "avg_loss": -1.099196676580838,
+     "pf": 0.576389695726168,
+     "lo995": -0.5547732185956963
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.16035009456847513,
+     "placebo_mean": -0.003099844895879488,
+     "p95": 0.1144242240665514,
+     "p995": 0.17460636785450534,
+     "pct": 0.0065
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.3256081985485625,
+     "ETH-USD": -0.28953918840136234,
+     "SOL-USD": -0.3937219297588179,
+     "XRP-USD": -0.2602599833763987,
+     "DOGE-USD": -0.40844221946190784
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=80 with  | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     80,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 346,
+    "vi": 23,
+    "train": [
+     390,
+     0.22657306165323787,
+     2.159720030184598
+    ],
+    "test": {
+     "n": 310,
+     "mean": -0.3684772987240924,
+     "win_rate": 0.27741935483870966,
+     "avg_win": 1.4304465090503276,
+     "avg_loss": -1.0591355463517715,
+     "pf": 0.5185259682921421,
+     "lo995": -0.6149253911955628
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.20878114697905442,
+     "placebo_mean": -0.017066098810334326,
+     "p95": 0.13589758563241947,
+     "p995": 0.23456449941305796,
+     "pct": 0.014
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.0847080893938623,
+     "ETH-USD": -0.27113773045429873,
+     "SOL-USD": -0.5456346627178817,
+     "XRP-USD": -0.4542017762756995,
+     "DOGE-USD": -0.4715196883030774
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=70 any   | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     70,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 342,
+    "vi": 23,
+    "train": [
+     673,
+     0.17888207890616367,
+     2.1525029899736414
+    ],
+    "test": {
+     "n": 585,
+     "mean": -0.28036425773959184,
+     "win_rate": 0.29914529914529914,
+     "avg_win": 1.6445701291900268,
+     "avg_loss": -1.1019825936241852,
+     "pf": 0.6369888861761568,
+     "lo995": -0.5189977459268464
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.1020860034857891,
+     "placebo_mean": -0.017850174144167424,
+     "p95": 0.09525968937632912,
+     "p995": 0.1712971510955449,
+     "pct": 0.0995
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.2668437572509993,
+     "ETH-USD": -0.24597163911467565,
+     "SOL-USD": -0.30186273686237064,
+     "XRP-USD": -0.26228212601955925,
+     "DOGE-USD": -0.32561567287206655
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=80 with  | stop x3 scale  480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     80,
+     "with"
+    ],
+    "exit": [
+     3,
+     "scale",
+     480,
+     false
+    ],
+    "fi": 346,
+    "vi": 15,
+    "train": [
+     452,
+     0.09688617983380036,
+     1.882668572877418
+    ],
+    "test": {
+     "n": 329,
+     "mean": -0.21600899950560215,
+     "win_rate": 0.49240121580547114,
+     "avg_win": 0.6822806565926439,
+     "avg_loss": -1.087403755720667,
+     "pf": 0.6086544106014833,
+     "lo995": -0.385712185570147
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.05807848758199564,
+     "placebo_mean": 0.03349302439981986,
+     "p95": 0.13495089663312637,
+     "p995": 0.1977401222672368,
+     "pct": 0.0595
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.2304840031131926,
+     "ETH-USD": -0.10284165095573658,
+     "SOL-USD": -0.2882410252183599,
+     "XRP-USD": -0.21003150657004005,
+     "DOGE-USD": -0.25373073575199784
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=80 any   | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     80,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 345,
+    "vi": 23,
+    "train": [
+     446,
+     0.1624817991464439,
+     1.6835606548535096
+    ],
+    "test": {
+     "n": 360,
+     "mean": -0.35940646482340327,
+     "win_rate": 0.2833333333333333,
+     "avg_win": 1.4489808439280791,
+     "avg_loss": -1.0743502845623614,
+     "pf": 0.5332086750634336,
+     "lo995": -0.6073051828055162
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.19241624712886657,
+     "placebo_mean": -0.02238265523516853,
+     "p95": 0.12651721781830713,
+     "p995": 0.2125755209846897,
+     "pct": 0.018
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.20662203206576873,
+     "ETH-USD": -0.22826567079321725,
+     "SOL-USD": -0.41271905729430386,
+     "XRP-USD": -0.4642653544393523,
+     "DOGE-USD": -0.4575712898210056
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=0  any   | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     0,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 336,
+    "vi": 23,
+    "train": [
+     914,
+     0.10554646052099025,
+     1.5258531109026945
+    ],
+    "test": {
+     "n": 836,
+     "mean": -0.28343067396203087,
+     "win_rate": 0.2930622009569378,
+     "avg_win": 1.7847924474524106,
+     "avg_loss": -1.1408158934993207,
+     "pf": 0.6485608959896106,
+     "lo995": -0.4745747901939534
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.09106367877977874,
+     "placebo_mean": -0.003544386571818681,
+     "p95": 0.09067391194341246,
+     "p995": 0.1426720275265662,
+     "pct": 0.056
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.36867511486945487,
+     "ETH-USD": -0.24984695038921664,
+     "SOL-USD": -0.31236632365628497,
+     "XRP-USD": -0.2057910993929045,
+     "DOGE-USD": -0.2836961733286543
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=60 with  | stop x3 none   480m inval on",
+    "filter": [
+     "MOM",
+     "short",
+     60,
+     "with"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     true
+    ],
+    "fi": 340,
+    "vi": 22,
+    "train": [
+     698,
+     0.09950248090716551,
+     1.5187318885981302
+    ],
+    "test": {
+     "n": 573,
+     "mean": -0.25772059076486314,
+     "win_rate": 0.16055846422338568,
+     "avg_win": 1.8944163227751494,
+     "avg_loss": -0.669355925579169,
+     "pf": 0.5413287157391189,
+     "lo995": -0.40854335881201864
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.0872287771721562,
+     "placebo_mean": -0.010630368352605682,
+     "p95": 0.07830885120374141,
+     "p995": 0.13211025268538737,
+     "pct": 0.0735
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.24866224854176408,
+     "ETH-USD": -0.28795702494026454,
+     "SOL-USD": -0.2400154024396925,
+     "XRP-USD": -0.33162249171202346,
+     "DOGE-USD": -0.1648309400685496
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   },
+   {
+    "config": "MOM  short score>=60 any   | stop x3 none   480m inval off",
+    "filter": [
+     "MOM",
+     "short",
+     60,
+     "any"
+    ],
+    "exit": [
+     3,
+     "none",
+     480,
+     false
+    ],
+    "fi": 339,
+    "vi": 23,
+    "train": [
+     835,
+     0.10369769507426504,
+     1.4238097530568987
+    ],
+    "test": {
+     "n": 729,
+     "mean": -0.2992699881905263,
+     "win_rate": 0.2908093278463649,
+     "avg_win": 1.7295020418729625,
+     "avg_loss": -1.1311842442320343,
+     "pf": 0.6269502061545513,
+     "lo995": -0.5254288597686213
+    },
+    "test_no_fee_vs_random": {
+     "mean": -0.11084039183456226,
+     "placebo_mean": -0.02538140802443182,
+     "p95": 0.07224599619942898,
+     "p995": 0.12594415855897328,
+     "pct": 0.079
+    },
+    "coins_positive": [],
+    "per_coin_mean": {
+     "BTC-USD": -0.3416366153264043,
+     "ETH-USD": -0.2163959833391423,
+     "SOL-USD": -0.33356171897832165,
+     "XRP-USD": -0.29975796562436097,
+     "DOGE-USD": -0.29561493522553073
+    },
+    "W1": false,
+    "W2": false,
+    "W3": false,
+    "WIN": false
+   }
+  ]
+ },
+ "luck": {
+  "retail": {
+   "best_train_t_real": -3.334935678673572,
+   "best_train_t_random": -5.816533441293858,
+   "random_finalists": [
+    {
+     "config": "MOM  long  score>=70 range | stop x3 none   480m inval off",
+     "train": [
+      203,
+      -0.9037772675903594,
+      -5.816533441293858
+     ],
+     "test": [
+      185,
+      -1.6056414666933614,
+      -10.981832734799802
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 any   | stop x3 none   480m inval off",
+     "train": [
+      232,
+      -1.0572405012179662,
+      -6.6744836481292165
+     ],
+     "test": [
+      137,
+      -2.004075207191932,
+      -6.808519605266721
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 with  | stop x3 none   480m inval off",
+     "train": [
+      232,
+      -1.0572405012179662,
+      -6.6744836481292165
+     ],
+     "test": [
+      137,
+      -2.004075207191932,
+      -6.808519605266721
+     ]
+    },
+    {
+     "config": "MRV  both  score>=0  any   | stop x3 none   480m inval off",
+     "train": [
+      278,
+      -0.926462020247211,
+      -7.069723447494504
+     ],
+     "test": [
+      306,
+      -1.6226497689456805,
+      -12.60631990520738
+     ]
+    },
+    {
+     "config": "MRV  both  score>=0  range | stop x3 none   480m inval off",
+     "train": [
+      278,
+      -0.926462020247211,
+      -7.069723447494504
+     ],
+     "test": [
+      306,
+      -1.6226497689456805,
+      -12.60631990520738
+     ]
+    },
+    {
+     "config": "BRK  short score>=80 with  | stop x3 none   480m inval off",
+     "train": [
+      404,
+      -0.9721819290776715,
+      -7.170255312473237
+     ],
+     "test": [
+      282,
+      -1.6555815919232182,
+      -11.67657021734263
+     ]
+    },
+    {
+     "config": "VWR  long  score>=70 with  | stop x3 none   480m inval off",
+     "train": [
+      200,
+      -1.3368268904711065,
+      -7.192513049767904
+     ],
+     "test": [
+      200,
+      -1.3602406763282995,
+      -5.558820795512683
+     ]
+    },
+    {
+     "config": "RET  long  score>=0  range | stop x3 none   480m inval off",
+     "train": [
+      277,
+      -1.1833933639654595,
+      -7.2839626590153195
+     ],
+     "test": [
+      271,
+      -2.001787124938916,
+      -13.645752616321046
+     ]
+    },
+    {
+     "config": "VWR  short score>=60 range | stop x3 none   480m inval off",
+     "train": [
+      302,
+      -0.9815470885118197,
+      -7.345682929710307
+     ],
+     "test": [
+      285,
+      -1.5589254920407385,
+      -11.670819528780271
+     ]
+    },
+    {
+     "config": "REV  short score>=60 range | stop x3 none   480m inval off",
+     "train": [
+      260,
+      -1.0223852014820296,
+      -7.443983225339964
+     ],
+     "test": [
+      295,
+      -1.3780174522053175,
+      -11.281573525572467
+     ]
+    }
+   ]
+  },
+  "low": {
+   "best_train_t_real": 2.7390712519292877,
+   "best_train_t_random": 1.026595641566242,
+   "random_finalists": [
+    {
+     "config": "REV  short score>=0  any   | stop x3 none   480m inval off",
+     "train": [
+      2068,
+      0.04852593266969967,
+      1.026595641566242
+     ],
+     "test": [
+      2032,
+      -0.17265436035827406,
+      -4.430002382261373
+     ]
+    },
+    {
+     "config": "REV  short score>=0  range | stop x3 none   480m inval off",
+     "train": [
+      932,
+      0.07002494817381164,
+      1.013434723601731
+     ],
+     "test": [
+      1074,
+      -0.12564732636741638,
+      -2.221246485254844
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 any   | stop x3 none   480m inval off",
+     "train": [
+      232,
+      0.14503313556727424,
+      1.0038388229182267
+     ],
+     "test": [
+      137,
+      0.020544058593835516,
+      0.09176290261840464
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 with  | stop x3 none   480m inval off",
+     "train": [
+      232,
+      0.14503313556727424,
+      1.0038388229182267
+     ],
+     "test": [
+      137,
+      0.020544058593835516,
+      0.09176290261840464
+     ]
+    },
+    {
+     "config": "VWR  short score>=60 with  | stop x3 none   480m inval off",
+     "train": [
+      573,
+      0.0958533686929031,
+      0.9689563726534551
+     ],
+     "test": [
+      482,
+      -0.2133973538725766,
+      -2.72669846494197
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 any   | stop x3 none   480m inval on",
+     "train": [
+      237,
+      0.11731166543633541,
+      0.8936702300681979
+     ],
+     "test": [
+      137,
+      -0.09633459605334375,
+      -0.46852108286311306
+     ]
+    },
+    {
+     "config": "PBK  short score>=70 with  | stop x3 none   480m inval on",
+     "train": [
+      237,
+      0.11731166543633541,
+      0.8936702300681979
+     ],
+     "test": [
+      137,
+      -0.09633459605334375,
+      -0.46852108286311306
+     ]
+    },
+    {
+     "config": "PBK  both  score>=70 any   | stop x3 none   480m inval on",
+     "train": [
+      327,
+      0.10314998082318659,
+      0.785473673946493
+     ],
+     "test": [
+      261,
+      -0.3361430908643519,
+      -2.8204401676174875
+     ]
+    },
+    {
+     "config": "PBK  both  score>=70 with  | stop x3 none   480m inval on",
+     "train": [
+      327,
+      0.10314998082318659,
+      0.785473673946493
+     ],
+     "test": [
+      261,
+      -0.3361430908643519,
+      -2.8204401676174875
+     ]
+    },
+    {
+     "config": "VWR  short score>=0  with  | stop x3 none   480m inval off",
+     "train": [
+      653,
+      0.06552279639267741,
+      0.7326555269897448
+     ],
+     "test": [
+      532,
+      -0.22388074379611397,
+      -3.0647980610114174
+     ]
+    }
+   ]
+  }
+ },
+ "hindsight": {
+  "retail": {
+   "config": "PBK  both  score>=70 any   | stop x3 none   480m inval off",
+   "test": [
+    198,
+    -1.281916513942428,
+    -5.168795951358664
+   ],
+   "train": [
+    216,
+    -1.0560795563029626,
+    -6.357691547635608
+   ],
+   "train_rank": 13,
+   "of": 5235
+  },
+  "low": {
+   "config": "PBK  both  score>=70 any   | stop x3 none   480m inval off",
+   "test": [
+    198,
+    0.23540751640399948,
+    0.9478183337299737
+   ],
+   "train": [
+    216,
+    -0.029414029793981524,
+    -0.18875005004698153
+   ],
+   "train_rank": 109,
+   "of": 5235
+  }
+ },
+ "spearman": {
+  "free": {
+   "rho": -0.005382456561903334,
+   "configs": 5235
+  },
+  "low": {
+   "rho": 0.8155185482478924,
+   "configs": 5235
+  },
+  "retail": {
+   "rho": 0.9743338705574315,
+   "configs": 5235
+  }
+ },
+ "share_positive": {
+  "free": {
+   "train": 0.5522445081184336,
+   "train_configs": 5235,
+   "test": 0.5027866914372572,
+   "test_configs": 5921,
+   "both": 0.28958930276981854,
+   "both_configs": 5235
+  },
+  "low": {
+   "train": 0.01700095510983763,
+   "train_configs": 5235,
+   "test": 0.005911163654788043,
+   "test_configs": 5921,
+   "both": 0.0,
+   "both_configs": 5235
+  },
+  "retail": {
+   "train": 0.0,
+   "train_configs": 5235,
+   "test": 0.0,
+   "test_configs": 5921,
+   "both": 0.0,
+   "both_configs": 5235
+  }
+ },
+ "verdict": {
+  "retail": "NOT FOUND",
+  "low": "NOT FOUND"
+ },
+ "stocks": [
+  {
+   "config": "RET  long  score>=0  with  | stop x3 none   480m inval off",
+   "trades": 13,
+   "mean_R_after_fees": -0.6661028283138577,
+   "mean_R_no_fees": -0.5081987475739316,
+   "pf": 0.1746142077642395,
+   "win_rate": 0.23076923076923078
+  },
+  {
+   "config": "RET  long  score>=60 any   | stop x3 none   480m inval off",
+   "trades": 12,
+   "mean_R_after_fees": -0.8559193010080067,
+   "mean_R_no_fees": -0.7152327284376275,
+   "pf": 0.11143462769055056,
+   "win_rate": 0.08333333333333333
+  },
+  {
+   "config": "RET  short score>=60 with  | stop x3 none   480m inval off",
+   "trades": 8,
+   "mean_R_after_fees": -0.37345374861288444,
+   "mean_R_no_fees": -0.30256275045665887,
+   "pf": 0.3128481328359581,
+   "win_rate": 0.5
+  },
+  {
+   "config": "RET  both  score>=70 any   | stop x3 none   480m inval off",
+   "trades": 12,
+   "mean_R_after_fees": -0.7932047519641708,
+   "mean_R_no_fees": -0.688551288253273,
+   "pf": 0.08397205980866564,
+   "win_rate": 0.16666666666666666
+  },
+  {
+   "config": "MOM  short score>=0  any   | stop x3 none   480m inval off",
+   "trades": 95,
+   "mean_R_after_fees": -0.22036530789584963,
+   "mean_R_no_fees": -0.13456522170745236,
+   "pf": 0.5650514133180291,
+   "win_rate": 0.37894736842105264
+  },
+  {
+   "config": "MOM  short score>=0  with  | stop x3 none   480m inval off",
+   "trades": 34,
+   "mean_R_after_fees": -0.3277645654145562,
+   "mean_R_no_fees": -0.2629223618166589,
+   "pf": 0.38633667207924627,
+   "win_rate": 0.2647058823529412
+  },
+  {
+   "config": "MOM  short score>=60 any   | stop x3 none   480m inval off",
+   "trades": 71,
+   "mean_R_after_fees": -0.22542752436274746,
+   "mean_R_no_fees": -0.14275817422638604,
+   "pf": 0.5815131469578586,
+   "win_rate": 0.352112676056338
+  },
+  {
+   "config": "MOM  short score>=60 with  | stop x3 none   480m inval on",
+   "trades": 32,
+   "mean_R_after_fees": -0.24158932116605109,
+   "mean_R_no_fees": -0.17237973225873524,
+   "pf": 0.380936430591169,
+   "win_rate": 0.15625
+  },
+  {
+   "config": "MOM  short score>=60 with  | stop x3 none   480m inval off",
+   "trades": 31,
+   "mean_R_after_fees": -0.3356962071668124,
+   "mean_R_no_fees": -0.26837301920314455,
+   "pf": 0.36386412476711855,
+   "win_rate": 0.22580645161290322
+  },
+  {
+   "config": "MOM  short score>=70 any   | stop x3 none   480m inval off",
+   "trades": 50,
+   "mean_R_after_fees": -0.31357172197125466,
+   "mean_R_no_fees": -0.22787253956278516,
+   "pf": 0.4990838653836026,
+   "win_rate": 0.3
+  },
+  {
+   "config": "MOM  short score>=70 with  | stop x3 none   480m inval off",
+   "trades": 24,
+   "mean_R_after_fees": -0.37445661138168757,
+   "mean_R_no_fees": -0.30125704532821956,
+   "pf": 0.38014403030293054,
+   "win_rate": 0.25
+  },
+  {
+   "config": "MOM  short score>=80 any   | stop x3 none   480m inval off",
+   "trades": 24,
+   "mean_R_after_fees": -0.37740837708889713,
+   "mean_R_no_fees": -0.2961860436463497,
+   "pf": 0.45322408919383367,
+   "win_rate": 0.2916666666666667
+  },
+  {
+   "config": "MOM  short score>=80 with  | stop x3 scale  480m inval off",
+   "trades": 12,
+   "mean_R_after_fees": -0.410724433642736,
+   "mean_R_no_fees": -0.35322020369428997,
+   "pf": 0.37469444386306455,
+   "win_rate": 0.25
+  },
+  {
+   "config": "MOM  short score>=80 with  | stop x3 none   480m inval off",
+   "trades": 12,
+   "mean_R_after_fees": -0.4032028650758983,
+   "mean_R_no_fees": -0.3457001391403632,
+   "pf": 0.38614562190473806,
+   "win_rate": 0.25
+  },
+  {
+   "config": "REV  short score>=60 with  | stop x3 none   480m inval off",
+   "trades": 7,
+   "mean_R_after_fees": -0.4929315720963186,
+   "mean_R_no_fees": -0.4134178333955759,
+   "pf": 0.2926550327003415,
+   "win_rate": 0.14285714285714285
+  }
+ ],
+ "prereg_sha256": "99f75718ed37c10185f3dac7ec102c6df8aef8f481d0c43a67ed1061ccc194d0",
+ "generated_utc": "2026-09-11 23:37",
+ "g0": {
+  "ok": true,
+  "checks": [
+   {
+    "name": "exit variants: one 2R target",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "exit variants: one 2R target: no scale-out at 1R, no breakeven",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "exit variants: no target: 60-minute time exit",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "exit variants: invalidation off ignores the 5m close",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "exit variants: stop x3 = 3x the risk",
+    "ok": true,
+    "detail": ""
+   },
+   {
+    "name": "all-candidates mode: its ALL8 picks equal best mode",
+    "ok": true,
+    "detail": "730 best signals, 5101 candidates, families ['BRK', 'MOM', 'MRV', 'PBK', 'RET', 'REV', 'SRR', 'SWP', 'VWR']"
+   },
+   {
+    "name": "look-ahead (synthetic crypto, all candidates)",
+    "ok": true,
+    "detail": "{'ok': True, 'cuts': [3589, 4434, 6599, 7153]}"
+   },
+   {
+    "name": "look-ahead (SPY, all candidates)",
+    "ok": true,
+    "detail": "{'ok': True, 'cuts': [328, 375, 779, 792, 1003, 1222]}"
+   },
+   {
+    "name": "parallel == serial: candidates and configuration statistics",
+    "ok": true,
+    "detail": "3196 candidates"
+   },
+   {
+    "name": "random walk (5 coins): no finalist wins in either track",
+    "ok": true,
+    "detail": "wins {'retail': 0, 'low': 0}; best test means {'retail': -1.119, 'low': -0.042}"
+   },
+   {
+    "name": "planted drift 0.30 (5 coins): at least one finalist wins in the low track",
+    "ok": true,
+    "detail": "wins {'retail': 10, 'low': 10}; low #1 [MOM  both  score>=0  any   | stop x1 fixed2  60m inval on] test mean +0.920R"
+   }
+  ]
+ },
+ "grid": {
+  "filters": 396,
+  "exits": 24,
+  "configurations": 9504
+ }
+}
