@@ -1,12 +1,12 @@
 {
- "crypto": "2026-09-14",
- "microcaps": "2026-09-11",
- "ibs": "2026-09-11",
- "levtrend": "2026-09-11",
- "green": "2026-09-14",
- "greenmicro": "2026-09-11",
- "bothcrypto": "2026-09-14",
- "bothmicro": "2026-09-11",
- "newgreen": "2026-09-14",
- "newgreenmicro": "2026-09-11"
+ "crypto": "2026-09-15",
+ "microcaps": "2026-09-15",
+ "ibs": "2026-09-15",
+ "levtrend": "2026-09-15",
+ "green": "2026-09-15",
+ "greenmicro": "2026-09-15",
+ "bothcrypto": "2026-09-15",
+ "bothmicro": "2026-09-15",
+ "newgreen": "2026-09-15",
+ "newgreenmicro": "2026-09-15"
 }
