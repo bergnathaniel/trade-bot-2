@@ -282,3 +282,19 @@ Passing at 6 months means "keep going". A strategy has to pass again at 1 year.
     re-verify against a baseline.
   - index.html's bot section (`58054e19…`) and every earlier bot file are unchanged. index.html's whole-file
     fingerprint was refreshed, and `selftune_bots.js` was added to `PAPER_TESTS.sha256`.
+- **2026-09-15: more chart history, outside these tests.**
+  - `server.py`'s `/api/ohlc` and `/api/yahoo` now load up to 2,000 candles instead of 720 (Yahoo
+    only; Kraken's public endpoint has a real 720-candle ceiling that couldn't be paginated past -
+    see the commit message). Doesn't touch any market, basket, fee, or bot rule these tests use;
+    it's how many candles the chart displays when opened, nothing about what a bot decides.
+  - No trades had happened in any of the ten sections yet (Day 2), so there was nothing to
+    re-verify against a baseline. server.py's whole-file fingerprint was refreshed.
+- **2026-09-15: Track Record, outside these tests.**
+  - Added `track_record_bot.js`: 1 speed-test bot that learns via multiplicative-weights (an
+    ensemble of six named signals whose trust weights rise or fall with their own track record),
+    counted from the week of 2026-09-21. Not part of these paper tests.
+  - No trades had happened in any of the ten sections yet (Day 2-3), so there was nothing to
+    re-verify against a baseline.
+  - index.html's bot section (`58054e19…`) and every earlier bot file are unchanged. index.html's
+    whole-file fingerprint was refreshed, and `track_record_bot.js` was added to
+    `PAPER_TESTS.sha256`.

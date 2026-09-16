@@ -63,10 +63,10 @@ RULES = {
     "history_from": "2026-07-20",
     "stopping_week": "2026-11-02",   # the last forward week that counts; its report, due 2026-11-09, decides (SPEED_TEST.md)
     # bots added after a forward week had begun, and the first week that counts for them (team_bots.js, 2026-09-13;
-    # selftune_bots.js, 2026-09-14)
+    # selftune_bots.js and track_record_bot.js, 2026-09-14/15)
     "joined": {bot: "2026-09-21" for bot in ["worstcoin24", "bottom3day", "leftbehind", "kronosdip", "kronosallup", "kronosteam",
                                               "bouncecrew", "timerscrew", "calmstorm", "seconddip", "rand24h", "pairlaggard",
-                                              "kronostop", "kronostop3", "kronosbottom", "selftuner"]},
+                                              "kronostop", "kronostop3", "kronosbottom", "selftuner", "trackrecord"]},
 }
 CANDLES = {"5": "5-minute", "15": "15-minute"}
 RANDOM_CONTROLS = ("coin", "randomexit", "opposite", "rand8h", "rand1h", "coinfair", "rand24h")   # controls built to have no edge
