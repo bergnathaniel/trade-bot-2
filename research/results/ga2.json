@@ -1,0 +1,148 @@
+{
+ "prereg_sha256": "e0f8293cdee48a608402f029c6fb3b991466c8315bb22feb271ee01788f848d3",
+ "generated": "2026-09-16T17:47:31Z",
+ "elapsed_sec": 87.4,
+ "budget": 10000,
+ "generations": 100,
+ "population": 100,
+ "bounds": {
+  "train": [
+   0,
+   145665
+  ],
+  "valid": [
+   145665,
+   183953
+  ],
+  "holdout": [
+   183953,
+   210161
+  ]
+ },
+ "integrity": {
+  "truncation": {
+   "ok": true,
+   "cuts": [
+    2650,
+    2652,
+    2707,
+    2880,
+    3092,
+    3205
+   ]
+  },
+  "synthetic": {
+   "runs": [
+    {
+     "seed": 0,
+     "pass": false
+    },
+    {
+     "seed": 1,
+     "pass": false
+    },
+    {
+     "seed": 2,
+     "pass": false
+    },
+    {
+     "seed": 3,
+     "pass": false
+    },
+    {
+     "seed": 4,
+     "pass": false
+    },
+    {
+     "seed": 5,
+     "pass": false
+    },
+    {
+     "seed": 6,
+     "pass": false
+    },
+    {
+     "seed": 7,
+     "pass": false
+    },
+    {
+     "seed": 8,
+     "pass": false
+    },
+    {
+     "seed": 9,
+     "pass": false
+    }
+   ],
+   "passes": 0,
+   "ok": true
+  },
+  "ok": true
+ },
+ "evolved": {
+  "genome": {
+   "entry_type": "rsi_meanrev",
+   "side": "short_only",
+   "trend_filter": true,
+   "volume_filter": true,
+   "param1": 21.210965997796826,
+   "param2": 68.19848404558273,
+   "stop_atr": 6.693257460178565,
+   "target_atr": 8.688572665393101,
+   "max_hold": 238
+  },
+  "valid_fitness": 0.002341010424409158,
+  "train_trades": 103,
+  "valid_trades": 33,
+  "holdout": {
+   "real": {
+    "n": 29,
+    "mean": -0.004842651242149362,
+    "win_rate": 0.41379310344827586
+   },
+   "shuffled_p95": 0.00029198260151136766,
+   "win_rate_p": 0.867534551769495,
+   "bonferroni_alpha": 5e-06,
+   "gates": {
+    "G1_min_trades": true,
+    "G2_mean_positive": false,
+    "G3_beats_shuffle_p95": false,
+    "G4_bonferroni_win_rate": false,
+    "PASS": false
+   }
+  }
+ },
+ "random_search": {
+  "genome": {
+   "entry_type": "momentum",
+   "param1": 31.753222275812277,
+   "param2": 0.02689248601667276,
+   "side": "long_only",
+   "trend_filter": false,
+   "volume_filter": true,
+   "stop_atr": 5.746556487182391,
+   "target_atr": 9.589177622938626,
+   "max_hold": 252
+  },
+  "valid_fitness": 0.0043176545531070105,
+  "train_trades": 73,
+  "valid_trades": 33,
+  "holdout": {
+   "real": {
+    "n": 17,
+    "mean": -0.0016572588048317288,
+    "win_rate": 0.5294117647058824
+   },
+   "shuffled_p95": 0.004094026388305799,
+   "win_rate_p": 1.0,
+   "bonferroni_alpha": 5e-06,
+   "gates": {
+    "G1_min_trades": false,
+    "G2_mean_positive": false,
+    "G3_beats_shuffle_p95": false,
+    "G4_bonferroni_win_rate": false,
+    "PASS": false
+   }
+  }
+ }
+}

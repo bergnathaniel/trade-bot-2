@@ -1,0 +1,109 @@
+{
+ "prereg_sha256": "3ef3a7a464e06f948008b6ed79f36e9def120f057de34bdf40bbda36d835cc0d",
+ "generated": "2026-09-15T20:11:13Z",
+ "elapsed_sec": 87.0,
+ "bars_1m": 1050294,
+ "bars_5m": 210078,
+ "pool_end": 105107,
+ "test_start": 105107,
+ "test_end": 209790,
+ "integrity": {
+  "truncation": {
+   "ok": true,
+   "cuts": [
+    25422,
+    55102,
+    68614,
+    91094,
+    103265,
+    107084
+   ]
+  },
+  "synthetic": {
+   "runs": [
+    {
+     "seed": 0,
+     "trades": 873,
+     "mean": -0.005051498398741606,
+     "pass": false
+    },
+    {
+     "seed": 1,
+     "trades": 870,
+     "mean": -0.005105517763944703,
+     "pass": false
+    },
+    {
+     "seed": 2,
+     "trades": 871,
+     "mean": -0.004932041934420831,
+     "pass": false
+    },
+    {
+     "seed": 3,
+     "trades": 910,
+     "mean": -0.004900409932167617,
+     "pass": false
+    },
+    {
+     "seed": 4,
+     "trades": 897,
+     "mean": -0.005058190055669288,
+     "pass": false
+    },
+    {
+     "seed": 5,
+     "trades": 885,
+     "mean": -0.0050689493429744185,
+     "pass": false
+    },
+    {
+     "seed": 6,
+     "trades": 904,
+     "mean": -0.005016563813751254,
+     "pass": false
+    },
+    {
+     "seed": 7,
+     "trades": 880,
+     "mean": -0.004839226937971655,
+     "pass": false
+    },
+    {
+     "seed": 8,
+     "trades": 881,
+     "mean": -0.004988303509608791,
+     "pass": false
+    },
+    {
+     "seed": 9,
+     "trades": 880,
+     "mean": -0.005100158692889509,
+     "pass": false
+    }
+   ],
+   "passes": 0,
+   "ok": true
+  },
+  "ok": true
+ },
+ "real": {
+  "n": 4926,
+  "mean": -0.004990954633286402,
+  "win_rate": 0.09480308566788469
+ },
+ "shuffled": {
+  "n_runs": 200,
+  "mean_of_means": -0.004999861056321114,
+  "p95": -0.004884278318946905
+ },
+ "gates": {
+  "G1_min_trades": true,
+  "G2_mean_positive": false,
+  "G3_beats_shuffle_p95": false,
+  "G4_win_rate": false,
+  "shuffle_p95": -0.004884278318946905,
+  "win_rate_p": 1.0,
+  "PASS": false
+ }
+}

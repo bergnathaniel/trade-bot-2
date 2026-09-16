@@ -1,5 +1,10 @@
 # No external deps needed for paper-trading mode alone.
 
+# Research (research/run_nn.py, the nearest-neighbor setup test): pure stdlib everywhere else in
+# research/, but an exact nearest-neighbor search over ~200k points needs a real spatial index.
+numpy
+scipy
+
 # Live trading:
 requests            # HTTP calls to Jupiter + Helius RPC
 websocket-client     # PumpPortal websocket feed (imported as `websocket`)
