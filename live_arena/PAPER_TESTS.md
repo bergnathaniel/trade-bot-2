@@ -298,3 +298,13 @@ Passing at 6 months means "keep going". A strategy has to pass again at 1 year.
   - index.html's bot section (`58054e19…`) and every earlier bot file are unchanged. index.html's
     whole-file fingerprint was refreshed, and `track_record_bot.js` was added to
     `PAPER_TESTS.sha256`.
+- **2026-09-16: sidebar layout fix, outside these tests.**
+  - Changed the `<style>` block only (a CSS grid width and one `@media` breakpoint) so the right
+    sidebar stops collapsing below the chart on windows narrower than 900px. No JavaScript touched,
+    so nothing about how a bot decides or a trade fills could have changed.
+  - Positions had opened in several sections by now (buys since 2026-09-14, no sells yet), so this
+    is the first amendment since real activity started. Not re-verified against a pinned baseline
+    the way earlier bot-rule changes were, since a CSS-only diff has no code path that touches
+    execution - there's nothing for it to have changed.
+  - index.html's bot section (`58054e19…`) is unchanged (it's below line 940; this edit is above
+    line 60). index.html's whole-file fingerprint was refreshed.

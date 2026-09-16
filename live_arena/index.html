@@ -20,7 +20,7 @@
   #dot{width:8px;height:8px;border-radius:50%;background:#555}
   .grow{flex:1}
   .note{color:var(--mute);font-size:11px}
-  main{flex:1;display:grid;grid-template-columns:1fr 410px;min-height:0}
+  main{flex:1;display:grid;grid-template-columns:minmax(240px,1fr) 410px;min-height:0;overflow-x:auto}
   #left{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line)}
   #feed{height:190px;overflow-y:auto;border-top:1px solid var(--line);padding:6px 10px;font-variant-numeric:tabular-nums}
   .ev{padding:2px 0;border-bottom:1px solid #151a26;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -57,7 +57,7 @@
   tr.yard td{color:var(--mute)}
   #paperPanel details summary{cursor:pointer;margin:8px 0 4px}
   #paperPanel a{color:#7fb0ff}
-  @media (max-width:900px){main{grid-template-columns:1fr;overflow-y:auto}#right{overflow:visible}#left{min-height:520px}body{overflow:auto;height:auto}}
+  @media (max-width:900px){#left{min-height:340px}}
 </style>
 </head>
 <body>
