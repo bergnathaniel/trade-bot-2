@@ -8,110 +8,110 @@ Paper money only. Every saved speed-test candle is read as a letter (its size ag
 
 ## Crypto, 5-minute candles
 
-Tested 2026-07-27 to 2026-09-14 (after a 14-day warm-up), split at 2026-08-20. A round trip costs 0.54%.
+Tested 2026-07-27 to 2026-09-21 (after a 14-day warm-up), split at 2026-08-24. A round trip costs 0.54%.
 
 | Rule | Trades (1st / 2nd half) | Average after fees (1st / 2nd half) | Won |
 |---|---:|---:|---:|
 | Strict | 0 / 0 | – / – | – |
-| Loose | 49 / 750 | -0.337% / -0.544% | 30% |
-| Every candle, 1 hour | 84672 / 84516 | -0.527% / -0.523% | 13% |
-| Every candle, 4 hours | 84672 / 84084 | -0.480% / -0.470% | 25% |
-| Every candle, 8 hours | 84672 / 83508 | -0.407% / -0.410% | 31% |
+| Loose | 143 / 876 | +0.106% / -0.497% | 34% |
+| Every candle, 1 hour | 96768 / 96612 | -0.508% / -0.525% | 14% |
+| Every candle, 4 hours | 96768 / 96180 | -0.413% / -0.478% | 27% |
+| Every candle, 8 hours | 96768 / 95604 | -0.288% / -0.416% | 33% |
 
-**Does what worked keep working?** 1861 word-and-horizon records had 50+ trades in both halves. 9 made money in the first half, and 0 of those also made money in the second. The correlation between the two halves' averages was +0.15 (0 means the first half says nothing about the second).
+**Does what worked keep working?** 2109 word-and-horizon records had 50+ trades in both halves. 58 made money in the first half, and 4 of those also made money in the second. The correlation between the two halves' averages was +0.19 (0 means the first half says nothing about the second).
 
 **The best records at the last candle** (strict bar in the last column):
 
 | Word | Hold | Trades | Average after fees | Clears the strict bar |
 |---|---|---:|---:|---|
-| big down near its low → big down near its low | 8 hours | 2482 | -0.184% | no |
-| down near its low → down near its low | 8 hours | 2076 | -0.209% | no |
-| down mid-range → big down near its low | 8 hours | 1151 | -0.144% | no |
-| big down near its low → down near its low | 8 hours | 1843 | -0.219% | no |
-| up near its high → down near its low | 8 hours | 1959 | -0.224% | no |
-| flat mid-range → down near its low | 8 hours | 1129 | -0.165% | no |
-| up near its high → down mid-range | 8 hours | 1060 | -0.144% | no |
-| down near its low → up near its high | 8 hours | 2013 | -0.255% | no |
+| down mid-range → big down near its low | 8 hours | 1187 | -0.207% | no |
+| big down near its low → big down near its low | 8 hours | 2601 | -0.319% | no |
+| down near its low → down near its low | 8 hours | 2094 | -0.305% | no |
+| flat near its low → down near its low | 8 hours | 864 | -0.228% | no |
+| big down near its low → big down near its low | 4 hours | 2588 | -0.385% | no |
+| big down near its low → big down near its low | 1 hour | 2588 | -0.441% | no |
+| big up near its high → big down near its low | 4 hours | 3669 | -0.411% | no |
+| down near its low → up near its high | 8 hours | 1998 | -0.328% | no |
 
 ## Crypto, 15-minute candles
 
-Tested 2026-07-27 to 2026-09-14 (after a 14-day warm-up), split at 2026-08-20. A round trip costs 0.54%.
+Tested 2026-07-27 to 2026-09-21 (after a 14-day warm-up), split at 2026-08-24. A round trip costs 0.54%.
 
 | Rule | Trades (1st / 2nd half) | Average after fees (1st / 2nd half) | Won |
 |---|---:|---:|---:|
 | Strict | 0 / 0 | – / – | – |
-| Loose | 68 / 667 | -0.879% / -0.536% | 30% |
-| Every candle, 1 hour | 28224 / 28164 | -0.527% / -0.523% | 13% |
-| Every candle, 4 hours | 28224 / 28020 | -0.479% / -0.470% | 25% |
-| Every candle, 8 hours | 28224 / 27828 | -0.406% / -0.410% | 31% |
+| Loose | 145 / 808 | -0.479% / -0.446% | 33% |
+| Every candle, 1 hour | 32256 / 32196 | -0.508% / -0.525% | 14% |
+| Every candle, 4 hours | 32256 / 32052 | -0.413% / -0.478% | 27% |
+| Every candle, 8 hours | 32256 / 31860 | -0.288% / -0.416% | 33% |
 
-**Does what worked keep working?** 585 word-and-horizon records had 50+ trades in both halves. 1 made money in the first half, and 0 of those also made money in the second. The correlation between the two halves' averages was +0.12 (0 means the first half says nothing about the second).
+**Does what worked keep working?** 690 word-and-horizon records had 50+ trades in both halves. 26 made money in the first half, and 4 of those also made money in the second. The correlation between the two halves' averages was +0.20 (0 means the first half says nothing about the second).
 
 **The best records at the last candle** (strict bar in the last column):
 
 | Word | Hold | Trades | Average after fees | Clears the strict bar |
 |---|---|---:|---:|---|
-| down near its low → big down near its low | 8 hours | 624 | +0.046% | no |
-| big down near its low → down near its low | 8 hours | 510 | -0.020% | no |
-| big down near its low → down near its low → big down near its low | 4 hours | 78 | +0.066% | no |
-| big up near its high → down near its low | 8 hours | 704 | -0.102% | no |
-| big down near its low → down near its low → big down near its low | 8 hours | 79 | +0.216% | no |
-| down near its low → big down near its low | 4 hours | 626 | -0.235% | no |
-| up near its high → up near its high | 8 hours | 594 | -0.091% | no |
-| big down mid-range → big down near its low | 1 hour | 175 | -0.229% | no |
+| down near its low → big down near its low | 8 hours | 627 | -0.002% | no |
+| big up near its high → big down mid-range → big down near its low | 4 hours | 47 | +0.227% | no |
+| big down mid-range → big down near its low | 4 hours | 174 | -0.007% | no |
+| big down mid-range → big down near its low | 1 hour | 175 | -0.197% | no |
+| down near its low → big down near its low | 4 hours | 625 | -0.249% | no |
+| down near its low → big down near its low | 1 hour | 626 | -0.374% | no |
+| big down near its low → down near its low | 4 hours | 494 | -0.265% | no |
+| big down mid-range → big down mid-range | 1 hour | 42 | -0.227% | no |
 
 ## US stocks and ETFs, 5-minute candles
 
-Tested 2026-07-01 to 2026-09-14 (after a 14-day warm-up), split at 2026-08-08. A round trip costs 0.08%.
+Tested 2026-07-01 to 2026-09-21 (after a 14-day warm-up), split at 2026-08-11. A round trip costs 0.08%.
 
 | Rule | Trades (1st / 2nd half) | Average after fees (1st / 2nd half) | Won |
 |---|---:|---:|---:|
-| Strict | 18 / 185 | -0.039% / -0.074% | 41% |
-| Loose | 621 / 462 | +0.083% / +0.059% | 49% |
-| Every candle, 1 hour | 42120 / 38760 | -0.047% / -0.062% | 41% |
-| Every candle, 4 hours | 42120 / 38040 | +0.033% / -0.006% | 46% |
-| Every candle, 8 hours | 42120 / 37080 | +0.131% / +0.058% | 48% |
+| Strict | 18 / 209 | -0.039% / +0.137% | 41% |
+| Loose | 638 / 530 | +0.068% / +0.141% | 49% |
+| Every candle, 1 hour | 43760 / 43540 | -0.048% / -0.049% | 41% |
+| Every candle, 4 hours | 43760 / 42820 | +0.020% / +0.026% | 46% |
+| Every candle, 8 hours | 43760 / 41860 | +0.103% / +0.123% | 48% |
 
-**Does what worked keep working?** 966 word-and-horizon records had 50+ trades in both halves. 499 made money in the first half, and 240 of those also made money in the second. The correlation between the two halves' averages was +0.06 (0 means the first half says nothing about the second).
+**Does what worked keep working?** 1075 word-and-horizon records had 50+ trades in both halves. 518 made money in the first half, and 298 of those also made money in the second. The correlation between the two halves' averages was +0.10 (0 means the first half says nothing about the second).
 
 **The best records at the last candle** (strict bar in the last column):
 
 | Word | Hold | Trades | Average after fees | Clears the strict bar |
 |---|---|---:|---:|---|
-| big down near its low → big down near its low | 8 hours | 801 | +0.394% | yes |
-| big up near its high → big down near its low | 8 hours | 954 | +0.364% | no |
-| big down near its low → big up near its high | 1 hour | 913 | +0.045% | no |
-| big up near its high → big up near its high | 1 hour | 815 | +0.058% | no |
-| big up near its high → big down near its low | 1 hour | 957 | +0.049% | no |
-| big up near its high → big down near its low | 4 hours | 955 | +0.125% | no |
-| up near its high → big up near its high | 8 hours | 514 | +0.439% | no |
-| down near its low → down near its low | 1 hour | 720 | -0.053% | no |
+| big down near its low → big down near its low | 8 hours | 793 | +0.529% | yes |
+| big up near its high → big down near its low | 8 hours | 863 | +0.331% | no |
+| big up near its high → big down near its low | 4 hours | 869 | +0.170% | no |
+| big down near its low → big down near its low | 1 hour | 801 | +0.043% | no |
+| big up near its high → up near its high | 1 hour | 453 | +0.093% | no |
+| big down near its low → big up near its high | 1 hour | 832 | +0.033% | no |
+| big down near its low → up near its high | 4 hours | 523 | +0.175% | no |
+| big down near its low → big down near its low → big down near its low | 8 hours | 179 | +0.676% | no |
 
 ## US stocks and ETFs, 15-minute candles
 
-Tested 2026-07-01 to 2026-09-14 (after a 14-day warm-up), split at 2026-08-08. A round trip costs 0.08%.
+Tested 2026-07-01 to 2026-09-21 (after a 14-day warm-up), split at 2026-08-11. A round trip costs 0.08%.
 
 | Rule | Trades (1st / 2nd half) | Average after fees (1st / 2nd half) | Won |
 |---|---:|---:|---:|
 | Strict | 0 / 4 | – / +0.100% | 25% |
-| Loose | 560 / 455 | +0.090% / +0.066% | 48% |
-| Every candle, 1 hour | 14040 / 12900 | -0.048% / -0.063% | 41% |
-| Every candle, 4 hours | 14040 / 12660 | +0.032% / -0.007% | 46% |
-| Every candle, 8 hours | 14040 / 12340 | +0.131% / +0.056% | 48% |
+| Loose | 579 / 518 | +0.080% / +0.130% | 48% |
+| Every candle, 1 hour | 14580 / 14500 | -0.049% / -0.050% | 41% |
+| Every candle, 4 hours | 14580 / 14260 | +0.019% / +0.025% | 46% |
+| Every candle, 8 hours | 14580 / 13940 | +0.103% / +0.121% | 49% |
 
-**Does what worked keep working?** 275 word-and-horizon records had 50+ trades in both halves. 135 made money in the first half, and 45 of those also made money in the second. The correlation between the two halves' averages was +0.04 (0 means the first half says nothing about the second).
+**Does what worked keep working?** 301 word-and-horizon records had 50+ trades in both halves. 143 made money in the first half, and 69 of those also made money in the second. The correlation between the two halves' averages was +0.12 (0 means the first half says nothing about the second).
 
 **The best records at the last candle** (strict bar in the last column):
 
 | Word | Hold | Trades | Average after fees | Clears the strict bar |
 |---|---|---:|---:|---|
-| big down near its low → flat mid-range | 1 hour | 128 | +0.068% | no |
-| big up near its high → big up near its high | 1 hour | 285 | +0.091% | no |
-| down near its low → big down near its low | 1 hour | 179 | +0.077% | no |
-| big down near its low → big down near its low | 1 hour | 246 | -0.016% | no |
-| big up near its high → big down near its low | 1 hour | 276 | +0.013% | no |
-| big up mid-range → big down near its low | 1 hour | 42 | +0.203% | no |
-| big down near its low → big up near its high | 1 hour | 265 | +0.004% | no |
-| big up near its high → big up near its high | 4 hours | 286 | +0.122% | no |
+| big down near its low → big down near its low | 1 hour | 215 | +0.095% | no |
+| big up mid-range → big down near its low | 1 hour | 36 | +0.259% | no |
+| big down near its low → up mid-range | 1 hour | 113 | +0.025% | no |
+| down near its low → big down near its low | 1 hour | 158 | +0.078% | no |
+| big up near its high → big down near its low | 1 hour | 254 | +0.014% | no |
+| big down near its low → flat mid-range | 1 hour | 112 | +0.044% | no |
+| big up near its high → big up near its high | 4 hours | 257 | +0.148% | no |
+| big up near its high → big up near its high | 1 hour | 256 | -0.006% | no |
 
 Descriptive of the past only. Not investment advice.
