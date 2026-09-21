@@ -1,0 +1,22 @@
+{
+  "stocks": [
+    {"symbol": "HON", "reason": "RBC upgraded Honeywell to outperform (target $253 from $235) after quarterly results beat expectations.",
+     "sources": ["https://finance.yahoo.com/news/wall-street-pounding-table-over-154201993.html"]},
+    {"symbol": "BKNG", "reason": "Truist upgraded Booking Holdings to buy, saying fears of secular downside are overdone; cites Asia travel outlook.",
+     "sources": ["https://finance.yahoo.com/news/wall-street-pounding-table-over-154201993.html"]},
+    {"symbol": "CIEN", "reason": "Analysts turned more bullish on Ciena on demand for optical networks as AI data centers expand; price targets moving higher.",
+     "sources": ["https://dailytradealert.com/2026/09/21/analyst-upgrades-and-downgrades-for-monday-9-21/"]}
+  ],
+  "micro": [
+    {"symbol": "NTHI", "reason": "NeOnc Technologies named among four small caps with fresh catalysts announced the week of Sept 17.",
+     "sources": ["https://www.globenewswire.com/news-release/2026/09/17/3364206/0/en/four-high-impact-small-caps-enter-the-spotlight.html"]}
+  ],
+  "crypto": [
+    {"symbol": "XRP", "reason": "Spot XRP ETFs launched under the SEC generic listing standards; cumulative inflows reported near $1.68B.",
+     "sources": ["https://en.spaziocrypto.com/markets/7-crypto-to-watch-september-2026-catalysts-fed-etf-unlock/"]},
+    {"symbol": "SOL", "reason": "Spot Solana ETFs report cumulative inflows above $1.4B; September calendar has a Fed decision and a Senate crypto market-structure vote.",
+     "sources": ["https://cryptouniversity.network/news/september-2026-is-unusually-dense"]},
+    {"symbol": "PEPE", "reason": "Meme basket fell 12.5% Sept 7-13 while several meme tokens stayed above mid-August levels; traders watching PEPE for renewed flows.",
+     "sources": ["https://www.kucoin.com/news/flash/memecoins-trigger-volatility-amid-altseason-2026-momentum"]}
+  ]
+}
