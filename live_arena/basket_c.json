@@ -1,0 +1,202 @@
+{
+ "label": "Micro-cap stocks",
+ "made": "2026-09-21",
+ "seed": 20260921,
+ "excluded_stocks_from": [
+  "basket.json",
+  "basket_b.json"
+ ],
+ "pool_size": 388,
+ "rule": "- every stock in Nasdaq's US screener (NYSE, Nasdaq, NYSE American) worth $50M-$300M today\n  - a US company, a price of at least $1, and at least 50,000 shares traded on the day the list is pulled\n  - plain common stock: a letters-only symbol, with warrants, rights, units, preferred and depositary shares left out\n  - sorted by symbol, shuffled with a fixed seed, and the first 30 kept that Yahoo has 721 daily candles for\n    (about 3 years of trading)",
+ "index": {
+  "symbol": "IWC",
+  "name": "iShares Micro-Cap ETF"
+ },
+ "stocks": [
+  {
+   "symbol": "MVIS",
+   "name": "MicroVision Inc.",
+   "marketCap": 50350545.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "AGIG",
+   "name": "Abundia Global Impact Group Inc. Common stock",
+   "marketCap": 53421888.0,
+   "sector": "Energy"
+  },
+  {
+   "symbol": "FRMM",
+   "name": "Forum Markets Incorporated",
+   "marketCap": 64938824.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "INSG",
+   "name": "Inseego Corp.",
+   "marketCap": 68638075.0,
+   "sector": "Telecommunications"
+  },
+  {
+   "symbol": "NDLS",
+   "name": "Noodles & Company",
+   "marketCap": 77864913.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "LNZA",
+   "name": "LanzaTech Global Inc.",
+   "marketCap": 79582111.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "AMPG",
+   "name": "Amplitech Group Inc.",
+   "marketCap": 101848777.0,
+   "sector": "Telecommunications"
+  },
+  {
+   "symbol": "VANI",
+   "name": "Vivani Medical Inc.",
+   "marketCap": 111852161.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "PZG",
+   "name": "Paramount Gold Nevada Corp.",
+   "marketCap": 114666457.0,
+   "sector": "Basic Materials"
+  },
+  {
+   "symbol": "HOVR",
+   "name": "New Horizon Aircraft Ltd. Class A Ordinary Share",
+   "marketCap": 115453179.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "UFI",
+   "name": "Unifi Inc. New",
+   "marketCap": 123243989.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "LENZ",
+   "name": "LENZ Therapeutics Inc.",
+   "marketCap": 128194999.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "HCAT",
+   "name": "Health Catalyst Inc",
+   "marketCap": 136214050.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "AMTX",
+   "name": "Aemetis Inc. (DE)",
+   "marketCap": 150834451.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "ATOM",
+   "name": "Atomera Incorporated",
+   "marketCap": 171315544.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "NERV",
+   "name": "Minerva Neurosciences Inc",
+   "marketCap": 175949755.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "FIRY",
+   "name": "Firy Inc.",
+   "marketCap": 177858150.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "TNXP",
+   "name": "Tonix Pharmaceuticals Holding Corp.",
+   "marketCap": 183858977.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "GCTS",
+   "name": "GCT Semiconductor Holding Inc.",
+   "marketCap": 201413700.0,
+   "sector": "Technology"
+  },
+  {
+   "symbol": "DHX",
+   "name": "DHI Group Inc.",
+   "marketCap": 205396419.0,
+   "sector": "Consumer Discretionary"
+  },
+  {
+   "symbol": "FORR",
+   "name": "Forrester Research Inc.",
+   "marketCap": 215902260.0,
+   "sector": "Industrials"
+  },
+  {
+   "symbol": "ELDN",
+   "name": "Eledon Pharmaceuticals Inc.",
+   "marketCap": 218592499.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "BRCC",
+   "name": "BRC Inc.",
+   "marketCap": 222755839.0,
+   "sector": "Consumer Staples"
+  },
+  {
+   "symbol": "MGNX",
+   "name": "MacroGenics Inc.",
+   "marketCap": 262444770.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "USNA",
+   "name": "USANA Health Sciences Inc.",
+   "marketCap": 267724978.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "GLSI",
+   "name": "Greenwich LifeSciences Inc.",
+   "marketCap": 272941278.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "REFI",
+   "name": "Chicago Atlantic Real Estate Finance Inc.",
+   "marketCap": 276708377.0,
+   "sector": "Real Estate"
+  },
+  {
+   "symbol": "FULC",
+   "name": "Fulcrum Therapeutics Inc.",
+   "marketCap": 289929577.0,
+   "sector": "Health Care"
+  },
+  {
+   "symbol": "RM",
+   "name": "Regional Management Corp.",
+   "marketCap": 290612511.0,
+   "sector": "Finance"
+  },
+  {
+   "symbol": "BDSX",
+   "name": "Biodesix Inc.",
+   "marketCap": 299968285.0,
+   "sector": "Health Care"
+  }
+ ],
+ "checked_but_not_used": [
+  "FATN (365 candles)",
+  "PAL (593 candles)"
+ ],
+ "caveat": "How the list was picked matters. These are today's micro-caps, so the list includes companies that shrank into this size over the last 3 years and leaves out ones that grew past it, which tilts it toward past losers. It also leaves out companies that went bust or were delisted, which tilts it the other way. Real trading costs on stocks this small are often 0.5% or more per trade, from the gap between the buy and sell price."
+}
