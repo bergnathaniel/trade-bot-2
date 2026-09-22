@@ -90,7 +90,11 @@ async function run() {
     const hold = holds.length ? holds.reduce((a, x) => a + x, 0) / holds.length : null;
     const bots = BOTS.map(b => {
       const rets = symbols.map(s => runs[s].res[b.id].ret), trades = symbols.reduce((n, s) => n + runs[s].res[b.id].trades, 0);
-      const closed = symbols.reduce((n, s) => n + runs[s].res[b.id].fills.filter(f => f.side === "sell").length, 0);
+      const closedOf = s => runs[s].res[b.id].fills.filter(f => f.side === "sell").length;
+      const closed = symbols.reduce((n, s) => n + closedOf(s), 0);
+      // per-market breakdown, so a picker that trades only one bot on one market (best_recent.py) has real
+      // trailing numbers to rank instead of only this group's average across all of them
+      const per = Object.fromEntries(symbols.map(s => [s, { ret: runs[s].res[b.id].ret, closed: closedOf(s) }]));
       let gross = 0;
       const shifted = new Float64Array(M.shifts);
       for (const s of symbols) {
@@ -108,7 +112,7 @@ async function run() {
       if (!(up > symbols.length / 2)) fails.push(`made money in ${up} of ${symbols.length}`);
       if (!(share >= M.timing_share)) fails.push(`timing beat ${Math.round(share * 100)}% of random`);
       return { id: b.id, name: b.name, type: b.type, control: !!b.bench || b.type === "Control", avg, med: medianOf(rets), up, trades, closed,
-               timing: share, pass: !fails.length, fails };
+               timing: share, pass: !fails.length, fails, per };
     });
     groups.push({ group: g.id, name: g.name, unit: g.unit, tf, fee: g.fee, markets: symbols, missing, hold,
                   through: Math.max(...symbols.map(s => data[s][data[s].length - 1].time + OFF)), bots });
