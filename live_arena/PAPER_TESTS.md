@@ -336,3 +336,9 @@ Passing at 6 months means "keep going". A strategy has to pass again at 1 year.
     (reading its saved calls as `{time, action, reason}` objects instead of arrays), so the committed hash
     didn't match the committed file. Refreshed here. `nvidia_bots.js` is a speed-test-only bot, so this
     never affected any paper-tested bot.
+- **2026-09-23: Hype Leader, outside these tests.** Added `hype_bots.js`: 1 speed-test bot that picks which market
+  in its group to buy by its volume surge (the last 24 hours of dollar volume against that market's average day over
+  the 6 days before), buying only the group's biggest surge, 2x or more, while the price is rising, for 6 hours.
+  Built on request for the meme-coin group. Counted from the week of 2026-09-28. A pure bot addition; index.html's
+  bot section (`58054e19…`) is unchanged. index.html's whole-file fingerprint was refreshed, and `hype_bots.js` was
+  added to `PAPER_TESTS.sha256`.

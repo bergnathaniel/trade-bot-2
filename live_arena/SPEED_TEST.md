@@ -198,3 +198,9 @@ No pass rule, fee, bar or stopping point changed in any of these. Every addition
   - **Limits:** real costs on these coins are usually well above 0.25% (the gap between buy and sell prices), so
     passes here flatter the bots. These are the bigger, Coinbase-listed memes, not the tiny ones on pump.fun. The
     project's earlier meme-coin bots (the Solana bots removed on 2026-09-10) all lost money.
+- **2026-09-23: Hype Leader** (`hype_bots.js`), on request: picks which coin in its group to buy by volume surge
+  (24 hours of dollar volume against its own normal day over the 6 days before). Buys only the group's biggest surge,
+  2x or more, with the price up, and sells 6 hours later. Counted from the week of 2026-09-28. First built at 3x and
+  24 hours; a dry run on the week of 2026-09-14 showed only 3 closed trades on memes, short of the 10 a pass needs, so
+  on request it was changed to 2x and 6 hours (16 trades), choosing by trade count only, without looking at returns.
+  Locked from here: no more changes.
