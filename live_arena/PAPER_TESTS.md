@@ -323,3 +323,16 @@ Passing at 6 months means "keep going". A strategy has to pass again at 1 year.
     '384,940p' index.html` still hashes to `58054e19…`; this edit only adds a `<script>` include
     after line 958). index.html's whole-file fingerprint was refreshed, and `nvidia_bots.js` was
     added to `PAPER_TESTS.sha256`.
+- **2026-09-23: Late-Night Hours bot, outside these tests; plus a stale fingerprint fixed.**
+  - Added `hour_bots.js`: 1 speed-test bot from published bitcoin research (Padyšák & Vojtko 2022, SSRN
+    4081000): buy at 22:00 UTC, sell at midnight UTC, every day. Counted from the week of 2026-09-28. Not
+    part of these paper tests.
+  - A pure bot addition (`BOTS.push`), same reasoning as the 2026-09-22 entry: no existing bot's
+    `decide()`, `execute()` or shared function is touched.
+  - index.html's bot section (`58054e19…`) is unchanged (verified: `sed -n '384,940p' index.html` still
+    hashes to `58054e19…`). index.html's whole-file fingerprint was refreshed, and `hour_bots.js` was added
+    to `PAPER_TESTS.sha256`.
+  - **Correction to the 2026-09-22 entry:** `nvidia_bots.js`'s fingerprint was taken before a last edit
+    (reading its saved calls as `{time, action, reason}` objects instead of arrays), so the committed hash
+    didn't match the committed file. Refreshed here. `nvidia_bots.js` is a speed-test-only bot, so this
+    never affected any paper-tested bot.
