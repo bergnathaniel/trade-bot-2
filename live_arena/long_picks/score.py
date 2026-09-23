@@ -99,6 +99,8 @@ def score_moonshots(rnd, btc):
         if not after:
             return None, "no price after the lock"
         t0, p0 = after[0]
+        if t0 - entry_target > lib.DAY:   # no price near the entry time: the coin didn't trade yet
+            return None, "no price near the entry date"
         later = [(t, p) for t, p in after if t >= t0 + hold]
         note = ""
         if later:

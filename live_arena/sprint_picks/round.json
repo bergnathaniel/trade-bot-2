@@ -1,0 +1,350 @@
+{
+ "locked_utc": "2026-09-23T14:59:52Z",
+ "prereg_sha256": "ee636b4e50f26819856c53dbbfaade438dc2ab4c206d133a7d461dae70582ee5",
+ "picks": {
+  "memes": [
+   {
+    "key": "build-on-bnb",
+    "reason": "Binance's own memecoin, already on Binance Alpha; a full Binance spot listing is seen as plausible and would be a big catalyst for a $7.9M coin.",
+    "sources": [
+     "https://www.coinspeaker.com/guides/upcoming-binance-listings/"
+    ],
+    "symbol": "BOB",
+    "name": "Build On BNB",
+    "cap": 7927150,
+    "volume": 536974
+   },
+   {
+    "key": "popcat",
+    "reason": "Older memecoins led on Sept 22 (PEPE +27%, DOGE and SHIB up) as bitcoin neared $90K; POPCAT is a Coinbase-listed Solana meme that tends to follow sector rallies.",
+    "sources": [
+     "https://www.cryptotimes.io/2026/09/22/og-memecoins-pump-pepe-doge-rally-in-double-digits-shib-follows-as-bitcoin-nears-90k/"
+    ],
+    "symbol": "POPCAT",
+    "name": "Popcat",
+    "cap": 55953169,
+    "volume": 15335807
+   },
+   {
+    "key": "mubarak",
+    "reason": "Leading the BNB Chain meme rally on Sept 23, up 68% in 24 hours; momentum pick. Its trading is ~3x its market cap a day, so some of the volume may not be real.",
+    "sources": [
+     "https://www.kucoin.com/news/flash/bsc-meme-coins-continue-rally-mubarak-surges-68-in-24-hours",
+     "https://crypto.news/mubarak-jumps-26-as-bnb-chain-meme-rally-broadens/"
+    ],
+    "symbol": "MUBARAK",
+    "name": "Mubarak",
+    "cap": 53043544,
+    "volume": 146333638
+   },
+   {
+    "key": "czs-dog",
+    "reason": "BROCCOLI (CZ's dog) rose 25.7% in 24 hours on Sept 23 as the BNB Chain meme rally broadened; one of the best-known CZ-linked memes.",
+    "sources": [
+     "https://www.kucoin.com/news/flash/bsc-meme-coins-continue-rally-mubarak-surges-68-in-24-hours"
+    ],
+    "symbol": "BROCCOLI",
+    "name": "CZ's Dog",
+    "cap": 22353948,
+    "volume": 15574368
+   },
+   {
+    "key": "test-3",
+    "reason": "TST rose 13.7% in 24 hours on Sept 23 in the same BNB Chain meme rally; began as a Binance tutorial token and has a large community.",
+    "sources": [
+     "https://www.kucoin.com/news/flash/bsc-meme-coins-continue-rally-mubarak-surges-68-in-24-hours"
+    ],
+    "symbol": "TST",
+    "name": "Test",
+    "cap": 16333231,
+    "volume": 14278256
+   },
+   {
+    "key": "giggle-fund",
+    "reason": "GIGGLE rose 8.3% on Sept 23 with the BNB Chain meme rally; tied to CZ's Giggle Academy charity, which keeps it in the BNB news flow.",
+    "sources": [
+     "https://www.kucoin.com/news/flash/bsc-meme-coins-continue-rally-mubarak-surges-68-in-24-hours",
+     "https://finance.yahoo.com/news/bnb-meme-season-arrives-binance-210125348.html"
+    ],
+    "symbol": "GIGGLE",
+    "name": "Giggle Fund",
+    "cap": 38735545,
+    "volume": 26550833
+   },
+   {
+    "key": "moo-deng",
+    "reason": "Solana meme with a history of sharp rallies when Solana memes rotate back in; the Sept 22 memecoin rally was broad across older coins.",
+    "sources": [
+     "https://coinedition.com/solana-meme-coins-moodeng-goat-explode-100-after-binance-nod/",
+     "https://www.cryptotimes.io/2026/09/22/og-memecoins-pump-pepe-doge-rally-in-double-digits-shib-follows-as-bitcoin-nears-90k/"
+    ],
+    "symbol": "MOODENG",
+    "name": "Moo Deng",
+    "cap": 45250589,
+    "volume": 11996945
+   },
+   {
+    "key": "goatseus-maximus",
+    "reason": "GOAT, the AI-themed Solana meme, has rallied alongside MOODENG before; small at $19M, so a sector rotation back into Solana memes moves it a lot.",
+    "sources": [
+     "https://coinedition.com/solana-meme-coins-moodeng-goat-explode-100-after-binance-nod/"
+    ],
+    "symbol": "GOAT",
+    "name": "Goatseus Maximus",
+    "cap": 19473947,
+    "volume": 6491636
+   },
+   {
+    "key": "mog-coin",
+    "reason": "Ethereum meme at $47M; the Sept 22 rally was led by older Ethereum memes like PEPE, and MOG is one of the larger ones still under $100M.",
+    "sources": [
+     "https://www.cryptotimes.io/2026/09/22/og-memecoins-pump-pepe-doge-rally-in-double-digits-shib-follows-as-bitcoin-nears-90k/"
+    ],
+    "symbol": "MOG",
+    "name": "Mog Coin",
+    "cap": 47703991,
+    "volume": 11185572
+   },
+   {
+    "key": "turbo",
+    "reason": "Another older Ethereum meme ($71M) that tends to move with PEPE; PEPE broke key resistance on Sept 22 with $900M of shorts liquidated.",
+    "sources": [
+     "https://www.cryptotimes.io/2026/09/22/og-memecoins-pump-pepe-doge-rally-in-double-digits-shib-follows-as-bitcoin-nears-90k/",
+     "https://coinmarketcap.com/cmc-ai/pepe/latest-updates/"
+    ],
+    "symbol": "TURBO",
+    "name": "Turbo",
+    "cap": 71988038,
+    "volume": 13625124
+   }
+  ],
+  "stocks": [
+   {
+    "key": "FITB",
+    "reason": "Citi upgraded Fifth Third from Neutral to Buy on Sept 22.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 47784169197.0,
+    "price": 52.69,
+    "volume": 1589122.0
+   },
+   {
+    "key": "GEHC",
+    "reason": "Needham initiated GE HealthCare with a Buy on Sept 22.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 29846614497.0,
+    "price": 66.0782,
+    "volume": 373074.0
+   },
+   {
+    "key": "CRWD",
+    "reason": "Morgan Stanley kept CrowdStrike at Overweight and raised its target from $238 to $254 on Sept 22.",
+    "sources": [
+     "https://masterdaytrading.substack.com/p/market-recap-september-22-2026"
+    ],
+    "cap": 258651060763.0,
+    "price": 252.605,
+    "volume": 2386853.0
+   },
+   {
+    "key": "SNDK",
+    "reason": "Rosenblatt initiated SanDisk with a Buy on Sept 22, on memory demand from AI data centers.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 268824553741.0,
+    "price": 1835.995,
+    "volume": 3320995.0
+   },
+   {
+    "key": "QUBT",
+    "reason": "Titan Partners initiated Quantum Computing Inc. with a Buy on Sept 22; a high-volatility name that moves hard on coverage news.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 2110684479.0,
+    "price": 9.325,
+    "volume": 7689313.0
+   },
+   {
+    "key": "BFLY",
+    "reason": "Needham initiated Butterfly Network with a Buy on Sept 22; small medical-imaging company where new coverage can move the price.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 2504412146.0,
+    "price": 9.405,
+    "volume": 2556161.0
+   },
+   {
+    "key": "OMER",
+    "reason": "Cantor Fitzgerald upgraded Omeros from Neutral to Overweight on Sept 22.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 1506400856.0,
+    "price": 20.81,
+    "volume": 333370.0
+   },
+   {
+    "key": "RSI",
+    "reason": "Stifel initiated Rush Street Interactive with a Buy on Sept 22.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 4708475768.0,
+    "price": 20.315,
+    "volume": 748502.0
+   },
+   {
+    "key": "MSFT",
+    "reason": "Stifel upgraded Microsoft from Hold to Buy on Sept 23.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/23/analyst-upgrades-and-downgrades-for-wednesday-9-23/"
+    ],
+    "cap": 3690644619937.0,
+    "price": 497.02,
+    "volume": 6628331.0
+   },
+   {
+    "key": "GPK",
+    "reason": "JPMorgan upgraded Graphic Packaging from Neutral to Overweight on Sept 23.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/23/analyst-upgrades-and-downgrades-for-wednesday-9-23/"
+    ],
+    "cap": 2905942489.0,
+    "price": 9.815,
+    "volume": 1637266.0
+   }
+  ]
+ },
+ "sample": {
+  "memes": [
+   "wifout-2",
+   "the-last-play",
+   "plumber",
+   "georgeplaysclashroyale",
+   "gigachad-2",
+   "a-meme-coin",
+   "xuequi",
+   "nearkat-2",
+   "kori",
+   "useful-coin-4",
+   "loaded-lions",
+   "asteroid-shiba",
+   "gohome",
+   "bonk-staked-sol",
+   "og-roaring-kitty",
+   "ai-companions",
+   "sudeng",
+   "buttcoin-7",
+   "the-official-67-coin",
+   "kishu-inu",
+   "bone-shibaswap",
+   "hakimi",
+   "cat-in-a-dogs-world",
+   "bulla-3",
+   "ava-ai",
+   "purple-pepe",
+   "greatest-meme-ever",
+   "tsuki",
+   "ordinals",
+   "russell",
+   "i-love-puppies",
+   "resistance-dog",
+   "siren-2",
+   "apeonfone",
+   "magic-internet-money-runes",
+   "unstable-coin",
+   "pip-3",
+   "grok-2",
+   "purr-2",
+   "thinking-cat",
+   "astronaut-2",
+   "noice",
+   "andy-the-wisguy",
+   "moo-deng-2",
+   "4stock",
+   "moo-deng",
+   "rune-pups",
+   "zerebro",
+   "pepecoin-2",
+   "pythia",
+   "customer-service-xiao-he",
+   "asteroid-2",
+   "gme",
+   "the-grays-currency",
+   "baby-shark-universe",
+   "palu",
+   "little-john",
+   "tutorial",
+   "tendies-2",
+   "cat-processing-unit"
+  ],
+  "stocks": [
+   "KMB",
+   "WM",
+   "AAPL",
+   "VICR",
+   "BMY",
+   "OGS",
+   "ASST",
+   "FMC",
+   "EXR",
+   "DHR",
+   "FIS",
+   "PM",
+   "MRNA",
+   "NYT",
+   "CXW",
+   "W",
+   "HON",
+   "WT",
+   "NFLX",
+   "LZ",
+   "RCL",
+   "NTRA",
+   "FTRE",
+   "PSKY",
+   "AIG",
+   "KEY",
+   "KURA",
+   "DKNG",
+   "AVTR",
+   "CARG",
+   "MGM",
+   "CLMT",
+   "ATEC",
+   "ALLY",
+   "MGY",
+   "PYPL",
+   "SMR",
+   "BBWI",
+   "BBIO",
+   "AXTA",
+   "PFE",
+   "RIVN",
+   "AVAV",
+   "D",
+   "UMAC",
+   "KIM",
+   "HUT",
+   "CORZ",
+   "CEG",
+   "KMX",
+   "MBC",
+   "LIN",
+   "SMCI",
+   "T",
+   "VICI",
+   "NEE",
+   "INTC",
+   "ALAB",
+   "DC",
+   "RDDT"
+  ]
+ }
+}
