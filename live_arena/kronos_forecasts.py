@@ -109,6 +109,8 @@ def main():
     with open(os.path.join(DATA, "manifest.json")) as f:
         groups = json.load(f)["groups"]
     for g in groups:
+        if "kronos" not in g.get("outside", []):   # e.g. the meme-coin group: no bot there reads Kronos
+            continue
         group, look, began, made = g["id"], LOOKBACK[g["id"]], time.time(), 0
         series = {}
         for s in g["symbols"]:

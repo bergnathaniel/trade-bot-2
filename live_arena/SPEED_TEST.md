@@ -173,3 +173,28 @@ Set on 2026-09-13, at the user's request, before any forward week had a result.
     - bitcoin jumping while COIN and MSTR lag (they already move with it within the hour);
     - crypto drops by time of day, or on weekends (weekend drops didn't bounce in the second half);
     - holding stocks left behind at 3 pm until the next morning (the result flipped between halves).
+
+## Changes after the first forward week began
+
+No pass rule, fee, bar or stopping point changed in any of these. Every addition counts only from a later week.
+
+- **2026-09-14/15: Self-Tuner and Track Record**, counted from the week of 2026-09-21 (`selftune_bots.js`,
+  `track_record_bot.js`).
+- **2026-09-22: NVIDIA Reasoner** (`nvidia_bots.js`, `nvidia_forecasts.py`): a free NVIDIA-hosted AI model calls buy,
+  hold or sell once a day per crypto coin. Counted from the week of 2026-09-28. `speed_test.js` also started saving
+  each bot's result per coin (for `best_recent.py`); no grading changed.
+- **2026-09-23: Late-Night Hours** (`hour_bots.js`): buy at 22:00 UTC, sell at midnight (Padyšák & Vojtko 2022).
+  Counted from the week of 2026-09-28.
+- **2026-09-23: a third market, meme coins, counted from the week of 2026-09-28.** On request. Every bot runs on 11
+  Coinbase meme coins on 5- and 15-minute candles, graded by the same five rules, at the crypto fee (0.25%).
+  - **Picked by a fixed rule, not by performance:** on Web Picks' meme list, a Coinbase USD market that's online, and
+    an average of at least $250,000 traded a day over the 7 days before 2026-09-23 (Web Picks' own bar). DOGE is
+    already in the crypto group. That gave SHIB, PEPE, BONK, WIF, FLOKI, TRUMP, PENGU, POPCAT, FARTCOIN, MOODENG and
+    SPX. MOG, TURBO and PNUT traded too little. The list never changes during the test.
+  - A streak has to be in the same market, so a meme pass never adds to a crypto streak.
+  - Meme weeks through 2026-11-02 give at most 6 weeks, enough for a streak of 3 before the stopping point.
+  - No Kronos for this group (it's slow and built for the other two). Bots that need bitcoin's prices in the same
+    group, or Kronos, just wait here.
+  - **Limits:** real costs on these coins are usually well above 0.25% (the gap between buy and sell prices), so
+    passes here flatter the bots. These are the bigger, Coinbase-listed memes, not the tiny ones on pump.fun. The
+    project's earlier meme-coin bots (the Solana bots removed on 2026-09-10) all lost money.

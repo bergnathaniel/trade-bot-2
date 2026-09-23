@@ -74,6 +74,9 @@ def spell(word):
     return " → ".join(f"{BODY[p // 3]} {PLACE[p % 3]}" for p in parts)
 
 
+GROUP_NAMES = {"crypto": "Crypto", "stocks": "US stocks and ETFs", "memes": "Meme coins"}
+
+
 def study(group, tf, fee):
     with open(os.path.join(DATA, "manifest.json")) as f:
         symbols = next(g["symbols"] for g in json.load(f)["groups"] if g["id"] == group)
@@ -187,7 +190,7 @@ def report(results):
              "- **Loose:** any word that made money on average over 30 or more finished trades.",
              "- **Every candle:** buying at every candle, for comparison.", ""]
     for r in results:
-        name = f"{'Crypto' if r['group'] == 'crypto' else 'US stocks and ETFs'}, {r['tf']}-minute candles"
+        name = f"{GROUP_NAMES.get(r['group'], r['group'])}, {r['tf']}-minute candles"
         lines += [f"## {name}", "",
                   f"Tested {day(r['begin'])} to {day(r['end'])} (after a {WARMUP_DAYS}-day warm-up), split at "
                   f"{day(r['middle'])}. A round trip costs {r['cost'] * 100:.2f}%.", "",

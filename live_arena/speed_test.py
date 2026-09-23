@@ -51,6 +51,14 @@ RULES = {
          "outside": ["vix", "vix9d", "kronos"],
          "symbols": ["SPY", "QQQ", "IWM", "DIA", "AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "META", "GOOGL", "AMD",
                      "NFLX", "AVGO", "PLTR", "COIN", "MSTR", "JPM", "GLD", "TLT"]},
+        # Added 2026-09-23 (SPEED_TEST.md amendment). Picked by a fixed rule, not by performance: on Web Picks' meme
+        # list, a Coinbase USD market that's online, and a 7-day average of $250k+ traded a day on 2026-09-23. DOGE is
+        # already in the crypto group. Counts from the week of 2026-09-28 ("from"). No Kronos: it's slow and built
+        # for the other two groups.
+        {"id": "memes", "name": "Meme coins", "unit": "coin", "fee": "0.25", "ref": None, "source": "coinbase",
+         "from": "2026-09-28", "outside": ["fear_greed", "dvol_btc", "funding_btc", "taker_btc"],
+         "symbols": ["SHIB-USD", "PEPE-USD", "BONK-USD", "WIF-USD", "FLOKI-USD", "TRUMP-USD", "PENGU-USD",
+                     "POPCAT-USD", "FARTCOIN-USD", "MOODENG-USD", "SPX-USD"]},
     ],
     "timeframes": ["5", "15"],
     "per_tf_outside": ["vix", "vix9d"],   # outside series saved once per candle size (<name>_5.json, <name>_15.json)
@@ -328,6 +336,12 @@ def pct(x, dp=1):
     return "–" if x is None else f"{x * 100:+.{dp}f}%"
 
 
+def counts_from(bot_id, group_id):
+    """The first week a bot's result in a market counts: after both the bot and the market joined."""
+    g = next((g for g in RULES["groups"] if g["id"] == group_id), {})
+    return max(RULES.get("joined", {}).get(bot_id, RULES["first_forward_week"]), g.get("from", RULES["first_forward_week"]))
+
+
 def streaks(week):
     """Forward weeks passed in a row, ending with `week`, for each (bot, market, candle size)."""
     counts, alive, day = {}, None, datetime.date.fromisoformat(week)
@@ -340,9 +354,9 @@ def streaks(week):
             res = json.load(f)
         if res.get("error"):
             break
-        joined = RULES.get("joined", {})   # bots added after a forward week began only count from the next week
+        # bots or markets added after a forward week began only count from the week they joined
         passed = {(b["id"], g["group"], g["tf"]) for g in res["groups"] for b in g["bots"]
-                  if b["pass"] and joined.get(b["id"], RULES["first_forward_week"]) <= day.isoformat()}
+                  if b["pass"] and counts_from(b["id"], g["group"]) <= day.isoformat()}
         alive = passed if alive is None else alive & passed
         if not alive:
             break
@@ -378,7 +392,7 @@ def report(week, res, problems):
         lines += ["| Bot | Market | Candles | Average | Made money in | Closed trades | Timing beat | Forward weeks in a row |",
                   "|---|---|---|---:|---:|---:|---:|---:|"]
         lines += [f"| {b['name']} | {g['name']} | {CANDLES[g['tf']]} | {pct(b['avg'], 2)} | {b['up']} of {len(g['markets'])} | {b['closed']} | "
-                  f"{round(b['timing'] * 100)}% | {'practice' if practice else 'joined later' if RULES.get('joined', {}).get(b['id'], week) > week else counts.get((b['id'], g['group'], g['tf']), 1)} |" for g, b in passed]
+                  f"{round(b['timing'] * 100)}% | {'practice' if practice else 'joined later' if counts_from(b['id'], g['group']) > week else counts.get((b['id'], g['group'], g['tf']), 1)} |" for g, b in passed]
     else:
         lines.append("None.")
     if not practice:
