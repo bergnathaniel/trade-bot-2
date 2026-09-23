@@ -1,0 +1,165 @@
+{
+ "round": "2026-09-23",
+ "locked_utc": "2026-09-23T14:54:11Z",
+ "prereg_sha256": "0941395784ec92b1b0df599faf98d3d1932087393385b69c81c33941ddb702a4",
+ "picks": {
+  "moonshots": [
+   {
+    "key": "build-on-bnb",
+    "reason": "Binance's own community memecoin (BOB) has already appeared on Binance Alpha, and analysts list it as a plausible Binance spot listing; a listing is the biggest single catalyst a coin this small ($7.9M) can get.",
+    "sources": [
+     "https://www.coinspeaker.com/guides/upcoming-binance-listings/",
+     "https://finance.yahoo.com/markets/crypto/articles/3-meme-coins-watch-september-124935213.html"
+    ],
+    "symbol": "BOB",
+    "name": "Build On BNB",
+    "cap": 7920540,
+    "volume": 534972
+   },
+   {
+    "key": "popcat",
+    "reason": "Older memecoins led on Sept 22 (PEPE +27%, DOGE and SHIB up) as bitcoin neared $90K and $900M of shorts were liquidated; POPCAT is a Coinbase-listed Solana meme at $56M that tends to follow sector rallies.",
+    "sources": [
+     "https://www.cryptotimes.io/2026/09/22/og-memecoins-pump-pepe-doge-rally-in-double-digits-shib-follows-as-bitcoin-nears-90k/"
+    ],
+    "symbol": "POPCAT",
+    "name": "Popcat",
+    "cap": 55558454,
+    "volume": 15133109
+   }
+  ],
+  "holds": [
+   {
+    "key": "FITB",
+    "reason": "Citi upgraded Fifth Third from Neutral to Buy on Sept 22, a full rating change rather than a reiteration.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 47716152255.0,
+    "price": 52.615,
+    "volume": 1534580.0
+   },
+   {
+    "key": "GEHC",
+    "reason": "Needham initiated GE HealthCare with a Buy on Sept 22; new coverage from a firm with a positive view on medical imaging demand.",
+    "sources": [
+     "https://dailytradealert.com/2026/09/22/analyst-upgrades-and-downgrades-for-tuesday-9-22/"
+    ],
+    "cap": 29874528707.0,
+    "price": 66.14,
+    "volume": 349712.0
+   },
+   {
+    "key": "CRWD",
+    "reason": "Morgan Stanley kept CrowdStrike at Overweight and raised its target from $238 to $254 on Sept 22, as analysts lifted targets across software and cloud.",
+    "sources": [
+     "https://masterdaytrading.substack.com/p/market-recap-september-22-2026",
+     "https://www.benzinga.com/analyst-stock-ratings"
+    ],
+    "cap": 257770476799.0,
+    "price": 251.745,
+    "volume": 2313361.0
+   }
+  ]
+ },
+ "sample": {
+  "moonshots": [
+   "allinu",
+   "what-the-hook",
+   "lofi-2",
+   "dont-blink",
+   "qubit-3",
+   "memory-cow-moo",
+   "griffain",
+   "the-black-bull",
+   "bone-shibaswap",
+   "bertram-the-pomeranian",
+   "raydium-cat",
+   "buttensor-2",
+   "moonbirds",
+   "based-brett",
+   "purr-2",
+   "4-2",
+   "the-toad-pepe",
+   "gme",
+   "golden-butterfly-sacred-armor",
+   "astronaut-2",
+   "jotchua",
+   "daddy-tate",
+   "the-stonks-exchange",
+   "moby-ai",
+   "kori",
+   "gohome",
+   "robin-the-frog",
+   "the-spirit-of-gambling",
+   "coq-inu",
+   "mubarak"
+  ],
+  "holds": [
+   "SYM",
+   "TTMI",
+   "PEP",
+   "CG",
+   "LITE",
+   "BKNG",
+   "KHC",
+   "DHR",
+   "ZBH",
+   "COMP",
+   "SNAP",
+   "OUST",
+   "ENPH",
+   "ACI",
+   "TSLA",
+   "BBIO",
+   "DINO",
+   "ALKT",
+   "PPL",
+   "CSX",
+   "SBET",
+   "DNA",
+   "HR",
+   "WYNN",
+   "KTOS",
+   "HIMS",
+   "TECH",
+   "VERA",
+   "ALL",
+   "PBF",
+   "INVA",
+   "QMCO",
+   "FNB",
+   "OCTV",
+   "XRAY",
+   "CVNA",
+   "NUAI",
+   "WOR",
+   "USFD",
+   "S",
+   "FE",
+   "CSCO",
+   "PLTR",
+   "SMR",
+   "F",
+   "OLLI",
+   "AFRM",
+   "AESI",
+   "ETSY",
+   "NLY",
+   "XEL",
+   "RJF",
+   "FLO",
+   "AVAV",
+   "DT",
+   "WAY",
+   "BAND",
+   "NI",
+   "VIAV",
+   "D"
+  ]
+ },
+ "pool_sizes": {
+  "moonshots": 243,
+  "holds": 709
+ }
+}
