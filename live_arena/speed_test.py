@@ -44,7 +44,7 @@ BROWSERS = ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 RULES = {
     "groups": [
         {"id": "crypto", "name": "Crypto", "unit": "coin", "fee": "0.25", "ref": "BTC-USD", "source": "coinbase",
-         "outside": ["fear_greed", "dvol_btc", "funding_btc", "taker_btc", "kronos"],
+         "outside": ["fear_greed", "dvol_btc", "funding_btc", "taker_btc", "kronos", "nvidia"],
          "symbols": ["BTC-USD", "ETH-USD", "SOL-USD", "XRP-USD", "DOGE-USD", "ADA-USD", "LINK-USD", "AVAX-USD",
                      "LTC-USD", "DOT-USD", "BCH-USD", "SUI-USD"]},
         {"id": "stocks", "name": "US stocks and ETFs", "unit": "stock", "fee": "0.02", "ref": None, "source": "yahoo",
@@ -63,10 +63,11 @@ RULES = {
     "history_from": "2026-07-20",
     "stopping_week": "2026-11-02",   # the last forward week that counts; its report, due 2026-11-09, decides (SPEED_TEST.md)
     # bots added after a forward week had begun, and the first week that counts for them (team_bots.js, 2026-09-13;
-    # selftune_bots.js and track_record_bot.js, 2026-09-14/15)
-    "joined": {bot: "2026-09-21" for bot in ["worstcoin24", "bottom3day", "leftbehind", "kronosdip", "kronosallup", "kronosteam",
-                                              "bouncecrew", "timerscrew", "calmstorm", "seconddip", "rand24h", "pairlaggard",
-                                              "kronostop", "kronostop3", "kronosbottom", "selftuner", "trackrecord"]},
+    # selftune_bots.js and track_record_bot.js, 2026-09-14/15; nvidia_bots.js, 2026-09-22)
+    "joined": {**{bot: "2026-09-21" for bot in ["worstcoin24", "bottom3day", "leftbehind", "kronosdip", "kronosallup", "kronosteam",
+                                                 "bouncecrew", "timerscrew", "calmstorm", "seconddip", "rand24h", "pairlaggard",
+                                                 "kronostop", "kronostop3", "kronosbottom", "selftuner", "trackrecord"]},
+               "nvidiareasoner": "2026-09-22"},
 }
 CANDLES = {"5": "5-minute", "15": "15-minute"}
 RANDOM_CONTROLS = ("coin", "randomexit", "opposite", "rand8h", "rand1h", "coinfair", "rand24h")   # controls built to have no edge
@@ -280,6 +281,18 @@ def kronos_forecasts(week):
         return [f"Kronos forecasts: {e}"]
 
 
+def nvidia_forecasts(week):
+    """NVIDIA Reasoner's daily calls for the week (nvidia_forecasts.py), when NVIDIA_API_KEY is set."""
+    if not os.environ.get("NVIDIA_API_KEY"):
+        return ["NVIDIA Reasoner: NVIDIA_API_KEY isn't set, so it had nothing to read this week"]
+    print("Computing NVIDIA Reasoner's calls...", file=sys.stderr)
+    try:
+        subprocess.run([sys.executable, os.path.join(ROOT, "nvidia_forecasts.py"), "--week", week.isoformat()], check=True, timeout=1800)
+        return []
+    except Exception as e:
+        return [f"NVIDIA Reasoner: {e}"]
+
+
 def run_bots(week):
     """Serve the app on a free port, open it at ?speed=<week> in headless Chrome, and wait for the results it posts."""
     browser = next((b for b in BROWSERS if os.path.exists(b)), None) or shutil.which("google-chrome") or shutil.which("chromium")
@@ -451,6 +464,7 @@ def run_week(week):
     print(f"Collecting candles for the week of {week}...", file=sys.stderr)
     problems = collect(start, start + 7 * 86400)
     problems += kronos_forecasts(week)
+    problems += nvidia_forecasts(week)
     print("Running every bot in headless Chrome...", file=sys.stderr)
     res = run_bots(week.isoformat())
     if res.get("error"):

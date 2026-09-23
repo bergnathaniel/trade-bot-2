@@ -73,6 +73,10 @@ async function run() {
           const j = await (await fetch(`data/speed/outside/kronos_${g.id}.json`, { cache: "no-store" })).json();
           outside.kronos = Object.fromEntries(Object.entries(j.result).map(([s, rows]) =>
             [s, rows.map(x => ({ time: x[0] - OFF, open: +x[1], high: +x[2], low: +x[3], close: +x[4], volume: +x[6] }))]));
+        } else if (name === "nvidia") {   // one file per group holding every market's daily calls (nvidia_forecasts.py)
+          const j = await (await fetch(`data/speed/outside/nvidia_${g.id}.json`, { cache: "no-store" })).json();
+          outside.nvidia = Object.fromEntries(Object.entries(j.result).map(([s, rows]) =>
+            [s, rows.map(x => ({ time: x[0] - OFF, action: x[1], reason: x[2] }))]));
         } else outside[name] = await loadRows(`data/speed/outside/${perTf.has(name) ? `${name}_${tf}` : name}.json`);
       } catch {
         outside[name] = null;

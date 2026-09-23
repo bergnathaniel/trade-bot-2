@@ -308,3 +308,18 @@ Passing at 6 months means "keep going". A strategy has to pass again at 1 year.
     execution - there's nothing for it to have changed.
   - index.html's bot section (`58054e19…`) is unchanged (it's below line 940; this edit is above
     line 60). index.html's whole-file fingerprint was refreshed.
+- **2026-09-22: NVIDIA Reasoner, outside these tests.**
+  - Added `nvidia_bots.js`: 1 speed-test bot that asks a general-purpose AI model, hosted free by
+    NVIDIA (build.nvidia.com's NIM API, not a model trained to forecast prices), to call buy, hold
+    or sell once a day per coin, with its reasoning shown. `nvidia_forecasts.py` makes the calls
+    (crypto only, once a day, not per candle) and needs `NVIDIA_API_KEY` set or it's skipped.
+    Counted from the week of 2026-09-22. Not part of these paper tests.
+  - Positions were already open in several sections by now, but this is a pure bot addition
+    (`BOTS.push`, a new independent bot object) that doesn't touch any existing bot's `decide()`,
+    `execute()`, or any shared function, so there's no code path through which it could change an
+    existing bot's fills - not re-verified against a pinned baseline, the same reasoning as the
+    2026-09-16 CSS-only change.
+  - index.html's bot section (`58054e19…`) is unchanged (verified byte-for-byte: `sed -n
+    '384,940p' index.html` still hashes to `58054e19…`; this edit only adds a `<script>` include
+    after line 958). index.html's whole-file fingerprint was refreshed, and `nvidia_bots.js` was
+    added to `PAPER_TESTS.sha256`.
